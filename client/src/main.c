@@ -3,8 +3,9 @@
  * Beacon 98 reads a catalog signed by Backport Labs and lists the packages in
  * it. Two switches are for testing and change nothing on the computer:
  *   BEACON98.EXE /selftest                  runs the self-test (test.c)
- *   BEACON98.EXE /shot FILE.BMP [row] [search words]
- *                                           draws the window into a bitmap
+ *   BEACON98.EXE /shot FILE.BMP [row] [/sort N ...] [/sources] [search words]
+ *                                           draws the window into a bitmap: after
+ *                                           clicking column N, or the Sources window
  *   BEACON98.EXE /unzip ARCHIVE FOLDER [strip]
  *                                           unpacks an archive, to test unzip.c
  */
@@ -35,7 +36,7 @@ int WINAPI WinMain(HINSTANCE inst, HINSTANCE prev, LPSTR cmd, int show)
 {
     char *slash, word[MAX_PATH], file[MAX_PATH];
     const char *p;
-    int row = -1;
+    int row = -1, sources = 0, sorts[4], nsort = 0;
     (void)prev;
     g_inst = inst;
     GetModuleFileName(NULL, g_dir, sizeof(g_dir));
@@ -62,8 +63,17 @@ int WINAPI WinMain(HINSTANCE inst, HINSTANCE prev, LPSTR cmd, int show)
             p = NextWord(p, word, sizeof(word));
             row = atoi(word);
         }
-        while (*p == ' ') p++;
-        return Shot(file, row, p);
+        for (;;) {
+            while (*p == ' ') p++;
+            if (strncmp(p, "/sort ", 6) == 0 && nsort < 4) {
+                p = NextWord(p + 6, word, sizeof(word));
+                sorts[nsort++] = atoi(word);
+            } else if (strncmp(p, "/sources", 8) == 0) {
+                sources = 1;
+                p += 8;
+            } else break;
+        }
+        return Shot(file, row, p, sorts, nsort, sources);
     }
     /* Setup waits for this mutex to go before it replaces the program. */
     CreateMutex(NULL, FALSE, "Beacon98Running");

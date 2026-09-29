@@ -1,5 +1,5 @@
                                 BEACON 98
-                              Version 0.5.0
+                              Version 0.6.0
 
          Installs free software on Windows 95, 98 and Millennium.
 
@@ -50,6 +50,26 @@ Beacon 98 is free and will never be sold. It is made by Backport Labs.
  Remove .................... Select an installed package and press Remove.
  Update Catalog ............ Downloads the latest catalog. Beacon does this
                              by itself the first time it starts.
+ Sorting ................... Click a column heading to sort by it; click it
+                             again to reverse the order.
+ Menus ..................... File: Update Catalog, Exit.
+                             Settings: Sources (see below).
+                             Help: this Read Me (F1), About Beacon 98.
+
+ CUSTOM SOURCES
+ Besides the Backport Labs catalog, Beacon can read catalogs from other
+ publishers, or your own, from a web address or a folder (a CD or a
+ network share works too). Open Settings, Sources, press New, and enter:
+   Name ............ what the source is called in Beacon
+   Location ........ its web address, or its folder
+   Public key ...... 64 hexadecimal digits, from its publisher; Beacon
+                     only uses its catalog when it is signed with this key
+   Access headers .. only for a private server that asks for them, one per
+                     line (Name: value). Beacon sends them only over HTTPS
+                     and only to that server.
+ Then press OK and let Beacon update the catalog. The packages appear
+ with the others, and in a group of their own. Add only sources you
+ trust: a source decides what Beacon installs.
 
  Some packages need a part of Windows that Beacon 98 cannot supply, such
  as a newer Windows Installer. Their details say which one. Some need
@@ -76,6 +96,9 @@ Beacon 98 is free and will never be sold. It is made by Backport Labs.
 -----------------------------------------------------------------------------
  In the folder where Beacon 98 is installed:
    CATALOG.TXT, CATALOG.SIG   the catalog and its signature
+   SOURCES.TXT                your custom sources, with their access
+                              headers (keep it private if it has any)
+   CAT1.TXT, CAT1.SIG, ...    the catalogs of the custom sources
    INSTALLED.TXT              the packages Beacon installed
    FILES\                     what Beacon created for each package, so
                               Remove can take it away again

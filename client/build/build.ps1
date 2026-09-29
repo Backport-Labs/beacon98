@@ -64,6 +64,24 @@ Copy-Item $exe $test -Force
 Copy-Item (Join-Path $client 'tests\ED25519.TXT'), (Join-Path $client 'tests\PARSE.TXT') $test -Force
 # A fixed, signed copy of the pilot catalog, so the test does not change when the catalog does.
 Copy-Item (Join-Path $client 'tests\CATALOG.TXT'), (Join-Path $client 'tests\CATALOG.SIG') $test -Force
+# Custom sources: a folder source signed with a test key (tests\SOURCE; only
+# its public key is kept), the same catalog under a wrong key, a damaged
+# line, and a web source with access headers.
+foreach ($d in 'SRC', 'DL') { if (Test-Path (Join-Path $test $d)) { Remove-Item (Join-Path $test $d) -Recurse -Force -Confirm:$false } }
+Copy-Item (Join-Path $client 'tests\SOURCE') (Join-Path $test 'SRC') -Recurse -Force
+foreach ($n in 1, 2) {
+    Copy-Item (Join-Path $client 'tests\SOURCE\CATALOG.TXT') (Join-Path $test "CAT$n.TXT") -Force
+    Copy-Item (Join-Path $client 'tests\SOURCE\CATALOG.SIG') (Join-Path $test "CAT$n.SIG") -Force
+}
+$testKey = (Get-Content (Join-Path $client 'tests\SOURCE\KEY.TXT') -TotalCount 1).Trim()
+$srcLines = @(
+    '# written by the build',
+    "Test source|$test\SRC|$testKey|",
+    "Wrong key|$test\SRC\|$('ab' * 32)|",
+    'A damaged line',
+    "Private|https://private.example.invalid/files|$testKey|X-Test: 1;;X-Other: two"
+)
+[IO.File]::WriteAllText((Join-Path $test 'SOURCES.TXT'), ($srcLines -join "`r`n") + "`r`n", [Text.Encoding]::ASCII)
 # A file of random bytes, so hashing is checked across many buffer boundaries.
 $random = New-Object byte[] 5000037
 (New-Object Random 98).NextBytes($random)

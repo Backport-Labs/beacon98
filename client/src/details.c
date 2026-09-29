@@ -98,8 +98,9 @@ static void InstallsWith(const char *install, char *out)
 }
 
 /* The servers of the first Download line, in the order they are tried:
- * "downloads.sourceforge.net, then get.backportlabs.com". */
-static void Servers(const char *download, char *out, int outLen)
+ * "downloads.sourceforge.net, then get.backportlabs.com". A path in the
+ * source's own storage is shown as pool: the source's host, or its folder. */
+static void Servers(const char *download, const char *pool, char *out, int outLen)
 {
     char host[100];
     const char *p = download;
@@ -113,7 +114,7 @@ static void Servers(const char *download, char *out, int outLen)
                 const char *h = strstr(p, "://") + 3;
                 for (i = 0; h[i] && h[i] != '/' && h[i] != ' ' && i < (int)sizeof(host) - 1; i++) host[i] = h[i];
                 host[i] = 0;
-            } else lstrcpy(host, CATALOG_HOST);
+            } else lstrcpyn(host, pool, sizeof(host));
             if (!strstr(out, host) && o + lstrlen(host) + 8 < outLen) {
                 if (o) { lstrcpy(out + o, ", then "); o += 7; }
                 lstrcpy(out + o, host);
@@ -169,9 +170,20 @@ static int Layout(HDC dc, int draw, DETAILS *d, int width)
     }
     y += 4;
 
-    Servers(p->f[F_DOWNLOAD], what, sizeof(what));
-    if (p->external) wsprintf(buf, "%s. Backport Labs does not distribute it.", what);
+    {
+        const char *base = SourceBase(p);
+        char pool[100];
+        int i;
+        if (IsUrl(base)) {
+            const char *h = strstr(base, "://") + 3;
+            for (i = 0; h[i] && h[i] != '/' && i < (int)sizeof(pool) - 1; i++) pool[i] = h[i];
+            pool[i] = 0;
+        } else lstrcpyn(pool, base, sizeof(pool));
+        Servers(p->f[F_DOWNLOAD], pool, what, sizeof(what));
+    }
+    if (p->external && p->source == 0) wsprintf(buf, "%s. Backport Labs does not distribute it.", what);
     else lstrcpy(buf, what);
+    if (p->source > 0) y += Fact(dc, draw, x, y, w, "Source", g_src[p->source].name);
     y += Fact(dc, draw, x, y, w, "Downloaded from", buf);
     y += Fact(dc, draw, x, y, w, "License", p->f[F_LICENSE]);
     wsprintf(buf, "Windows %s", p->f[F_SYSTEMS]);

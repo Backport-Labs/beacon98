@@ -77,7 +77,9 @@ typedef struct { NMHDR hdr; UINT action; MY_TVITEM itemOld, itemNew; POINT ptDra
 #define MY_LVM_GETITEMSTATE  0x102C
 #define MY_LVM_SETITEMTEXTA  0x102E
 #define MY_LVM_SETEXTENDEDLISTVIEWSTYLE 0x1036
+#define MY_LVM_SORTITEMS     0x1030
 #define MY_LVN_ITEMCHANGED (-101)
+#define MY_LVN_COLUMNCLICK (-108)
 typedef struct { UINT mask; int fmt, cx; LPSTR pszText; int cchTextMax, iSubItem; } MY_LVCOLUMN;
 typedef struct {
     UINT mask;
@@ -170,7 +172,7 @@ int crypto_sign_ed25519_tweet_open(unsigned char *m, unsigned long long *mlen,
  * Constants, types and the state the files share
  * --------------------------------------------------------------------- */
 #define APP_NAME     "Beacon 98"
-#define APP_VERSION  "0.5.0"
+#define APP_VERSION  "0.6.0"
 #define CATALOG_HOST "get.backportlabs.com"
 #define SELF_PACKAGE "beacon98"          /* the catalog's package for Beacon itself */
 #define CATALOG_FILE "CATALOG.TXT"
@@ -182,7 +184,7 @@ enum {
     F_HOMEPAGE, F_LICENSE, F_LICENSE_FILE, F_SYSTEMS, F_AVAILABILITY,
     F_DOWNLOAD, F_SOURCE, F_INSTALLED_SIZE, F_DEPENDS, F_REQUIRES,
     F_INSTALL, F_AFTER, F_SHORTCUT, F_UNINSTALL, F_WARNING, F_NOTICE,
-    F_REMOVE,
+    F_REMOVE, F_DETECT, F_REFERER,
     F_COUNT
 };
 
@@ -200,6 +202,7 @@ typedef struct {
     char have[40];           /* installed version, when known */
     int reqMissing;          /* number of Requires lines that fail */
     int marked;              /* ticked for installing */
+    int source;              /* index in g_src: 0 is Backport Labs */
 } PKG;
 
 typedef struct {
@@ -213,7 +216,7 @@ typedef struct {
 extern const char *g_sections[MAX_SECTIONS];
 
 extern HINSTANCE g_inst;
-extern CATALOG g_cat;
+extern CATALOG g_cat;           /* the packages of every source, merged */
 extern int g_testMode;           /* /selftest or /shot: no message boxes */
 extern char g_dir[MAX_PATH];     /* folder of BEACON98.EXE, ends with \ */
 
@@ -238,8 +241,30 @@ int  FromHex(const char *s, BYTE *out, int n);
 #define SIG_INVALID   4
 int  VerifyBytes(const BYTE *msg, DWORD n, const BYTE sig[64], const BYTE key[32]);
 int  VerifyCatalogFile(const char *catalog, const char *sigfile);
+int  VerifyCatalogFileKey(const char *catalog, const char *sigfile, const BYTE key[32]);
+void KeyIdOf(const BYTE key[32], char out[17]);
 const char *SigText(int result);
 extern const char *g_keyId;
+
+/* sources.c: Backport Labs' catalog and the custom sources */
+#define MAX_SOURCES 8
+typedef struct {
+    char name[64];
+    char location[260];      /* ends with / (web address) or \ (folder) */
+    BYTE key[32];            /* its public signing key */
+    char headers[512];       /* access headers, "Name: value\r\n" each; sent over HTTPS only */
+    CATALOG cat;             /* its own catalog */
+    int loaded, state;       /* state: SIG_ of the last load */
+} SOURCE;
+extern SOURCE g_src[MAX_SOURCES];
+extern int g_nsrc;
+void ReadSources(void);
+int  WriteSources(const SOURCE *list, int n);
+void NormalizeLocation(char *loc, int len);
+void SourceFiles(int n, char *cat, char *sig);
+int  VerifySource(int n, const char *cat, const char *sig);
+void LoadAllCatalogs(char *state, int stateLen, int *builtinResult);
+const char *SourceBase(PKG *p);
 
 /* catalog.c: reading CATALOG.TXT */
 int  LoadCatalog(const char *path, CATALOG *cat, char *err, int errLen);
@@ -253,18 +278,22 @@ void CheckSystem(CATALOG *cat);
 int  RequirementMet(const char *line, char *what, int whatLen);
 void ExpandPlaces(const char *in, char *out, int outLen);
 const char *ThisWindows(void);
+const char *ThisEdition(void);
 PKG *MissingPackage(PKG *p);
 int  SystemListed(const char *systems);
+int  CompareVersions(const char *a, const char *b);
 
 /* net.c: downloading over HTTP */
 int  HttpGetFile(const char *url, const char *path, DWORD expect, volatile int *cancel,
                  void (*progress)(DWORD done, DWORD total, void *ctx), void *ctx, char *err, int errLen);
+int  HttpGetFileH(const char *url, const char *headers, int secret, const char *path, DWORD expect, volatile int *cancel,
+                  void (*progress)(DWORD done, DWORD total, void *ctx), void *ctx, char *err, int errLen);
 void CloseNet(void);
 int  ServerDate(char *out, int outLen);
 int  IsUrl(const char *s);
 
 /* tls.c: HTTPS with BearSSL over Windows Sockets */
-int  SockHttpGet(const char *url, const char *path, DWORD expect, volatile int *cancel,
+int  SockHttpGet(const char *url, const char *headers, const char *path, DWORD expect, volatile int *cancel,
                  void (*progress)(DWORD done, DWORD total, void *ctx), void *pctx,
                  int *status, char *location, int locLen, char *err, int errLen);
 int  SplitUrl(const char *url, int *tls, char *host, int hostLen, int *port, char *path, int pathLen);
@@ -295,11 +324,16 @@ int  InstallPackages(HWND owner, PKG **chosen, int count);
 int  RemovePackage(HWND owner, PKG *p);
 int  OfferPackage(HWND owner, PKG *p, PKG *need);
 int  FetchFile(const char *line, const char *dir, char *out);
+int  FetchFileFrom(const char *line, const char *base, const char *headers, const char *referer, const char *dir, char *out);
 int  SetupFromZip(const char *zip, const char *folder, char *setup, char *err, int errLen);
 
 /* window.c: the main window */
 int  RunWindow(int show);
 HWND OpenForShot(const char *search, int row);
+void SortForShot(int col);
+
+/* srcdlg.c: Settings, Sources */
+int  SourcesDialog(HWND owner);
 
 /* details.c: the pane that describes the selected package */
 #define CLASS_DETAILS "Beacon98Details"
@@ -308,6 +342,8 @@ void ShowDetails(HWND pane, PKG *p);
 
 /* test.c: the self-test */
 int  SelfTest(void);
-int  Shot(const char *file, int row, const char *search);
+int  Shot(const char *file, int row, const char *search, const int *sorts, int nsort, int sources);
+int  CaptureWindow(HWND hwnd, const char *file);
+extern const char *g_shotFile;   /* /shot /sources: where the Sources window is drawn */
 
 #endif

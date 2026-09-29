@@ -71,10 +71,28 @@ static int SigField(const char *text, const char *name, char *out, int outLen)
 
 int VerifyCatalogFile(const char *catalog, const char *sigfile)
 {
-    char *sigText, *text, keyId[40], hex[200];
+    return VerifyCatalogFileKey(catalog, sigfile, g_key);
+}
+
+/* The Key-Id of a key: the first 8 bytes of its SHA-256, in hexadecimal. */
+void KeyIdOf(const BYTE key[32], char out[17])
+{
+    SHA256 s;
+    BYTE h[32];
+    Sha256Init(&s);
+    Sha256Add(&s, key, 32);
+    Sha256Done(&s, h);
+    ToHex(h, 8, out);
+}
+
+/* Checks a catalog against a given public key (a custom source's). */
+int VerifyCatalogFileKey(const char *catalog, const char *sigfile, const BYTE key[32])
+{
+    char *sigText, *text, keyId[40], hex[200], want[17];
     BYTE sig[64];
     DWORD sigSize, size;
     int result;
+    KeyIdOf(key, want);
     sigText = ReadWhole(sigfile, &sigSize);
     if (!sigText) return SIG_NO_FILE;
     if (!SigField(sigText, "Key-Id", keyId, sizeof(keyId)) || !SigField(sigText, "Signature", hex, sizeof(hex))
@@ -83,10 +101,10 @@ int VerifyCatalogFile(const char *catalog, const char *sigfile)
         return SIG_BAD_FILE;
     }
     free(sigText);
-    if (lstrcmp(keyId, g_keyId) != 0) return SIG_WRONG_KEY;
+    if (lstrcmp(keyId, want) != 0) return SIG_WRONG_KEY;
     text = ReadWhole(catalog, &size);
     if (!text) return SIG_NO_FILE;
-    result = VerifyBytes((BYTE *)text, size, sig, g_key) ? SIG_OK : SIG_INVALID;
+    result = VerifyBytes((BYTE *)text, size, sig, key) ? SIG_OK : SIG_INVALID;
     free(text);
     return result;
 }

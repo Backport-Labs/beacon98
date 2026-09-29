@@ -49,7 +49,7 @@ void ExpandPlaces(const char *in, char *out, int outLen)
 
 /* Compares two versions number by number: "0.3.3" < "0.3.4", "9.20" = "9.20.00.0".
  * Letters are ignored. Returns <0, 0 or >0. */
-static int CompareVersions(const char *a, const char *b)
+int CompareVersions(const char *a, const char *b)
 {
     unsigned long x, y;
     while (*a || *b) {
@@ -116,6 +116,22 @@ int RequirementMet(const char *line, char *what, int whatLen)
         lstrcat(path, "\\MSIEXEC.EXE");
         if (!FileVersion(path, ver)) return 0;
         return CompareVersions(ver, arg) >= 0;
+    }
+    if (lstrcmp(check, "dx") == 0) {
+        /* DirectX writes "4.09.00.0904" for 9.0c: the second number is the major version. */
+        if (!RegText(HKEY_LOCAL_MACHINE, "Software\\Microsoft\\DirectX", "Version", ver, sizeof(ver))) return 0;
+        return strlen(ver) > 3 && ver[0] == '4' && ver[1] == '.' && CompareVersions(ver + 2, arg) >= 0;
+    }
+    if (lstrcmp(check, "reg") == 0) {
+        /* reg HKLM\Software\...\Key: the key exists. */
+        HKEY root = NULL, k;
+        const char *sub = arg;
+        if (strncmp(arg, "HKLM\\", 5) == 0) { root = HKEY_LOCAL_MACHINE; sub = arg + 5; }
+        else if (strncmp(arg, "HKCU\\", 5) == 0) { root = HKEY_CURRENT_USER; sub = arg + 5; }
+        if (!root) return -1;
+        if (RegOpenKeyEx(root, sub, 0, KEY_READ, &k) != ERROR_SUCCESS) return 0;
+        RegCloseKey(k);
+        return 1;
     }
     if (lstrcmp(check, "ie") == 0) {
         if (!RegText(HKEY_LOCAL_MACHINE, "Software\\Microsoft\\Internet Explorer", "Version", ver, sizeof(ver))) return 0;
@@ -202,10 +218,25 @@ const char *ThisWindows(void)
     return "";
 }
 
-/* Whether a Systems field such as "95, 98, ME" names this Windows. */
+/* The edition, for updates made for one of them: 95OSR2 (build 1111 and
+ * later), 98FE (first edition, build 1998) and 98SE (build 2222). "" otherwise. */
+const char *ThisEdition(void)
+{
+    OSVERSIONINFO v;
+    WORD build;
+    v.dwOSVersionInfoSize = sizeof(v);
+    if (!GetVersionEx(&v) || v.dwPlatformId != VER_PLATFORM_WIN32_WINDOWS) return "";
+    build = LOWORD(v.dwBuildNumber);
+    if (v.dwMinorVersion >= 90) return "";
+    if (v.dwMinorVersion >= 10) return build >= 2222 ? "98SE" : "98FE";
+    return build >= 1111 ? "95OSR2" : "";
+}
+
+/* Whether a Systems field such as "95, 98, ME" names this Windows. It may
+ * also name an edition: 95OSR2, 98FE or 98SE. */
 int SystemListed(const char *systems)
 {
-    const char *me = ThisWindows();
+    const char *me = ThisWindows(), *edition = ThisEdition();
     char word[16];
     int i;
     if (!me[0] || !systems) return 0;
@@ -213,7 +244,7 @@ int SystemListed(const char *systems)
         while (*systems == ' ' || *systems == ',') systems++;
         for (i = 0; *systems && *systems != ',' && *systems != ' ' && i < (int)sizeof(word) - 1; i++) word[i] = *systems++;
         word[i] = 0;
-        if (i && lstrcmpi(word, me) == 0) return 1;
+        if (i && (lstrcmpi(word, me) == 0 || (edition[0] && lstrcmpi(word, edition) == 0))) return 1;
     }
     return 0;
 }
@@ -260,7 +291,22 @@ void CheckSystem(CATALOG *cat)
     for (i = 0; i < cat->count; i++) {
         PKG *p = &cat->pkg[i];
         u = p->f[F_UNINSTALL];
-        if (strncmp(u, "registry ", 9) == 0) found = FindUninstall(u + 9, p->have, sizeof(p->have));
+        if (p->f[F_DETECT]) {
+            /* Detect lines, in the Requires syntax: installed when any one is met,
+             * whoever installed it (for example a Windows update, which writes a
+             * different key on 98 and 98 SE, or Windows Installer 2.0). */
+            const char *d = p->f[F_DETECT];
+            found = 0;
+            p->have[0] = 0;
+            while (*d && !found) {
+                for (n = 0; d[n] && d[n] != '\n' && n < (int)sizeof(line) - 1; n++) line[n] = d[n];
+                line[n] = 0;
+                if (RequirementMet(line, what, sizeof(what)) == 1) found = 1;
+                d += n;
+                if (*d == '\n') d++;
+            }
+        }
+        else if (strncmp(u, "registry ", 9) == 0) found = FindUninstall(u + 9, p->have, sizeof(p->have));
         else found = FindInstalledList(p->f[F_PACKAGE], p->have, sizeof(p->have));
         if (!found) p->status = ST_NO;
         else if (p->have[0] && CompareVersions(p->have, p->f[F_VERSION]) < 0) p->status = ST_UPDATE;

@@ -20,7 +20,7 @@ static const char *g_fieldNames[F_COUNT] = {
     "Homepage", "License", "License-File", "Systems", "Availability",
     "Download", "Source", "Installed-Size", "Depends", "Requires",
     "Install", "After", "Shortcut", "Uninstall", "Warning", "Notice",
-    "Remove"
+    "Remove", "Detect", "Referer"
 };
 
 static const int g_required[] = {

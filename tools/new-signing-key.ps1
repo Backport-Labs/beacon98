@@ -6,12 +6,14 @@
 #   1. beacon-signing-key.pem (the encrypted key)  -> USB drive
 #   2. the passphrase (copy-key-passphrase.ps1)    -> password manager
 # Either one alone is useless to someone who finds it.
+# -Name makes another key, for a custom source (for example -Name private-source-key).
 param([string]$Dir = (Join-Path $env:USERPROFILE '.backportlabs'),
+      [string]$Name = 'beacon-signing-key',
       [string]$OpenSsl = 'C:\Program Files\Git\usr\bin\openssl.exe',
       [string]$PublicOut = (Join-Path $PSScriptRoot '..\keys'))
 $ErrorActionPreference = 'Stop'
-$key = Join-Path $Dir 'beacon-signing-key.pem'
-$pass = Join-Path $Dir 'beacon-signing-key.pass.dpapi'
+$key = Join-Path $Dir "$Name.pem"
+$pass = Join-Path $Dir "$Name.pass.dpapi"
 if ((Test-Path $key) -or (Test-Path $pass)) { throw "A signing key already exists in $Dir. Not replacing it." }
 New-Item -ItemType Directory -Force $Dir | Out-Null
 New-Item -ItemType Directory -Force $PublicOut | Out-Null
@@ -29,7 +31,7 @@ $env:BEACON_KEY_PASS = $phrase
 try {
     & $OpenSsl genpkey -algorithm ed25519 -aes-256-cbc -pass env:BEACON_KEY_PASS -out $key
     if ($LASTEXITCODE -ne 0) { throw 'openssl genpkey failed.' }
-    $pubPem = Join-Path $PublicOut 'beacon-signing-key.pub.pem'
+    $pubPem = Join-Path $PublicOut "$Name.pub.pem"
     & $OpenSsl pkey -in $key -passin env:BEACON_KEY_PASS -pubout -out $pubPem
     if ($LASTEXITCODE -ne 0) { throw 'openssl pkey failed.' }
 } finally {
@@ -44,7 +46,7 @@ $raw = $der[($der.Length - 32)..($der.Length - 1)]
 $hex = ($raw | ForEach-Object { $_.ToString('x2') }) -join ''
 $sha = [Security.Cryptography.SHA256]::Create().ComputeHash([byte[]]$raw)
 $id = (($sha[0..7]) | ForEach-Object { $_.ToString('x2') }) -join ''
-$txt = Join-Path $PublicOut 'beacon-signing-key.pub.txt'
+$txt = Join-Path $PublicOut "$Name.pub.txt"
 [IO.File]::WriteAllText($txt, "Key-Id: $id`r`nAlgorithm: Ed25519`r`nPublic-Key: $hex`r`nCreated: $((Get-Date).ToString('yyyy-MM-dd'))`r`n", [Text.Encoding]::ASCII)
 "Private key (encrypted): $key"
 "Passphrase (DPAPI):      $pass"

@@ -67,7 +67,7 @@ The first block describes the catalog. Each further block is one package.
 | `Homepage` | no | Project address, for information |
 | `License` | yes | License name, SPDX identifier where one exists, or `Freeware` |
 | `License-File` | yes | Path of the license text. The client shows it before installing. |
-| `Systems` | yes | Systems it runs on, from `95`, `98`, `ME`, `NT4`, `2000` |
+| `Systems` | yes | Systems it runs on, from `95`, `98`, `ME`, `NT4`, `2000`, or an edition: `95OSR2` (OSR 2 and later), `98FE` (first edition) or `98SE` (Second Edition). `98` means both editions of 98. |
 | `Availability` | no | `hosted` (the default): Backport Labs distributes the files, from its own server or another. `external`: Backport Labs does not distribute them; every location is someone else's server, such as the publisher's or SourceForge. A package whose Download lines name no location on our server is treated as `external` either way. |
 | `Download` | yes | One line per file: `location size sha256`, optionally followed by more locations: `location size sha256 location2 location3`. A location is a path on our server (relative to `Base`) or a full `http://` or `https://` address. The client tries the locations in order until one gives a file with this size and SHA-256. A path on our server is tried over HTTPS first and plain HTTP second. Several files are installed in the order of the lines. An `external` package names no location on our server. |
 | `Source` | no | One line per file: `path size sha256`. Not downloaded by the client; offered on the package's page. Not given for `external` packages, which we do not distribute. |
@@ -80,6 +80,9 @@ The first block describes the catalog. Each further block is one package.
 | `Uninstall` | yes | How to remove it. See below. |
 | `Warning` | no | Shown before installing. The user must confirm it. Used for known security problems. |
 | `Notice` | no | Shown after installing |
+| `Detect` | no | Lines in the syntax of `Requires`; see Uninstall below |
+| `Remove` | no | `run` steps before uninstalling; see Uninstall below |
+| `Referer` | no | An address sent as the `Referer` header with full-address downloads of this package, for publishers whose servers refuse downloads without one. Never sent with paths on the catalog's own server. |
 
 ### Places
 
@@ -102,7 +105,8 @@ Paths in `Install`, `After`, `Shortcut` and `Requires` may use:
 | `file` | path | The file exists |
 | `msi` | version | Windows Installer of this version or later is present (`msiexec.exe` file version) |
 | `ie` | version | Internet Explorer of this version or later is present |
-| `dx` | version | DirectX of this version or later is present |
+| `dx` | version | DirectX of this version or later is present (the major version, from the registry) |
+| `reg` | `HKLM\...` or `HKCU\...` | That registry key exists |
 | `winsock2` | | Windows Sockets 2 is present |
 | `memory` | MB | The computer has at least this much memory |
 | `package` | package identifier | That package of this catalog is installed |
@@ -161,9 +165,18 @@ uses to take them away again.
 | `registry` | Add/Remove Programs name | Runs the uninstaller Windows lists under that name |
 | `run` | command line | Runs this command and waits, for a setup program that registers no uninstaller, e.g. `run "{dir}\uninstall.exe" /S` |
 | `files` | | Removes the files and shortcuts Beacon created, using its own record |
+| `none` | | Cannot be removed, for example a Windows update. Beacon says so. |
 
 With `registry` and `run`, Beacon also removes the shortcuts and `PATH` lines it
 created itself.
+
+A package may have `Detect` lines, in the syntax of `Requires` lines. When
+it has them, Beacon counts the package as installed when any one of them is
+met, whoever installed it. (A Windows update often writes a different
+registry key on 98 and 98 SE, so either may prove it installed.) This is how
+a Windows update or a component such as Windows Installer 2.0 is recognized.
+A program that requires such a component names the package with
+`Requires: package <id>`, so Beacon offers to install it.
 
 A package may also have `Remove` lines: `run` steps carried out before
 uninstalling, while the files are still there, for example
@@ -209,6 +222,36 @@ key, in hexadecimal. It only selects the key; the signature does the checking.
 - Losing the private key means publishing a client with a new key. A leaked key
   lets someone publish packages that clients trust; it would be revoked the same
   way.
+
+## Custom sources
+
+Anyone can publish a catalog in this format, signed with their own Ed25519
+key, and a user can add it to Beacon under Settings, Sources. Beacon keeps
+the sources in `SOURCES.TXT`, next to the program, one per line:
+
+```
+name|location|public key in hexadecimal (64 digits)|header;;header
+```
+
+- The location is a web address (`http://` or `https://`) or a folder: a local
+  folder, a CD, or a network share. Beacon reads `CATALOG.TXT` and
+  `CATALOG.SIG` there, and keeps them as `CATn.TXT` and `CATn.SIG`.
+- Each source's catalog must be signed with that source's key. The Backport
+  Labs key is never accepted for another source, nor another source's key for
+  the Backport Labs catalog. The serial number rule applies to each source.
+- Paths in a source's `Download` lines are relative to its catalog's `Base`
+  (web sources) or to its folder (folder sources). `tools/new-signing-key.ps1
+  -Name <name>` and `tools/sign-catalog.ps1 -KeyName <name>` make and use such
+  a key.
+- Access headers, such as the token of a private server, are sent only over
+  HTTPS and only to the source's own host: never over plain HTTP, never after
+  a redirect to another host, and never with full-address locations. A
+  source with access headers must have an `https://` address.
+- The packages of all sources are listed together; each source also has a
+  group of its own, and the details say which source a package is from.
+
+A custom source is trusted as much as the user trusts its publisher: its
+catalog decides what Beacon downloads and runs.
 
 ## What plain HTTP still exposes
 
