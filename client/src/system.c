@@ -121,6 +121,10 @@ int RequirementMet(const char *line, char *what, int whatLen)
         if (!RegText(HKEY_LOCAL_MACHINE, "Software\\Microsoft\\Internet Explorer", "Version", ver, sizeof(ver))) return 0;
         return CompareVersions(ver, arg) >= 0;
     }
+    if (lstrcmp(check, "package") == 0) {
+        PKG *q = FindPkg(&g_cat, arg);
+        return q && q->status != ST_NO;
+    }
     if (lstrcmp(check, "memory") == 0) {
         ms.dwLength = sizeof(ms);
         GlobalMemoryStatus(&ms);
@@ -214,26 +218,58 @@ int SystemListed(const char *systems)
     return 0;
 }
 
+/* Copies the n-th Requires line of p. Returns 0 when there is none. */
+static int RequiresLine(PKG *p, int n, char *out, int outLen)
+{
+    const char *r = p->f[F_REQUIRES];
+    int j;
+    if (!r) return 0;
+    while (n-- > 0) {
+        r = strchr(r, '\n');
+        if (!r) return 0;
+        r++;
+    }
+    for (j = 0; r[j] && r[j] != '\n' && j < outLen - 1; j++) out[j] = r[j];
+    out[j] = 0;
+    return j > 0;
+}
+
+/* The first missing requirement of p that another package of the catalog
+ * provides ("package <id>"), or NULL. Beacon offers to tick that package. */
+PKG *MissingPackage(PKG *p)
+{
+    char line[600], what[400], id[40];
+    PKG *q;
+    int n, i;
+    for (n = 0; RequiresLine(p, n, line, sizeof(line)); n++) {
+        if (strncmp(line, "package ", 8) != 0 || RequirementMet(line, what, sizeof(what)) != 0) continue;
+        for (i = 0; line[8 + i] && line[8 + i] != ' ' && line[8 + i] != '|' && i < (int)sizeof(id) - 1; i++) id[i] = line[8 + i];
+        id[i] = 0;
+        q = FindPkg(&g_cat, id);
+        if (q) return q;
+    }
+    return NULL;
+}
+
 void CheckSystem(CATALOG *cat)
 {
     char what[400], line[600];
-    const char *r, *u;
-    int i, j, found;
+    const char *u;
+    int i, n, found;
+    /* First what is installed, because a requirement can be another package. */
     for (i = 0; i < cat->count; i++) {
         PKG *p = &cat->pkg[i];
-        p->reqMissing = 0;
-        for (r = p->f[F_REQUIRES]; r && *r; ) {
-            for (j = 0; r[j] && r[j] != '\n' && j < (int)sizeof(line) - 1; j++) line[j] = r[j];
-            line[j] = 0;
-            if (RequirementMet(line, what, sizeof(what)) == 0) p->reqMissing++;
-            r += j;
-            if (*r == '\n') r++;
-        }
         u = p->f[F_UNINSTALL];
         if (strncmp(u, "registry ", 9) == 0) found = FindUninstall(u + 9, p->have, sizeof(p->have));
         else found = FindInstalledList(p->f[F_PACKAGE], p->have, sizeof(p->have));
         if (!found) p->status = ST_NO;
         else if (p->have[0] && CompareVersions(p->have, p->f[F_VERSION]) < 0) p->status = ST_UPDATE;
         else p->status = ST_YES;
+    }
+    for (i = 0; i < cat->count; i++) {
+        PKG *p = &cat->pkg[i];
+        p->reqMissing = 0;
+        for (n = 0; RequiresLine(p, n, line, sizeof(line)); n++)
+            if (RequirementMet(line, what, sizeof(what)) == 0) p->reqMissing++;
     }
 }

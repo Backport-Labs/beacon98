@@ -248,6 +248,7 @@ void CheckSystem(CATALOG *cat);
 int  RequirementMet(const char *line, char *what, int whatLen);
 void ExpandPlaces(const char *in, char *out, int outLen);
 const char *ThisWindows(void);
+PKG *MissingPackage(PKG *p);
 int  SystemListed(const char *systems);
 
 /* net.c: downloading over HTTP */
@@ -275,6 +276,7 @@ int  ConfirmBox(HWND owner, const char *title, const char *head, const char *bod
 int  UpdateCatalog(HWND owner);
 int  InstallPackages(HWND owner, PKG **chosen, int count);
 int  RemovePackage(HWND owner, PKG *p);
+int  OfferPackage(HWND owner, PKG *p, PKG *need);
 
 /* window.c: the main window */
 int  RunWindow(int show);

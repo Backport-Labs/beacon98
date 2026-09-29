@@ -34,6 +34,7 @@ REQUIRES one megabyte of memory: met
 REQUIRES a terabyte of memory: missing
 REQUIRES DirectX 9: not checked
 REQUIRES a check a later version may add: not checked
+REQUIRES a package the catalog does not have: missing
 SYSTEMS "95, 98, ME" and "NT4" name this Windows: no
 SYSTEMS an empty list names this Windows: no
 UNZIP TEST.ZIP, strip 0: unpacked

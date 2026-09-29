@@ -532,6 +532,27 @@ static void Flow(const char *in, char *out, int outLen)
     out[o] = 0;
 }
 
+/* p needs need, another package of the catalog that is not installed (for
+ * example KernelEx). Asks whether to install it too. */
+int OfferPackage(HWND owner, PKG *p, PKG *need)
+{
+    char msg[1800], flow[1200];
+    wsprintf(msg, "%s needs %s, which is not installed.", p->f[F_NAME], need->f[F_NAME]);
+    if (need->f[F_WARNING]) {
+        Flow(need->f[F_WARNING], flow, sizeof(flow));
+        wsprintf(msg + lstrlen(msg), "\n\nAbout %s: %s", need->f[F_NAME], flow);
+    }
+    wsprintf(msg + lstrlen(msg), "\n\nTick %s too? It will be installed first.", need->f[F_NAME]);
+    return MessageBox(owner, msg, APP_NAME, MB_YESNO | MB_ICONQUESTION | MB_DEFBUTTON2) == IDYES;
+}
+
+static int InQueue(JOB *job, PKG *p)
+{
+    int i;
+    for (i = 0; i < job->n; i++) if (job->q[i] == p) return 1;
+    return 0;
+}
+
 int InstallPackages(HWND owner, PKG **chosen, int count)
 {
     JOB job;
@@ -544,8 +565,22 @@ int InstallPackages(HWND owner, PKG **chosen, int count)
     for (i = 0; i < count; i++) if (chosen[i]->status != ST_YES) Enqueue(&job, chosen[i]);
     if (!job.n) { MessageBox(owner, "The chosen packages are already installed.", APP_NAME, MB_OK | MB_ICONINFORMATION); return 0; }
 
+    /* A missing requirement that another package provides: offer it, and put it first. */
     for (i = 0; i < job.n; i++) {
-        if (job.q[i]->reqMissing) {
+        PKG *need = MissingPackage(job.q[i]);
+        int k;
+        if (!need || InQueue(&job, need) || job.n >= MAX_QUEUE) continue;
+        if (!OfferPackage(owner, job.q[i], need)) break;
+        for (k = job.n; k > i; k--) job.q[k] = job.q[k - 1];
+        job.q[i] = need;
+        job.n++;
+        need->marked = 1;
+        i++;
+    }
+    for (i = 0; i < job.n; i++) {
+        PKG *need = MissingPackage(job.q[i]);
+        int missing = job.q[i]->reqMissing - (need && InQueue(&job, need) ? 1 : 0);
+        if (missing > 0) {
             wsprintf(msg, "%s cannot be installed yet: a component it needs is missing. Its details say which one.\n\n"
                      "Beacon 98 does not supply it, because it is not ours to distribute.", job.q[i]->f[F_NAME]);
             MessageBox(owner, msg, APP_NAME, MB_OK | MB_ICONSTOP);

@@ -129,6 +129,9 @@ static int Layout(HDC dc, int draw, DETAILS *d, int width)
         met = RequirementMet(line, what, sizeof(what));
         if (met == 1)
             y += Box(dc, draw, x, y, w, RGB(234, 246, 234), RGB(0, 110, 0), "\x95", "Requirement met", what) + 4;
+        else if (met == 0 && strncmp(line, "package ", 8) == 0)
+            y += Box(dc, draw, x, y, w, RGB(251, 234, 234), RGB(170, 0, 0), "X",
+                     "Needs another package from this catalog. Beacon 98 offers it when you tick this one.", what) + 4;
         else if (met == 0)
             y += Box(dc, draw, x, y, w, RGB(251, 234, 234), RGB(170, 0, 0), "X",
                      "Requirement missing. Beacon 98 cannot supply it.", what) + 4;
