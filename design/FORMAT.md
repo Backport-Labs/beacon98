@@ -121,15 +121,23 @@ The first word is the kind of installer. The rest are arguments.
 
 | Kind | Arguments | What the client does |
 |---|---|---|
-| `inno` | extra switches | Runs `{file1}` with `/VERYSILENT /SUPPRESSMSGBOXES /NORESTART /DIR="{dir}"` and the extra switches |
-| `nsis` | extra switches | Runs `{file1}` with `/S` and the extra switches, then `/D={dir}`, which NSIS requires last |
-| `msi` | extra properties | Runs `msiexec /i "{file1}" /qb TARGETDIR="{dir}"` and the properties |
+| `inno` | extra switches | Runs `{file1}` with `/VERYSILENT /SUPPRESSMSGBOXES /NORESTART` and the extra switches |
+| `nsis` | extra switches | Runs `{file1}` with `/S` and the extra switches |
+| `msi` | extra properties | Runs `msiexec /i "{file1}" /qb` and the properties |
 | `exe` | command line | Runs `{file1}` with exactly this command line |
 | `unzip` | target, optionally `strip N` | Unpacks every downloaded file into the target, dropping the first N folder levels. Self-extracting ZIP files count as ZIP files. |
 | `copy` | target | Copies the downloaded files into the target |
 
-`{dir}` is `{pf}\<Name>` unless the user chooses another folder. The client
-waits for the installer to finish and treats a non-zero exit code as failure.
+A setup program installs into its own default folder, so an update goes where
+the previous version is. For `unzip` and `copy`, `{dir}` is the target; for
+the others it is `{pf}\<Name>`. The client waits for the setup program to
+finish. Exit codes 0, 1641 and 3010 mean success (the last two ask for a
+restart); any other code is a failure.
+
+The client records each installed package in `INSTALLED.TXT`, one
+`package|version|folder` per line, and what it created itself (files,
+folders, shortcuts, `PATH` additions) in `FILES\<package>.TXT`, which Remove
+uses to take them away again.
 
 ### After
 

@@ -13,6 +13,8 @@
 #define ID_LIST    106
 #define ID_STATUS  107
 
+#define WM_FIRST_RUN (WM_APP + 1)
+
 #define G_ALL       (-1)
 #define G_INSTALLED (-2)
 #define G_UPDATES   (-3)
@@ -296,6 +298,14 @@ static void LoadAndCheck(void)
     }
 }
 
+/* Reads the catalog and the state of the computer again, after a change. */
+static void Refresh(void)
+{
+    LoadAndCheck();
+    FillTree();
+    FillList();
+}
+
 static LRESULT CALLBACK MainProc(HWND hwnd, UINT msg, WPARAM wp, LPARAM lp)
 {
     switch (msg) {
@@ -323,6 +333,8 @@ static LRESULT CALLBACK MainProc(HWND hwnd, UINT msg, WPARAM wp, LPARAM lp)
         FillTree();
         FillList();
         SetFocus(g_search);
+        /* The first time, there is no catalog yet: fetch it once the window shows. */
+        if (!g_cat.count && !g_testMode) PostMessage(hwnd, WM_FIRST_RUN, 0, 0);
         return 0;
     case WM_SIZE:
         if (g_status) Layout();
@@ -337,19 +349,28 @@ static LRESULT CALLBACK MainProc(HWND hwnd, UINT msg, WPARAM wp, LPARAM lp)
             if (HIWORD(wp) == EN_CHANGE) FillList();
             return 0;
         case ID_UPDATE:
-            LoadAndCheck();
-            FillTree();
-            FillList();
-            MessageBox(hwnd, "This preview reads the catalog in its own folder. Downloading the catalog comes in the next version.",
-                       APP_NAME, MB_OK | MB_ICONINFORMATION);
+            UpdateCatalog(hwnd);
+            Refresh();
             return 0;
-        case ID_INSTALL:
-        case ID_REMOVE:
-            MessageBox(hwnd, "This preview shows the catalog only. Installing and removing come in the next version.",
-                       APP_NAME, MB_OK | MB_ICONINFORMATION);
+        case ID_INSTALL: {
+            PKG *chosen[64], *sel = SelectedPkg();
+            int i, n = 0;
+            for (i = 0; i < g_cat.count && n < 64; i++) if (g_cat.pkg[i].marked) chosen[n++] = &g_cat.pkg[i];
+            if (!n && sel) chosen[n++] = sel;
+            if (n && InstallPackages(hwnd, chosen, n)) Refresh();
+            else FillList();
             return 0;
         }
+        case ID_REMOVE: {
+            PKG *sel = SelectedPkg();
+            if (sel && RemovePackage(hwnd, sel)) Refresh();
+            return 0;
+        }
+        }
         break;
+    case WM_FIRST_RUN:
+        if (UpdateCatalog(hwnd)) Refresh();
+        return 0;
     case WM_NOTIFY: {
         NMHDR *n = (NMHDR *)lp;
         if (g_filling) return 0;
@@ -419,5 +440,6 @@ int RunWindow(int show)
         DispatchMessage(&m);
     }
     FreeCatalog(&g_cat);
+    CloseNet();
     return (int)m.wParam;
 }

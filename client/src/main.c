@@ -5,6 +5,8 @@
  *   BEACON98.EXE /selftest                  runs the self-test (test.c)
  *   BEACON98.EXE /shot FILE.BMP [row] [search words]
  *                                           draws the window into a bitmap
+ *   BEACON98.EXE /unzip ARCHIVE FOLDER [strip]
+ *                                           unpacks an archive, to test unzip.c
  */
 #include "beacon.h"
 
@@ -43,6 +45,14 @@ int WINAPI WinMain(HINSTANCE inst, HINSTANCE prev, LPSTR cmd, int show)
     if (lstrcmpi(word, "/selftest") == 0) {
         g_testMode = 1;
         return SelfTest();
+    }
+    if (lstrcmpi(word, "/unzip") == 0) {           /* test: unpack an archive into a folder */
+        char archive[MAX_PATH], err[300];
+        g_testMode = 1;
+        p = NextWord(p, archive, sizeof(archive));
+        p = NextWord(p, file, sizeof(file));
+        p = NextWord(p, word, sizeof(word));
+        return Unzip(archive, file, atoi(word), NULL, NULL, NULL, err, sizeof(err)) ? 0 : 1;
     }
     if (lstrcmpi(word, "/shot") == 0) {
         g_testMode = 1;

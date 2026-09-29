@@ -7,8 +7,8 @@ license permits sharing, in the last versions that run on Windows 95 and 98. It 
 signed catalog and checks every file against it before installing anything.
 
 This repository is at an early stage. It holds the catalog format, the tools that sign the
-catalog, the records of the first packages, and the first version of the Windows 98 program,
-which reads and verifies the catalog but does not install anything yet.
+catalog, the records of the first packages, and the Windows 98 program, which downloads the
+catalog, verifies it, and installs and removes packages.
 
 ## How it works
 
@@ -49,9 +49,15 @@ Windows 95 and 98 provide.
 | `catalog.c` | Reading `CATALOG.TXT` |
 | `sign.c` | Checking `CATALOG.SIG` with the public key built into the program |
 | `sha256.c` | SHA-256, for checking downloaded files |
-| `system.c` | Requirements, and which packages are installed |
-| `test.c` | The self-test and the `/shot` test mode |
+| `system.c` | Requirements, the version of Windows, and which packages are installed |
+| `net.c` | Downloading over HTTP with WinInet |
+| `install.c` | Updating the catalog, installing and removing packages, shortcuts |
+| `unzip.c` | Unpacking ZIP files in pieces, with CRC-32 checks and safe names |
+| `task.c` | The progress window; the work runs in a second thread |
+| `confirm.c` | The window that shows the license and warnings before installing |
+| `test.c` | The self-test and the `/shot` and `/unzip` test modes |
 | `tweetnacl.c`, `tweetnacl.h` | [TweetNaCl](https://tweetnacl.cr.yp.to/) 20140427, public domain, unchanged. Used for Ed25519. |
+| `../vendor/miniz` | [miniz](https://github.com/richgel999/miniz) 3.1.2, MIT license, unchanged. Only its inflate part is compiled. |
 
 ```powershell
 .\client\build\build.ps1 -Tcc C:\tools\tcc\tcc.exe
@@ -59,7 +65,10 @@ Windows 95 and 98 provide.
 
 The build compiles the program and runs its self-test: SHA-256 test values, 256 Ed25519 test
 vectors from the reference software together with forged signatures and changed messages that
-must be rejected, the signed catalog, and file hashes compared with those Windows computes.
+must be rejected, the signed catalog, and file hashes compared with those Windows computes. It
+also unpacks test archives (one self-extracting, one with a name that points outside the target
+folder, which must be refused) and compares the result with the originals, and downloads from
+`get.backportlabs.com`, so it needs an internet connection.
 
 The package files themselves are not in this repository. They are published on the download
 server.

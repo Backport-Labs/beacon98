@@ -10,6 +10,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdarg.h>
 
 /* ------------------------------------------------------------------------
  * Declarations Tiny C Compiler's headers do not have
@@ -100,6 +101,64 @@ typedef struct {
 #define MY_SB_SETTEXTA  (WM_USER + 1)
 #define MY_SB_SETPARTS  (WM_USER + 4)
 
+/* Progress bar */
+#define MY_PROGRESSCLASS "msctls_progress32"
+#define MY_PBM_SETRANGE (WM_USER + 1)
+#define MY_PBM_SETPOS   (WM_USER + 2)
+
+/* WinInet, which Internet Explorer installs */
+HANDLE WINAPI InternetOpenA(LPCSTR, DWORD, LPCSTR, LPCSTR, DWORD);
+HANDLE WINAPI InternetOpenUrlA(HANDLE, LPCSTR, LPCSTR, DWORD, DWORD, DWORD);
+BOOL   WINAPI InternetReadFile(HANDLE, void *, DWORD, DWORD *);
+BOOL   WINAPI InternetCloseHandle(HANDLE);
+BOOL   WINAPI HttpQueryInfoA(HANDLE, DWORD, void *, DWORD *, DWORD *);
+#define MY_INTERNET_OPEN_TYPE_PRECONFIG 0
+#define MY_INTERNET_FLAG_RELOAD         0x80000000
+#define MY_INTERNET_FLAG_NO_CACHE_WRITE 0x04000000
+#define MY_INTERNET_FLAG_PRAGMA_NOCACHE 0x00000100
+#define MY_INTERNET_FLAG_NO_UI          0x00000200
+#define MY_HTTP_QUERY_CONTENT_LENGTH    5
+#define MY_HTTP_QUERY_STATUS_CODE       19
+#define MY_HTTP_QUERY_FLAG_NUMBER       0x20000000
+
+/* Shell links, for Start Menu shortcuts */
+typedef struct { DWORD d1; WORD d2, d3; BYTE d4[8]; } MYGUID;
+typedef struct ShellLink_ ShellLink;
+typedef struct {
+    HRESULT (WINAPI *QueryInterface)(ShellLink *, const MYGUID *, void **);
+    ULONG   (WINAPI *AddRef)(ShellLink *);
+    ULONG   (WINAPI *Release)(ShellLink *);
+    void *GetPath, *GetIDList, *SetIDList, *GetDescription, *SetDescription, *GetWorkingDirectory;
+    HRESULT (WINAPI *SetWorkingDirectory)(ShellLink *, LPCSTR);
+    void *GetArguments;
+    HRESULT (WINAPI *SetArguments)(ShellLink *, LPCSTR);
+    void *GetHotkey, *SetHotkey, *GetShowCmd, *SetShowCmd, *GetIconLocation, *SetIconLocation;
+    void *SetRelativePath, *Resolve;
+    HRESULT (WINAPI *SetPath)(ShellLink *, LPCSTR);
+} ShellLinkVtbl;
+struct ShellLink_ { ShellLinkVtbl *v; };
+typedef struct PersistFile_ PersistFile;
+typedef struct {
+    HRESULT (WINAPI *QueryInterface)(PersistFile *, const MYGUID *, void **);
+    ULONG   (WINAPI *AddRef)(PersistFile *);
+    ULONG   (WINAPI *Release)(PersistFile *);
+    void *GetClassID, *IsDirty, *Load;
+    HRESULT (WINAPI *Save)(PersistFile *, const WCHAR *, BOOL);
+    void *SaveCompleted, *GetCurFile;
+} PersistFileVtbl;
+struct PersistFile_ { PersistFileVtbl *v; };
+HRESULT WINAPI CoInitialize(void *);
+void    WINAPI CoUninitialize(void);
+HRESULT WINAPI CoCreateInstance(const MYGUID *, void *, DWORD, const MYGUID *, void **);
+void    WINAPI CoTaskMemFree(void *);
+HRESULT WINAPI SHGetSpecialFolderLocation(HWND, int, void **);
+BOOL    WINAPI SHGetPathFromIDListA(void *, LPSTR);
+#define MY_CSIDL_PROGRAMS 2
+#ifndef CP_ACP
+#define CP_ACP 0
+int WINAPI MultiByteToWideChar(UINT, DWORD, LPCSTR, int, LPWSTR, int);
+#endif
+
 /* TweetNaCl (tweetnacl.c) */
 int crypto_sign_ed25519_tweet_open(unsigned char *m, unsigned long long *mlen,
     const unsigned char *sm, unsigned long long n, const unsigned char *pk);
@@ -108,7 +167,8 @@ int crypto_sign_ed25519_tweet_open(unsigned char *m, unsigned long long *mlen,
  * Constants, types and the state the files share
  * --------------------------------------------------------------------- */
 #define APP_NAME     "Beacon 98"
-#define APP_VERSION  "0.1.0"
+#define APP_VERSION  "0.2.0"
+#define CATALOG_HOST "get.backportlabs.com"
 #define CATALOG_FILE "CATALOG.TXT"
 #define SIG_FILE     "CATALOG.SIG"
 
@@ -187,6 +247,34 @@ void FirstLine(const char *text, char *out, int outLen);
 void CheckSystem(CATALOG *cat);
 int  RequirementMet(const char *line, char *what, int whatLen);
 void ExpandPlaces(const char *in, char *out, int outLen);
+const char *ThisWindows(void);
+int  SystemListed(const char *systems);
+
+/* net.c: downloading over HTTP */
+int  HttpGetFile(const char *url, const char *path, DWORD expect, volatile int *cancel,
+                 void (*progress)(DWORD done, DWORD total, void *ctx), void *ctx, char *err, int errLen);
+void CloseNet(void);
+
+/* unzip.c: unpacking ZIP files */
+typedef void (*UNZIP_LOG)(char kind, const char *path, void *ctx);
+int  Unzip(const char *archive, const char *target, int strip, volatile int *cancel,
+           UNZIP_LOG log, void *ctx, char *err, int errLen);
+
+/* task.c: work in a second thread, with a progress window */
+typedef int (*TASKFN)(void *ctx);
+int  RunTask(HWND owner, const char *title, TASKFN fn, void *ctx, int autoClose);
+void TaskLog(const char *fmt, ...);
+void TaskProgress(int percent);
+int  TaskCancelled(void);
+volatile int *TaskCancelFlag(void);
+
+/* confirm.c: asking before installing */
+int  ConfirmBox(HWND owner, const char *title, const char *head, const char *body, const char *yes, const char *no);
+
+/* install.c: updating the catalog, installing and removing */
+int  UpdateCatalog(HWND owner);
+int  InstallPackages(HWND owner, PKG **chosen, int count);
+int  RemovePackage(HWND owner, PKG *p);
 
 /* window.c: the main window */
 int  RunWindow(int show);
