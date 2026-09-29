@@ -80,4 +80,8 @@ SOURCES a file that does not match the source's catalog: refused
 SOURCES access headers over plain HTTP: This source's access key is only sent over HTTPS; its address must start with https://.
 SOURCES saved and read again: 3 custom sources
 SOURCES access headers after saving [X-Test: 1\r\nX-Other: two\r\n]
+NAME pool/7zip/9.20/7z920.exe is saved as 7z920.exe
+NAME https://www.zabkat.com/download.php?f=5003_98.exe is saved as 5003_98.exe
+NAME http://example.com/get.php?id=5&x=1 is saved as get.php
+NAME http://example.com/a:b*c.zip is saved as a_b_c.zip
 VERSIONS 1.10 against 1.9: later; 2.03 against 2.21: earlier

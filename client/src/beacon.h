@@ -324,6 +324,7 @@ int  InstallPackages(HWND owner, PKG **chosen, int count);
 int  RemovePackage(HWND owner, PKG *p);
 int  OfferPackage(HWND owner, PKG *p, PKG *need);
 int  FetchFile(const char *line, const char *dir, char *out);
+void LocalName(const char *loc, char *out, int outLen);
 int  FetchFileFrom(const char *line, const char *base, const char *headers, const char *referer, const char *dir, char *out);
 int  SetupFromZip(const char *zip, const char *folder, char *setup, char *err, int errLen);
 
