@@ -1,0 +1,22 @@
+# Draft for 2.03 (source: Internet Archive copy of nirsoft.net; see RECORD.md).
+# 2.21, the current NirSoft build, uses a low-level mouse hook that Windows 98
+# does not have. Needs a VM test before it goes into the catalog.
+Package: volumouse
+Name: Volumouse
+Version: 2.03
+Section: Multimedia
+Summary: Change the sound volume with the mouse wheel
+Description: Runs in the notification area and turns the mouse wheel into a
+ volume control when conditions you choose are met, for example while Alt is
+ held down or while the pointer is over the taskbar.
+Homepage: https://www.nirsoft.net/utils/volumouse.html
+License: Freeware
+License-File: pool/volumouse/2.03/LICENSE.TXT
+Systems: 98, ME
+Download: pool/volumouse/2.03/volumouse.zip 61736 a73ea9f6ad492f83660c192a8fb97d31b4e5a773981c2527fa6ab0d47bafe08a
+Installed-Size: 98
+Install: unzip {dir}
+Shortcut: Volumouse | {dir}\volumouse.exe |
+Uninstall: files
+Notice: Close Volumouse from its icon in the notification area before you
+ remove it.

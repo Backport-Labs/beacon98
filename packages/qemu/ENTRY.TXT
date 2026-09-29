@@ -1,0 +1,30 @@
+# HOLD: not for publishing until the GPL/FMOD question is reviewed (see RECORD.md).
+# The file comes from the Internet Archive; the original server is gone.
+Package: qemu
+Name: QEMU
+Version: 0.13.0
+Section: System
+Summary: Emulator for PCs and other computers (x86, ARM, PowerPC, MIPS...)
+Description: Emulates a complete PC, so that another operating system can run
+ in a window, and also ARM, PowerPC, MIPS, SPARC and other machines. This is
+ the Windows build by Kazu, distributed by Takeda Toshiya. It includes a
+ small Linux test disk; start "QEMU (Linux test)" to try it.
+Homepage: https://www.qemu.org/
+License: GPL-2.0-only
+License-File: pool/qemu/0.13.0/LICENSE.TXT
+Systems: 98, ME
+Download: pool/qemu/0.13.0/qemu-0.13.0-windows.zip 20658855 702b36ec534eb071f80eb9f588497f3d895a72066ac984ab996fad65d6340389
+Source: pool/qemu/0.13.0/src/qemu-0.13.0.tar.gz 5184531 1e6f5851b05cea6e377c835f4668408d4124cfb845f9948d922808743c5fd877
+ pool/qemu/0.13.0/src/qemu-0_13_0.diff 22224 3c6d79c0b25c27d168eaf2787ca99815d577c61fde5d36c0e21b8c64bf902e42
+Installed-Size: 53800
+Requires: package kernelex | QEMU 0.13.0 needs KernelEx on Windows 98 and ME. Install the KernelEx package first.
+Install: unzip {pf}\QEMU
+Shortcut: QEMU (Linux test) | {pf}\QEMU\qemu-win.bat |
+Uninstall: files
+Warning: QEMU 0.13.0 is from 2010 and has hundreds of known security flaws
+ (for example CVE-2015-3456 "VENOM"). A malicious guest system or disk image
+ can take control of your Windows 98 computer. Only run guest systems and
+ disk images you trust.
+Notice: QEMU was reported working on Windows 98 with KernelEx in Windows XP
+ mode. If it does not start, set the XP mode for qemu.exe in its file
+ properties (Compatibility tab). Press Ctrl+Alt to release the mouse.

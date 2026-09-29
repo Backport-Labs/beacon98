@@ -1,0 +1,21 @@
+Package: zsnes
+Name: ZSNES
+Version: 1.51
+Section: Games
+Summary: Super Nintendo (SNES) emulator, fast on older computers
+Description: Plays Super Nintendo cartridge images. Written mostly in
+ assembly language, it runs well on Pentium II computers. No games are
+ included.
+Homepage: https://sourceforge.net/projects/zsnes/
+License: GPL-2.0-only
+License-File: pool/zsnes/1.51/LICENSE.TXT
+Systems: 95, 98, ME
+Download: pool/zsnes/1.51/zsnesw151.zip 867785 855375a2bff44993322e495732498d0278a82590affd912bc54738b61a662d86
+Source: pool/zsnes/1.51/src/zsnes151src.tar.bz2 1072340 2856dedba272e9eed66cbf68dd4a9ae56797c373686c57371a65c7df35264623
+Requires: dx 8.0 | ZSNES needs DirectX 8.0a or later from Microsoft.
+Installed-Size: 1590
+Install: unzip {dir}
+Shortcut: ZSNES | {dir}\zsnesw.exe |
+Uninstall: files
+Warning: ZSNES is no longer maintained. Opening a damaged or malicious game
+ file could run code on this computer; use game files you trust.

@@ -1,0 +1,28 @@
+Package: prboom
+Name: PrBoom
+Version: 2.5.0
+Section: Games
+Summary: Doom game engine; needs Freedoom or your own DOOM.WAD to play
+Description: A version of the Doom engine, based on Boom and MBF, with higher
+ screen resolutions and many fixes. It plays original Doom levels and Boom
+ and MBF add-ons. It contains no game data: install Freedoom, or copy your
+ own DOOM.WAD or DOOM2.WAD into the PrBoom folder.
+Homepage: https://prboom.sourceforge.net/
+License: GPL-2.0-or-later
+License-File: pool/prboom/2.5.0/LICENSE.TXT
+Systems: 98, ME
+Download: pool/prboom/2.5.0/prboom-2.5.0-win32.zip 1241174 1d0fbf0675770e8d47aa3d5874a0ab4d003aa79442da4786fe16f451697aa216
+Source: pool/prboom/2.5.0/src/prboom-2.5.0.tar.gz 1049505 226c1c470f8cc983327536404f405a1d026cf0a5188c694a1243cc8630014bae
+ pool/prboom/2.5.0/src/SDL-1.2.13.tar.gz 3373673 94f99df1d60f296b57f4740650a71b6425da654044ca30f8f0ce34934429e132
+ pool/prboom/2.5.0/src/SDL_mixer-1.2.8.tar.gz 2096559 a8222a274778ff16d0e3ee49a30db27a48a4d357169a915fc599a764e405e0b6
+ pool/prboom/2.5.0/src/SDL_net-1.2.7.tar.gz 373866 2ce7c84e62ff8117b9f205758bcce68ea603e08bc9d6936ded343735b8b77c53
+ pool/prboom/2.5.0/src/smpeg-svn-20070614-423fd9ff39.tar.gz 339663 09d0318165c1e3760e13293f1a46ffc61f99bb2a07169f41b7b6c8db3d58c945
+Installed-Size: 3000
+Install: unzip {dir} strip 1
+Shortcut: PrBoom | {dir}\prboom.exe |
+Uninstall: files
+Warning: PrBoom's network game code has a known buffer overflow
+ (CVE-2019-20797). Only join network games with people you trust.
+Notice: PrBoom needs game data. Install the Freedoom package, or copy your own
+ DOOM.WAD or DOOM2.WAD into the PrBoom folder. Settings and saved games are
+ kept in the PrBoom folder.

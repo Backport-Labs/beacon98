@@ -1,0 +1,26 @@
+Package: privoxy
+Name: Privoxy
+Version: 3.0.19
+Section: Internet
+Summary: Local web proxy that removes ads and unwanted content
+Description: Privoxy runs in the background and filters web pages before the
+ browser sees them: it blocks ads and trackers and removes annoying
+ scripts. Set your browser's HTTP proxy to 127.0.0.1, port 8118. This is
+ the IPv4-only build made for Windows 98. It filters plain HTTP only.
+Homepage: https://www.privoxy.org/
+License: GPL-2.0-or-later
+License-File: pool/privoxy/3.0.19/LICENSE.TXT
+Systems: 95, 98, ME
+Download: pool/privoxy/3.0.19/privoxy-3.0.19-ipv4only.zip 728027 c4dfa26703b759a9d496a657f829a3cfaf493ee7099a833afed9e3bb3963609c
+Source: pool/privoxy/3.0.19/src/privoxy-3.0.19-stable-src.tar.gz 1722316 816e627b31caa3d9e71d0a8b83ac9ea7dcbeaaafef3c9a9c792696aa56255232
+ pool/privoxy/3.0.19/src/privoxy-3.0.19-ipv4Only-notes.txt 779 e8346c58a1b5285f502c3071977026f15fab89afb0da6fed53c7fee641ded8d0
+Requires: file {sys}\MSVCRT.DLL | Privoxy needs the Microsoft C runtime (MSVCRT.DLL). Windows 98 includes it; on Windows 95 it comes with Internet Explorer 4 or later.
+Installed-Size: 1950
+Install: unzip {pf}\Privoxy strip 1
+Shortcut: Privoxy | {pf}\Privoxy\privoxy.exe |
+Uninstall: files
+Warning: This version has known security problems, fixed only in versions that
+ do not run on Windows 98. Most let a malicious web page or server crash
+ Privoxy; one may corrupt its memory.
+Notice: Start Privoxy from the Start Menu, then set your browser's HTTP proxy
+ to 127.0.0.1, port 8118. Its settings are in config.txt in its folder.

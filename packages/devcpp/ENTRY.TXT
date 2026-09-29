@@ -1,0 +1,26 @@
+Package: devcpp
+Name: Dev-C++
+Version: 4.9.9.2
+Section: Development
+Summary: C and C++ IDE with the MinGW GCC 3.4.2 compiler included
+Description: An integrated development environment for C and C++: editor,
+ project manager, class browser and debugger front end, with the MinGW port
+ of GCC 3.4.2, binutils, make and gdb included. Builds Windows and console
+ programs.
+Homepage: https://sourceforge.net/projects/dev-cpp/
+License: GPL-2.0-or-later
+License-File: pool/devcpp/4.9.9.2/LICENSE.TXT
+Systems: 98, NT4, 2000
+Download: pool/devcpp/4.9.9.2/devcpp-4.9.9.2_setup.exe 9326468 98ca778d39ce72d1d8dd8c362a19ff5c63d8b827cd02dfbf139d4d0fd6328c40
+Source: pool/devcpp/4.9.9.2/src/devcpp-4.9.9.2-src.zip 1670453 39cbc145d00f4a4ae420604c347ac8fa44f7ff7147d224bdedff79d56af1d3aa
+ pool/devcpp/4.9.9.2/src/gcc-core-3.4.2-20040916-1-src.tar.gz 14096017 7d028f4799739a2cf23391f608cf68dbfffdfd783dd9af934f1af568bb033fe9
+ pool/devcpp/4.9.9.2/src/gcc-g++-3.4.2-20040916-1-src.tar.gz 3607955 21e55f1f9b86100e61d5aca8e7e19be8afa17e3b822e0fa8aa111209bf0b24fb
+ pool/devcpp/4.9.9.2/src/binutils-2.15.91-20040904-1-src.tar.gz 14507299 c957ab296e7020fe073c29e6cb2ea9a4de8e82aea04edeb6e4cd812b75ad4ef9
+ pool/devcpp/4.9.9.2/src/mingw32-make-3.80.0-3-src.tar.bz2 907699 c383a6e164625827e23f1597bd9fba1732991bd151a8758208220e8fcdc2bddb
+ pool/devcpp/4.9.9.2/src/gdb-5.2.1-1-src.tar.bz2 11733778 467e7cdf23cd8a8aa3d8011ccd9c9b576d1258c0e79bdce52dc7026a295ece70
+Installed-Size: 60000
+Install: nsis
+Uninstall: registry Dev-C++ 5 beta 9 release (4.9.9.2)
+Warning: This version has a known security problem: opening a source file
+ with a very long line can crash Dev-C++ or run code. The included compiler
+ tools are from 2004.

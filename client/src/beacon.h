@@ -167,7 +167,7 @@ int crypto_sign_ed25519_tweet_open(unsigned char *m, unsigned long long *mlen,
  * Constants, types and the state the files share
  * --------------------------------------------------------------------- */
 #define APP_NAME     "Beacon 98"
-#define APP_VERSION  "0.2.0"
+#define APP_VERSION  "0.3.0"
 #define CATALOG_HOST "get.backportlabs.com"
 #define CATALOG_FILE "CATALOG.TXT"
 #define SIG_FILE     "CATALOG.SIG"
@@ -178,6 +178,7 @@ enum {
     F_HOMEPAGE, F_LICENSE, F_LICENSE_FILE, F_SYSTEMS, F_AVAILABILITY,
     F_DOWNLOAD, F_SOURCE, F_INSTALLED_SIZE, F_DEPENDS, F_REQUIRES,
     F_INSTALL, F_AFTER, F_SHORTCUT, F_UNINSTALL, F_WARNING, F_NOTICE,
+    F_REMOVE,
     F_COUNT
 };
 

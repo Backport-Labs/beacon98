@@ -1,0 +1,4 @@
+# BLOCKED - CDex 1.51 files are no longer on the official mirror
+# (mirror.cdex.mu redirects to the download page) and the Internet Archive
+# was offline on 2026-09-29. No entry can be drafted without the files.
+# See RECORD.md.

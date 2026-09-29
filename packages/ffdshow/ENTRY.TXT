@@ -1,0 +1,23 @@
+# Downloaded from SourceForge, the project's own file server: the build
+# contains non-free AMR code and DeCSS, so we do not host it ourselves.
+Package: ffdshow
+Name: ffdshow
+Version: rev2322
+Section: Multimedia
+Summary: Video and audio decoders for Windows Media Player and other players
+Description: A DirectShow and Video for Windows codec package based on FFmpeg.
+ It lets Windows Media Player, Media Player Classic and other programs play
+ DivX, Xvid, H.264, MPEG-2, Theora, AAC, AC3 and many other formats, with
+ optional picture and sound filters. This is the last ffdshow-tryouts build
+ known to work on Windows 98.
+Homepage: https://ffdshow-tryout.sourceforge.net/
+License: GPL-2.0
+License-File: pool/ffdshow/rev2322/LICENSE.TXT
+Systems: 98, ME
+Availability: external
+Download: http://downloads.sourceforge.net/project/ffdshow-tryout/SVN%20builds%20by%20clsid/very%20old%20builds/ffdshow_rev2322_20081114_clsid.exe 4259365 f1f5877c96d9fdfa753899f38a655ca2f54a9a676116e8e54f72d473d68a2ea7
+Install: inno
+Uninstall: registry ffdshow [rev 2322] [2008-11-14]
+Warning: This version has a known security problem: a long address in a
+ media stream can run code on this computer. The libraries it includes have
+ many more, fixed only in versions that do not run on Windows 98.

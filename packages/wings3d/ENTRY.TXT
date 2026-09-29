@@ -1,0 +1,28 @@
+Package: wings3d
+Name: Wings 3D
+Version: 1.0
+Section: Multimedia
+Summary: Subdivision 3D modeller with a simple, fast interface
+Description: A polygon mesh modeller inspired by Nendo and Mirai. It models
+ with subdivision surfaces, has AutoUV texture mapping, and imports and
+ exports 3DS, OBJ, VRML, LWO and other formats. Needs an OpenGL driver.
+ Runs on Windows 98 and ME only with KernelEx.
+Homepage: http://www.wings3d.com/
+License: Wings 3D license (TCL-style); Erlang Public License 1.1; LGPL-2.1
+License-File: pool/wings3d/1.0/LICENSE.TXT
+Systems: 98, ME
+Download: pool/wings3d/1.0/wings-1.0.exe 7560656 04ef4ac551bb9ebef45857172b4ce94a5da2823647d7c1e22f100f6f0e31a8a3
+Source: pool/wings3d/1.0/src/wings-1.0.tar.bz2 1928640 d8afdac03cd870fd9237712939a136b85e2bf7db656c9a8e78f9010021c9e3b8
+ pool/wings3d/1.0/src/otp_src_R13B.tar.gz 54412183 2f13d77f8e29ad630934a0125048b829c83b0bc58f719d7a9a19769576424884
+ pool/wings3d/1.0/src/esdl-1.0.src.tar.gz 424986 c9da563717e6ec5250b5d9004ace84801a105e0618984a86d4bbcd716d841bea
+ pool/wings3d/1.0/src/SDL-1.2.13.tar.gz 3373673 94f99df1d60f296b57f4740650a71b6425da654044ca30f8f0ce34934429e132
+Requires: package kernelex | Wings 3D 1.0 needs KernelEx on Windows 98 and ME (reported working with KernelEx; no mode stated).
+ msi 2.0 | Wings 3D installs the Microsoft Visual C++ 2005 run-time, which needs Windows Installer 2.0 or later. Install Windows Installer 2.0 for Windows 9x from Microsoft first.
+Install: nsis
+Uninstall: registry Wings 3D 1.0
+Warning: Wings 3D 1.0 includes SDL 1.2.13, which has known security problems
+ in its image and sound handling (for example CVE-2019-7635), and a flaw
+ reported for Wings 3D 2.4.1 (CVE-2026-39020, a crash on a crafted OBJ file)
+ may also affect this version. Open only 3D models and images you trust.
+Notice: During installation the Microsoft Visual C++ 2005 setup opens and
+ must be completed by hand. Wings 3D needs a working OpenGL driver.

@@ -1,0 +1,22 @@
+Package: notepad2
+Name: Notepad2
+Version: 1.0.12
+Section: Utilities
+Summary: Small, fast Notepad replacement with syntax highlighting
+Description: A light-weight text editor based on the Scintilla component, with
+ syntax highlighting for HTML, XML, CSS, JavaScript, PHP, C/C++, Perl, Python,
+ SQL and more, Unicode and UTF-8 support, and regular expression search. This
+ is the last version for Windows 95, 98 and ME.
+Homepage: https://www.flos-freeware.ch/notepad2.html
+License: GPL-2.0-only
+License-File: pool/notepad2/1.0.12/LICENSE.TXT
+Systems: 95, 98, ME
+Download: pool/notepad2/1.0.12/notepad2_1.0.12.zip 246814 a20f099decfe5588623b1cc868a9205ffe7050469fe66fd8ca5393b2d592836d
+Source: pool/notepad2/1.0.12/src/np2src_1.0.12.zip 169497 16566be7ad3eaf02242f44aa92db379f3f3d2ad81e636efb8d7795b672529191
+Requires: ie 5.0 | Notepad2 needs Internet Explorer 5 or later (its SHLWAPI.DLL), which Windows 98 Second Edition and ME include.
+Installed-Size: 600
+Install: unzip {pf}\Notepad2
+Shortcut: Notepad2 | {dir}\Notepad2.exe |
+Uninstall: files
+Notice: Notepad2 keeps its settings in the registry. To remove them, run
+ "Notepad2.exe /u" before removing Notepad2.

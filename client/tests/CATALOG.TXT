@@ -1,0 +1,182 @@
+Format: 1
+Catalog: Beacon 98
+Publisher: Backport Labs
+Serial: 2026092901
+Date: 2026-09-29
+Expires: 2026-12-28
+Base: http://get.backportlabs.com/
+
+Package: searchlight98
+Name: Searchlight 98
+Version: 0.3.4
+Section: Utilities
+Summary: Find and start any program with Ctrl+Space
+Description: A quick launcher for Windows 95 and 98. Search programs, settings
+ and documents, keep favorites, see running programs and what starts with
+ Windows.
+Homepage: https://github.com/Backport-Labs/searchlight98
+License: MIT
+License-File: pool/searchlight98/0.3.4/LICENSE.TXT
+Systems: 95, 98, ME
+Download: pool/searchlight98/0.3.4/SL98SETUP.EXE 350340 e9bab1b942a736bbb962640a47a9ea9a4e7aa38a03771f6143d9230ee61bd97a
+Source: pool/searchlight98/0.3.4/src/searchlight98-0.3.4-source.zip 336474 04bebec50e8d2b8da87e6212124074608f2c71c1a62797d0cc13097331e06569
+Install: inno
+Uninstall: registry Searchlight 98
+
+Package: 7zip
+Name: 7-Zip
+Version: 9.20
+Section: Utilities
+Summary: File archiver for 7z, ZIP, RAR, CAB and many other formats
+Homepage: https://www.7-zip.org/
+License: LGPL-2.1-or-later
+License-File: pool/7zip/9.20/LICENSE.TXT
+Systems: 95, 98, ME
+Download: pool/7zip/9.20/7z920.exe 1110476 1e2f2a8fb52d3972b9b65b8ad1bebb66965c47a2994f89b3d652c31e6f6e4c3c
+Source: pool/7zip/9.20/src/7z920.tar.bz2 773136 a151d8faced15ed3035f0aac43679b512dd66ae7885898cc2bc8a5823aad81fb
+Install: nsis
+Uninstall: registry 7-Zip
+Warning: This version has known security problems that were fixed only in
+ versions that do not run on Windows 98. Opening a damaged or malicious
+ archive, especially HFS or NTFS images, can run code on this computer.
+
+Package: retrozilla
+Name: RetroZilla
+Version: 2.3
+Section: Internet
+Summary: Web browser with current encryption, based on Mozilla
+Homepage: https://github.com/rn10950/RetroZilla
+License: MPL-1.1
+License-File: pool/retrozilla/2.3/LICENSE.TXT
+Systems: 95, 98, ME, NT4, 2000
+Download: pool/retrozilla/2.3/retrozilla-2.3-win32-installer.exe 13410304 8d8644d28e607ca1552c2f726b7e18cb455152c1148f774437b37ff940b104f9
+Source: pool/retrozilla/2.3/src/RetroZilla-2.3-release-source.tar.gz 66454754 cf3db550464353bcfb0c0e5f1f66a2487a4552828be587f220dbb9983e176130
+Install: exe -ms
+Uninstall: registry RetroZilla (2.3)
+Warning: RetroZilla is based on a browser engine from 2008 with hundreds of
+ known security problems. Its authors state that it is not a secure browser.
+ Do not use it for banking or passwords.
+
+# Downloaded from VideoLAN's own server: its Windows build bundles libraries
+# whose sources we could not find, so we do not host it ourselves.
+Package: vlc
+Name: VLC media player
+Version: 0.8.6i
+Section: Multimedia
+Summary: Plays most video and audio formats, DVDs and network streams
+Homepage: https://www.videolan.org/
+License: GPL-2.0-or-later
+License-File: pool/vlc/0.8.6i/LICENSE.TXT
+Systems: 98, ME
+Availability: external
+Download: http://download.videolan.org/pub/videolan/vlc/0.8.6i/win32/vlc-0.8.6i-win32.exe 9398688 afd20c08ebf2f73e0d1ad6a341699207728eacaa57ce8bb797fb4abb5aaf3166
+Requires: file {sys}\UNICOWS.DLL | VLC needs the Microsoft Layer for Unicode (UNICOWS.DLL) in the Windows SYSTEM folder.
+Install: nsis
+Uninstall: registry VLC media player
+Warning: This version has known security problems. Opening a malicious media
+ file or network stream can run code on this computer. Windows 98 is not
+ officially supported by VideoLAN.
+
+Package: putty
+Name: PuTTY
+Version: 0.67
+Section: Internet
+Summary: SSH and Telnet client
+Homepage: https://www.chiark.greenend.org.uk/~sgtatham/putty/
+License: MIT
+License-File: pool/putty/0.67/LICENSE.TXT
+Systems: 95, 98, ME
+Download: pool/putty/0.67/putty-0.67-installer.exe 1798184 e4468784f831d2ef713e95f1299d4f60452c4346c3f89e541be252d68d18b38d
+Requires: winsock2 | PuTTY needs Windows Sockets 2, which Windows 95 needs as an update.
+Install: inno
+Uninstall: registry PuTTY version 0.67
+Warning: This version has 21 known security problems, fixed only in versions
+ that do not run on Windows 98.
+
+Package: vim
+Name: Vim
+Version: 7.2
+Section: Development
+Summary: Text editor, with a graphical version (gVim)
+Homepage: https://www.vim.org/
+License: Vim
+License-File: pool/vim/7.2/LICENSE.TXT
+Systems: 95, 98, ME
+Download: pool/vim/7.2/gvim72.zip 980100 7478ba4169950f802eb12961af9797f30d09e41f10841bdcff4a7a1971b2b8da
+ pool/vim/7.2/vim72rt.zip 7194365 4ae8bdb21b852e202de2e0ee635792de90b964c4838de594589c4941e0694176
+Install: unzip {pf}
+After: write {pf}\vim\_vimrc | " Written by Beacon 98. Files cannot run commands when opened.\nset nomodeline\n
+Shortcut: gVim | {pf}\vim\vim72\gvim.exe |
+Uninstall: files
+
+Package: infozip
+Name: Info-ZIP Zip and UnZip
+Version: 3.0 and 6.0
+Section: Utilities
+Summary: Command-line tools to make and unpack ZIP files
+Homepage: https://infozip.sourceforge.net/
+License: Info-ZIP
+License-File: pool/infozip/3.0-6.0/LICENSE.TXT
+Systems: 95, 98, ME
+Download: pool/infozip/3.0-6.0/zip300xn.zip 355794 f8bbc1821d50400245107ce8cfa4a6c7b524387b58bbd6cbe9c20094e82c3bb5
+ pool/infozip/3.0-6.0/unz600xn.exe 414138 7869ee36346b47701ef01efd0bc2889f970266b66c80b30f74303d50bf7fa33d
+Install: unzip C:\INFOZIP
+After: path C:\INFOZIP
+Uninstall: files
+Warning: UnZip 6.0 has known security problems. Unpacking a malicious archive
+ can run code on this computer.
+
+Package: scummvm
+Name: ScummVM
+Version: 2026.1.0
+Section: Games
+Summary: Runs classic adventure games such as Beneath a Steel Sky
+Homepage: https://www.scummvm.org/
+License: GPL-3.0-or-later
+License-File: pool/scummvm/2026.1.0/LICENSE.TXT
+Systems: 98, ME
+Download: pool/scummvm/2026.1.0/scummvm-2026.1.0-win32-win9x.zip 114460830 3385d68305cda3f8737feea08069599807847aed5af692c2aef3f260ace9a314
+Source: pool/scummvm/2026.1.0/src/scummvm-2026.1.0.tar.xz 226299792 e15b8650c2bd9e11b69b49eef9dea1eedccc5b1c191748b15c34167614d77b66
+Installed-Size: 200000
+Install: unzip {dir}
+After: write {dir}\scummvm.ini | [scummvm]\n
+Shortcut: ScummVM | {dir}\scummvm.exe |
+Uninstall: files
+Notice: This is the last ScummVM build for Windows 95 and 98. The ScummVM team
+ lists it as unsupported.
+
+Package: beneath-a-steel-sky
+Name: Beneath a Steel Sky
+Version: CD 1.2
+Section: Games
+Summary: Science fiction adventure game by Revolution Software, 1994
+Homepage: https://www.scummvm.org/games/
+License: Freeware
+License-File: pool/beneath-a-steel-sky/cd-1.2/LICENSE.TXT
+Systems: 98, ME
+Download: pool/beneath-a-steel-sky/cd-1.2/bass-cd-1.2.zip 69377781 53209b9400eab6fd7fa71518b2f357c8de75cfeaa5ba57024575ab79cc974593
+Depends: scummvm
+Installed-Size: 72000
+Install: unzip {dir} strip 1
+After: run "{dir:scummvm}\scummvm.exe" --add --path="{dir}" --game=sky
+Shortcut: Beneath a Steel Sky | {dir:scummvm}\scummvm.exe | sky
+Uninstall: files
+
+Package: python
+Name: Python
+Version: 2.5.4
+Section: Development
+Summary: Programming language, the last version for Windows 95 and 98
+Homepage: https://www.python.org/
+License: PSF-2.0
+License-File: pool/python/2.5.4/LICENSE.TXT
+Systems: 95, 98, ME
+Download: pool/python/2.5.4/python-2.5.4.msi 11323392 485e325c0189ae06ea4b0675d2502f8ee82ce301bd2e5aa1b5387cd3cdf650bd
+Source: pool/python/2.5.4/src/Python-2.5.4.tar.bz2 9821313 bc8d896a2bfe5523ba93b8d89b71017b74e8e6cb21dc676a0ccff668c8780110
+ pool/python/2.5.4/src/db-4.4.20.NC.tar.gz 7913912 2c2d873de7d471ba394d62f66d83c79688e0711b38bf07a8678e0064b79f2dbb
+ pool/python/2.5.4/src/openssl-0.9.8a.tar.gz 3271435 30f8f61fb1316f4fb51410c740b4879b8e26b417c8d870e486144b10b8041c73
+Requires: msi 2.0 | Python needs Windows Installer 2.0 or later. Microsoft offered it as a free update for Windows 95 and 98 (InstMsiA.exe).
+Install: msi ALLUSERS=1
+Uninstall: registry Python 2.5.4
+Warning: This version has known security problems, and its built-in OpenSSL is
+ from 2005. Do not rely on it for secure connections.

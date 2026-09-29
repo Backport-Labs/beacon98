@@ -26,7 +26,8 @@ if (Test-Path $test) { Get-ChildItem $test -File | Remove-Item -Force -Confirm:$
 New-Item -ItemType Directory -Force $test | Out-Null
 Copy-Item $exe $test -Force
 Copy-Item (Join-Path $client 'tests\ED25519.TXT'), (Join-Path $client 'tests\PARSE.TXT') $test -Force
-Copy-Item (Join-Path $repo 'catalog\CATALOG.TXT'), (Join-Path $repo 'catalog\CATALOG.SIG') $test -Force
+# A fixed, signed copy of the pilot catalog, so the test does not change when the catalog does.
+Copy-Item (Join-Path $client 'tests\CATALOG.TXT'), (Join-Path $client 'tests\CATALOG.SIG') $test -Force
 # A file of random bytes, so hashing is checked across many buffer boundaries.
 $random = New-Object byte[] 5000037
 (New-Object Random 98).NextBytes($random)

@@ -1,0 +1,22 @@
+# Downloaded from the author's own server: the build contains the author's
+# poppler fork, whose source is no longer available, so we do not host it.
+Package: sumatrapdf
+Name: SumatraPDF
+Version: 0.7
+Section: Office
+Summary: Small, fast PDF viewer
+Description: A small PDF reader that starts quickly. It can select and copy
+ text, print, and open password-protected files. This is the last version
+ made for Windows 98.
+Homepage: https://www.sumatrapdfreader.org/
+License: GPL-2.0-only
+License-File: pool/sumatrapdf/0.7/LICENSE.TXT
+Systems: 98, ME
+Availability: external
+Download: http://kjkpub.s3.amazonaws.com/sumatrapdf/rel/SumatraPDF-0.7-install.exe 865204 10851bac3fb1688cfe05a350fb61173f3086a259179d5580953bf4ba5f4f03ad
+Installed-Size: 820
+Install: nsis
+Uninstall: registry Sumatra PDF reader
+Warning: This version has known security problems. Opening a malicious PDF
+ file can run code on this computer. Newer versions that fix them do not run
+ on Windows 98.

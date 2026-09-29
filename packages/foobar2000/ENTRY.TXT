@@ -1,0 +1,20 @@
+# HOLD - not for publication yet. The installer contains modified LGPL
+# libraries (mpglib, Musepack, akrip, SSRC/SuperEQ) whose source (the 2004
+# foobar2000 SDK) we do not have, and the publisher serves only HTTPS, so
+# "external" is not possible. See RECORD.md.
+Package: foobar2000
+Name: foobar2000
+Version: 0.8.3
+Section: Multimedia
+Summary: Audio player for MP3, Ogg, FLAC, APE, WavPack and more
+Description: A light, fast audio player with playlists, ReplayGain, a CD
+ player and converter (Diskwriter). The last version for Windows 95, 98 and
+ ME.
+Homepage: https://www.foobar2000.org/
+License: Freeware
+License-File: pool/foobar2000/0.8.3/LICENSE.TXT
+Systems: 95, 98, ME
+Download: pool/foobar2000/0.8.3/foobar2000_0.8.3.exe 1325374 e056c9cece879c15de58b49a10883dde4cb21a771bc7f0875cd6295c1558d8e9
+Install: nsis
+# Add/Remove Programs name unknown; check in the VM.
+Uninstall: registry foobar2000

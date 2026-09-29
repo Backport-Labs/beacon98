@@ -1,0 +1,3 @@
+# NOT AVAILABLE - no redistributable Windows binary of Tcl/Tk 8.4.20 exists
+# (tcl-lang.org and SourceForge ship source only; ActiveTcl is not
+# redistributable; Equi4 8.4 tclkits are 410 Gone). See RECORD.md.

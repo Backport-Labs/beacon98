@@ -19,7 +19,8 @@ static const char *g_fieldNames[F_COUNT] = {
     "Package", "Name", "Version", "Section", "Summary", "Description",
     "Homepage", "License", "License-File", "Systems", "Availability",
     "Download", "Source", "Installed-Size", "Depends", "Requires",
-    "Install", "After", "Shortcut", "Uninstall", "Warning", "Notice"
+    "Install", "After", "Shortcut", "Uninstall", "Warning", "Notice",
+    "Remove"
 };
 
 static const int g_required[] = {

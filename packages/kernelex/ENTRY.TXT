@@ -1,0 +1,27 @@
+Package: kernelex
+Name: KernelEx
+Version: 4.5.2
+Section: System
+Summary: Lets many Windows 2000 and XP programs run on Windows 98 and ME
+Description: A compatibility layer that adds functions of newer Windows
+ versions to Windows 98 and ME, so that programs written for Windows 2000
+ and XP can run. It works for all programs and can be switched off per
+ program in the file properties.
+Homepage: https://sourceforge.net/projects/kernelex/
+License: GPL-2.0-only
+License-File: pool/kernelex/4.5.2/LICENSE.TXT
+Systems: 98, ME
+Download: pool/kernelex/4.5.2/KernelEx-4.5.2.exe 228428 b4d4e6475ecf5e3099c0807ba85340a07dabdf9ac0d77b9f03fa5c37312c321b
+Source: pool/kernelex/4.5.2/src/KernelEx-4.5.2-source-2.tar.bz2 401703 ab7d16f7d025cf298edcb0b284898ba8034a478d244088a015231e18b68a23b7
+Installed-Size: 500
+Requires: file {sys}\UNICOWS.DLL | KernelEx needs the Microsoft Layer for Unicode (UNICOWS.DLL version 1.1.3790.0) in the Windows SYSTEM folder.
+Install: nsis
+Uninstall: registry KernelEx 4.5.2
+Warning: KernelEx changes how Windows itself works: it loads a system driver
+ and changes Windows functions for every program. If something goes wrong,
+ Windows may become unstable or fail to start. Make a backup of your system
+ before installing. There are no known security advisories for KernelEx, but
+ it has had no security review, and programs made for Windows XP get none of
+ XP's protection on Windows 98 and ME.
+Notice: Restart the computer to finish installing KernelEx. It is then on for
+ all programs; you can change this per program in its file properties.

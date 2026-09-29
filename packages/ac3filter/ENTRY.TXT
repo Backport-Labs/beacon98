@@ -1,0 +1,20 @@
+# DRAFT - on hold: the filter includes DVD CSS descrambling (DeCSS) code and
+# the readme adds a "demonstration and educational purposes" statement.
+# Decide before publishing (see RECORD.md, License).
+Package: ac3filter
+Name: AC3Filter
+Version: 1.63b
+Section: Multimedia
+Summary: Plays AC3 and DTS sound in movies, with speaker and SPDIF setup
+Description: A DirectShow audio decoder for AC3, DTS, MPEG audio and LPCM, used
+ by Windows Media Player and other players. It mixes to any speaker layout,
+ adjusts levels and delays, and can send AC3 over SPDIF to a receiver. This is
+ the author's edition for Windows 95, 98 and ME.
+Homepage: https://www.ac3filter.net/
+License: GPL-2.0
+License-File: pool/ac3filter/1.63b/LICENSE.TXT
+Systems: 98, ME
+Download: pool/ac3filter/1.63b/ac3filter_1_63b_win9x.exe 2219945 34e759d8962411956e0bbbbdff0384ccc70e59a3aea12c2e94f67df4fcead245
+Source: pool/ac3filter/1.63b/src/ac3filter_1_63b_src.zip 12989213 c38599a342b59d5e6f76714a44a3c9c5d2c91628ede020aa05d20fffeea3a020
+Install: inno
+Uninstall: registry AC3Filter 1.63b

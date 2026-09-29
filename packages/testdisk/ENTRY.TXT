@@ -1,0 +1,28 @@
+Package: testdisk
+Name: TestDisk & PhotoRec
+Version: 7.2
+Section: System
+Summary: Recovers lost partitions and deleted files (DOS program)
+Description: TestDisk finds and repairs lost partitions and boot sectors.
+ PhotoRec recovers deleted photos, documents and other files from disks and
+ memory cards. This is the DOS version, which runs in a Windows 95 or 98
+ DOS box or in MS-DOS mode.
+Homepage: https://www.cgsecurity.org/
+License: GPL-2.0-or-later
+License-File: pool/testdisk/7.2/LICENSE.TXT
+Systems: 95, 98
+Download: pool/testdisk/7.2/testdisk-7.2.dos.zip 1813834 d9174e8a98548a6a5b18e99c8abd3b6915b365fbbc5ec2e5b91dabf6f08fc7c4
+Source: pool/testdisk/7.2/src/testdisk-7.2.tar.bz2 855781 f8343be20cb4001c5d91a2e3bcd918398f00ae6d8310894a5a9f2feb813c283f
+ pool/testdisk/7.2/src/ntfs-3g_ntfsprogs-2022.5.17.tgz 1318476 0489fbb6972581e1b417ab578d543f6ae522e7fa648c3c9b49c789510fd5eb93
+ pool/testdisk/7.2/src/e2fsprogs-1.42.8.tar.gz 5990116 c696d66aac1d48fa02dcf7027bc5c1e921d7cacf0eea529f2dd62d7bdf3a981c
+ pool/testdisk/7.2/src/csdpmi5s.zip 88564 1198a2ee09eccf19361411a546b43d6cfb83d6f22247bb3316ee683d093ef63a
+Installed-Size: 1820
+Install: unzip C:\TESTDISK strip 1
+After: path C:\TESTDISK
+Shortcut: TestDisk | C:\TESTDISK\testdisk.exe |
+ PhotoRec | C:\TESTDISK\photorec.exe |
+Uninstall: files
+Warning: TestDisk can rewrite partition tables and boot sectors; read its
+ documentation before changing anything. Its built-in NTFS and ext2/3/4
+ support has known security problems: examining a malicious disk image can
+ run code on this computer.

@@ -1,0 +1,24 @@
+Package: audacity
+Name: Audacity
+Version: 2.0.0
+Section: Multimedia
+Summary: Records and edits sound, with effects and many file formats
+Description: A multi-track audio editor and recorder. Cut, copy, mix and apply
+ effects; import and export WAV, AIFF, Ogg Vorbis, FLAC and MP2. This is the
+ Audacity Team's own build for Windows 98 and ME.
+ .
+ To save MP3 files, Audacity needs the LAME encoder (lame_enc.dll), which is
+ not included and must be obtained separately.
+Homepage: https://www.audacityteam.org/
+License: GPL-2.0-or-later
+License-File: pool/audacity/2.0.0/LICENSE.TXT
+Systems: 98, ME
+Download: pool/audacity/2.0.0/audacity-win-2.0-ansi.exe 20091246 e76dd84393950b366bdf754e527c53e1357a71fa2e8a6b6b1c8a9930a31b4c8d
+Source: pool/audacity/2.0.0/src/audacity-fullsrc-2.0.0.tar.bz2 18784590 7a531f13f36362eaa073c1f37c14f59a7118958d4d7c0ec52399c6b80ec3bbb6
+ pool/audacity/2.0.0/src/swh-plugins_0.4.15.orig.tar.gz 1051623 d05ee8a4f4d92e828412bce3449a034f6ef16bb630eaf60f8fe4e15a89168640
+ pool/audacity/2.0.0/src/wxWidgets-2.8.12.tar.bz2 13824774 3b0ac1d2d017683851841501c8e1b744b97242d684a1668ded61809b0504f707
+Install: inno
+Uninstall: registry Audacity 2.0
+Warning: This version has 2 known security problems, fixed only in versions
+ that do not run on Windows 98. Opening a malicious WAV or MP2 file can
+ damage memory and may run code on this computer.

@@ -1,0 +1,21 @@
+Package: vsfilter
+Name: DirectVobSub (VSFilter)
+Version: 2.39
+Section: Multimedia
+Summary: Shows subtitles (SRT, SSA/ASS, VobSub) in DirectShow video players
+Description: A DirectShow filter that draws subtitles over video in Media
+ Player Classic, Windows Media Player and other DirectShow players. Also
+ works as a VirtualDub and AviSynth plugin. This is the Windows 9x build.
+Homepage: https://sourceforge.net/projects/guliverkli2/
+License: GPL-2.0-or-later
+License-File: pool/vsfilter/2.39/LICENSE.TXT
+Systems: 98, ME
+Download: pool/vsfilter/2.39/VSFilter_20081129_win9x.zip 478218 175792bfb986bb48b3b896786547c6364b98e07fdef74e0fb2288decbc684a3f
+Source: pool/vsfilter/2.39/src/guliverkli2-code-r87.zip 7043472 671094906aef9e7d523aebc05d52e957283f908d55ae5ac02ebd3e93d6149818
+Installed-Size: 1000
+Install: unzip {dir}
+After: run {sys}\REGSVR32.EXE /s "{dir}\VSFilter.dll"
+Remove: run {sys}\REGSVR32.EXE /u /s "{dir}\VSFilter.dll"
+Uninstall: files
+Warning: Old subtitle code: opening a damaged or malicious subtitle file may
+ crash the player or worse.

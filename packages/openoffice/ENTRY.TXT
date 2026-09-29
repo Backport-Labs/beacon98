@@ -1,0 +1,37 @@
+# Unmodified installer of the last OpenOffice.org for Windows 98 and ME. It
+# carries Microsoft redistributables (InstMsiA, unicows, msvcr71...) without
+# source; if we decide not to host those, switch to Availability: external with
+# http://archive.apache.org/dist/incubator/ooo/stable/2.4.3/OOo_2.4.3_Win32Intel_install_en-US.exe
+Package: openoffice
+Name: OpenOffice.org
+Version: 2.4.3
+Section: Office
+Summary: Office suite: word processor, spreadsheet, presentations, drawing
+Description: Writer, Calc, Impress, Draw, Math and Base. Opens and saves
+ Microsoft Office 97-2003 and OpenDocument files, and exports PDF. This is the
+ last version for Windows 98 and ME.
+ .
+ Java is not needed. Without it, the Base database wizards and the built-in
+ HSQLDB database do not work.
+Homepage: https://www.openoffice.org/
+License: LGPL-2.1-only
+License-File: pool/openoffice/2.4.3/LICENSE.TXT
+Systems: 98, ME
+Download: pool/openoffice/2.4.3/OOo_2.4.3_Win32Intel_install_en-US.exe 118490487 4b31cca4a379e6437eca95ba435308cd3c2ba51b2044a60077d9f7c3f7193759
+Source: pool/openoffice/2.4.3/src/OOo_2.4.3_src_core.tar.bz2 152311420 0546441f8dad6658f2e78fa0c2a78bfae1efa281c66bd60c9174ff89ecdd0d75
+ pool/openoffice/2.4.3/src/OOo_2.4.3_src_system.tar.bz2 41621781 f0fb560b9335706c8b35a14051ef3247df2a8a95b240c80377bed61f46c9bdfb
+ pool/openoffice/2.4.3/src/OOo_2.4.3_src_binfilter.tar.bz2 6738021 1cd33d1318e17501d0a7e120ae098568a7c6ecb41f56e1258bd7c388e6bd9ae6
+ pool/openoffice/2.4.3/src/OOo_2.4.3_src_extensions.tar.bz2 13315783 130f3ba340aa5051661d5081bda1041cb57e022719bff09dea903f733ea49af5
+ pool/openoffice/2.4.3/src/OOo_2.4.3_src_l10n.tar.bz2 81490942 24db9edc142a97e423464e5b71e82b93d6dffee8b2955ccb30e160ac68506795
+ pool/openoffice/2.4.3/src/mozilla-source-1.7.5.tar.gz 38721366 3e252bab95ecad3016b72fa594e0c44b9633d8c7b6af187e088a092019b56445
+Installed-Size: 325000
+Requires: memory 128 | OpenOffice.org 2.4 needs at least 128 MB of memory (256 MB recommended).
+Install: exe /S /GUILEVEL=qb /POSTREMOVE=ON
+Uninstall: registry OpenOffice.org 2.4
+Warning: This version has more than 50 known security problems, fixed only in
+ versions that do not run on Windows 98. Opening a malicious Word, RTF,
+ PowerPoint or image file, or clicking a link in a document, can run code on
+ this computer. Do not open documents from people you do not trust.
+Notice: If Windows Installer 2.0 was missing, setup installed it and Windows 98
+ restarts at the end. OpenOffice.org and the OpenOffice.org name are trademarks
+ of The Apache Software Foundation.

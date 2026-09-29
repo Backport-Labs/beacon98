@@ -1,0 +1,17 @@
+# Downloaded from the author's own server: its terms forbid profiting from
+# distribution and bundling it with another product, so we do not host it.
+Package: depends
+Name: Dependency Walker
+Version: 2.2.6000
+Section: Development
+Summary: Shows which DLLs a program needs and which are missing
+Homepage: https://www.dependencywalker.com/
+License: Freeware
+License-File: pool/depends/2.2.6000/LICENSE.TXT
+Systems: 95, 98, ME
+Availability: external
+Download: http://www.dependencywalker.com/depends22_x86.zip 610769 03d73abba0e856c81ba994505373fdb94a13b84eb29e6c268be1bf21b7417ca3
+Installed-Size: 1000
+Install: unzip {dir}
+Shortcut: Dependency Walker | {dir}\depends.exe |
+Uninstall: files

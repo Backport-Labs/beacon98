@@ -1,0 +1,23 @@
+# Downloaded from SourceForge: the K-Meleon project never published the
+# source code of version 1.5.4, so we cannot host it under the GPL.
+Package: k-meleon
+Name: K-Meleon
+Version: 1.5.4
+Section: Internet
+Summary: Fast, light web browser based on Mozilla's Gecko engine
+Description: The last K-Meleon for Windows 95, 98 and ME, with tabs, macros,
+ mouse gestures and skins. It does not support the encryption most secure
+ web sites require today, so many https:// pages will not open.
+Homepage: http://kmeleonbrowser.org/
+License: GPL-2.0-or-later AND MPL-1.1
+License-File: pool/k-meleon/1.5.4/LICENSE.TXT
+Systems: 95, 98, ME, NT4, 2000
+Availability: external
+Download: http://downloads.sourceforge.net/project/kmeleon/k-meleon/1.5.4/K-Meleon1.5.4en-US.exe 6049917 79b58ef35dc54c21d1080aeab4eba813480ed0a037fa7d7d1b2644262b2ca458
+Installed-Size: 18700
+Install: nsis
+Uninstall: registry K-Meleon 1.5.4 en-US (remove only)
+Warning: K-Meleon 1.5.4 is based on a browser engine from 2010 that gets no
+ security fixes. A malicious web page can run code on this computer. Do not
+ use it for banking or passwords. On Windows 95 it needs the COMCTL32.DLL
+ from Internet Explorer 5 or later.

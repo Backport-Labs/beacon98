@@ -1,0 +1,18 @@
+Package: virtualdub
+Name: VirtualDub
+Version: 1.10.4
+Section: Multimedia
+Summary: Video capture and processing for AVI files
+Description: Captures video from capture cards, cuts and joins AVI files, and
+ runs filters and compressors over them without re-encoding what it does not
+ need to. Includes a command-line version (vdub.exe).
+Homepage: https://www.virtualdub.org/
+License: GPL-2.0-or-later
+License-File: pool/virtualdub/1.10.4/LICENSE.TXT
+Systems: 98, ME, NT4, 2000
+Download: pool/virtualdub/1.10.4/VirtualDub-1.10.4.zip 1908225 0502648057fd1345f6755914e5d32bb55230ae63f63cd829298544e9ea5a4b98
+Source: pool/virtualdub/1.10.4/src/VirtualDub-1.10.4-src.7z 1811455 7d11ee30b437d06888b6fbc1820faaf284727c453e387dd865ce9628331c8d76
+Installed-Size: 3900
+Install: unzip {pf}\VirtualDub
+Shortcut: VirtualDub | {pf}\VirtualDub\VirtualDub.exe |
+Uninstall: files

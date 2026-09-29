@@ -1,8 +1,17 @@
-# Package files are published on the download server, not here.
+# Package files are published on the download server, not here. The records,
+# license texts and catalog drafts are kept.
 pilot/**
 !pilot/**/
 !pilot/**/RECORD.md
 !pilot/**/LICENSE.TXT
+packages/**
+!packages/**/
+!packages/**/RECORD.md
+!packages/**/LICENSE.TXT
+!packages/**/ENTRY.TXT
+
+# Copies of other people's web pages, fetched by the import scripts.
+research/import/cache/
 
 # Never commit a private key or stored credentials.
 *.pem
@@ -12,4 +21,7 @@ pilot/**
 
 # Build output
 client/build/out/
+
+# Made by assemble-catalog.ps1 for uploading; holds local paths.
+catalog/UPLOAD.CSV
 

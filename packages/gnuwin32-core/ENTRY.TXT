@@ -1,0 +1,50 @@
+Package: gnuwin32-core
+Name: GnuWin32 core tools
+Version: grep 2.5.4, sed 4.2, gawk 3.1.6, wget 1.11.4, diff 2.8.7, less 394
+Section: Utilities
+Summary: grep, sed, gawk, wget, diff, less and which for the command line
+Description: Unix text tools from the GnuWin32 project, for batch files and
+ the MS-DOS Prompt: grep, egrep, fgrep, sed, gawk (awk), wget, diff, cmp,
+ diff3, sdiff, less, which and iconv, with the libraries they need
+ (libintl, libiconv, regex, PCRE, OpenSSL 0.9.8h). These are the 2008-2009
+ builds whose GnuWin32 pages list Windows 95, 98 and ME.
+Homepage: https://gnuwin32.sourceforge.net/
+License: GPL-3.0-or-later AND GPL-2.0-or-later AND LGPL-2.0-or-later AND LGPL-2.1-or-later AND BSD-3-Clause AND OpenSSL
+License-File: pool/gnuwin32-core/2009.06/LICENSE.TXT
+Systems: 95, 98, ME
+Download: pool/gnuwin32-core/2009.06/grep-2.5.4-bin.zip 451824 3fd98201561b5af3f54a7dacc4f88068f5b5edf19ccdfc981c3c9fc60ff73519
+ pool/gnuwin32-core/2009.06/sed-4.2-1-bin.zip 368423 7956b4ded4804aad8d72cb65b57c10265fb34eb56e38b2ff41a1336881a5f063
+ pool/gnuwin32-core/2009.06/gawk-3.1.6-1-bin.zip 1448542 f05128cc735e8a4a0dff027a2c54a8ce69c30b4c0774bfb2994638317927c224
+ pool/gnuwin32-core/2009.06/wget-1.11.4-1-bin.zip 850448 40dc40fe4f9aa02644c2648d7d337632f5a50eed004e3d3b68da0306e4f50f1b
+ pool/gnuwin32-core/2009.06/diffutils-2.8.7-1-bin.zip 456027 6d64ee291c9b49a2841dbccea9795140802ff6b73fd2f4848635bbc974dc5a9c
+ pool/gnuwin32-core/2009.06/less-394-bin.zip 176349 cd8233cb3caee8ccbbed6883443f44f2002218eceb4d697d38a0c40c2d181896
+ pool/gnuwin32-core/2009.06/which-2.20-bin.zip 41833 035ec15541649f75459fb81f02406c72e1129fc9041b308160938ae712a603a4
+ pool/gnuwin32-core/2009.06/libiconv-1.9.2-1-bin.zip 828380 66f494fb37d2ac9367ef8398071f19db4b670a3d2ea2361f970d65195c336bd9
+ pool/gnuwin32-core/2009.06/libintl-0.14.4-bin.zip 394081 4e2e5f2e9becb50ee9d828f2400ca4115a8887d99c3c2b8fb59b1b77e504655b
+ pool/gnuwin32-core/2009.06/pcre-7.0-bin.zip 302480 a28aeda3ef00951f21ecd8d97f72fe015a8081fc365248850494d241bbd8a7c3
+ pool/gnuwin32-core/2009.06/regex-2.7-bin.zip 73283 64d7c7f2fc9e121d468e676af9fa3b074d552aefb8529221dd4c832baa186767
+ pool/gnuwin32-core/2009.06/openssl-0.9.8h-1-bin.zip 5906403 920c1473ed6646701cc5179b6d0a81d260228499568013334bc6f73b7f6e0787
+Source: pool/gnuwin32-core/2009.06/src/grep-2.5.4-src.zip 1361303 4591fa32fbed45abd9ace524db4847f68f60a478725441fdfab3602a57983b67
+ pool/gnuwin32-core/2009.06/src/sed-4.2-1-src.zip 2072628 dd99ae79b0bc1f53bfbc21c0ea82818bb2cd47a68107900a80dea2e516de5908
+ pool/gnuwin32-core/2009.06/src/gawk-3.1.6-1-src.zip 3126204 78eec584753be8204e94fb0efea79e27bef5f5b2deb270c6c3874c935e14a16c
+ pool/gnuwin32-core/2009.06/src/wget-1.11.4-1-src.zip 2189442 8732dbdefdb34fe0938ec0cb7384497cd8ca9d6b76a48e0dc0dbf1720245a9bf
+ pool/gnuwin32-core/2009.06/src/diffutils-2.8.7-1-src.zip 1482028 622cdfe2dcf94d5f9fd05b9546395e624fe1b84ccb7ab473bbbe893f04423821
+ pool/gnuwin32-core/2009.06/src/less-394-src.zip 373073 03098c71da92893e2526dbed98b62b641d16f40f872272659bed3ed6f52849c8
+ pool/gnuwin32-core/2009.06/src/which-2.20-src.zip 228221 87ebfb51793647f4f24136c7bc7877c4aa025795e7e15496fdd33eaaac1d1224
+ pool/gnuwin32-core/2009.06/src/libiconv-1.9.2-1-src.zip 4638975 06e31e8c7019fbaa0dd58aeaff97cdfe7238e67865b52de5f53083e2e04ed33f
+ pool/gnuwin32-core/2009.06/src/libintl-0.14.4-src.zip 257432 e51f536e6aaffdfe11f2c48280c985c18cc252264258362325816aaa127cd4da
+ pool/gnuwin32-core/2009.06/src/pcre-7.0-src.zip 1306504 04fd80bb9cbc005c3d3ef9a0d59b94821ffcb666dd698835c410a7f718507c15
+ pool/gnuwin32-core/2009.06/src/regex-2.7-src.zip 2291538 321000f891a7a89e6a610cb46c7a500152791e8653ec6228366c02a9293271f3
+ pool/gnuwin32-core/2009.06/src/openssl-0.9.8h-1-src.zip 14375398 6c6bd581e64e1a0ff67ab5cd8ecc50cbbc9b3eecd01076209ad1e68aff7055dc
+Installed-Size: 27000
+Requires: file {sys}\MSVCP60.DLL | grep, sed, gawk and diff need MSVCP60.DLL (Microsoft Visual C++ 6.0 runtime) in the Windows SYSTEM folder.
+Install: unzip C:\GNUWIN32
+After: path C:\GNUWIN32\BIN
+Uninstall: files
+Warning: These are old versions with known security problems. wget 1.11.4
+ can be made to overwrite files by a malicious server (recursive FTP
+ downloads, HTTP-to-FTP redirects), and its OpenSSL 0.9.8h has dozens of
+ known flaws. less and the PCRE library can crash or run code on crafted
+ input. Do not rely on wget for secure (HTTPS) connections.
+Notice: The tools are in C:\GNUWIN32\BIN, which is added to PATH after a
+ restart. On Windows 95, wget also needs the Windows Sockets 2 update.

@@ -1,0 +1,20 @@
+Package: golly
+Name: Golly
+Version: 1.4
+Section: Games
+Summary: Explorer for Conway's Game of Life and other cellular automata
+Description: Runs Conway's Game of Life and other cellular automata on an
+ unbounded universe, very fast thanks to the Hashlife algorithm. Includes a
+ large pattern collection, the Life Lexicon, unlimited undo, layers, and
+ scripting in Perl or Python (if installed).
+Homepage: http://golly.sourceforge.net/
+License: GPL-2.0-or-later
+License-File: pool/golly/1.4/LICENSE.TXT
+Systems: 98, ME
+Download: pool/golly/1.4/golly-1.4-win.zip 2347109 3b7eb6e853eb68092baa4f400ab4231cd7f5aa439563f4819f5776279726de0c
+Source: pool/golly/1.4/src/golly-1.4-src.tar.gz 1444433 db7109d09d4ad46c882949fbbf9a94dc3dc99d538cf18ffd2e3638bf06a5dafc
+Installed-Size: 5800
+Requires: package kernelex | Golly 1.4 needs KernelEx on Windows 98 and ME. Install the KernelEx package first.
+Install: unzip {pf}\Golly strip 1
+Shortcut: Golly | {pf}\Golly\Golly.exe |
+Uninstall: files

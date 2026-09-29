@@ -1,0 +1,24 @@
+# DRAFT. External: the Windows build statically links Microsoft's D3DX8
+# library, so we cannot offer its complete source (see RECORD.md). The
+# SourceForge http:// address answers with a 302 to a mirror over plain HTTP.
+Package: vba
+Name: VisualBoyAdvance
+Version: 1.7.2
+Section: Games
+Summary: Game Boy, Game Boy Color and Game Boy Advance emulator
+Description: Plays Game Boy, Game Boy Color and Game Boy Advance cartridge
+ images. No games are included.
+Homepage: https://sourceforge.net/projects/vba/
+License: GPL-2.0-or-later
+License-File: pool/vba/1.7.2/LICENSE.TXT
+Systems: 95, 98, ME
+Availability: external
+Download: http://downloads.sourceforge.net/project/vba/VisualBoyAdvance/1.7.2/VisualBoyAdvance-1.7.2.zip 611913 76d52646ae86e1eb0e4b5849d026ed5d45aa4d42f933801b79cf54503a7facd3
+Requires: dx 7.0 | VisualBoyAdvance needs DirectX 7 or later from Microsoft.
+Installed-Size: 1780
+Install: unzip {dir}
+Shortcut: VisualBoyAdvance | {dir}\VisualBoyAdvance.exe |
+Uninstall: files
+Warning: This version contains old image and compression libraries with known
+ security problems. Opening a malicious game file or skin can run code on
+ this computer.

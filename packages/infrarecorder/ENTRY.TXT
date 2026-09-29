@@ -1,0 +1,32 @@
+# Downloaded from SourceForge: the bundled cdrtools and Cygwin DLL need
+# sources we could not find, so we do not host it ourselves.
+# 0.45 is the last build without Unicode, so it runs without KernelEx.
+Package: infrarecorder
+Name: InfraRecorder
+Version: 0.45
+Section: Multimedia
+Summary: Burns data, audio and image CDs and DVDs, and copies discs
+Homepage: http://infrarecorder.org/
+License: GPL-2.0-or-later
+License-File: pool/infrarecorder/0.45/LICENSE.TXT
+Systems: 98, ME
+Availability: external
+Download: http://downloads.sourceforge.net/project/infrarecorder/InfraRecorder/0.45/ir045_ansi.exe 3101025 7cf044a461574ebe3a80207395ad26564541ca0f50ee0a3991bacffb610ed1bf
+Install: nsis
+Uninstall: registry InfraRecorder
+
+# Alternative, if KernelEx is wanted anyway (0.50 is Unicode-only):
+#Package: infrarecorder
+#Name: InfraRecorder
+#Version: 0.50
+#Section: Multimedia
+#Summary: Burns data, audio and image CDs and DVDs, and copies discs
+#Homepage: http://infrarecorder.org/
+#License: GPL-3.0-or-later
+#License-File: pool/infrarecorder/0.50/LICENSE.TXT
+#Systems: 98, ME
+#Availability: external
+#Download: http://downloads.sourceforge.net/project/infrarecorder/InfraRecorder/0.50/ir050.exe 3432724 a2f78840cbd85ae86ad78ba3d37f4048703f0a5eb0be768c9e7ea254f30be00e
+#Requires: package kernelex | InfraRecorder 0.50 uses Unicode functions that Windows 98 and ME only have with KernelEx.
+#Install: nsis
+#Uninstall: registry InfraRecorder

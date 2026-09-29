@@ -1,0 +1,4 @@
+# BLOCKED - no downloadable 3.99.5 Windows build runs on Windows 98.
+# The RareWares "LAME 3.99.5 for older Win32 OSs" (lame3.99.5_vc6.zip) link
+# is 404; all remaining RareWares builds are PE subsystem 5.0 or later.
+# Source (src/lame-3.99.5.tar.gz) is downloaded and verified. See RECORD.md.

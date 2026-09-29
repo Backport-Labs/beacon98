@@ -1,0 +1,24 @@
+Package: avidemux
+Name: Avidemux
+Version: 2.5.2
+Section: Multimedia
+Summary: Simple video cutter, filter and re-encoder
+Description: Cuts, joins, filters and re-encodes video files (AVI, MPEG,
+ MP4, MKV, FLV and more) with a simple Qt interface. Includes a
+ command-line version (avidemux2_cli.exe).
+Homepage: https://avidemux.sourceforge.net/
+License: GPL-2.0-or-later
+License-File: pool/avidemux/2.5.2/LICENSE.TXT
+Systems: 98, ME
+Download: pool/avidemux/2.5.2/avidemux_2.5.2_win32.exe 10327518 a11b59d517b87d9fabe1c1016bb7a26d358e6f4297001549d8f2e4ad1416a6b3
+Source: pool/avidemux/2.5.2/src/avidemux_2.5.2.tar.gz 13593297 685e37b936f646de6fe65973c95ca9708959e7b6e66d0f6b17a6cc988e2ef8aa
+Installed-Size: 36400
+Requires: package kernelex | Avidemux 2.5.2 needs KernelEx on Windows 98 and ME. Install the KernelEx package first.
+Install: nsis
+Uninstall: registry Avidemux 2.5
+Warning: Avidemux 2.5.2 is from 2009. Its video and image libraries (FFmpeg,
+ libpng and others) have many security flaws that were fixed later. Opening a
+ specially crafted video file could run harmful code. Only open files you
+ trust.
+Notice: Avidemux runs on Windows 98 only with KernelEx. Users report that the
+ volume (loudness) adjustment does not work.

@@ -1,0 +1,19 @@
+Package: stella
+Name: Stella
+Version: 3.6.1
+Section: Games
+Summary: Atari 2600 emulator
+Description: Plays Atari 2600 VCS cartridge images, with a built-in debugger.
+ No games are included.
+Homepage: https://stella-emu.github.io/
+License: GPL-2.0-or-later
+License-File: pool/stella/3.6.1/LICENSE.TXT
+Systems: 98, ME
+Download: pool/stella/3.6.1/Stella-3.6.1_98_2k-windows.zip 1518520 19639c651abd1c8d8d8c7c49894ecec5986f868d6995bef46065d79fdfbf88da
+Source: pool/stella/3.6.1/src/stella-3.6.1-src.tar.gz 2073179 b29ab8deb52ababd70883042bd1c037fa40a05276f3b657754b5914ed14d71be
+ pool/stella/3.6.1/src/SDL-1.2.14.tar.gz 4014154 5d927e287034cb6bb0ebccfa382cb1d185cb113c8ab5115a0759798642eed9b6
+Installed-Size: 3110
+Install: unzip {dir} strip 1
+Shortcut: Stella | {dir}\32-bit\Stella.exe |
+Uninstall: files
+Notice: This is the last Stella version for Windows 98 and ME.

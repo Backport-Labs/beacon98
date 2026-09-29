@@ -1,0 +1,17 @@
+Package: shellexview
+Name: ShellExView
+Version: 2.01
+Section: System
+Summary: Lists Explorer shell extensions and turns off broken ones
+Description: Shows every shell extension installed on the computer: context
+ menu handlers, property sheets, icon handlers and more. Turning off a faulty
+ extension often cures Explorer crashes and slow right-click menus.
+Homepage: https://www.nirsoft.net/utils/shexview.html
+License: Freeware
+License-File: pool/shellexview/2.01/LICENSE.TXT
+Systems: 98, ME
+Download: pool/shellexview/2.01/shexview.zip 73154 b0f5e6bea715be67460d24e4ffe5256297ffd990cc4f5bfa902f9d5af0d1196d
+Installed-Size: 105
+Install: unzip {dir}
+Shortcut: ShellExView | {dir}\shexview.exe |
+Uninstall: files

@@ -157,7 +157,19 @@ uses to take them away again.
 | Kind | Argument | What the client does |
 |---|---|---|
 | `registry` | Add/Remove Programs name | Runs the uninstaller Windows lists under that name |
+| `run` | command line | Runs this command and waits, for a setup program that registers no uninstaller, e.g. `run "{dir}\uninstall.exe" /S` |
 | `files` | | Removes the files and shortcuts Beacon created, using its own record |
+
+With `registry` and `run`, Beacon also removes the shortcuts and `PATH` lines it
+created itself.
+
+A package may also have `Remove` lines: `run` steps carried out before
+uninstalling, while the files are still there, for example
+`run regsvr32 /u /s "{dir}\vsfilter.dll"` to undo a registration made by an
+`After` step.
+
+Places in the switches of `inno`, `nsis`, `msi` and `exe` are expanded too, so
+`Install: nsis /D={dir}` puts an NSIS program into the package's folder.
 
 ## CATALOG.SIG
 
