@@ -1,0 +1,11 @@
+# Package files are published on the download server, not here.
+pilot/**
+!pilot/**/
+!pilot/**/RECORD.md
+!pilot/**/LICENSE.TXT
+
+# Never commit a private key or stored credentials.
+*.pem
+!keys/*.pub.pem
+*.dpapi
+*.key

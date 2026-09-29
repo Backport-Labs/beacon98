@@ -1,0 +1,6 @@
+* text=auto
+# The catalog is signed byte for byte: Git must not change its line endings.
+catalog/CATALOG.TXT -text
+catalog/CATALOG.SIG -text
+# License texts are kept exactly as the projects publish them.
+pilot/**/LICENSE.TXT -text
