@@ -1,0 +1,8 @@
+LIBRARY wininet.dll
+
+EXPORTS
+InternetOpenA
+InternetOpenUrlA
+InternetReadFile
+InternetCloseHandle
+HttpQueryInfoA

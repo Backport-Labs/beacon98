@@ -156,11 +156,11 @@ static int FindUninstall(const char *display, char *version, int versionLen)
     return found;
 }
 
-/* INSTALLED.TXT, next to the program, lists what Beacon unpacked itself:
- * one "package version" per line. */
+/* INSTALLED.TXT, next to the program, lists what Beacon installed: one
+ * "package|version|folder" per line. */
 static int FindInstalledList(const char *id, char *version, int versionLen)
 {
-    char path[MAX_PATH], line[200];
+    char path[MAX_PATH], line[700], *bar;
     FILE *f;
     int len = lstrlen(id), found = 0;
     version[0] = 0;
@@ -168,15 +168,50 @@ static int FindInstalledList(const char *id, char *version, int versionLen)
     f = fopen(path, "r");
     if (!f) return 0;
     while (!found && fgets(line, sizeof(line), f)) {
-        if (strncmp(line, id, len) == 0 && line[len] == ' ') {
+        if (strncmp(line, id, len) == 0 && line[len] == '|') {
+            bar = strchr(line + len + 1, '|');
+            if (bar) *bar = 0;
             lstrcpyn(version, line + len + 1, versionLen);
-            len = lstrlen(version);
-            while (len && (version[len - 1] == '\n' || version[len - 1] == '\r')) version[--len] = 0;
             found = 1;
         }
     }
     fclose(f);
     return found;
+}
+
+/* This version of Windows, as the catalog writes it: 95, 98, ME, NT4 or 2000.
+ * Later versions give "". */
+const char *ThisWindows(void)
+{
+    OSVERSIONINFO v;
+    v.dwOSVersionInfoSize = sizeof(v);
+    if (!GetVersionEx(&v)) return "";
+    if (v.dwPlatformId == VER_PLATFORM_WIN32_WINDOWS) {
+        if (v.dwMinorVersion >= 90) return "ME";
+        if (v.dwMinorVersion >= 10) return "98";
+        return "95";
+    }
+    if (v.dwPlatformId == VER_PLATFORM_WIN32_NT) {
+        if (v.dwMajorVersion == 4) return "NT4";
+        if (v.dwMajorVersion == 5 && v.dwMinorVersion == 0) return "2000";
+    }
+    return "";
+}
+
+/* Whether a Systems field such as "95, 98, ME" names this Windows. */
+int SystemListed(const char *systems)
+{
+    const char *me = ThisWindows();
+    char word[16];
+    int i;
+    if (!me[0] || !systems) return 0;
+    while (*systems) {
+        while (*systems == ' ' || *systems == ',') systems++;
+        for (i = 0; *systems && *systems != ',' && *systems != ' ' && i < (int)sizeof(word) - 1; i++) word[i] = *systems++;
+        word[i] = 0;
+        if (i && lstrcmpi(word, me) == 0) return 1;
+    }
+    return 0;
 }
 
 void CheckSystem(CATALOG *cat)

@@ -184,6 +184,60 @@ static void TestRequirements(void)
     }
 }
 
+/* The build makes TEST.ZIP, SFX.EXE (the same archive after 5000 other
+ * bytes) and EVIL.ZIP (an entry named ../EVIL.TXT); it then compares what was
+ * unpacked with the originals. */
+static void TestUnzip(void)
+{
+    static const char *cases[3][3] = {
+        { "TEST.ZIP", "OUT1", "0" }, { "SFX.EXE", "OUT2", "1" }, { "EVIL.ZIP", "OUT3", "0" }
+    };
+    char archive[MAX_PATH], target[MAX_PATH], err[300], path[MAX_PATH];
+    int i;
+    for (i = 0; i < 3; i++) {
+        wsprintf(archive, "%s%s", g_dir, cases[i][0]);
+        wsprintf(target, "%s%s", g_dir, cases[i][1]);
+        if (Unzip(archive, target, atoi(cases[i][2]), NULL, NULL, NULL, err, sizeof(err)))
+            fprintf(g_out, "UNZIP %s, strip %s: unpacked\n", cases[i][0], cases[i][2]);
+        else
+            fprintf(g_out, "UNZIP %s, strip %s: %s\n", cases[i][0], cases[i][2], err);
+    }
+    wsprintf(path, "%sEVIL.TXT", g_dir);
+    fprintf(g_out, "UNZIP a file outside the target was %s\n", GetFileAttributes(path) == 0xFFFFFFFF ? "not written" : "WRITTEN");
+    wsprintf(archive, "%sED25519.TXT", g_dir);
+    wsprintf(target, "%sOUT4", g_dir);
+    fprintf(g_out, "UNZIP a file that is not an archive: %s\n", Unzip(archive, target, 0, NULL, NULL, NULL, err, sizeof(err)) ? "unpacked" : err);
+}
+
+/* Downloads from the Backport Labs server. */
+static void TestHttp(void)
+{
+    char path[MAX_PATH], err[300], hex[65];
+    BYTE h[32];
+    DWORD size;
+    wsprintf(path, "%sKEYS.DL", g_dir);
+    if (HttpGetFile("http://" CATALOG_HOST "/KEYS.TXT", path, 0, NULL, NULL, NULL, err, sizeof(err)) && Sha256File(path, h, &size)) {
+        ToHex(h, 32, hex);
+        fprintf(g_out, "HTTP KEYS.TXT: %lu bytes, SHA-256 %s\n", size, hex);
+    } else fprintf(g_out, "HTTP KEYS.TXT: %s\n", err);
+    DeleteFile(path);
+    if (!HttpGetFile("http://" CATALOG_HOST "/KEYS.TXT", path, 100, NULL, NULL, NULL, err, sizeof(err)))
+        fprintf(g_out, "HTTP with a size smaller than the file: %s\n", err);
+    fprintf(g_out, "HTTP the partial file was %s\n", GetFileAttributes(path) == 0xFFFFFFFF ? "deleted" : "KEPT");
+    if (!HttpGetFile("http://" CATALOG_HOST "/NO-SUCH-FILE.TXT", path, 0, NULL, NULL, NULL, err, sizeof(err)))
+        fprintf(g_out, "HTTP a missing file: %s\n", err);
+    if (!HttpGetFile("https://" CATALOG_HOST "/KEYS.TXT", path, 0, NULL, NULL, NULL, err, sizeof(err)))
+        fprintf(g_out, "HTTP an https address: %s\n", err);
+    CloseNet();
+}
+
+static void TestSystems(void)
+{
+    fprintf(g_out, "SYSTEMS \"95, 98, ME\" and \"NT4\" name this Windows: %s\n",
+            SystemListed("95, 98, ME") || SystemListed("NT4") ? "yes" : "no");
+    fprintf(g_out, "SYSTEMS an empty list names this Windows: %s\n", SystemListed("") ? "yes" : "no");
+}
+
 static void TestHashFiles(void)
 {
     char path[MAX_PATH], name[MAX_PATH], hex[65];
@@ -273,6 +327,9 @@ int SelfTest(void)
     TestCatalog();
     TestParse();
     TestRequirements();
+    TestSystems();
+    TestUnzip();
+    TestHttp();
     fclose(g_out);
     TestHashFiles();
     return 0;

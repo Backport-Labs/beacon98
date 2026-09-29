@@ -1,4 +1,4 @@
-Beacon 98 0.1.0 self-test
+Beacon 98 0.2.0 self-test
 SHA256 empty e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 SHA256 abc ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad
 SHA256 448-bits 248d6a61d20638b8e5c026930c3e6039a33ce45964ff2167f6ecedd419db06c1
@@ -34,3 +34,15 @@ REQUIRES one megabyte of memory: met
 REQUIRES a terabyte of memory: missing
 REQUIRES DirectX 9: not checked
 REQUIRES a check a later version may add: not checked
+SYSTEMS "95, 98, ME" and "NT4" name this Windows: no
+SYSTEMS an empty list names this Windows: no
+UNZIP TEST.ZIP, strip 0: unpacked
+UNZIP SFX.EXE, strip 1: unpacked
+UNZIP EVIL.ZIP, strip 0: The archive contains an unsafe name: ../EVIL.TXT
+UNZIP a file outside the target was not written
+UNZIP a file that is not an archive: This is not a ZIP archive.
+HTTP KEYS.TXT: 145 bytes, SHA-256 0adb5197c506dfb57350af9fbf70686decad570db7bc278e1fdc88ec4173b42a
+HTTP with a size smaller than the file: The server sent more than the catalog lists.
+HTTP the partial file was deleted
+HTTP a missing file: The server answered 404.
+HTTP an https address: Only http:// addresses can be used on this computer.
