@@ -5,7 +5,8 @@
 #
 # Usage:
 #   .\client\build\build.ps1 -Tcc C:\tools\tcc\tcc.exe
-param([Parameter(Mandatory = $true)] [string] $Tcc)
+param([Parameter(Mandatory = $true)] [string] $Tcc,
+      [string] $Iscc)                       # Inno Setup 5.4.3 ISCC.exe; builds dist\B98SETUP.EXE when given
 $ErrorActionPreference = 'Stop'
 $client = Split-Path -Parent $PSScriptRoot
 $repo = Split-Path -Parent $client
@@ -114,5 +115,12 @@ foreach ($pair in @(@('OUT1\top', 'top'), @('OUT2', 'top'))) {
 }
 if ($bad) { throw "Self-test: $bad line(s) differ." }
 Write-Host "  $unpacked unpacked files match their originals."
+
+if ($Iscc) {
+    Write-Host 'Building B98SETUP.EXE...'
+    & $Iscc /Q (Join-Path $client 'installer\BEACON98.ISS')
+    if ($LASTEXITCODE -ne 0) { throw 'Building the setup program failed.' }
+    Get-Item (Join-Path $client 'dist\B98SETUP.EXE') | Select-Object Name, Length
+}
 Write-Host "  $($expected.Count) lines and $($hashme.Count) file hashes match."
 Get-Item $exe | Select-Object Name, Length

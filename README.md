@@ -63,8 +63,13 @@ Windows 95 and 98 provide.
 | `../vendor/cacert` | Mozilla's certificate authorities as published by [curl](https://curl.se/docs/caextract.html), MPL 2.0. Built into the program; a `CAROOTS.PEM` next to it replaces the list. |
 
 ```powershell
-.\client\build\build.ps1 -Tcc C:\tools\tcc\tcc.exe
+.\client\build\build.ps1 -Tcc C:\tools\tcc\tcc.exe -Iscc "C:\tools\Inno Setup 5\ISCC.exe"
 ```
+
+With `-Iscc` (Inno Setup 5.4.3, the last release that builds setup programs for Windows 95 and
+98), the build also writes the setup program `client\dist\B98SETUP.EXE`. Beacon can update
+itself: when it installs its own catalog package, `beacon98`, it starts the new setup and
+closes, and the setup waits for it to be gone, then starts it again.
 
 The build compiles the program and runs its self-test: SHA-256 test values, 256 Ed25519 test
 vectors from the reference software together with forged signatures and changed messages that
