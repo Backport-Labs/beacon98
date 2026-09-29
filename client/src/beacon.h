@@ -117,7 +117,10 @@ BOOL   WINAPI HttpQueryInfoA(HANDLE, DWORD, void *, DWORD *, DWORD *);
 #define MY_INTERNET_FLAG_NO_CACHE_WRITE 0x04000000
 #define MY_INTERNET_FLAG_PRAGMA_NOCACHE 0x00000100
 #define MY_INTERNET_FLAG_NO_UI          0x00000200
+#define MY_INTERNET_FLAG_NO_AUTO_REDIRECT 0x00200000
 #define MY_HTTP_QUERY_CONTENT_LENGTH    5
+#define MY_HTTP_QUERY_DATE              9
+#define MY_HTTP_QUERY_LOCATION          33
 #define MY_HTTP_QUERY_STATUS_CODE       19
 #define MY_HTTP_QUERY_FLAG_NUMBER       0x20000000
 
@@ -167,7 +170,7 @@ int crypto_sign_ed25519_tweet_open(unsigned char *m, unsigned long long *mlen,
  * Constants, types and the state the files share
  * --------------------------------------------------------------------- */
 #define APP_NAME     "Beacon 98"
-#define APP_VERSION  "0.3.0"
+#define APP_VERSION  "0.4.0"
 #define CATALOG_HOST "get.backportlabs.com"
 #define CATALOG_FILE "CATALOG.TXT"
 #define SIG_FILE     "CATALOG.SIG"
@@ -256,6 +259,18 @@ int  SystemListed(const char *systems);
 int  HttpGetFile(const char *url, const char *path, DWORD expect, volatile int *cancel,
                  void (*progress)(DWORD done, DWORD total, void *ctx), void *ctx, char *err, int errLen);
 void CloseNet(void);
+int  ServerDate(char *out, int outLen);
+int  IsUrl(const char *s);
+
+/* tls.c: HTTPS with BearSSL over Windows Sockets */
+int  SockHttpGet(const char *url, const char *path, DWORD expect, volatile int *cancel,
+                 void (*progress)(DWORD done, DWORD total, void *ctx), void *pctx,
+                 int *status, char *location, int locLen, char *err, int errLen);
+int  SplitUrl(const char *url, int *tls, char *host, int hostLen, int *port, char *path, int pathLen);
+int  ParseHttpDate(const char *s, long *days, long *secs);
+size_t TrustAnchors(void);
+const char *ClockNote(void);
+void TestShiftClock(long days);
 
 /* unzip.c: unpacking ZIP files */
 typedef void (*UNZIP_LOG)(char kind, const char *path, void *ctx);

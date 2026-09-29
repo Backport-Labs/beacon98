@@ -227,8 +227,8 @@ static void TestHttp(void)
     fprintf(g_out, "HTTP the partial file was %s\n", GetFileAttributes(path) == 0xFFFFFFFF ? "deleted" : "KEPT");
     if (!HttpGetFile("http://" CATALOG_HOST "/NO-SUCH-FILE.TXT", path, 0, NULL, NULL, NULL, err, sizeof(err)))
         fprintf(g_out, "HTTP a missing file: %s\n", err);
-    if (!HttpGetFile("https://" CATALOG_HOST "/KEYS.TXT", path, 0, NULL, NULL, NULL, err, sizeof(err)))
-        fprintf(g_out, "HTTP an https address: %s\n", err);
+    if (!HttpGetFile("ftp://" CATALOG_HOST "/KEYS.TXT", path, 0, NULL, NULL, NULL, err, sizeof(err)))
+        fprintf(g_out, "HTTP an ftp address: %s\n", err);
 
     /* A file with several locations: the first is missing, the second is right. */
     lstrcpy(g_cat.base, "http://" CATALOG_HOST "/");
@@ -242,6 +242,52 @@ static void TestHttp(void)
                       g_dir, path) ? "FETCHED" : "refused");
     fprintf(g_out, "FETCH the refused file was %s\n", GetFileAttributes(path) == 0xFFFFFFFF ? "deleted" : "KEPT");
     g_cat.base[0] = 0;
+    CloseNet();
+}
+
+/* HTTPS with Beacon's own TLS. The badssl.com servers have deliberately
+ * broken certificates, each of which must be refused. */
+static void TestHttps(void)
+{
+    static const char *bad[3][2] = {
+        { "https://untrusted-root.badssl.com/", "a certificate from an unknown authority" },
+        { "https://wrong.host.badssl.com/", "a certificate for another name" },
+        { "https://expired.badssl.com/", "an expired certificate" }
+    };
+    char path[MAX_PATH], err[300], hex[65];
+    BYTE h[32];
+    DWORD size;
+    long days, secs;
+    int i;
+    fprintf(g_out, "HTTPS certificate authorities loaded: %s\n", TrustAnchors() > 100 ? "more than 100" : "TOO FEW");
+    wsprintf(path, "%sKEYS.DL", g_dir);
+    if (HttpGetFile("https://" CATALOG_HOST "/KEYS.TXT", path, 0, NULL, NULL, NULL, err, sizeof(err)) && Sha256File(path, h, &size)) {
+        ToHex(h, 32, hex);
+        fprintf(g_out, "HTTPS KEYS.TXT: %lu bytes, SHA-256 %s\n", size, hex);
+    } else fprintf(g_out, "HTTPS KEYS.TXT: %s\n", err);
+    DeleteFile(path);
+    for (i = 0; i < 3; i++) {
+        if (HttpGetFile(bad[i][0], path, 0, NULL, NULL, NULL, err, sizeof(err))) lstrcpy(err, "ACCEPTED");
+        fprintf(g_out, "HTTPS %s: %s\n", bad[i][1], err);
+        DeleteFile(path);
+    }
+    if (HttpGetFile("http://curl.se/ca/cacert.pem.sha256", path, 0, NULL, NULL, NULL, err, sizeof(err)) && Sha256File(path, h, &size))
+        fprintf(g_out, "HTTPS reached through a redirect from http://: %s\n", size > 64 ? "yes" : "EMPTY");
+    else fprintf(g_out, "HTTPS reached through a redirect from http://: %s\n", err);
+    DeleteFile(path);
+    /* A clock 24 years behind (about 2002) and 14 years ahead (about 2040). */
+    for (i = 0; i < 2; i++) {
+        TestShiftClock(i == 0 ? -9000 : 5000);
+        if (HttpGetFile("https://" CATALOG_HOST "/KEYS.TXT", path, 145, NULL, NULL, NULL, err, sizeof(err))) lstrcpy(err, "fetched");
+        fprintf(g_out, "CLOCK %s: %s; %s\n", i == 0 ? "24 years behind" : "14 years ahead", err,
+                strncmp(ClockNote(), "The clock of this computer is wrong; certificates were checked against the date of " CATALOG_HOST, 83 + lstrlen(CATALOG_HOST)) == 0
+                ? "Beacon used the server's date and said so" : "NO NOTE");
+        DeleteFile(path);
+    }
+    TestShiftClock(0);
+    if (ParseHttpDate("Tue, 29 Sep 2026 00:45:08 GMT", &days, &secs))
+        fprintf(g_out, "DATE Tue, 29 Sep 2026 00:45:08 GMT is day %ld, second %ld\n", days, secs);
+    fprintf(g_out, "DATE a date that is not a date: %s\n", ParseHttpDate("yesterday", &days, &secs) ? "READ" : "refused");
     CloseNet();
 }
 
@@ -344,6 +390,7 @@ int SelfTest(void)
     TestSystems();
     TestUnzip();
     TestHttp();
+    TestHttps();
     fclose(g_out);
     TestHashFiles();
     return 0;

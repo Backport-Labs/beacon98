@@ -50,7 +50,8 @@ Windows 95 and 98 provide.
 | `sign.c` | Checking `CATALOG.SIG` with the public key built into the program |
 | `sha256.c` | SHA-256, for checking downloaded files |
 | `system.c` | Requirements, the version of Windows, and which packages are installed |
-| `net.c` | Downloading over HTTP with WinInet |
+| `net.c` | Downloading: plain HTTP through WinInet, redirects, and handing HTTPS to `tls.c` |
+| `tls.c` | HTTPS with BearSSL over Windows Sockets, trusted certificate authorities, wrong clocks |
 | `install.c` | Updating the catalog, installing and removing packages, shortcuts |
 | `unzip.c` | Unpacking ZIP files in pieces, with CRC-32 checks and safe names |
 | `task.c` | The progress window; the work runs in a second thread |
@@ -58,6 +59,8 @@ Windows 95 and 98 provide.
 | `test.c` | The self-test and the `/shot` and `/unzip` test modes |
 | `tweetnacl.c`, `tweetnacl.h` | [TweetNaCl](https://tweetnacl.cr.yp.to/) 20140427, public domain, unchanged. Used for Ed25519. |
 | `../vendor/miniz` | [miniz](https://github.com/richgel999/miniz) 3.1.2, MIT license, unchanged. Only its inflate part is compiled. |
+| `../vendor/bearssl` | [BearSSL](https://bearssl.org/) 0.6, MIT license, unchanged except that its system random source is left out; Beacon supplies its own. Identical to Debian's copy of the same release. |
+| `../vendor/cacert` | Mozilla's certificate authorities as published by [curl](https://curl.se/docs/caextract.html), MPL 2.0. Built into the program; a `CAROOTS.PEM` next to it replaces the list. |
 
 ```powershell
 .\client\build\build.ps1 -Tcc C:\tools\tcc\tcc.exe

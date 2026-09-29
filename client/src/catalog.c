@@ -72,7 +72,7 @@ static int HostedHere(const char *lines)
         while (*p == ' ') p++;
         if (*p == '\n') { p++; word = 0; continue; }
         if (!*p) break;
-        if (word != 1 && word != 2 && strncmp(p, "http://", 7) != 0) return 1;   /* words 1 and 2 are size and hash */
+        if (word != 1 && word != 2 && !IsUrl(p)) return 1;   /* words 1 and 2 are size and hash */
         while (*p && *p != ' ' && *p != '\n') p++;
         word++;
     }

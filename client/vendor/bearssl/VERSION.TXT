@@ -1,0 +1,2 @@
+tarball sha256 6705bba1714961b41a728dfc5debbe348d2966c117649392f8c8139efc83ff14
+BearSSL 0.6 from https://bearssl.org/bearssl-0.6.tar.gz, unchanged except that src/rand/sysrng.c is left out: Beacon supplies br_prng_seeder_system itself (client/src/tls.c).

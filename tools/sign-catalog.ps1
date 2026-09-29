@@ -50,9 +50,9 @@ if ($head.Base -notmatch '^http://.+/$') { $errors.Add('catalog block: Base must
 $ids = @{}
 $sections = 'Utilities', 'Internet', 'Multimedia', 'Office', 'Development', 'Games', 'System'
 # location size sha256 [location ...]; a location is a pool path or an http:// address.
-$loc = '(?:http://[A-Za-z0-9.-]+/[A-Za-z0-9._/~%+-]+|[A-Za-z0-9._/-]+)'
+$loc = '(?:https?://[A-Za-z0-9.-]+/[A-Za-z0-9._/~%+-]+|[A-Za-z0-9._/-]+)'
 $fileLine = "^$loc \d+ [0-9a-f]{64}( $loc)*$"
-$urlLine = '^http://[A-Za-z0-9.-]+/[A-Za-z0-9._/~%+-]+ \d+ [0-9a-f]{64}( http://[A-Za-z0-9.-]+/[A-Za-z0-9._/~%+-]+)*$'
+$urlLine = '^https?://[A-Za-z0-9.-]+/[A-Za-z0-9._/~%+-]+ \d+ [0-9a-f]{64}( https?://[A-Za-z0-9.-]+/[A-Za-z0-9._/~%+-]+)*$'
 foreach ($b in $blocks[1..($blocks.Count - 1)]) {
     $where = "package at line $($b._line)"
     foreach ($f in 'Package', 'Name', 'Version', 'Section', 'Summary', 'License', 'License-File', 'Systems', 'Download', 'Install', 'Uninstall') {

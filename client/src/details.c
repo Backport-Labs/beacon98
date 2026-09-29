@@ -109,8 +109,9 @@ static void Servers(const char *download, char *out, int outLen)
         while (*p == ' ') p++;
         if (!*p || *p == '\n') break;
         if (word != 1 && word != 2) {
-            if (strncmp(p, "http://", 7) == 0) {
-                for (i = 0; p[7 + i] && p[7 + i] != '/' && p[7 + i] != ' ' && i < (int)sizeof(host) - 1; i++) host[i] = p[7 + i];
+            if (IsUrl(p)) {
+                const char *h = strstr(p, "://") + 3;
+                for (i = 0; h[i] && h[i] != '/' && h[i] != ' ' && i < (int)sizeof(host) - 1; i++) host[i] = h[i];
                 host[i] = 0;
             } else lstrcpy(host, CATALOG_HOST);
             if (!strstr(out, host) && o + lstrlen(host) + 8 < outLen) {
