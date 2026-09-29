@@ -172,6 +172,7 @@ int crypto_sign_ed25519_tweet_open(unsigned char *m, unsigned long long *mlen,
 #define APP_NAME     "Beacon 98"
 #define APP_VERSION  "0.4.0"
 #define CATALOG_HOST "get.backportlabs.com"
+#define SELF_PACKAGE "beacon98"          /* the catalog's package for Beacon itself */
 #define CATALOG_FILE "CATALOG.TXT"
 #define SIG_FILE     "CATALOG.SIG"
 

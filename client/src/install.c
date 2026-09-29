@@ -20,6 +20,7 @@ typedef struct {
 } JOB;
 
 static char g_downloadDir[MAX_PATH], g_filesDir[MAX_PATH];
+static int g_selfUpdate;                /* Beacon's own setup was started: close */
 
 static void Dirs(void)
 {
@@ -401,6 +402,25 @@ static int InstallOne(PKG *p, RECORD *rec)
     PackageDir(p, dir, sizeof(dir));
     TaskProgress(-1);
 
+    /* Beacon itself: its setup cannot replace a running program, so start it,
+     * and close. Setup waits for Beacon to be gone, and starts it again. */
+    if (lstrcmp(p->f[F_PACKAGE], SELF_PACKAGE) == 0) {
+        STARTUPINFO si;
+        PROCESS_INFORMATION pi;
+        wsprintf(cmd, "\"%s\" /SILENT /SUPPRESSMSGBOXES /NORESTART", files[0]);
+        memset(&si, 0, sizeof(si));
+        si.cb = sizeof(si);
+        if (!CreateProcess(NULL, cmd, NULL, NULL, FALSE, 0, NULL, NULL, &si, &pi)) {
+            TaskLog("  Its setup program could not be started.");
+            return 0;
+        }
+        CloseHandle(pi.hThread);
+        CloseHandle(pi.hProcess);
+        TaskLog("Beacon 98 closes now so its setup can update it, and starts again when it is done.");
+        g_selfUpdate = 1;
+        return 1;
+    }
+
     if (strncmp(inst, "unzip", 5) == 0 || strncmp(inst, "copy", 4) == 0) {
         extra = After(inst, 2);
         if (strncmp(extra, "strip ", 6) == 0) strip = atoi(extra + 6);
@@ -614,6 +634,15 @@ int InstallPackages(HWND owner, PKG **chosen, int count)
     memset(&job, 0, sizeof(job));
     for (i = 0; i < count; i++) if (chosen[i]->status != ST_YES) Enqueue(&job, chosen[i]);
     if (!job.n) { MessageBox(owner, "The chosen packages are already installed.", APP_NAME, MB_OK | MB_ICONINFORMATION); return 0; }
+    /* Beacon itself goes last: it closes to be updated. */
+    for (i = 0; i < job.n - 1; i++) {
+        if (lstrcmp(job.q[i]->f[F_PACKAGE], SELF_PACKAGE) == 0) {
+            PKG *self = job.q[i];
+            memmove(&job.q[i], &job.q[i + 1], (job.n - 1 - i) * sizeof(PKG *));
+            job.q[job.n - 1] = self;
+            break;
+        }
+    }
 
     /* A missing requirement that another package provides: offer it, and put it first. */
     for (i = 0; i < job.n; i++) {
@@ -672,6 +701,7 @@ int InstallPackages(HWND owner, PKG **chosen, int count)
     if (MessageBox(owner, msg, APP_NAME, MB_OKCANCEL | MB_ICONQUESTION) != IDOK) return 0;
     RunTask(owner, "Installing", InstallWork, &job, 0);
     for (i = 0; i < job.n; i++) job.q[i]->marked = 0;
+    if (g_selfUpdate) PostMessage(owner, WM_CLOSE, 0, 0);
     return job.done;
 }
 

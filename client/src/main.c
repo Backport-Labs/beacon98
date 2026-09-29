@@ -65,5 +65,7 @@ int WINAPI WinMain(HINSTANCE inst, HINSTANCE prev, LPSTR cmd, int show)
         while (*p == ' ') p++;
         return Shot(file, row, p);
     }
+    /* Setup waits for this mutex to go before it replaces the program. */
+    CreateMutex(NULL, FALSE, "Beacon98Running");
     return RunWindow(show);
 }
