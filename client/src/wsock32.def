@@ -1,0 +1,15 @@
+LIBRARY wsock32.dll
+
+EXPORTS
+WSAStartup
+WSAGetLastError
+gethostbyname
+inet_addr
+htons
+socket
+connect
+ioctlsocket
+select
+send
+recv
+closesocket

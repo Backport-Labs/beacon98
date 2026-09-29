@@ -1,4 +1,4 @@
-Beacon 98 0.3.0 self-test
+Beacon 98 0.4.0 self-test
 SHA256 empty e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 SHA256 abc ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad
 SHA256 448-bits 248d6a61d20638b8e5c026930c3e6039a33ce45964ff2167f6ecedd419db06c1
@@ -49,7 +49,17 @@ HTTP KEYS.TXT: 145 bytes, SHA-256 0adb5197c506dfb57350af9fbf70686decad570db7bc27
 HTTP with a size smaller than the file: The server sent more than the catalog lists.
 HTTP the partial file was deleted
 HTTP a missing file: The server answered 404.
-HTTP an https address: Only http:// addresses can be used on this computer.
+HTTP an ftp address: Only http:// and https:// addresses can be used.
 FETCH a missing first location, then a good one: fetched NO-SUCH-FILE.TXT, 145 bytes
 FETCH a file that matches no location: refused
 FETCH the refused file was deleted
+HTTPS certificate authorities loaded: more than 100
+HTTPS KEYS.TXT: 145 bytes, SHA-256 0adb5197c506dfb57350af9fbf70686decad570db7bc278e1fdc88ec4173b42a
+HTTPS a certificate from an unknown authority: The server's certificate is not signed by an authority Beacon 98 trusts.
+HTTPS a certificate for another name: The server's certificate is for another name.
+HTTPS an expired certificate: The server's certificate has expired or is not valid yet.
+HTTPS reached through a redirect from http://: yes
+CLOCK 24 years behind: fetched; Beacon used the server's date and said so
+CLOCK 14 years ahead: fetched; Beacon used the server's date and said so
+DATE Tue, 29 Sep 2026 00:45:08 GMT is day 20725, second 2708
+DATE a date that is not a date: refused

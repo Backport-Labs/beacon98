@@ -3,10 +3,12 @@
 Draft 1, 2026-09-28.
 
 Beacon 98 downloads one catalog that lists every package, checks its signature,
-and installs packages from files whose size and SHA-256 the catalog gives. The
-catalog travels over plain HTTP, because Windows 95 and 98 cannot use the
-encryption current web servers require. The signature, not the connection,
-makes the catalog trustworthy.
+and installs packages from files whose size and SHA-256 the catalog gives.
+Windows 95 and 98 cannot use the encryption current web servers require, so
+Beacon carries its own TLS (BearSSL, with Mozilla's certificate authorities)
+and uses HTTPS where a server offers it, with plain HTTP as the fallback. The
+signature, not the connection, makes the catalog trustworthy; HTTPS keeps
+downloads private and reaches servers that no longer speak plain HTTP.
 
 ## Files on the server
 
@@ -67,7 +69,7 @@ The first block describes the catalog. Each further block is one package.
 | `License-File` | yes | Path of the license text. The client shows it before installing. |
 | `Systems` | yes | Systems it runs on, from `95`, `98`, `ME`, `NT4`, `2000` |
 | `Availability` | no | `hosted` (the default): Backport Labs distributes the files, from its own server or another. `external`: Backport Labs does not distribute them; every location is someone else's server, such as the publisher's or SourceForge. A package whose Download lines name no location on our server is treated as `external` either way. |
-| `Download` | yes | One line per file: `location size sha256`, optionally followed by more locations: `location size sha256 location2 location3`. A location is a path on our server (relative to `Base`) or a full `http://` address. The client tries the locations in order until one gives a file with this size and SHA-256. Several files are installed in the order of the lines. An `external` package names no location on our server. |
+| `Download` | yes | One line per file: `location size sha256`, optionally followed by more locations: `location size sha256 location2 location3`. A location is a path on our server (relative to `Base`) or a full `http://` or `https://` address. The client tries the locations in order until one gives a file with this size and SHA-256. A path on our server is tried over HTTPS first and plain HTTP second. Several files are installed in the order of the lines. An `external` package names no location on our server. |
 | `Source` | no | One line per file: `path size sha256`. Not downloaded by the client; offered on the package's page. Not given for `external` packages, which we do not distribute. |
 | `Installed-Size` | no | Disk space needed after installation, in KB |
 | `Depends` | no | Packages from this catalog to install first, separated by commas |

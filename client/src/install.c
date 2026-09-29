@@ -307,11 +307,11 @@ static void Host(const char *url, char *out, int outLen)
  * own server. Copies the local path to out. Returns 1 on success. */
 int FetchFile(const char *line, const char *dir, char *out)
 {
-    char loc[8][600], sizePart[20], shaPart[70], url[700], err[300], hex[65], host[100], *name;
+    char loc[8][600], urls[16][700], sizePart[20], shaPart[70], url[700], err[300], hex[65], host[100], *name;
     const char *p = line;
     BYTE want[32], got[32];
     DWORD size, gotSize;
-    int n = 0, i, k;
+    int n = 0, i, k, tries = 0;
 
     /* Split into words: the first location, the size, the hash, then more locations. */
     for (k = 0; *p && k < 11; k++) {
@@ -332,12 +332,21 @@ int FetchFile(const char *line, const char *dir, char *out)
     name = strrchr(loc[0], '/');
     name = name ? name + 1 : loc[0];
     wsprintf(out, "%s%s", dir, name);
-    for (i = 0; i < n; i++) {
+    /* The addresses to try, in order. A path on our own server is tried over
+     * HTTPS first, then over plain HTTP. */
+    for (i = 0; i < n && tries < 15; i++) {
+        if (IsUrl(loc[i])) lstrcpyn(urls[tries++], loc[i], sizeof(urls[0]));
+        else {
+            if (strncmp(g_cat.base, "http://", 7) == 0) wsprintf(urls[tries++], "https://%s%s", g_cat.base + 7, loc[i]);
+            wsprintf(urls[tries++], "%s%s", g_cat.base, loc[i]);
+        }
+    }
+    for (i = 0; i < tries; i++) {
         if (TaskCancelled()) return 0;
-        if (strncmp(loc[i], "http://", 7) == 0) lstrcpyn(url, loc[i], sizeof(url));
-        else wsprintf(url, "%s%s", g_cat.base, loc[i]);
+        lstrcpyn(url, urls[i], sizeof(url));
         Host(url, host, sizeof(host));
-        TaskLog("%s %s (%lu KB) from %s", i ? "Trying" : "Downloading", name, (size + 1023) / 1024, host);
+        TaskLog("%s %s (%lu KB) from %s%s", i ? "Trying" : "Downloading", name, (size + 1023) / 1024, host,
+                strncmp(url, "https://", 8) == 0 ? " over HTTPS" : "");
         TaskProgress(0);
         if (!HttpGetFile(url, out, size, TaskCancelFlag(), OnProgress, NULL, err, sizeof(err))) {
             TaskLog("  %s", err);
@@ -785,17 +794,23 @@ static int UpdateWork(void *ctx)
 {
     char url[400], cat[MAX_PATH], sig[MAX_PATH], newCat[MAX_PATH], newSig[MAX_PATH], err[300];
     CATALOG c;
-    int r;
+    int r, secure;
     (void)ctx;
     wsprintf(cat, "%s%s", g_dir, CATALOG_FILE);
     wsprintf(sig, "%s%s", g_dir, SIG_FILE);
     wsprintf(newCat, "%sCATALOG.NEW", g_dir);
     wsprintf(newSig, "%sSIGNATUR.NEW", g_dir);
-    TaskLog("Downloading the catalog from %s", CATALOG_HOST);
-    wsprintf(url, "http://%s/%s", CATALOG_HOST, CATALOG_FILE);
-    if (!HttpGetFile(url, newCat, 0, TaskCancelFlag(), NULL, NULL, err, sizeof(err))) { TaskLog("  %s", err); return 0; }
-    wsprintf(url, "http://%s/%s", CATALOG_HOST, SIG_FILE);
-    if (!HttpGetFile(url, newSig, 0, TaskCancelFlag(), NULL, NULL, err, sizeof(err))) { TaskLog("  %s", err); DeleteFile(newCat); return 0; }
+    /* Over HTTPS if possible; the signature, not the connection, is what is trusted. */
+    for (secure = 1; secure >= 0; secure--) {
+        TaskLog("Downloading the catalog from %s%s", CATALOG_HOST, secure ? " over HTTPS" : "");
+        wsprintf(url, "%s://%s/%s", secure ? "https" : "http", CATALOG_HOST, CATALOG_FILE);
+        if (!HttpGetFile(url, newCat, 0, TaskCancelFlag(), NULL, NULL, err, sizeof(err))) { TaskLog("  %s", err); continue; }
+        wsprintf(url, "%s://%s/%s", secure ? "https" : "http", CATALOG_HOST, SIG_FILE);
+        if (!HttpGetFile(url, newSig, 0, TaskCancelFlag(), NULL, NULL, err, sizeof(err))) { TaskLog("  %s", err); DeleteFile(newCat); continue; }
+        break;
+    }
+    if (secure < 0) return 0;
+    if (ClockNote()[0]) TaskLog("%s", ClockNote());
     r = VerifyCatalogFile(newCat, newSig);
     if (r != SIG_OK) {
         TaskLog("The downloaded catalog was not used: %s.", SigText(r));
