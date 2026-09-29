@@ -1,0 +1,15 @@
+Package: ms-q329115-me
+Name: Windows Me Q329115 certificate validation update (MS02-050)
+Version: Q329115
+Section: System
+Summary: Windows Me Q329115 certificate validation update (MS02-050)
+Homepage: https://learn.microsoft.com/en-us/security-updates/securitybulletins/2002/ms02-050
+License: Microsoft EULA (external)
+License-File: pool/ms-q329115-me/Q329115/LICENSE.TXT
+Systems: ME
+Availability: external
+Download: http://download.windowsupdate.com/msdownload/update/v3-19990518/CabPool/329115_ME_7B77D4AB183D2DF9F5306C17F13C959C2380DB44.EXE 376640 59ed7fad1697d2284eb6b6a8a77289cf965fbbba902cb712395611a0937bbc53
+Install: exe /Q:A /R:N
+Uninstall: none
+Detect: reg HKLM\Software\Microsoft\Windows\CurrentVersion\Setup\Updates\WinME\UPD329115
+Notice: Restart Windows to finish installing this Microsoft update.

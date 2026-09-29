@@ -1,0 +1,16 @@
+System Lock 1.2 build 1 - license terms
+
+No license text could be read for this version: the installer
+(system-lock-v1.2b1.exe, an early NSIS installer whose data 7-Zip cannot
+open) was not run, and r2 Studios' web site publishes no license for
+System Lock.
+
+The only statement found is on the publisher's download page,
+https://www.r2.com.au/page/products/download/system-lock/ (checked 2026-09-29):
+
+  "System Lock is no longer under active development and has been
+  Archived. [...] System Lock is free to download and use."
+  "Version: 1.2 build 1  Released: 23rd Sep 2001  File size: 194 KB"
+
+Copyright (c) 2001 r2 Studios. The license shown by the installer, if any,
+applies and was not reviewed.

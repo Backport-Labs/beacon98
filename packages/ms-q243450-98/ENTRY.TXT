@@ -1,0 +1,15 @@
+Package: ms-q243450-98
+Name: Windows 98 Q243450 ESDI_506 update (disks over 32 GB)
+Version: Q243450
+Section: System
+Summary: Windows 98 Q243450 ESDI_506 update (disks over 32 GB)
+License: Microsoft EULA (external)
+License-File: pool/ms-q243450-98/Q243450/LICENSE.TXT
+Systems: 98
+Availability: external
+Download: https://download.microsoft.com/download/win98SE/Update/5638-6151/W98/EN-US/243450USA8.EXE 161976 491e45764256a585b60fbff2c2daae9f7dc1952833f38a85f44f9a1b00bc7ae2
+Install: exe /Q:A /R:N
+Uninstall: none
+Detect: reg HKLM\Software\Microsoft\Windows\CurrentVersion\Setup\Updates\W98.SP1\UPD243450
+ reg HKLM\Software\Microsoft\Windows\CurrentVersion\Setup\Updates\Win98.SE\UPD243450
+Notice: Restart Windows to finish installing this Microsoft update.

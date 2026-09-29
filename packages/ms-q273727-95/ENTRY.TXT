@@ -1,0 +1,16 @@
+Package: ms-q273727-95
+Name: Windows 95 Q273727 IPX NMPI update
+Version: Q273727
+Section: System
+Summary: Windows 95 Q273727 IPX NMPI update
+License: Microsoft EULA (external)
+License-File: pool/ms-q273727-95/Q273727/LICENSE.TXT
+Systems: 95
+Availability: external
+Download: https://download.microsoft.com/download/win95/Update/11974/W95/EN-US/273727USA5.EXE 243872 8b34a5b9eceffee6c3d1232e9f7ae3ffe7287c4114d58c61f1e6ed8b0abe6ec4
+Install: exe /Q:A /R:N
+Uninstall: none
+Detect: reg HKLM\Software\Microsoft\Windows\CurrentVersion\Setup\Updates\W95\UPD273727
+ reg HKLM\Software\Microsoft\Windows\CurrentVersion\Setup\Updates\OSR2\UPD273727
+ reg HKLM\Software\Microsoft\Windows\CurrentVersion\Setup\Updates\OSR2.1\UPD273727
+Notice: Restart Windows to finish installing this Microsoft update.

@@ -1,0 +1,22 @@
+# Downloaded from ZSoft's own server. Free for non-commercial use only; the
+# terms give no permission to redistribute it.
+Package: zsoft-uninstaller
+Name: ZSoft Uninstaller
+Version: 2.4.1
+Section: System
+Summary: Uninstaller with install tracking, leftover search and startup cleanup
+Description: Replaces Add/Remove Programs. Can record an installation so it
+ can be removed completely later, search for leftovers after uninstalling,
+ remove dead uninstall entries and find temporary files.
+Homepage: https://www.zsoft.dk/index/software_details/4
+License: Freeware (non-commercial use)
+License-File: pool/zsoft-uninstaller/2.4.1/LICENSE.TXT
+Systems: 95, 98, ME
+Availability: external
+Download: https://www.zsoft.dk/downloads/ZSoft_Uninstaller_2.4.1.exe 917947 f1aba17ef54b71127e32c0ef609ad977d8ba57c57cbc871a600aca5752cc16eb http://www.zsoft.dk/downloads/ZSoft_Uninstaller_2.4.1.exe
+Installed-Size: 1000
+Install: nsis /D={dir}
+Uninstall: run "{dir}\uninst.exe" /S
+Notice: ZSoft Uninstaller may be used for non-commercial purposes only. Its
+ author tested it on Windows XP; users reported it working on Windows 95,
+ 98 and ME.

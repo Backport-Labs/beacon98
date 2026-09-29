@@ -1,7 +1,7 @@
 Format: 1
 Catalog: Beacon 98
 Publisher: Backport Labs
-Serial: 2026092904
+Serial: 2026092908
 Date: 2026-09-29
 Expires: 2026-12-28
 Base: http://get.backportlabs.com/
@@ -204,6 +204,52 @@ Warning: This version contains old image and XML libraries with known security
  problems. Opening a malicious document or picture can run code on this
  computer.
 
+Package: adobe-reader6
+Name: Adobe Reader
+Version: 6.0
+Section: Office
+Summary: Adobe's free viewer for PDF documents
+Description: Views, searches and prints PDF documents. Version 6.0 is the
+ last Adobe Reader for Windows 98 Second Edition and ME; it does not support
+ Windows 95 or the first edition of Windows 98.
+Homepage: https://www.adobe.com/acrobat/pdf-reader.html
+License: Proprietary (Adobe Reader EULA)
+License-File: pool/adobe-reader6/6.0/LICENSE.TXT
+Systems: 98, ME, NT4, 2000
+Availability: external
+Download: http://ardownload.adobe.com/pub/adobe/reader/win/6.x/6.0/enu/AdbeRdr60_enu_full.exe 16706160 dba7eb0e39e54d427a7fdb86b84cb563e8a40f1c187179313549ca4761437db2 https://ardownload2.adobe.com/pub/adobe/reader/win/6.x/6.0/enu/AdbeRdr60_enu_full.exe https://ardownload.adobe.com/pub/adobe/reader/win/6.x/6.0/enu/AdbeRdr60_enu_full.exe http://ardownload2.adobe.com/pub/adobe/reader/win/6.x/6.0/enu/AdbeRdr60_enu_full.exe
+Requires: ie 5.01 | Adobe Reader 6.0 needs Internet Explorer 5.01 or later.
+ memory 32 | Adobe Reader 6.0 needs at least 32 MB of memory (64 MB recommended).
+Install: exe
+Uninstall: registry Adobe Reader 6.0
+Warning: Adobe Reader 6.0 is from 2003 and has well over a hundred known
+ security problems that Adobe fixed only in later versions, which do not run
+ on Windows 98. Opening a malicious PDF file can run harmful code on this
+ computer. Open only PDF files you trust, and consider turning off
+ JavaScript in the program's preferences.
+Notice: Adobe Reader 6.0 requires Windows 98 Second Edition or ME; it is not
+ supported on the first edition of Windows 98. Adobe no longer supports it.
+
+Package: analogx-ats
+Name: AnalogX Atomic TimeSync
+Version: 1.04
+Section: Internet
+Summary: Sets the computer clock from an internet time server (NTP)
+Description: Sets the Windows clock from an NTP time server such as NIST's,
+ once or at an interval, with an optional offset. Includes a small NTP
+ server so other computers on the local network can sync to this one.
+ Does not work through a proxy.
+Homepage: https://www.analogx.com/contents/download/network/ats.htm
+License: Freeware
+License-File: pool/analogx-ats/1.04/LICENSE.TXT
+Systems: 95, 98, ME, NT4, 2000
+Availability: external
+Download: https://www.analogx.com/files/atsi.exe 354536 b00c4f995854b087c5197bcf53bb8f4d692129c133dba1ba1567508db5df4402 http://www.analogx.com/files/atsi.exe
+Install: exe
+Uninstall: registry AnalogX Atomic TimeSync
+Notice: Atomic TimeSync is free software from AnalogX (www.analogx.com). Set
+ the time server and the update interval in its configuration window.
+
 Package: apache13
 Name: Apache HTTP Server
 Version: 1.3.41
@@ -302,9 +348,31 @@ Warning: Avidemux 2.5.2 is from 2009. Its video and image libraries (FFmpeg,
 Notice: Avidemux runs on Windows 98 only with KernelEx. Users report that the
  volume (loudness) adjustment does not work.
 
+Package: aviutl
+Name: AviUtl
+Version: 0.99c
+Section: Multimedia
+Summary: AVI filter, simple editing and re-compression tool (Japanese)
+Description: KEN-kun's AviUtl applies filters to AVI files, does simple
+ editing and re-compresses video with the codecs installed. Version 0.99c
+ is the last whose readme names Windows 98. The program is in Japanese.
+ Needs a processor with MMX.
+Homepage: http://spring-fragrance.mints.ne.jp/aviutl/
+License: Freeware
+License-File: pool/aviutl/0.99c/LICENSE.TXT
+Systems: 98, 2000
+Availability: external
+Download: http://spring-fragrance.mints.ne.jp/aviutl/aviutl99c.zip 288663 169cc00ca4c68ed7915168afcac44b9af87860bb5980d661ca8dca38543f7772 https://spring-fragrance.mints.ne.jp/aviutl/aviutl99c.zip
+Installed-Size: 840
+Install: unzip {pf}\AviUtl
+Shortcut: AviUtl | {dir}\aviutl.exe |
+Uninstall: files
+Notice: AviUtl's menus and readme are in Japanese; on a non-Japanese Windows
+ the text may not display correctly. It needs a processor with MMX.
+
 Package: beacon98
 Name: Beacon 98
-Version: 0.5.0
+Version: 0.6.0
 Section: System
 Summary: This package manager; installing it updates Beacon itself
 Description: Beacon 98 installs free software on Windows 95, 98 and
@@ -312,9 +380,9 @@ Description: Beacon 98 installs free software on Windows 95, 98 and
  program and closes, and the setup program starts it again when it is done.
 Homepage: https://github.com/Backport-Labs/beacon98
 License: MIT
-License-File: pool/beacon98/0.5.0/LICENSE.TXT
+License-File: pool/beacon98/0.6.0/LICENSE.TXT
 Systems: 95, 98, ME
-Download: pool/beacon98/0.5.0/B98SETUP.EXE 494878 8cfa06811d7d82471440db1fc1271f320accd8dbd425cdbc8f2d57aae1ac3189
+Download: pool/beacon98/0.6.0/B98SETUP.EXE 502842 799439640f9d80921cb439874f947fe1ad96d6ec24e94fba112abb9206ec35ab
 Install: inno
 Uninstall: registry Beacon 98
 
@@ -338,6 +406,25 @@ Uninstall: registry Bochs 2.3.7 (remove only)
 Notice: Bochs 2.3.7 is the last version that runs on Windows 98 without
  KernelEx. A virtual PC is described by a .bxrc configuration file; see
  bochsrc-sample.txt in the Bochs folder.
+
+Package: cacheman
+Name: Cacheman
+Version: 5.50
+Section: System
+Summary: Outertech's system optimizer for Windows 95, 98 and ME
+Description: Cacheman 5.50 ("Cacheman Classic"), the edition of Outertech's
+ Windows optimizer that was designed for Windows 95, 98 and ME. Outertech
+ now offers it as freeware.
+Homepage: https://www.outertech.com/en/cacheman-classic
+License: Freeware
+License-File: pool/cacheman/5.50/LICENSE.TXT
+Systems: 95, 98, ME
+Availability: external
+Download: https://www.outertech.com/downloads/cachm550.exe 948802 2d28137bd126c8e1fdb456dfb076e03c26fbf7239c2c86dc2679eaffc0912b09 http://www.outertech.com/downloads/cachm550.exe
+Install: exe /s
+Uninstall: registry Cacheman 5.50
+Notice: Cacheman changes Windows settings. Note what you change, so that
+ you can undo it.
 
 Package: clamwin
 Name: ClamWin Free Antivirus
@@ -364,6 +451,70 @@ Warning: ClamWin cannot download new virus signatures, so it does not know
  this computer.
 Notice: ClamWin starts with Windows (tray icon). Its Update command will fail;
  this is expected.
+
+Package: cpu-z
+Name: CPU-Z
+Version: 1.78
+Section: System
+Summary: Shows details of the processor, mainboard, chipset and memory
+Description: Identifies the processor (name, core, cache, clock speed),
+ mainboard and chipset, BIOS, memory type and timings (SPD) and the video
+ card. This is the special Windows 98 build that CPUID still offers. For
+ very old processors (486, Pentium, K5, Cyrix) see CPU-Z Vintage.
+Homepage: https://www.cpuid.com/softwares/cpu-z.html
+License: Freeware
+License-File: pool/cpu-z/1.78/LICENSE.TXT
+Systems: 98
+Availability: external
+Download: https://download.cpuid.com/cpu-z/cpu-z_1.78-win98.zip 1154222 e32663cd4982f616a01acd9e57dbf365a9145adee250b0d6e0a29346fa085128 http://download.cpuid.com/cpu-z/cpu-z_1.78-win98.zip
+Installed-Size: 2760
+Install: unzip {pf}\CPU-Z
+Shortcut: CPU-Z | {dir}\cpuz.exe |
+Uninstall: files
+Notice: CPU-Z checks for a newer version when it starts. To turn this off,
+ set CheckUpdates=0 in cpuz.ini in the CPU-Z folder.
+
+Package: cpu-z-vintage
+Name: CPU-Z Vintage Edition
+Version: 1.04
+Section: System
+Summary: CPU-Z for 486, Pentium, K5 and Cyrix era computers
+Description: The Vintage Edition of CPU-Z, made by CPUID for Windows 95 and
+ 98 on old hardware: 486, Pentium, Pentium Overdrive, AMD K5, Cyrix and
+ Texas Instruments processors, and chipsets such as the Intel 430FX and VIA
+ Apollo VPX and MVP4. Shows the processor, chipset, memory and BIOS.
+Homepage: https://www.cpuid.com/softwares/cpu-z.html
+License: Freeware
+License-File: pool/cpu-z-vintage/1.04/LICENSE.TXT
+Systems: 95, 98
+Availability: external
+Download: https://download.cpuid.com/cpu-z/cpu-z_1.04-win9x.zip 1446689 5bbd2a01cf2768248b82f93338815ee1e37445fa255d514272db7ade72bcbc78 http://download.cpuid.com/cpu-z/cpu-z_1.04-win9x.zip
+Installed-Size: 3620
+Install: unzip {pf}\CPU-Z Vintage
+Shortcut: CPU-Z Vintage | {dir}\cpuz_w9x.exe |
+Uninstall: files
+
+Package: crystalcpuid
+Name: CrystalCPUID
+Version: 4.15.5
+Section: System
+Summary: Processor, chipset and memory information, with clock control
+Description: Shows detailed processor information (clock, multiplier, cache,
+ feature flags), PCI devices, chipset and memory, and on many mobile
+ processors can change the multiplier and voltage. The Windows 9x version
+ uses its own VxD driver (SysInfo.vxd). By hiyohiyo (Crystal Dew World).
+ No longer developed.
+Homepage: https://crystalmark.info/en/software/crystalcpuid/
+License: Freeware
+License-File: pool/crystalcpuid/4.15.5/LICENSE.TXT
+Systems: 95, 98, ME, NT4, 2000
+Download: pool/crystalcpuid/4.15.5/CrystalCPUID415.zip 639998 6a053caf3e7132695e6ccb3f151f5b28ba1d3929d877ee7119b106f024c23ef4 https://crystalmark.info/download/archive/CrystalCPUID/CrystalCPUID415.zip
+Installed-Size: 1890
+Install: unzip {pf}\CrystalCPUID
+Shortcut: CrystalCPUID | {dir}\CrystalCPUID.exe |
+Uninstall: files
+Notice: Changing the multiplier or voltage can make the computer unstable.
+ Use those functions only if you know your processor supports them.
 
 Package: depends
 Name: Dependency Walker
@@ -403,6 +554,23 @@ Warning: This version has a known security problem: opening a source file
  with a very long line can crash Dev-C++ or run code. The included compiler
  tools are from 2004.
 
+Package: dogwaffle
+Name: Project Dogwaffle
+Version: 1.2
+Section: Multimedia
+Summary: Paint program with brushes, filters and animation
+Description: A paint and image-processing program with natural-media
+ brushes, filters, animation frames and plug-ins. This is the free 1.2
+ version from 2004; the commercial successor is PD Howler.
+Homepage: https://www.thebest3d.com/dogwaffle/free/
+License: Freeware
+License-File: pool/dogwaffle/1.2/LICENSE.TXT
+Systems: 95, 98, ME, NT4, 2000
+Availability: external
+Download: https://www.thebest3d.com/dogwaffle/free/Dogwaffle_Install_1_2_free.exe 4558273 acd8618fe3600439c932803a69cfde2c4a64cdd1b5c6f3d8cafce94eb7b9442e http://www.thebest3d.com/dogwaffle/free/Dogwaffle_Install_1_2_free.exe
+Install: exe
+Uninstall: registry project dogwaffle
+
 Package: dosbox
 Name: DOSBox
 Version: 0.74-3
@@ -441,6 +609,34 @@ Install: inno
 Uninstall: registry Eraser 5.82
 Notice: Windows 95 needs Common Controls 4.72 or later (Internet Explorer
  4.01 or later provides them).
+
+Package: faststone-viewer
+Name: FastStone Image Viewer
+Version: 5.3
+Section: Multimedia
+Summary: Image browser, viewer, converter and editor
+Description: Browses folders of pictures with thumbnails and views them full
+ screen, with slide shows, EXIF information, red-eye removal, resizing,
+ cropping, colour adjustments and batch conversion and renaming. Version
+ 5.3 is the last one whose requirements list Windows 98 SE and ME. This is
+ FastStone's portable (zip) edition.
+Homepage: https://www.faststone.org/FSViewerDetail.htm
+License: Freeware (personal and educational use)
+License-File: pool/faststone-viewer/5.3/LICENSE.TXT
+Systems: 98, ME
+Availability: external
+Download: https://www.faststone.org/DN/FSViewer53.zip 7204728 a22af33858dad8f1f2ce4dd33c1fdd8995f6ef58dd4996a511f42061355e2c38 https://www.faststonesoft.net/DN/FSViewer53.zip http://www.faststonesoft.net/DN/FSViewer53.zip
+Installed-Size: 14930
+Install: unzip {pf}\FastStone Image Viewer strip 1
+Shortcut: FastStone Image Viewer | {dir}\FSViewer.exe |
+Uninstall: files
+Warning: FastStone Image Viewer 5.3 is from 2014. Many flaws in its image
+ decoders (JPEG, BMP, PNG, CUR, PSD, TGA and others) were reported later,
+ and some can run harmful code when you open a specially crafted picture.
+ Only open pictures you trust.
+Notice: FastStone Image Viewer is free for personal and educational use
+ (including non-profit organizations). Commercial use requires a license
+ from FastStone, which may no longer be sold for this version.
 
 Package: fceu
 Name: FCEUX
@@ -509,6 +705,28 @@ Warning: Firefox 2 has not received security updates since December 2008.
  passwords.
 Notice: Firefox is a trademark of the Mozilla Foundation. Backport Labs is not
  affiliated with Mozilla; this file comes directly from Mozilla's server.
+
+Package: fmlfns
+Name: FmLfns
+Version: 1.1
+Section: Utilities
+Summary: Long file name support for the old File Manager (WINFILE.EXE)
+Description: Makes the Windows 3.1-style File Manager (WINFILE.EXE) that
+ comes with Windows 95, 98 and ME display and handle long file names, so
+ that "PROGRA~1" appears as "Program Files". Shareware by WinCorner.
+Homepage: http://www.wincorner.com/home/fmlfns.html
+License: Shareware
+License-File: pool/fmlfns/1.1/LICENSE.TXT
+Systems: 95, 98, ME
+Availability: external
+Download: http://www.wincorner.com/files/fmlfns95.exe 49416 aa500a714002aa51a64f4c9d5b6fd6042dc3c85f39ea554b0e9578e120ed2043 https://www.wincorner.com/files/fmlfns95.exe
+Install: exe
+Uninstall: registry File Manager Long File Name Support (FmLfns)
+Notice: FMLFNS95.EXE only unpacks the files. Run INSTALL.EXE from the folder
+ it unpacked them to, to install FmLfns. Shareware: after 30 days it asks
+ you to buy a license (11 US dollars or 10 Euro, still offered on
+ www.wincorner.com). Until then the caption shows "Unregistered" and a
+ reminder appears twice a month.
 
 Package: freedoom
 Name: Freedoom
@@ -691,6 +909,28 @@ Uninstall: files
 Notice: On Windows 98 and ME, use MD5, SHA-1 or CRC32. The author states that
  SHA-256 and longer hashes need Windows XP SP3 or later.
 
+Package: hwinfo32
+Name: HWiNFO32
+Version: 8.52
+Section: System
+Summary: Detailed hardware information, sensors and reports
+Description: Identifies the processor, mainboard, memory, drives, graphics
+ and sound hardware, shows temperatures and voltages where sensors can be
+ read, and writes reports. REALiX still builds this 32-bit edition for
+ Windows 95 and later.
+Homepage: https://www.hwinfo.com/
+License: Freeware
+License-File: pool/hwinfo32/8.52/LICENSE.TXT
+Systems: 95, 98, ME, 2000
+Availability: external
+Download: https://www.sac.sk/download/utildiag/hwi_852.zip 20828120 0ce80064422e128a0f4257733c41e02970b5997a04361accc1f7f2f4b059f1ed
+Installed-Size: 29610
+Install: unzip {pf}\HWiNFO32
+Shortcut: HWiNFO32 | {dir}\HWiNFO32.exe |
+Uninstall: files
+Notice: Use HWiNFO32.exe. The package also contains HWiNFO64.exe and
+ HWiNFO_ARM64.exe, which do not run on this computer.
+
 Package: hxd
 Name: HxD
 Version: 1.7.7.0
@@ -726,6 +966,29 @@ Installed-Size: 50
 Install: unzip {dir}
 Shortcut: IconsExtract | {dir}\iconsext.exe |
 Uninstall: files
+
+Package: inforapid-search-replace
+Name: InfoRapid Search & Replace
+Version: 3.1f
+Section: Utilities
+Summary: Full-text search and replace across files, with a preview window
+Description: Searches the text of many files at once (with AND, OR, NOT,
+ NEAR, phonetic search and regular expressions), shows the matches in a
+ preview with the found text highlighted, and replaces text in plain text
+ files. Can use Microsoft Office converters to search Word and Excel files.
+Homepage: https://www.inforapid.de/html/searchreplace.htm
+License: Freeware (private use only)
+License-File: pool/inforapid-search-replace/3.1f/LICENSE.TXT
+Systems: 98, ME, NT4, 2000
+Availability: external
+Download: https://inforapid.de/sr/sr.exe 1037513 fecbd8b862beaabf261d8b85ac3c4daaa899a5132bce705974c789d59d498f37 http://www.inforapid.com/sr/sr.exe
+Installed-Size: 2110
+Install: exe /s
+Uninstall: registry InfoRapid Search & Replace
+Notice: The free version of InfoRapid Search & Replace may be used only for
+ private purposes. Using it on a computer used for business needs a license
+ (25 Euro per user) from the author, Ingo Straub (www.inforapid.com).
+ The free version shows an advertising banner above the search results.
 
 Package: infrarecorder
 Name: InfraRecorder
@@ -850,6 +1113,24 @@ Uninstall: files
 Notice: Lua is on PATH after you restart Windows. Until then, the shortcut may
  report that MSVCR80.DLL is missing.
 
+Package: mega-mp3-splitter
+Name: Mega Mp3 Splitter
+Version: 1.1
+Section: Multimedia
+Summary: Splits a long MP3 file into several tracks without re-encoding
+Description: Open an MP3 file, set break points while listening, and save
+ the parts as separate MP3 files. Useful for recorded radio shows and mixes.
+Homepage: http://www.megax.it/mp3split/index.htm
+License: Freeware
+License-File: pool/mega-mp3-splitter/1.1/LICENSE.TXT
+Systems: 95, 98, NT4, 2000
+Availability: external
+Download: http://www.megax.it/mp3split/dl/mp3split.zip 356039 e3c74c7a844f8d080bf78f35cee34b910073e12f5b480cd63b082fdf70d7a6cc
+Installed-Size: 660
+Install: unzip {pf}\Mega MP3 Splitter
+Shortcut: Mega Mp3 Splitter | {dir}\Mega MP3splitter.exe |
+Uninstall: files
+
 Package: metapad
 Name: Metapad
 Version: 3.6
@@ -920,6 +1201,761 @@ Warning: This version has known security problems. Opening a malicious video
  file (for example AVI, FLV or MPEG audio) can crash the player or run code on
  this computer.
 
+Package: ms-amdk6upd-95
+Name: Windows 95 OSR2 AMD-K6-2 update
+Version: 990602N1
+Section: System
+Summary: Windows 95 OSR2 AMD-K6-2 update
+License: Microsoft EULA (external)
+License-File: pool/ms-amdk6upd-95/990602N1/LICENSE.TXT
+Systems: 95OSR2
+Availability: external
+Download: https://download.microsoft.com/download/win95upg/patch/1.2/w95/en-us/amdk6upd.exe 290288 8b31adafdeea166ef37b8724130d7477921b3fe671fd3ac1ff0ae037a7eb0b8b
+Install: exe /Q:A /R:N
+Uninstall: none
+Notice: Restart Windows to finish installing this Microsoft update.
+
+Package: ms-dun14-95
+Name: Dial-Up Networking 1.4 for Windows 95
+Version: 1.4
+Section: System
+Summary: Dial-Up Networking 1.4 for Windows 95
+License: Microsoft EULA (external)
+License-File: pool/ms-dun14-95/1.4/LICENSE.TXT
+Systems: 95
+Availability: external
+Download: https://download.microsoft.com/download/win95/Update/17648/W95/EN-US/dun14-95.exe 1890376 1f72fcfbaedd9be514b3c7851a4d0190753bace91b089d6c6ac6253b02deabd2
+Install: exe /Q:A /R:N
+Uninstall: registry Dial-up Networking 1.4 Update for Windows 95
+Notice: Restart Windows to finish installing this Microsoft update.
+
+Package: ms-instmsi-11
+Name: Windows Installer 1.1
+Version: 1.11.2405.0
+Section: System
+Summary: Microsoft Windows Installer 1.1 (msiexec) for Windows 95 and 98
+Description: Adds Windows Installer, which programs distributed as .msi
+ files need. Windows ME already includes a newer version. Downloaded from
+ Microsoft's own server. It cannot be removed again.
+License: Microsoft EULA (external)
+License-File: pool/ms-instmsi-11/1.11.2405.0/LICENSE.TXT
+Systems: 95, 98
+Availability: external
+Download: https://download.microsoft.com/download/win98/Patch/1.11.2405/W9X/EN-US/instmsi.exe 1495256 731174afce530b09d30490e940cd0ba1e5002c2194a28b7c883d729d695eaf79
+Install: exe /q
+Uninstall: none
+Detect: msi 1.1
+Notice: Restart Windows before installing .msi packages.
+
+Package: ms-kb891711-98
+Name: Windows 98 KB891711 cursor and icon update (MS05-002)
+Version: KB891711-v2
+Section: System
+Summary: Windows 98 KB891711 cursor and icon update (MS05-002)
+Homepage: https://learn.microsoft.com/en-us/security-updates/securitybulletins/2005/ms05-002
+License: Microsoft EULA (external)
+License-File: pool/ms-kb891711-98/KB891711-v2/LICENSE.TXT
+Systems: 98
+Availability: external
+Download: http://download.windowsupdate.com/msdownload/update/v3-19990518/cabpool/Windows98-KB891711-v2-ENU_27519b9f8157c1e9a52e443b0208e0e.EXE 153048 a25d2b74c765975f8a196209200cb4ec05ce9736bf5af64b2dab6cad70354894
+Install: exe /Q:A /R:N
+Uninstall: registry Windows 98 KB891711 Update
+Detect: reg HKLM\Software\Microsoft\Windows\CurrentVersion\Setup\Updates\W98\UPD891711
+Notice: Restart Windows to finish installing this Microsoft update.
+
+Package: ms-kb891711-me
+Name: Windows Me KB891711 cursor and icon update (MS05-002)
+Version: KB891711-v2
+Section: System
+Summary: Windows Me KB891711 cursor and icon update (MS05-002)
+Homepage: https://learn.microsoft.com/en-us/security-updates/securitybulletins/2005/ms05-002
+License: Microsoft EULA (external)
+License-File: pool/ms-kb891711-me/KB891711-v2/LICENSE.TXT
+Systems: ME
+Availability: external
+Download: http://download.windowsupdate.com/msdownload/update/v3-19990518/cabpool/WindowsME-KB891711-v2-ENU_71c3336e6d7630cff2739a9d05d2eed.EXE 147928 97f7864d06d08c181a6d6405c599dade388555d1d853d1150d37684ed40fd33d
+Install: exe /Q:A /R:N
+Uninstall: registry Windows Millennium Edition KB891711 Update
+Detect: reg HKLM\Software\Microsoft\Windows\CurrentVersion\Setup\Updates\WinME\UPD891711
+Notice: Restart Windows to finish installing this Microsoft update.
+
+Package: ms-kb918547-98
+Name: Windows 98 KB918547 WMF update
+Version: KB918547
+Section: System
+Summary: Windows 98 KB918547 WMF update
+License: Microsoft EULA (external)
+License-File: pool/ms-kb918547-98/KB918547/LICENSE.TXT
+Systems: 98
+Availability: external
+Download: http://download.windowsupdate.com/msdownload/update/v3-19990518/cabpool/Windows98-KB918547-ENU_ab29740587b8bf4cd6380a47a89e3ce.exe 148008 6e2d1b1be550a524d53ec534d02d8bcf41c386a7bccb9e274fb7fd0ec212406f
+Install: exe /Q:A /R:N
+Uninstall: registry Windows 98 KB918547 Update
+Detect: reg HKLM\Software\Microsoft\Windows\CurrentVersion\Setup\Updates\W98\UPD918547
+Notice: Restart Windows to finish installing this Microsoft update.
+
+Package: ms-kb918547-me
+Name: Windows Me KB918547 WMF update
+Version: KB918547
+Section: System
+Summary: Windows Me KB918547 WMF update
+License: Microsoft EULA (external)
+License-File: pool/ms-kb918547-me/KB918547/LICENSE.TXT
+Systems: ME
+Availability: external
+Download: http://download.windowsupdate.com/msdownload/update/v3-19990518/cabpool/WindowsME-KB918547-ENU_346d1c5b14e4c033781cc9630fd4a9a.exe 153128 5edc36bc9261623e5aaff34c6b62c631965967f9d3cd44c69302c27c5e2eeb96
+Install: exe /Q:A /R:N
+Uninstall: none
+Detect: reg HKLM\Software\Microsoft\Windows\CurrentVersion\Setup\Updates\WinME\UPD918547
+Notice: Restart Windows to finish installing this Microsoft update.
+
+Package: ms-pccardupd-95
+Name: Windows 95 OSR2 PC Card update
+Version: UPD980225N1
+Section: System
+Summary: Windows 95 OSR2 PC Card update
+License: Microsoft EULA (external)
+License-File: pool/ms-pccardupd-95/UPD980225N1/LICENSE.TXT
+Systems: 95OSR2
+Availability: external
+Download: https://download.microsoft.com/download/win95/Update/5503/W95/EN-US/PCCARDUPD.EXE 220328 4a4b89470d82f0910792965dff257ab2b83bcceb1b0cf72a9ecb68080c30cc04
+Install: exe /Q:A /R:N
+Uninstall: none
+Detect: reg HKLM\Software\Microsoft\Windows\CurrentVersion\Setup\Updates\OSR2\UPD980225N1
+Notice: Restart Windows to finish installing this Microsoft update.
+
+Package: ms-q168115-98
+Name: Windows 98 Q168115 MSNP32 update
+Version: Q168115
+Section: System
+Summary: Windows 98 Q168115 MSNP32 update
+License: Microsoft EULA (external)
+License-File: pool/ms-q168115-98/Q168115/LICENSE.TXT
+Systems: 98FE
+Availability: external
+Download: https://download.microsoft.com/download/win98/update/168115/w98/en-us/168115us8.exe 165864 0dcde9d6effcb870e32c35fa65c01a028d47513ce52f757513dfcf66343c4f17
+Install: exe /Q:A /R:N
+Uninstall: none
+Detect: reg HKLM\Software\Microsoft\Windows\CurrentVersion\Setup\Updates\W98.SP1\UPD168115
+Notice: Restart Windows to finish installing this Microsoft update.
+
+Package: ms-q190656-98
+Name: Windows 98 Q190656 NETDI update
+Version: Q190656
+Section: System
+Summary: Windows 98 Q190656 NETDI update
+License: Microsoft EULA (external)
+License-File: pool/ms-q190656-98/Q190656/LICENSE.TXT
+Systems: 98FE
+Availability: external
+Download: https://download.microsoft.com/download/win98/Update/Q190656/W98/EN-US/190656_98UP.EXE 276456 f2edf4907cb9a199a7f5222b4f9b8c88c91687c8e6f1e68ae394e0dd6f85cf9f
+Install: exe /Q:A /R:N
+Uninstall: none
+Detect: reg HKLM\Software\Microsoft\Windows\CurrentVersion\Setup\Updates\W98.SP1\UPD190656
+Notice: Restart Windows to finish installing this Microsoft update.
+
+Package: ms-q216641-98
+Name: Windows 98 VTDAPI update (49.7 days)
+Version: Q216641
+Section: System
+Summary: Windows 98 VTDAPI update (49.7 days)
+License: Microsoft EULA (external)
+License-File: pool/ms-q216641-98/Q216641/LICENSE.TXT
+Systems: 98FE
+Availability: external
+Download: https://download.microsoft.com/download/win95upg/Update/8/W95/EN-US/216641up.exe 135680 a85c27959d0d1d0d8cf8b962d672d7267513f92e1996ea0157f9f23ab353cbb1
+Install: exe /Q:A /R:N
+Uninstall: none
+Detect: reg HKLM\Software\Microsoft\Windows\CurrentVersion\Setup\Updates\SP1\UPD216641.98
+Notice: Restart Windows to finish installing this Microsoft update.
+
+Package: ms-q236926-98
+Name: Windows 98 Q236926 VTCP.386 update
+Version: Q236926
+Section: System
+Summary: Windows 98 Q236926 VTCP.386 update
+License: Microsoft EULA (external)
+License-File: pool/ms-q236926-98/Q236926/LICENSE.TXT
+Systems: 98
+Availability: external
+Download: https://download.microsoft.com/download/win98/Update/3111/W98/EN-US/236926USA8.EXE 174056 901eddb32cac64abd583fd3dbd209ca7c3c2baf8eb0691a36db156fbe0994a7f
+Install: exe /Q:A /R:N
+Uninstall: none
+Detect: reg HKLM\Software\Microsoft\Windows\CurrentVersion\Setup\Updates\Win98.SE\UPD236926
+Notice: Restart Windows to finish installing this Microsoft update.
+
+Package: ms-q240075-98se
+Name: Windows 98 SE UHCD update (AMD + VIA USB)
+Version: Q240075
+Section: System
+Summary: Windows 98 SE UHCD update (AMD + VIA USB)
+License: Microsoft EULA (external)
+License-File: pool/ms-q240075-98se/Q240075/LICENSE.TXT
+Systems: 98SE
+Availability: external
+Download: https://download.microsoft.com/download/win98SE/Patch/4.10.2223/W98/EN-US/240075up.exe 162304 a171800cd56a2cdcc9107d4757cb367febe98daf2b1976a152824f5ab9fa84d9
+Install: exe /Q:A /R:N
+Uninstall: none
+Detect: reg HKLM\Software\Microsoft\Windows\CurrentVersion\Setup\Updates\Win98.SE\UPD3781
+Notice: Restart Windows to finish installing this Microsoft update.
+
+Package: ms-q241134-98
+Name: Windows 98 Q241134 OpenHCI update
+Version: Q241134
+Section: System
+Summary: Windows 98 Q241134 OpenHCI update
+License: Microsoft EULA (external)
+License-File: pool/ms-q241134-98/Q241134/LICENSE.TXT
+Systems: 98FE
+Availability: external
+Download: https://download.microsoft.com/download/win98SE/Update/4003/W98/EN-US/241134usa8.exe 162976 72090159b6db2327b12e436de86d9ef727b442cc236ebf4bc5d58d13708ef1c6
+Install: exe /Q:A /R:N
+Uninstall: none
+Detect: reg HKLM\Software\Microsoft\Windows\CurrentVersion\Setup\Updates\W98\UPD241134
+ reg HKLM\Software\Microsoft\Windows\CurrentVersion\Setup\Updates\W98.SE\UPD241134
+Notice: Restart Windows to finish installing this Microsoft update.
+
+Package: ms-q242975-98se
+Name: Windows 98 SE Q242975 IEEE 1394 / hot-plug update
+Version: Q242975
+Section: System
+Summary: Windows 98 SE Q242975 IEEE 1394 / hot-plug update
+License: Microsoft EULA (external)
+License-File: pool/ms-q242975-98se/Q242975/LICENSE.TXT
+Systems: 98SE
+Availability: external
+Download: https://download.microsoft.com/download/win98se/Update/2944-2/W98/EN-US/242975USA8.EXE 597720 26d0af06768f3c7ce906946ce7a13b45cb9421f845e1cea5aa5a637fbb6ff62d
+Install: exe /Q:A /R:N
+Uninstall: none
+Detect: reg HKLM\Software\Microsoft\Windows\CurrentVersion\Setup\Updates\W98.SE\UPD242975
+Notice: Restart Windows to finish installing this Microsoft update.
+
+Package: ms-q243450-98
+Name: Windows 98 Q243450 ESDI_506 update (disks over 32 GB)
+Version: Q243450
+Section: System
+Summary: Windows 98 Q243450 ESDI_506 update (disks over 32 GB)
+License: Microsoft EULA (external)
+License-File: pool/ms-q243450-98/Q243450/LICENSE.TXT
+Systems: 98
+Availability: external
+Download: https://download.microsoft.com/download/win98SE/Update/5638-6151/W98/EN-US/243450USA8.EXE 161976 491e45764256a585b60fbff2c2daae9f7dc1952833f38a85f44f9a1b00bc7ae2
+Install: exe /Q:A /R:N
+Uninstall: none
+Detect: reg HKLM\Software\Microsoft\Windows\CurrentVersion\Setup\Updates\W98.SP1\UPD243450
+ reg HKLM\Software\Microsoft\Windows\CurrentVersion\Setup\Updates\Win98.SE\UPD243450
+Notice: Restart Windows to finish installing this Microsoft update.
+
+Package: ms-q245272-98se
+Name: Windows 98 SE Q245272 WebTV update
+Version: Q245272
+Section: System
+Summary: Windows 98 SE Q245272 WebTV update
+License: Microsoft EULA (external)
+License-File: pool/ms-q245272-98se/Q245272/LICENSE.TXT
+Systems: 98SE
+Availability: external
+Download: http://download.windowsupdate.com/msdownload/update/v3-19990518/cabpool/245272USA8_BCB9234CBD9818C3EAB1E0DEA97DC09087CDCB25.EXE 291520 39fd35e8715c886c24d03ae1c02888946bbc4e1df1baaa87811ecf6ff00c05a2
+Install: exe /Q:A /R:N
+Uninstall: none
+Detect: reg HKLM\Software\Microsoft\Windows\CurrentVersion\Setup\Updates\W98.SE\UPD245272
+Notice: Restart Windows to finish installing this Microsoft update.
+
+Package: ms-q252958-98se
+Name: Windows 98 SE Q252958 IEEE 1394 update
+Version: Q252958
+Section: System
+Summary: Windows 98 SE Q252958 IEEE 1394 update
+License: Microsoft EULA (external)
+License-File: pool/ms-q252958-98se/Q252958/LICENSE.TXT
+Systems: 98SE
+Availability: external
+Download: https://download.microsoft.com/download/win98se/update/5982/w98/en-us/252958usa8.exe 187608 285bd1754605f8daf940bc5c66bb913961309c04e98c54bc25ae76ff396b1a6e
+Install: exe /Q:A /R:N
+Uninstall: none
+Detect: reg HKLM\Software\Microsoft\Windows\CurrentVersion\Setup\Updates\W98.SE\UPD252958
+Notice: Restart Windows to finish installing this Microsoft update.
+
+Package: ms-q253697-98se
+Name: Windows 98 SE Q253697 OpenHCI update
+Version: Q253697
+Section: System
+Summary: Windows 98 SE Q253697 OpenHCI update
+License: Microsoft EULA (external)
+License-File: pool/ms-q253697-98se/Q253697/LICENSE.TXT
+Systems: 98SE
+Availability: external
+Download: https://download.microsoft.com/download/win98SE/Update/6101/W98/EN-US/253697USA8.EXE 154328 ea31d6bf61151be0ed0184ecfac5d8d2d1181296c46fef82dd9b24b0e82db829
+Install: exe /Q:A /R:N
+Uninstall: none
+Detect: reg HKLM\Software\Microsoft\Windows\CurrentVersion\Setup\Updates\W98.SE\UPD253697
+Notice: Restart Windows to finish installing this Microsoft update.
+
+Package: ms-q253711-98se
+Name: Windows 98 SE Q253711 CONFIGMG update
+Version: Q253711
+Section: System
+Summary: Windows 98 SE Q253711 CONFIGMG update
+License: Microsoft EULA (external)
+License-File: pool/ms-q253711-98se/Q253711/LICENSE.TXT
+Systems: 98SE
+Availability: external
+Download: https://download.microsoft.com/download/win98se/update/14007/w98/en-us/253711usa8.exe 208576 2ac2561a39bc09306f62872f5d8dc3060e73b9a936beebce074de38daf454d31
+Install: exe /Q:A /R:N
+Uninstall: none
+Detect: reg HKLM\Software\Microsoft\Windows\CurrentVersion\Setup\Updates\W98.SE\UPD253711
+Notice: Restart Windows to finish installing this Microsoft update.
+
+Package: ms-q263044-98
+Name: Windows 98 Q263044 FDISK update (disks over 64 GB)
+Version: Q263044
+Section: System
+Summary: Windows 98 Q263044 FDISK update (disks over 64 GB)
+License: Microsoft EULA (external)
+License-File: pool/ms-q263044-98/Q263044/LICENSE.TXT
+Systems: 98
+Availability: external
+Download: https://download.microsoft.com/download/Win98/Update/8266R/W98/EN-US/263044USA8.EXE 179360 2c6ece8a4ab9b7930a0ded16879a9bc6163cbfaf2d860847c9970671ba6a6d44
+Install: exe /Q:A /R:N
+Uninstall: none
+Detect: reg HKLM\Software\Microsoft\Windows\CurrentVersion\Setup\Updates\W98\UPD263044
+ reg HKLM\Software\Microsoft\Windows\CurrentVersion\Setup\Updates\W98.SE\UPD263044
+Notice: Restart Windows to finish installing this Microsoft update.
+
+Package: ms-q272016-me
+Name: Windows Me Q272016 CCPORT update
+Version: Q272016
+Section: System
+Summary: Windows Me Q272016 CCPORT update
+License: Microsoft EULA (external)
+License-File: pool/ms-q272016-me/Q272016/LICENSE.TXT
+Systems: ME
+Availability: external
+Download: https://download.microsoft.com/download/winme/Update/11698/WinMe/EN-US/272016USAM.EXE 159896 d7a12ca85582e69dd7e41491cd6ad1ee033cc53baf6794f755551c125e20f8bc
+Install: exe /Q:A /R:N
+Uninstall: none
+Detect: reg HKLM\Software\Microsoft\Windows\CurrentVersion\Setup\Updates\WinME\UPD272016
+Notice: Restart Windows to finish installing this Microsoft update.
+
+Package: ms-q272991-me
+Name: Windows Me Q272991 VNETBIOS update
+Version: Q272991
+Section: System
+Summary: Windows Me Q272991 VNETBIOS update
+License: Microsoft EULA (external)
+License-File: pool/ms-q272991-me/Q272991/LICENSE.TXT
+Systems: ME
+Availability: external
+Download: https://download.microsoft.com/download/winme/update/13387/winme/en-us/272991usam.exe 152216 4e40b159af9f2088705cbbbac364b097f244e0183d56bb260335fae78d944afd
+Install: exe /Q:A /R:N
+Uninstall: none
+Detect: reg HKLM\Software\Microsoft\Windows\CurrentVersion\Setup\Updates\WinME\UPD272991
+Notice: Restart Windows to finish installing this Microsoft update.
+
+Package: ms-q273017-98se
+Name: Windows 98 SE Q273017 IFSMGR update
+Version: Q273017
+Section: System
+Summary: Windows 98 SE Q273017 IFSMGR update
+License: Microsoft EULA (external)
+License-File: pool/ms-q273017-98se/Q273017/LICENSE.TXT
+Systems: 98SE
+Availability: external
+Download: https://download.microsoft.com/download/win98SE/Update/11956/W98/EN-US/273017USA8.EXE 229568 6b37203663621010cabe3b4bf69ee3b03386db1b2bfa46e0e42639779dfe0196
+Install: exe /Q:A /R:N
+Uninstall: none
+Detect: reg HKLM\Software\Microsoft\Windows\CurrentVersion\Setup\Updates\W98.SE\UPD273017
+Notice: Restart Windows to finish installing this Microsoft update.
+
+Package: ms-q273017-me
+Name: Windows Me Q273017 IFSMGR update
+Version: Q273017
+Section: System
+Summary: Windows Me Q273017 IFSMGR update
+License: Microsoft EULA (external)
+License-File: pool/ms-q273017-me/Q273017/LICENSE.TXT
+Systems: ME
+Availability: external
+Download: https://download.microsoft.com/download/winme/Update/11956/WinME/EN-US/273017USAM.EXE 228504 6fddaf29bbf286237c737c66e0a1ddc516fdeb9ca1ad73544535ecc05f966e89
+Install: exe /Q:A /R:N
+Uninstall: none
+Detect: reg HKLM\Software\Microsoft\Windows\CurrentVersion\Setup\Updates\WinME\UPD273017
+Notice: Restart Windows to finish installing this Microsoft update.
+
+Package: ms-q273727-95
+Name: Windows 95 Q273727 IPX NMPI update
+Version: Q273727
+Section: System
+Summary: Windows 95 Q273727 IPX NMPI update
+License: Microsoft EULA (external)
+License-File: pool/ms-q273727-95/Q273727/LICENSE.TXT
+Systems: 95
+Availability: external
+Download: https://download.microsoft.com/download/win95/Update/11974/W95/EN-US/273727USA5.EXE 243872 8b34a5b9eceffee6c3d1232e9f7ae3ffe7287c4114d58c61f1e6ed8b0abe6ec4
+Install: exe /Q:A /R:N
+Uninstall: none
+Detect: reg HKLM\Software\Microsoft\Windows\CurrentVersion\Setup\Updates\W95\UPD273727
+ reg HKLM\Software\Microsoft\Windows\CurrentVersion\Setup\Updates\OSR2\UPD273727
+ reg HKLM\Software\Microsoft\Windows\CurrentVersion\Setup\Updates\OSR2.1\UPD273727
+Notice: Restart Windows to finish installing this Microsoft update.
+
+Package: ms-q273727-98
+Name: Windows 98 Q273727 IPX NMPI update
+Version: Q273727
+Section: System
+Summary: Windows 98 Q273727 IPX NMPI update
+License: Microsoft EULA (external)
+License-File: pool/ms-q273727-98/Q273727/LICENSE.TXT
+Systems: 98
+Availability: external
+Download: https://download.microsoft.com/download/win98/Update/11974/W98/EN-US/273727USA8.EXE 243360 e417564904f97e8c92380e33e4b2dcd4c3df029c4ca4f39c34a0611157277e1a
+Install: exe /Q:A /R:N
+Uninstall: none
+Detect: reg HKLM\Software\Microsoft\Windows\CurrentVersion\Setup\Updates\W98\UPD273727
+ reg HKLM\Software\Microsoft\Windows\CurrentVersion\Setup\Updates\W98.SE\UPD273727
+Notice: Restart Windows to finish installing this Microsoft update.
+
+Package: ms-q273727-me
+Name: Windows Me Q273727 IPX NMPI update
+Version: Q273727
+Section: System
+Summary: Windows Me Q273727 IPX NMPI update
+License: Microsoft EULA (external)
+License-File: pool/ms-q273727-me/Q273727/LICENSE.TXT
+Systems: ME
+Availability: external
+Download: https://download.microsoft.com/download/winme/Update/11974/WinMe/EN-US/273727USAM.EXE 221848 bd0e0559277b22a5e847208b0a03f077bb3a3e307d373cf49d04293a190f75c9
+Install: exe /Q:A /R:N
+Uninstall: none
+Detect: reg HKLM\Software\Microsoft\Windows\CurrentVersion\Setup\Updates\WinME\UPD273727
+Notice: Restart Windows to finish installing this Microsoft update.
+
+Package: ms-q274113-98
+Name: Windows 98 Q274113 WebTV update
+Version: Q274113
+Section: System
+Summary: Windows 98 Q274113 WebTV update
+License: Microsoft EULA (external)
+License-File: pool/ms-q274113-98/Q274113/LICENSE.TXT
+Systems: 98
+Availability: external
+Download: https://download.microsoft.com/download/win98SE/Update/12278/W98/EN-US/274113USA8.EXE 185536 cd8969ee1ee06cf05d5f676b90af9ff13006c6562e3a9a503e1429836ca008d6
+Install: exe /Q:A /R:N
+Uninstall: none
+Detect: reg HKLM\Software\Microsoft\Windows\CurrentVersion\Setup\Updates\W98\UPD274113
+Notice: Restart Windows to finish installing this Microsoft update.
+
+Package: ms-q274113-me
+Name: Windows Me Q274113 WebTV update
+Version: Q274113
+Section: System
+Summary: Windows Me Q274113 WebTV update
+License: Microsoft EULA (external)
+License-File: pool/ms-q274113-me/Q274113/LICENSE.TXT
+Systems: ME
+Availability: external
+Download: https://download.microsoft.com/download/winme/Update/12278/WinMe/EN-US/274113USAM.EXE 184984 817ade72cff267cc1ef1e7d0cd92924d825ddddcb39c10f65f506308e5b3b0cd
+Install: exe /Q:A /R:N
+Uninstall: none
+Detect: reg HKLM\Software\Microsoft\Windows\CurrentVersion\Setup\Updates\WinME\UPD274113
+Notice: Restart Windows to finish installing this Microsoft update.
+
+Package: ms-q274548-me
+Name: Windows Me Q274548 HyperTerminal update
+Version: Q274548
+Section: System
+Summary: Windows Me Q274548 HyperTerminal update
+License: Microsoft EULA (external)
+License-File: pool/ms-q274548-me/Q274548/LICENSE.TXT
+Systems: ME
+Availability: external
+Download: https://download.microsoft.com/download/winme/Update/12395/WinMe/EN-US/274548USAM.EXE 310848 3d586be704803e4adfda2b45acf7a3de25193c8b56ca5e84efea0e2a9b5f1655
+Install: exe /Q:A /R:N
+Uninstall: none
+Detect: reg HKLM\Software\Microsoft\Windows\CurrentVersion\Setup\Updates\WinME\UPD274548
+Notice: Restart Windows to finish installing this Microsoft update.
+
+Package: ms-q278031-me
+Name: Windows Me Q278031 NETPPTP update
+Version: Q278031
+Section: System
+Summary: Windows Me Q278031 NETPPTP update
+License: Microsoft EULA (external)
+License-File: pool/ms-q278031-me/Q278031/LICENSE.TXT
+Systems: ME
+Availability: external
+Download: https://download.microsoft.com/download/winme/update/13111/winme/en-us/278031usam.exe 166040 fe25991508325b36a026cda9d20167d77be2ae2c371554ad759cc24e2d39e0c7
+Install: exe /Q:A /R:N
+Uninstall: none
+Detect: reg HKLM\Software\Microsoft\Windows\CurrentVersion\Setup\Updates\WinME\UPD278031
+Notice: Restart Windows to finish installing this Microsoft update.
+
+Package: ms-q279866-me
+Name: Windows Me Q279866 IPHLPAPI update
+Version: Q279866
+Section: System
+Summary: Windows Me Q279866 IPHLPAPI update
+License: Microsoft EULA (external)
+License-File: pool/ms-q279866-me/Q279866/LICENSE.TXT
+Systems: ME
+Availability: external
+Download: https://download.microsoft.com/download/winme/Update/13195/WinMe/EN-US/279866USAM.EXE 161432 36f43037fdfed16bf868d963e45eaf3a190bfeab68f1ac44150a3399eda97def
+Install: exe /Q:A /R:N
+Uninstall: none
+Detect: reg HKLM\Software\Microsoft\Windows\CurrentVersion\Setup\Updates\WinME\UPD279866
+Notice: Restart Windows to finish installing this Microsoft update.
+
+Package: ms-q287564-me
+Name: Windows Me Q287564 Movie Maker update
+Version: Q287564
+Section: System
+Summary: Windows Me Q287564 Movie Maker update
+License: Microsoft EULA (external)
+License-File: pool/ms-q287564-me/Q287564/LICENSE.TXT
+Systems: ME
+Availability: external
+Download: http://download.windowsupdate.com/msdownload/update/v3-19990518/cabpool/287564_C357B6006425BFFD54868CA64F1A975D567C1451.EXE 459416 09bb9a7e1d1c3e24aeea712a8836171258e633f8e2477eddba0a9db2144d83d2
+Install: exe /Q:A /R:N
+Uninstall: none
+Detect: reg HKLM\Software\Microsoft\Windows\CurrentVersion\Setup\Updates\WinME\UPD287564
+Notice: Restart Windows to finish installing this Microsoft update.
+
+Package: ms-q290700-me
+Name: Windows Me Q290700 System Restore update
+Version: Q290700
+Section: System
+Summary: Windows Me Q290700 System Restore update
+License: Microsoft EULA (external)
+License-File: pool/ms-q290700-me/Q290700/LICENSE.TXT
+Systems: ME
+Availability: external
+Download: https://download.microsoft.com/download/winme/update/16372/winme/en-us/290700usam.exe 225136 e2d61572e1ecd50d7d3b7992de7922a8c8679470895c6fe8e9964ce5f5b5bc95
+Install: exe /Q:A /R:N
+Uninstall: none
+Detect: reg HKLM\Software\Microsoft\Windows\CurrentVersion\Setup\Updates\WinME\UPD290700
+Notice: Restart Windows to finish installing this Microsoft update.
+
+Package: ms-q310695-me
+Name: Windows Me Q310695 UDF update
+Version: Q310695
+Section: System
+Summary: Windows Me Q310695 UDF update
+License: Microsoft EULA (external)
+License-File: pool/ms-q310695-me/Q310695/LICENSE.TXT
+Systems: ME
+Availability: external
+Download: https://download.microsoft.com/download/WinMe/Update/22366/WinME/EN-US/310695USAM.EXE 168512 070a663f1ecb42bf27eb44f5c9ec54bda745928cd1ea76664132618f845bf30d
+Install: exe /Q:A /R:N
+Uninstall: none
+Detect: reg HKLM\Software\Microsoft\Windows\CurrentVersion\Setup\Updates\WinME\UPD310695
+Notice: Restart Windows to finish installing this Microsoft update.
+
+Package: ms-q311561-98
+Name: Windows 98 Q311561 IO.SYS update
+Version: Q311561
+Section: System
+Summary: Windows 98 Q311561 IO.SYS update
+License: Microsoft EULA (external)
+License-File: pool/ms-q311561-98/Q311561/LICENSE.TXT
+Systems: 98
+Availability: external
+Download: https://download.microsoft.com/download/Win98/Patch/22527/W98/EN-US/311561USA8.EXE 306792 569ecb4fe36a7c00bf7f6d353467d8f95e4708fb8809d3e456760a8ef42be6fc
+Install: exe /Q:A /R:N
+Uninstall: none
+Detect: reg HKLM\Software\Microsoft\Windows\CurrentVersion\Setup\Updates\W98\UPD311561
+ reg HKLM\Software\Microsoft\Windows\CurrentVersion\Setup\Updates\W98.SE\UPD311561
+Notice: Restart Windows to finish installing this Microsoft update.
+
+Package: ms-q311561-me
+Name: Windows Me Q311561 IO.SYS update
+Version: Q311561
+Section: System
+Summary: Windows Me Q311561 IO.SYS update
+License: Microsoft EULA (external)
+License-File: pool/ms-q311561-me/Q311561/LICENSE.TXT
+Systems: ME
+Availability: external
+Download: https://download.microsoft.com/download/WinME/Patch/22527/WinME/EN-US/311561USAM.EXE 356416 99ad200ac4abb7a70d6a050a234d96769ad2b0e95c0b6ae1129c25b261568e54
+Install: exe /Q:A /R:N
+Uninstall: none
+Detect: reg HKLM\Software\Microsoft\Windows\CurrentVersion\Setup\Updates\WinME\UPD311561
+Notice: Restart Windows to finish installing this Microsoft update.
+
+Package: ms-q313829-9x
+Name: Windows Shell update Q313829 (MS02-014)
+Version: Q313829
+Section: System
+Summary: Windows Shell update Q313829 (MS02-014)
+Homepage: https://learn.microsoft.com/en-us/security-updates/securitybulletins/2002/ms02-014
+License: Microsoft EULA (external)
+License-File: pool/ms-q313829-9x/Q313829/LICENSE.TXT
+Systems: 95, 98
+Availability: external
+Download: https://download.microsoft.com/download/ie4095/actdesk/4.01_sp2/W9XNT4/EN-US/q313829.exe 854096 f76c332781520b19207ce97995b76924127d05bec511c92e0eac06c4ae963cc1
+Install: exe /Q:A /R:N
+Uninstall: none
+Notice: Restart Windows to finish installing this Microsoft update.
+
+Package: ms-q314757-me
+Name: Windows Me Q314757 UPnP update (MS01-059)
+Version: Q314757
+Section: System
+Summary: Windows Me Q314757 UPnP update (MS01-059)
+Homepage: https://learn.microsoft.com/en-us/security-updates/securitybulletins/2001/ms01-059
+License: Microsoft EULA (external)
+License-File: pool/ms-q314757-me/Q314757/LICENSE.TXT
+Systems: ME
+Availability: external
+Download: https://download.microsoft.com/download/winme/Update/22940/WinMe/EN-US/314757USAM.EXE 228928 bfd22fe562752a63a8d069232c008995a8fd0356fae8b79f23cfc6b4320e5bbe
+Install: exe /Q:A /R:N
+Uninstall: none
+Detect: reg HKLM\Software\Microsoft\Windows\CurrentVersion\Setup\Updates\WinME\UPD314757
+Notice: Restart Windows to finish installing this Microsoft update.
+
+Package: ms-q314941-98
+Name: Windows 98 Q314941 UPnP update (MS01-059)
+Version: Q314941
+Section: System
+Summary: Windows 98 Q314941 UPnP update (MS01-059)
+Homepage: https://learn.microsoft.com/en-us/security-updates/securitybulletins/2001/ms01-059
+License: Microsoft EULA (external)
+License-File: pool/ms-q314941-98/Q314941/LICENSE.TXT
+Systems: 98
+Availability: external
+Download: https://download.microsoft.com/download/win98SE/Patch/Q314941/W98/EN-US/314941USA8.EXE 228936 5a5097615095c015edf09057cda32f639f14371be116418f9cb16dbf4914dcbf
+Install: exe /Q:A /R:N
+Uninstall: none
+Detect: reg HKLM\Software\Microsoft\Windows\CurrentVersion\Setup\Updates\W98\UPD314941
+Notice: Restart Windows to finish installing this Microsoft update.
+
+Package: ms-q323172-98
+Name: Windows 98 Q323172 certificate enrollment update (MS02-048)
+Version: Q323172
+Section: System
+Summary: Windows 98 Q323172 certificate enrollment update (MS02-048)
+Homepage: https://learn.microsoft.com/en-us/security-updates/securitybulletins/2002/ms02-048
+License: Microsoft EULA (external)
+License-File: pool/ms-q323172-98/Q323172/LICENSE.TXT
+Systems: 98
+Availability: external
+Download: https://download.microsoft.com/download/WIN98/PATCH/24421/W98/EN-US/323172USA8.EXE 219472 d65cc961a4003494270bcb628e0fc5177ef0829a52015b56d4f54bbd807b29dc
+Install: exe /Q:A /R:N
+Uninstall: none
+Detect: reg HKLM\Software\Microsoft\Windows\CurrentVersion\Setup\Updates\W98\UPD323172
+Notice: Restart Windows to finish installing this Microsoft update.
+
+Package: ms-q323172-me
+Name: Windows Me Q323172 certificate enrollment update (MS02-048)
+Version: Q323172
+Section: System
+Summary: Windows Me Q323172 certificate enrollment update (MS02-048)
+Homepage: https://learn.microsoft.com/en-us/security-updates/securitybulletins/2002/ms02-048
+License: Microsoft EULA (external)
+License-File: pool/ms-q323172-me/Q323172/LICENSE.TXT
+Systems: ME
+Availability: external
+Download: https://download.microsoft.com/download/WINME/PATCH/24421/WINME/EN-US/323172USAM.EXE 216896 9dbd8188f643ef430ed1810d6d0bead7b8d74478044c77962e311c0c4ddf4159
+Install: exe /Q:A /R:N
+Uninstall: none
+Detect: reg HKLM\Software\Microsoft\Windows\CurrentVersion\Setup\Updates\WinME\UPD323172
+Notice: Restart Windows to finish installing this Microsoft update.
+
+Package: ms-q329048-98
+Name: Windows 98 Q329048 Compressed Folders update (MS02-054)
+Version: Q329048
+Section: System
+Summary: Windows 98 Q329048 Compressed Folders update (MS02-054)
+Homepage: https://learn.microsoft.com/en-us/security-updates/securitybulletins/2002/ms02-054
+License: Microsoft EULA (external)
+License-File: pool/ms-q329048-98/Q329048/LICENSE.TXT
+Systems: 98
+Availability: external
+Download: https://download.microsoft.com/download/WIN98/UPDATE/25556/W98/EN-US/329048USA8.EXE 273744 84fbb600e8cebff778df1f2b0b31a65e9fdef6588e6c2a0d8a1b19fdf721505b
+Install: exe /Q:A /R:N
+Uninstall: none
+Detect: reg HKLM\Software\Microsoft\Windows\CurrentVersion\Setup\Updates\W98\UPD329048
+Notice: Restart Windows to finish installing this Microsoft update.
+
+Package: ms-q329048-me
+Name: Windows Me Q329048 Compressed Folders update (MS02-054)
+Version: Q329048
+Section: System
+Summary: Windows Me Q329048 Compressed Folders update (MS02-054)
+Homepage: https://learn.microsoft.com/en-us/security-updates/securitybulletins/2002/ms02-054
+License: Microsoft EULA (external)
+License-File: pool/ms-q329048-me/Q329048/LICENSE.TXT
+Systems: ME
+Availability: external
+Download: http://download.windowsupdate.com/msdownload/update/v3-19990518/CabPool/329048_3E84647A527E386B05A78DD79AF876BFCFC147E1.EXE 293184 f32042677925c526da8ca17f9089113aca74c231ceb8f4ad179ef8f3c7f20a61
+Install: exe /Q:A /R:N
+Uninstall: none
+Detect: reg HKLM\Software\Microsoft\Windows\CurrentVersion\Setup\Updates\WinME\UPD329048
+Notice: Restart Windows to finish installing this Microsoft update.
+
+Package: ms-q329115-me
+Name: Windows Me Q329115 certificate validation update (MS02-050)
+Version: Q329115
+Section: System
+Summary: Windows Me Q329115 certificate validation update (MS02-050)
+Homepage: https://learn.microsoft.com/en-us/security-updates/securitybulletins/2002/ms02-050
+License: Microsoft EULA (external)
+License-File: pool/ms-q329115-me/Q329115/LICENSE.TXT
+Systems: ME
+Availability: external
+Download: http://download.windowsupdate.com/msdownload/update/v3-19990518/CabPool/329115_ME_7B77D4AB183D2DF9F5306C17F13C959C2380DB44.EXE 376640 59ed7fad1697d2284eb6b6a8a77289cf965fbbba902cb712395611a0937bbc53
+Install: exe /Q:A /R:N
+Uninstall: none
+Detect: reg HKLM\Software\Microsoft\Windows\CurrentVersion\Setup\Updates\WinME\UPD329115
+Notice: Restart Windows to finish installing this Microsoft update.
+
+Package: ms-q812709-me
+Name: Windows Me Q812709 Help and Support update
+Version: Q812709
+Section: System
+Summary: Windows Me Q812709 Help and Support update
+License: Microsoft EULA (external)
+License-File: pool/ms-q812709-me/Q812709/LICENSE.TXT
+Systems: ME
+Availability: external
+Download: http://download.windowsupdate.com/msdownload/update/v3-19990518/cabpool/812709_3FE395B778B7C8704A0DE247305222EB07ED386A.EXE 300352 2013dcbe7b5376b801c7b8480e3edb10d4fb07f023773b619fe36a47deac1cc8
+Install: exe /Q:A /R:N
+Uninstall: none
+Detect: reg HKLM\Software\Microsoft\Windows\CurrentVersion\Setup\Updates\WinME\UPD812709
+Notice: Restart Windows to finish installing this Microsoft update.
+
+Package: ms-telnet-95
+Name: Windows 95 Telnet update
+Version: W95.TELNET
+Section: System
+Summary: Windows 95 Telnet update
+License: Microsoft EULA (external)
+License-File: pool/ms-telnet-95/W95.TELNET/LICENSE.TXT
+Systems: 95
+Availability: external
+Download: https://download.microsoft.com/download/win95upg/Update/10/W95/EN-US/telnet95.exe 178144 505f0e58bef857d56d26169977b98fccb3a2228187ac61606377e7d1338b43d0
+Install: exe /Q:A /R:N
+Uninstall: none
+Detect: reg HKLM\Software\Microsoft\Windows\CurrentVersion\Setup\Updates\W95.TELNET
+Notice: Restart Windows to finish installing this Microsoft update.
+
+Package: ms-vcredist2005
+Name: Microsoft Visual C++ 2005 Runtime
+Version: 8.0.50727.6195
+Section: System
+Summary: Runtime libraries needed by programs built with Visual C++ 2005
+Description: The Visual C++ 2005 SP1 runtime (MSVCR80.DLL, MSVCP80.DLL,
+ MSVCM80.DLL, ATL80.DLL). On Windows 98 and ME it installs the DLLs into the
+ SYSTEM folder. Downloaded from Microsoft's own server.
+License: Microsoft EULA (external)
+License-File: pool/ms-vcredist2005/8.0.50727.6195/LICENSE.TXT
+Systems: 98, ME
+Availability: external
+Download: https://download.microsoft.com/download/8/B/4/8B42259F-5D70-43F4-AC2E-4B208FD8D66A/vcredist_x86.EXE 2710520 8648c5fc29c44b9112fe52f9a33f80e7fc42d10f3b5b42b2121542a13e44adfd
+Requires: msi 2.0 | The Visual C++ 2005 runtime needs Windows Installer 2.0 or later.
+Install: exe /q:a /c:"msiexec /i vcredist.msi /qn"
+Uninstall: registry Microsoft Visual C++ 2005 Redistributable
+Detect: file {sys}\MSVCR80.DLL
+
 Package: myuninstaller
 Name: MyUninstaller
 Version: 1.77
@@ -957,6 +1993,28 @@ After: path C:\NASM
 Uninstall: files
 Warning: This version has 5 known security problems. Assembling a malicious
  source file can crash NASM; only assemble files you trust.
+
+Package: neutron
+Name: Neutron
+Version: 1.07
+Section: Internet
+Summary: Tiny clock synchronizer using the Internet Time protocol
+Description: Gets the exact time from an Internet time server (Time
+ protocol, RFC 868, UDP port 37) and sets the computer's clock. Can sync
+ automatically at startup and exit, for use from the Startup folder.
+Homepage: https://keir.net/neutron.html
+License: Freeware
+License-File: pool/neutron/1.07/LICENSE.TXT
+Systems: 95, 98, ME, NT4, 2000
+Availability: external
+Download: https://keir.net/download/neutron.zip 6765 9a9ae494fe176d49abf2b764c00ffaa0d9a3b4ed9b270d0f30b5d337264b46a2 http://keir.net/download/neutron.zip
+Installed-Size: 16
+Install: unzip {pf}\Neutron
+Shortcut: Neutron | {dir}\Neutron.exe |
+Uninstall: files
+Notice: Neutron uses the old Time protocol (UDP port 37), not SNTP. Its list
+ of time servers dates from 2008 and some may no longer answer; if syncing
+ fails, pick another server in the options (click ">>").
 
 Package: nircmd
 Name: NirCmd
@@ -1027,6 +2085,91 @@ Warning: This version has known security problems, fixed only in versions
 Notice: Notepad++ is in the "ansi" folder; the "unicode" folder is not used on
  Windows 98. If the Open and Save dialogs do not appear, drag files onto the
  Notepad++ window instead.
+
+Package: notetab-light
+Name: NoteTab Light
+Version: 7.2
+Section: Office
+Summary: Tabbed text and HTML editor with Clip macros, a Notepad replacement
+Description: A free tabbed text editor from Fookes Software. Opens many
+ documents at once, searches and replaces across files, strips HTML tags,
+ reformats text and runs "Clip" text macros. Optional 30-day trial mode for
+ the features of the paid editions; it then returns to the free mode.
+Homepage: https://www.notetab.com/notetab-light/
+License: Freeware
+License-File: pool/notetab-light/7.2/LICENSE.TXT
+Systems: 95, 98, ME, NT4, 2000
+Download: pool/notetab-light/7.2/NoteTab_Light_Setup.exe 2060990 b0923198ffd6dca66d8cca6242ef2781e8bf2cb9b0e0439d663aa42fa2856749 https://www.fookes.com/ftp/free/NoteTab_Light_Setup.exe http://www.fookes.com/ftp/free/NoteTab_Light_Setup.exe
+Installed-Size: 4100
+Install: inno
+Uninstall: registry NoteTab Light
+Notice: NoteTab Light is free. Its help is in HTML Help (.chm) format. On
+ Windows 95 Fookes offers the older WinHelp files in a separate
+ "Windows 95 and NT4 Compatibility Pack" at
+ http://www.notetab.com/ftp/Win95-NT4.zip
+
+Package: ntfs-reader
+Name: DiskInternals NTFS Reader
+Version: 2.1
+Section: Utilities
+Summary: Reads files from NTFS disks on Windows 95, 98 and Me
+Description: Gives read access to NTFS partitions and disks, which Windows
+ 95, 98 and Me cannot read themselves, and copies files from them to any
+ local or network drive. Compressed and encrypted files are supported.
+ DiskInternals has replaced it with Linux Reader, which does not run on 9x.
+Homepage: https://www.diskinternals.com/ntfs-reader/
+License: Freeware
+License-File: pool/ntfs-reader/2.1/LICENSE.TXT
+Systems: 95, 98, ME
+Download: pool/ntfs-reader/2.1/NTFS_Reader.exe 3470933 bdd06e58a0c6c85f2f2db14d12fbea6d353a8cd2da62dbd889192af6bbce5c1b https://eu.diskinternals.com/download/NTFS_Reader.exe http://eu.diskinternals.com/download/NTFS_Reader.exe
+Installed-Size: 3340
+Install: nsis /D={dir}
+Uninstall: run "{dir}\Uninstall.exe" /S
+
+Package: nvidia-forceware
+Name: NVIDIA ForceWare display driver
+Version: 81.98
+Section: System
+Summary: NVIDIA display driver for GeForce2 MX to GeForce 6 cards
+Description: The last NVIDIA display driver for Windows 98 and ME, with
+ DirectX 9.0c and OpenGL 2.0 support. For GeForce2 MX, GeForce3, GeForce4,
+ GeForce FX and GeForce 6 cards and the matching Quadro cards. RIVA TNT,
+ TNT2, Vanta, GeForce 256 and GeForce2 GTS/Pro/Ultra/Ti need the
+ nvidia-forceware-tnt package (71.84) instead.
+Homepage: https://www.nvidia.com/en-us/drivers/win9x-8198/
+License: Proprietary (NVIDIA License For Customer Use)
+License-File: pool/nvidia-forceware/81.98/LICENSE.TXT
+Systems: 98, ME
+Availability: external
+Download: https://download.nvidia.com/Windows/81.98/81.98_forceware_win9x_english.exe 12458912 e05b92b1322f8d01549995ddd00a9dca93d83358ee78e868acedca9dc6c7c910 http://download.nvidia.com/Windows/81.98/81.98_forceware_win9x_english.exe https://download1.nvidia.com/Windows/81.98/81.98_forceware_win9x_english.exe http://download1.nvidia.com/Windows/81.98/81.98_forceware_win9x_english.exe
+Requires: dx 8.0 | This driver needs Microsoft DirectX 8 or later. Install DirectX first.
+Install: exe
+Uninstall: registry NVIDIA Windows 95/98/ME Display Drivers
+Notice: If another display driver is installed, NVIDIA Setup removes it,
+ restarts Windows and finishes the installation after the restart. Setup
+ stops if it finds no NVIDIA graphics chip.
+
+Package: nvidia-forceware-tnt
+Name: NVIDIA ForceWare display driver (TNT and GeForce 256)
+Version: 71.84
+Section: System
+Summary: NVIDIA display driver including RIVA TNT, TNT2 and GeForce 256
+Description: The last NVIDIA display driver for Windows 98 and ME that still
+ supports RIVA TNT, TNT2, Vanta, Aladdin TNT2, GeForce 256 and GeForce2
+ GTS/Pro. It also supports later cards up to the GeForce 6 series, but for
+ those the nvidia-forceware package (81.98) is newer.
+Homepage: https://www.nvidia.com/
+License: Proprietary (NVIDIA License For Customer Use)
+License-File: pool/nvidia-forceware-tnt/71.84/LICENSE.TXT
+Systems: 98, ME
+Availability: external
+Download: https://download.nvidia.com/Windows/71.84/71.84_win9x_english.exe 11232793 c0657392fdd4ee41504e35e89f926e3bf174d25662809b7353b135efce588b94 http://download.nvidia.com/Windows/71.84/71.84_win9x_english.exe https://download1.nvidia.com/Windows/71.84/71.84_win9x_english.exe http://download1.nvidia.com/Windows/71.84/71.84_win9x_english.exe
+Requires: dx 8.0 | This driver needs Microsoft DirectX 8 or later. Install DirectX first.
+Install: exe
+Uninstall: registry NVIDIA Windows 95/98/ME Display Drivers
+Notice: If another display driver is installed, NVIDIA Setup removes it,
+ restarts Windows and finishes the installation after the restart. Setup
+ stops if it finds no NVIDIA graphics chip.
 
 Package: openoffice
 Name: OpenOffice.org
@@ -1138,6 +2281,34 @@ Warning: This version has known security problems, fixed only in versions that
 Notice: Start Privoxy from the Start Menu, then set your browser's HTTP proxy
  to 127.0.0.1, port 8118. Its settings are in config.txt in its folder.
 
+Package: quickview-pro
+Name: QuickView Pro for DOS
+Version: 2.61
+Section: Multimedia
+Summary: DOS video, music and picture player (AVI, MP4, MPEG, MP3, JPG)
+Description: A fast full-screen player for DOS that also runs in an MS-DOS
+ window or MS-DOS mode under Windows 95, 98 and ME. Plays AVI (including
+ DivX and XviD), MP4, MPEG, MOV, FLI/FLC, VideoCD, MP3, WAV, Ogg Vorbis and
+ shows JPG, GIF, BMP, PCX and TGA pictures. Needs a 386, VGA and a Sound
+ Blaster compatible card for sound.
+Homepage: http://www.multimediaware.com/qv/
+License: Shareware
+License-File: pool/quickview-pro/2.61/LICENSE.TXT
+Systems: 95, 98, ME
+Availability: external
+Download: http://www.multimediaware.com/qv/qvpro261.zip 1223996 e276a25bfc421e123dec29902444263cfb3deedb4bd1430424690346213bcfb5 https://www.multimediaware.com/qv/qvpro261.zip
+Installed-Size: 1280
+Install: unzip {pf}\QuickView
+Shortcut: QuickView Pro | {dir}\qv.exe |
+Uninstall: files
+Warning: QuickView 2.61 contains old versions of FFmpeg and other media
+ decoders with known security flaws. Only open media files you trust.
+Notice: Shareware: you may try it for three weeks; after that the author asks
+ you to buy a license (still sold at multimediaware.com/qv/register). The
+ unregistered version shows nag screens, waits before starting and plays at
+ most 10 files in a playlist. For sound, set the BLASTER variable or get a
+ driver from multimediaware.com/qv/snddrv/.
+
 Package: regshot
 Name: Regshot
 Version: 1.8.2
@@ -1178,6 +2349,51 @@ Warning: SeaMonkey 1.1.19 is from 2010 and has hundreds of known security
  problems, fixed only in versions that do not run on Windows 98. A malicious
  web page, image or e-mail can run code on this computer. Most current secure
  web sites will not open. Do not use it for banking or passwords.
+
+Package: servant-salamander
+Name: Servant Salamander
+Version: 1.52
+Section: Utilities
+Summary: Two-panel file manager in the style of Norton Commander
+Description: A small, fast two-panel file manager: copy, move, delete,
+ rename and compare files and folders with the keyboard or the mouse,
+ view files, filter panels and run user-defined commands. Freeware
+ version from 1998, the predecessor of Altap Salamander.
+Homepage: https://www.altap.cz/
+License: Freeware
+License-File: pool/servant-salamander/1.52/LICENSE.TXT
+Systems: 95, 98, ME, NT4, 2000
+Download: pool/servant-salamander/1.52/salam152.zip 211773 a8cbff2e25b602e8ae06162e6b669ea5850cbcfc09550fd96e93bc88419c0949
+Installed-Size: 440
+Install: unzip {pf}\Servant Salamander
+Shortcut: Servant Salamander | {dir}\SALAMAND.EXE |
+Uninstall: files
+
+Package: servant-salamander-2
+Name: Servant Salamander 2.0
+Version: 2.0
+Section: Utilities
+Summary: Two-panel file manager with archive and picture viewer plugins
+Description: A fast two-panel file manager in the style of Norton Commander,
+ with plugins for ZIP, TAR, CAB, ARJ, ACE and RAR archives, a picture viewer
+ for over 40 formats, an MP3 viewer and a file viewer. This is the 30-day
+ evaluation version from 2001; the free version 1.52 is the package
+ servant-salamander.
+Homepage: https://www.altap.cz/
+License: Shareware (ALTAP evaluation license)
+License-File: pool/servant-salamander-2/2.0/LICENSE.TXT
+Systems: 95, 98, ME, NT4, 2000
+Download: pool/servant-salamander-2/2.0/salen200.exe 1361121 9682a428696d0bce07fb854bebac562b0522cda08b582448df30da7da76c8513
+Installed-Size: 2700
+Requires: ie 4.0 | Servant Salamander 2.0 needs Internet Explorer 4.0 or later (common controls 4.71 and HTML Help).
+Install: exe
+Uninstall: registry Servant Salamander 2.0
+Warning: This version has a known security problem: opening a specially
+ crafted program file in its PE viewer plugin can run harmful code
+ (CVE-2007-3314). Its archive plugins are from 1998-2001.
+Notice: Shareware: Servant Salamander 2.0 is a 30-day evaluation. After 30
+ days its license asks you to buy a license or uninstall, and a 2.0 license
+ can no longer be bought. The free Servant Salamander 1.52 has no time limit.
 
 Package: shellexview
 Name: ShellExView
@@ -1237,6 +2453,25 @@ Uninstall: registry Sumatra PDF reader
 Warning: This version has known security problems. Opening a malicious PDF
  file can run code on this computer. Newer versions that fix them do not run
  on Windows 98.
+
+Package: system-lock
+Name: System Lock
+Version: 1.2 build 1
+Section: System
+Summary: Locks the desktop with a password until you unlock it
+Description: Locks the computer behind a password screen, with a custom
+ wallpaper or the system wallpaper, so nobody can use it while you are away.
+ Uses the key combination Ctrl+Alt+F9. No longer developed (2001).
+Homepage: https://www.r2.com.au/page/products/download/system-lock/
+License: Freeware
+License-File: pool/system-lock/1.2b1/LICENSE.TXT
+Systems: 98
+Availability: external
+Download: https://www.r2.com.au/static/downloads/files/system-lock-v1.2b1.exe 160147 e973570a9bfd7398d92fc3b3327bca0122dfa1f0ad1b5da8e1b63d5c70cccd68 http://www.r2.com.au/static/downloads/files/system-lock-v1.2b1.exe
+Install: exe
+Uninstall: registry System Lock
+Notice: System Lock is no longer developed. On Windows 9x a screen lock is
+ not real security: the computer can be restarted or started in DOS.
 
 Package: testdisk
 Name: TestDisk & PhotoRec
@@ -1306,6 +2541,24 @@ Warning: This version has 4 known security problems in the viewer that were
  never fixed. Connecting to a malicious VNC server can run code on this
  computer. VNC does not encrypt the connection, and passwords are limited to
  8 characters: use it only on a trusted local network.
+
+Package: treesize-free
+Name: TreeSize Free
+Version: 2.1
+Section: Utilities
+Summary: Shows which folders use the most disk space
+Description: Scans a drive or folder and shows the size of every folder in a
+ tree, sorted by size, so you can find what fills the disk. This is the
+ build JAM Software still offers for Windows 9x and ME.
+Homepage: https://www.jam-software.com/treesize_free
+License: Freeware
+License-File: pool/treesize-free/2.1/LICENSE.TXT
+Systems: 95, 98, ME
+Download: pool/treesize-free/2.1/TreeSizeFree_9x.zip 739972 98c52603ebd2278aa3abea9331f84cb71b1f7d291c14810856c81ac8dbf2afdc https://downloads.jam-software.de/treesize_free/TreeSizeFree_9x.zip
+Installed-Size: 850
+Install: unzip {pf}\TreeSize Free
+Shortcut: TreeSize Free | {dir}\TreeSizeFree.exe |
+Uninstall: files
 
 Package: vba
 Name: VisualBoyAdvance
@@ -1457,6 +2710,77 @@ Warning: This version has known security problems that were fixed only in
 Notice: WinSCP keeps its settings in the registry. Removing the package does
  not delete them.
 
+Package: winzip
+Name: WinZip
+Version: 10.0 (7245)
+Section: Utilities
+Summary: The classic Zip archiver for Windows (evaluation version)
+Description: WinZip 10.0, the newest WinZip that WinZip still serves for Windows 98
+ and ME (11.2 and later refuse to install on them). Creates and opens Zip
+ files. Evaluation version: it must be registered after the evaluation
+ period.
+Homepage: https://www.winzip.com/
+License: Shareware
+License-File: pool/winzip/10.0-7245/LICENSE.TXT
+Systems: 98, ME, 2000
+Availability: external
+Download: https://download.winzip.com/winzip100.exe 6252136 7ecb819cff97a67b2ac3b672471972cac9b9724899d5fe2e60792f453d591122 http://download.winzip.com/winzip100.exe https://download.winzip.com/ov/winzip100.exe http://download.winzip.com/ov/winzip100.exe
+Install: exe
+Uninstall: registry WinZip
+Warning: WinZip 10.0 is from 2006. Its automatic update check does not verify
+ updates (CVE-2008-3442), and it no longer receives fixes. Turn off the
+ update check and only open archives you trust.
+Notice: Shareware: WinZip 10.0 is an evaluation version. After the evaluation
+ period it asks you to buy a license, and licenses for version 10.0 may no
+ longer be sold. The setup package also contains Google Toolbar and Google
+ Desktop installers; decline them in setup if you do not want them.
+
+Package: xmplay
+Name: XMPlay
+Version: 4.1
+Section: Multimedia
+Summary: Small audio player for MP3, OGG, WAV, CD audio and tracker modules
+Description: A small audio player without installer. Plays MP3, MP2, OGG,
+ WAV, AIFF, CD audio and module formats (MO3, IT, XM, S3M, MTM, MOD, UMX),
+ with skins, playlists, Internet radio and Winamp DSP plugin support.
+Homepage: https://www.un4seen.com/xmplay.html
+License: Freeware (non-commercial use)
+License-File: pool/xmplay/4.1/LICENSE.TXT
+Systems: 95, 98, ME, 2000
+Availability: external
+Download: https://www.un4seen.com/files/xmplay41.zip 337689 f364d9490d722d1ff21b9a027d803cbf4d5489422b39b782580085bbc463dd5e http://www.un4seen.com/files/xmplay41.zip
+Installed-Size: 370
+Install: unzip {pf}\XMPlay
+Shortcut: XMPlay | {dir}\xmplay.exe |
+Uninstall: files
+Notice: XMPlay is free for non-commercial use only. On Windows 95 and 98,
+ skins with a full-window alpha channel need an updated MSIMG32.DLL, which
+ Un4seen offers on the XMPlay page (put it in the XMPlay folder).
+
+Package: xplorer2
+Name: xplorer2 Professional
+Version: 5.0.0.3
+Section: Utilities
+Summary: Dual-pane tabbed file manager (21-day trial)
+Description: A file manager that looks like Windows Explorer but adds two
+ panes, tabs, previews, file search, folder comparison, batch renaming and
+ duplicate finding. This build 5003 is the last version that works on
+ Windows 98, according to its author.
+Homepage: https://www.zabkat.com/
+License: Commercial trial
+License-File: pool/xplorer2/5.0.0.3/LICENSE.TXT
+Systems: 98
+Availability: external
+Download: https://www.zabkat.com/download.php?f=5003_98.exe 2969032 a378c55e744367ceb2ebadb60eb8fb4d4c79789c7ad7b75a1f3918ccf4bb758a
+Referer: https://www.zabkat.com/alldown.htm
+Installed-Size: 9600
+Install: nsis /D={dir}
+Uninstall: run "{dir}\Uninstall.exe" /S
+Notice: xplorer2 Professional is a trial: it runs fully for 21 days, then
+ 10 more days with extra reminders. After 31 days it refuses to start
+ without a license key from Zabkat (zabkat.com); whether keys for this old
+ version are still sold is not known.
+
 Package: zsnes
 Name: ZSNES
 Version: 1.51
@@ -1478,3 +2802,24 @@ Shortcut: ZSNES | {dir}\zsnesw.exe |
 Uninstall: files
 Warning: ZSNES is no longer maintained. Opening a damaged or malicious game
  file could run code on this computer; use game files you trust.
+
+Package: zsoft-uninstaller
+Name: ZSoft Uninstaller
+Version: 2.4.1
+Section: System
+Summary: Uninstaller with install tracking, leftover search and startup cleanup
+Description: Replaces Add/Remove Programs. Can record an installation so it
+ can be removed completely later, search for leftovers after uninstalling,
+ remove dead uninstall entries and find temporary files.
+Homepage: https://www.zsoft.dk/index/software_details/4
+License: Freeware (non-commercial use)
+License-File: pool/zsoft-uninstaller/2.4.1/LICENSE.TXT
+Systems: 95, 98, ME
+Availability: external
+Download: https://www.zsoft.dk/downloads/ZSoft_Uninstaller_2.4.1.exe 917947 f1aba17ef54b71127e32c0ef609ad977d8ba57c57cbc871a600aca5752cc16eb http://www.zsoft.dk/downloads/ZSoft_Uninstaller_2.4.1.exe
+Installed-Size: 1000
+Install: nsis /D={dir}
+Uninstall: run "{dir}\uninst.exe" /S
+Notice: ZSoft Uninstaller may be used for non-commercial purposes only. Its
+ author tested it on Windows XP; users reported it working on Windows 95,
+ 98 and ME.

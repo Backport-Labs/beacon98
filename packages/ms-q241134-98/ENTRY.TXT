@@ -1,0 +1,15 @@
+Package: ms-q241134-98
+Name: Windows 98 Q241134 OpenHCI update
+Version: Q241134
+Section: System
+Summary: Windows 98 Q241134 OpenHCI update
+License: Microsoft EULA (external)
+License-File: pool/ms-q241134-98/Q241134/LICENSE.TXT
+Systems: 98FE
+Availability: external
+Download: https://download.microsoft.com/download/win98SE/Update/4003/W98/EN-US/241134usa8.exe 162976 72090159b6db2327b12e436de86d9ef727b442cc236ebf4bc5d58d13708ef1c6
+Install: exe /Q:A /R:N
+Uninstall: none
+Detect: reg HKLM\Software\Microsoft\Windows\CurrentVersion\Setup\Updates\W98\UPD241134
+ reg HKLM\Software\Microsoft\Windows\CurrentVersion\Setup\Updates\W98.SE\UPD241134
+Notice: Restart Windows to finish installing this Microsoft update.

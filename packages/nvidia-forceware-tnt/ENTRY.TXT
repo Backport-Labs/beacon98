@@ -1,0 +1,23 @@
+# Downloaded from NVIDIA's own server: NVIDIA's license allows no
+# redistribution. No current NVIDIA page links this file.
+Package: nvidia-forceware-tnt
+Name: NVIDIA ForceWare display driver (TNT and GeForce 256)
+Version: 71.84
+Section: System
+Summary: NVIDIA display driver including RIVA TNT, TNT2 and GeForce 256
+Description: The last NVIDIA display driver for Windows 98 and ME that still
+ supports RIVA TNT, TNT2, Vanta, Aladdin TNT2, GeForce 256 and GeForce2
+ GTS/Pro. It also supports later cards up to the GeForce 6 series, but for
+ those the nvidia-forceware package (81.98) is newer.
+Homepage: https://www.nvidia.com/
+License: Proprietary (NVIDIA License For Customer Use)
+License-File: pool/nvidia-forceware-tnt/71.84/LICENSE.TXT
+Systems: 98, ME
+Availability: external
+Download: https://download.nvidia.com/Windows/71.84/71.84_win9x_english.exe 11232793 c0657392fdd4ee41504e35e89f926e3bf174d25662809b7353b135efce588b94 http://download.nvidia.com/Windows/71.84/71.84_win9x_english.exe https://download1.nvidia.com/Windows/71.84/71.84_win9x_english.exe http://download1.nvidia.com/Windows/71.84/71.84_win9x_english.exe
+Requires: dx 8.0 | This driver needs Microsoft DirectX 8 or later. Install DirectX first.
+Install: exe
+Uninstall: registry NVIDIA Windows 95/98/ME Display Drivers
+Notice: If another display driver is installed, NVIDIA Setup removes it,
+ restarts Windows and finishes the installation after the restart. Setup
+ stops if it finds no NVIDIA graphics chip.

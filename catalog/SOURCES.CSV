@@ -70,3 +70,81 @@ ffdshow,yes,no,,,already external (non-free AMR code)
 gimp,yes,no,,,2.0.5 external from ftp.arnes.si
 gtk-runtime,yes,no,,,2.4.9 external from ftp.arnes.si
 ac3filter,no,,,,contains DVD CSS decryption code (user decision)
+adobe-reader6,yes,no,,,publisher only
+analogx-ats,yes,no,,,publisher only
+aviutl,yes,no,,,publisher only
+cacheman,yes,no,,,publisher only
+cpu-z,yes,no,,,publisher only
+cpu-z-vintage,yes,no,,,publisher only
+crystalcpuid,yes,yes,,,license allows sharing
+dogwaffle,yes,no,,,publisher only
+faststone-viewer,yes,no,,,publisher only
+fmlfns,yes,no,,,publisher only
+hwinfo32,yes,no,,,publisher only
+inforapid-search-replace,yes,no,,,publisher only
+mega-mp3-splitter,yes,no,,,publisher only
+ms-amdk6upd-95,yes,no,,,Microsoft: external only
+ms-dun14-95,yes,no,,,Microsoft: external only
+ms-instmsi-11,yes,no,,,Microsoft: external only
+ms-instmsia-20,no,no,,,held: needs a VM test (pre-release build or restarts by itself)
+ms-kb891711-98,yes,no,,,Microsoft: external only
+ms-kb891711-me,yes,no,,,Microsoft: external only
+ms-kb918547-98,yes,no,,,Microsoft: external only
+ms-kb918547-me,yes,no,,,Microsoft: external only
+ms-mdac25sp3,no,no,,,held: needs a VM test (pre-release build or restarts by itself)
+ms-pccardupd-95,yes,no,,,Microsoft: external only
+ms-q168115-98,yes,no,,,Microsoft: external only
+ms-q190656-98,yes,no,,,Microsoft: external only
+ms-q216641-98,yes,no,,,Microsoft: external only
+ms-q236926-98,yes,no,,,Microsoft: external only
+ms-q240075-98se,yes,no,,,Microsoft: external only
+ms-q241134-98,yes,no,,,Microsoft: external only
+ms-q242975-98se,yes,no,,,Microsoft: external only
+ms-q243450-98,yes,no,,,Microsoft: external only
+ms-q245272-98se,yes,no,,,Microsoft: external only
+ms-q252958-98se,yes,no,,,Microsoft: external only
+ms-q253697-98se,yes,no,,,Microsoft: external only
+ms-q253711-98se,yes,no,,,Microsoft: external only
+ms-q263044-98,yes,no,,,Microsoft: external only
+ms-q272016-me,yes,no,,,Microsoft: external only
+ms-q272991-me,yes,no,,,Microsoft: external only
+ms-q273017-98se,yes,no,,,Microsoft: external only
+ms-q273017-me,yes,no,,,Microsoft: external only
+ms-q273727-95,yes,no,,,Microsoft: external only
+ms-q273727-98,yes,no,,,Microsoft: external only
+ms-q273727-me,yes,no,,,Microsoft: external only
+ms-q274113-98,yes,no,,,Microsoft: external only
+ms-q274113-me,yes,no,,,Microsoft: external only
+ms-q274548-me,yes,no,,,Microsoft: external only
+ms-q278031-me,yes,no,,,Microsoft: external only
+ms-q279866-me,yes,no,,,Microsoft: external only
+ms-q287564-me,yes,no,,,Microsoft: external only
+ms-q290700-me,yes,no,,,Microsoft: external only
+ms-q310695-me,yes,no,,,Microsoft: external only
+ms-q311561-98,yes,no,,,Microsoft: external only
+ms-q311561-me,yes,no,,,Microsoft: external only
+ms-q313829-9x,yes,no,,,Microsoft: external only
+ms-q314757-me,yes,no,,,Microsoft: external only
+ms-q314941-98,yes,no,,,Microsoft: external only
+ms-q323172-98,yes,no,,,Microsoft: external only
+ms-q323172-me,yes,no,,,Microsoft: external only
+ms-q329048-98,yes,no,,,Microsoft: external only
+ms-q329048-me,yes,no,,,Microsoft: external only
+ms-q329115-me,yes,no,,,Microsoft: external only
+ms-q812709-me,yes,no,,,Microsoft: external only
+ms-telnet-95,yes,no,,,Microsoft: external only
+ms-vcredist2005,yes,no,,,Microsoft: external only
+neutron,yes,no,,,publisher only
+notetab-light,yes,yes,,,license allows sharing
+ntfs-reader,yes,yes,,,license allows sharing
+nvidia-forceware,yes,no,,,publisher only
+nvidia-forceware-tnt,yes,no,,,publisher only
+quickview-pro,yes,no,,,publisher only
+servant-salamander,yes,yes,,,license allows sharing
+servant-salamander-2,yes,yes,,,license allows sharing
+system-lock,yes,no,,,publisher only
+treesize-free,yes,yes,,,license allows sharing
+winzip,yes,no,,,publisher only
+xmplay,yes,no,,,publisher only
+xplorer2,yes,no,,,publisher only
+zsoft-uninstaller,yes,no,,,publisher only

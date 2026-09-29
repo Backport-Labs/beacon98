@@ -1,0 +1,24 @@
+# Downloaded from NVIDIA's own server: NVIDIA's license allows one copy per
+# computer and no redistribution, so we do not host it.
+Package: nvidia-forceware
+Name: NVIDIA ForceWare display driver
+Version: 81.98
+Section: System
+Summary: NVIDIA display driver for GeForce2 MX to GeForce 6 cards
+Description: The last NVIDIA display driver for Windows 98 and ME, with
+ DirectX 9.0c and OpenGL 2.0 support. For GeForce2 MX, GeForce3, GeForce4,
+ GeForce FX and GeForce 6 cards and the matching Quadro cards. RIVA TNT,
+ TNT2, Vanta, GeForce 256 and GeForce2 GTS/Pro/Ultra/Ti need the
+ nvidia-forceware-tnt package (71.84) instead.
+Homepage: https://www.nvidia.com/en-us/drivers/win9x-8198/
+License: Proprietary (NVIDIA License For Customer Use)
+License-File: pool/nvidia-forceware/81.98/LICENSE.TXT
+Systems: 98, ME
+Availability: external
+Download: https://download.nvidia.com/Windows/81.98/81.98_forceware_win9x_english.exe 12458912 e05b92b1322f8d01549995ddd00a9dca93d83358ee78e868acedca9dc6c7c910 http://download.nvidia.com/Windows/81.98/81.98_forceware_win9x_english.exe https://download1.nvidia.com/Windows/81.98/81.98_forceware_win9x_english.exe http://download1.nvidia.com/Windows/81.98/81.98_forceware_win9x_english.exe
+Requires: dx 8.0 | This driver needs Microsoft DirectX 8 or later. Install DirectX first.
+Install: exe
+Uninstall: registry NVIDIA Windows 95/98/ME Display Drivers
+Notice: If another display driver is installed, NVIDIA Setup removes it,
+ restarts Windows and finishes the installation after the restart. Setup
+ stops if it finds no NVIDIA graphics chip.

@@ -1,0 +1,18 @@
+Package: cacheman
+Name: Cacheman
+Version: 5.50
+Section: System
+Summary: Outertech's system optimizer for Windows 95, 98 and ME
+Description: Cacheman 5.50 ("Cacheman Classic"), the edition of Outertech's
+ Windows optimizer that was designed for Windows 95, 98 and ME. Outertech
+ now offers it as freeware.
+Homepage: https://www.outertech.com/en/cacheman-classic
+License: Freeware
+License-File: pool/cacheman/5.50/LICENSE.TXT
+Systems: 95, 98, ME
+Availability: external
+Download: https://www.outertech.com/downloads/cachm550.exe 948802 2d28137bd126c8e1fdb456dfb076e03c26fbf7239c2c86dc2679eaffc0912b09 http://www.outertech.com/downloads/cachm550.exe
+Install: exe /s
+Uninstall: registry Cacheman 5.50
+Notice: Cacheman changes Windows settings. Note what you change, so that
+ you can undo it.

@@ -1,0 +1,17 @@
+Package: ms-instmsi-11
+Name: Windows Installer 1.1
+Version: 1.11.2405.0
+Section: System
+Summary: Microsoft Windows Installer 1.1 (msiexec) for Windows 95 and 98
+Description: Adds Windows Installer, which programs distributed as .msi
+ files need. Windows ME already includes a newer version. Downloaded from
+ Microsoft's own server. It cannot be removed again.
+License: Microsoft EULA (external)
+License-File: pool/ms-instmsi-11/1.11.2405.0/LICENSE.TXT
+Systems: 95, 98
+Availability: external
+Download: https://download.microsoft.com/download/win98/Patch/1.11.2405/W9X/EN-US/instmsi.exe 1495256 731174afce530b09d30490e940cd0ba1e5002c2194a28b7c883d729d695eaf79
+Install: exe /q
+Uninstall: none
+Detect: msi 1.1
+Notice: Restart Windows before installing .msi packages.

@@ -1,0 +1,60 @@
+InfoRapid Search & Replace 3.1f - license text
+Extracted on 2026-09-29 from SERAPID.EXE inside the publisher's sr.exe (https://inforapid.de/sr/sr.exe).
+The agreement below is the text embedded in the program. The 'About' text follows it.
+(In the About text, the program stores German/English word pairs side by side; the German words
+'Vollversion' and 'Karteikasten' and the German web address were removed here, nothing else changed.)
+
+==============================================================================
+- Copyright and License Agreement - 19.11.1998
+
+License Agreement
+
+I. General regulations
+
+1.	The program InfoRapid Search & Replace and the electronic and printed 
+documentation are subject to the copyright of Ingo Straub, Schützenhof 2, 
+73116 Wäschenbeuren, Germany.
+2.	The present license agreement is valid from 19.11.98.
+3.	By using the program InfoRapid Search & Replace, the user agrees with this 
+license regulations.
+4.	If the user violates against this license regulations, he loses the right to use 
+the program any longer.
+
+II. Utilization regulations
+
+1.	The freeware version of InfoRapid Search & Replace may be used 
+exclusively for private purposes. Any commercial usage is absolutely 
+forbidden and only legal with the licensed full version.
+2.	All present and future copyrights and commercial protection rights on the 
+program and all programs derived from it, program modules or in this context 
+produced documents remain with Ingo Straub.
+3.	The freeware version of InfoRapid Search & Replace may be copied freely, 
+provided this happens in full original size and in unchanged form. No price 
+may be taken except a copy fee of max. 3 Euro.
+4.	InfoRapid Search & Replace may not be sold together with hardware, other 
+software or commercial documentation. Each change, expansion or 
+translation is forbidden.
+5.	After the license fee is completely payed, the user is granted the non 
+exclusive right to use the full version of InfoRapid Search & Replace. This 
+right applies only to the owner of the program license. Consequently, the 
+program can only be used on a single computer system at the same time.
+   
+III. Liability exclusion regulations
+
+1.	The usability of the program to a certain purpose could not be guaranteed. 
+Especially no liability is taken for the consequence of damages and profit and 
+furtune looses, that could originate through the application of the program as 
+well as the affiliated documentation.
+2.	It must be reminded that software can never be flawless. It is recommended 
+therefore, to backup important data before running this program.
+
+==============================================================================
+About text:
+
+InfoRapid Search & Replace is freeware and may be copied, distributed and used for private 
+purposes without any limitations. Installing and using the freeware version on commercially 
+used computers is absolutely prohibited. If the program is used commercially, you need a 
+License (25 Euro) for every user. The latest program version and a powerful Cardfile System, 
+which manages documents and pictures can be found on my homepage www.inforapid.com.
+
+Copyright © 1998-2003 by Ingo Straub - Schützenhof 2 - D-73116 Wäschenbeuren (Germany)

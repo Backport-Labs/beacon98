@@ -1,0 +1,15 @@
+Package: ms-q323172-98
+Name: Windows 98 Q323172 certificate enrollment update (MS02-048)
+Version: Q323172
+Section: System
+Summary: Windows 98 Q323172 certificate enrollment update (MS02-048)
+Homepage: https://learn.microsoft.com/en-us/security-updates/securitybulletins/2002/ms02-048
+License: Microsoft EULA (external)
+License-File: pool/ms-q323172-98/Q323172/LICENSE.TXT
+Systems: 98
+Availability: external
+Download: https://download.microsoft.com/download/WIN98/PATCH/24421/W98/EN-US/323172USA8.EXE 219472 d65cc961a4003494270bcb628e0fc5177ef0829a52015b56d4f54bbd807b29dc
+Install: exe /Q:A /R:N
+Uninstall: none
+Detect: reg HKLM\Software\Microsoft\Windows\CurrentVersion\Setup\Updates\W98\UPD323172
+Notice: Restart Windows to finish installing this Microsoft update.

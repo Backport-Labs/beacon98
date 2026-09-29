@@ -1,0 +1,17 @@
+Package: mega-mp3-splitter
+Name: Mega Mp3 Splitter
+Version: 1.1
+Section: Multimedia
+Summary: Splits a long MP3 file into several tracks without re-encoding
+Description: Open an MP3 file, set break points while listening, and save
+ the parts as separate MP3 files. Useful for recorded radio shows and mixes.
+Homepage: http://www.megax.it/mp3split/index.htm
+License: Freeware
+License-File: pool/mega-mp3-splitter/1.1/LICENSE.TXT
+Systems: 95, 98, NT4, 2000
+Availability: external
+Download: http://www.megax.it/mp3split/dl/mp3split.zip 356039 e3c74c7a844f8d080bf78f35cee34b910073e12f5b480cd63b082fdf70d7a6cc
+Installed-Size: 660
+Install: unzip {pf}\Mega MP3 Splitter
+Shortcut: Mega Mp3 Splitter | {dir}\Mega MP3splitter.exe |
+Uninstall: files

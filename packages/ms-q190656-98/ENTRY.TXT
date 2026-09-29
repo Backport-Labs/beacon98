@@ -1,0 +1,14 @@
+Package: ms-q190656-98
+Name: Windows 98 Q190656 NETDI update
+Version: Q190656
+Section: System
+Summary: Windows 98 Q190656 NETDI update
+License: Microsoft EULA (external)
+License-File: pool/ms-q190656-98/Q190656/LICENSE.TXT
+Systems: 98FE
+Availability: external
+Download: https://download.microsoft.com/download/win98/Update/Q190656/W98/EN-US/190656_98UP.EXE 276456 f2edf4907cb9a199a7f5222b4f9b8c88c91687c8e6f1e68ae394e0dd6f85cf9f
+Install: exe /Q:A /R:N
+Uninstall: none
+Detect: reg HKLM\Software\Microsoft\Windows\CurrentVersion\Setup\Updates\W98.SP1\UPD190656
+Notice: Restart Windows to finish installing this Microsoft update.

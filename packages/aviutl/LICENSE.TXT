@@ -1,0 +1,21 @@
+AviUtl 0.99c (by KEN-kun) - license information
+================================================
+
+AviUtl has no separate license file. Its readme (aviutl.txt, in Japanese,
+inside aviutl99c.zip) says under "Notes on use":
+
+  Original (Japanese, Shift-JIS): see LICENSE-JA.TXT in this folder.
+
+  English translation (by Backport Labs, not by the author):
+  "This program is free software. The author accepts no responsibility
+  whatsoever for any problem that arises from using this program."
+
+The readme does not say whether the file may be redistributed, so Backport
+Labs does not distribute it. It is downloaded from the author's own site:
+http://spring-fragrance.mints.ne.jp/aviutl/aviutl99c.zip
+(listed on the author's "past versions" page,
+http://spring-fragrance.mints.ne.jp/aviutl/oldver2.php).
+
+Readme "Notes", translated: "MMX only, so do not run it on a CPU without
+MMX." "It may not work correctly on operating systems other than Win98 and
+Win2000."

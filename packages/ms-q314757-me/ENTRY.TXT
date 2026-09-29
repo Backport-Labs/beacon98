@@ -1,0 +1,15 @@
+Package: ms-q314757-me
+Name: Windows Me Q314757 UPnP update (MS01-059)
+Version: Q314757
+Section: System
+Summary: Windows Me Q314757 UPnP update (MS01-059)
+Homepage: https://learn.microsoft.com/en-us/security-updates/securitybulletins/2001/ms01-059
+License: Microsoft EULA (external)
+License-File: pool/ms-q314757-me/Q314757/LICENSE.TXT
+Systems: ME
+Availability: external
+Download: https://download.microsoft.com/download/winme/Update/22940/WinMe/EN-US/314757USAM.EXE 228928 bfd22fe562752a63a8d069232c008995a8fd0356fae8b79f23cfc6b4320e5bbe
+Install: exe /Q:A /R:N
+Uninstall: none
+Detect: reg HKLM\Software\Microsoft\Windows\CurrentVersion\Setup\Updates\WinME\UPD314757
+Notice: Restart Windows to finish installing this Microsoft update.

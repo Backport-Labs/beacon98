@@ -1,0 +1,31 @@
+Mega Mp3 Splitter 1.1 - license information
+Copyright: MegaSoft (megax@libero.it)
+
+The program ships no license agreement. Its only license statements are:
+
+1. File_id.diz inside mp3split.zip (version 1.1, 06 March 2003):
+
+***************************************************
+*  Mega Mp3Splitter 1.1 (Freeware)                *
+*                                                 *
+*            by MegaSoft                          *
+*                                                 *
+* E-mail: megax@libero.it                         *
+* http://digilander.libero.it/mega27/megasoft.htm *
+***************************************************
+
+2. The author's download page, http://www.megax.it/mp3split/index.htm (retrieved 2026-09-29):
+
+   Name: Mega Mp3 Splitter
+   Current Version: 1.1 (06 March 2003)
+   Copyright: MegaSoft
+   Contact: megax@libero.it
+   License: Freeware
+   Platform: Windows 95/98/NT/2000/XP
+   "If you find my free software helpful, please consider donating"
+
+3. The manual (Mega MP3splitter.pdf, for version 1.0): "License: Freeware",
+   "Platform: Windows 95/98/NT/2000/XP".
+
+No statement grants or forbids redistribution. Backport Labs therefore does not host
+this file; Beacon 98 downloads it from the author's own server.

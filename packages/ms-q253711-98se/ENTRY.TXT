@@ -1,0 +1,14 @@
+Package: ms-q253711-98se
+Name: Windows 98 SE Q253711 CONFIGMG update
+Version: Q253711
+Section: System
+Summary: Windows 98 SE Q253711 CONFIGMG update
+License: Microsoft EULA (external)
+License-File: pool/ms-q253711-98se/Q253711/LICENSE.TXT
+Systems: 98SE
+Availability: external
+Download: https://download.microsoft.com/download/win98se/update/14007/w98/en-us/253711usa8.exe 208576 2ac2561a39bc09306f62872f5d8dc3060e73b9a936beebce074de38daf454d31
+Install: exe /Q:A /R:N
+Uninstall: none
+Detect: reg HKLM\Software\Microsoft\Windows\CurrentVersion\Setup\Updates\W98.SE\UPD253711
+Notice: Restart Windows to finish installing this Microsoft update.

@@ -1,0 +1,14 @@
+Package: ms-kb918547-98
+Name: Windows 98 KB918547 WMF update
+Version: KB918547
+Section: System
+Summary: Windows 98 KB918547 WMF update
+License: Microsoft EULA (external)
+License-File: pool/ms-kb918547-98/KB918547/LICENSE.TXT
+Systems: 98
+Availability: external
+Download: http://download.windowsupdate.com/msdownload/update/v3-19990518/cabpool/Windows98-KB918547-ENU_ab29740587b8bf4cd6380a47a89e3ce.exe 148008 6e2d1b1be550a524d53ec534d02d8bcf41c386a7bccb9e274fb7fd0ec212406f
+Install: exe /Q:A /R:N
+Uninstall: registry Windows 98 KB918547 Update
+Detect: reg HKLM\Software\Microsoft\Windows\CurrentVersion\Setup\Updates\W98\UPD918547
+Notice: Restart Windows to finish installing this Microsoft update.

@@ -1,0 +1,14 @@
+Package: ms-q216641-98
+Name: Windows 98 VTDAPI update (49.7 days)
+Version: Q216641
+Section: System
+Summary: Windows 98 VTDAPI update (49.7 days)
+License: Microsoft EULA (external)
+License-File: pool/ms-q216641-98/Q216641/LICENSE.TXT
+Systems: 98FE
+Availability: external
+Download: https://download.microsoft.com/download/win95upg/Update/8/W95/EN-US/216641up.exe 135680 a85c27959d0d1d0d8cf8b962d672d7267513f92e1996ea0157f9f23ab353cbb1
+Install: exe /Q:A /R:N
+Uninstall: none
+Detect: reg HKLM\Software\Microsoft\Windows\CurrentVersion\Setup\Updates\SP1\UPD216641.98
+Notice: Restart Windows to finish installing this Microsoft update.

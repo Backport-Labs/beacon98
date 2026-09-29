@@ -1,0 +1,21 @@
+Package: crystalcpuid
+Name: CrystalCPUID
+Version: 4.15.5
+Section: System
+Summary: Processor, chipset and memory information, with clock control
+Description: Shows detailed processor information (clock, multiplier, cache,
+ feature flags), PCI devices, chipset and memory, and on many mobile
+ processors can change the multiplier and voltage. The Windows 9x version
+ uses its own VxD driver (SysInfo.vxd). By hiyohiyo (Crystal Dew World).
+ No longer developed.
+Homepage: https://crystalmark.info/en/software/crystalcpuid/
+License: Freeware
+License-File: pool/crystalcpuid/4.15.5/LICENSE.TXT
+Systems: 95, 98, ME, NT4, 2000
+Download: pool/crystalcpuid/4.15.5/CrystalCPUID415.zip 639998 6a053caf3e7132695e6ccb3f151f5b28ba1d3929d877ee7119b106f024c23ef4 https://crystalmark.info/download/archive/CrystalCPUID/CrystalCPUID415.zip
+Installed-Size: 1890
+Install: unzip {pf}\CrystalCPUID
+Shortcut: CrystalCPUID | {dir}\CrystalCPUID.exe |
+Uninstall: files
+Notice: Changing the multiplier or voltage can make the computer unstable.
+ Use those functions only if you know your processor supports them.

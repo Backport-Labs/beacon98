@@ -1,0 +1,15 @@
+Package: ms-q311561-98
+Name: Windows 98 Q311561 IO.SYS update
+Version: Q311561
+Section: System
+Summary: Windows 98 Q311561 IO.SYS update
+License: Microsoft EULA (external)
+License-File: pool/ms-q311561-98/Q311561/LICENSE.TXT
+Systems: 98
+Availability: external
+Download: https://download.microsoft.com/download/Win98/Patch/22527/W98/EN-US/311561USA8.EXE 306792 569ecb4fe36a7c00bf7f6d353467d8f95e4708fb8809d3e456760a8ef42be6fc
+Install: exe /Q:A /R:N
+Uninstall: none
+Detect: reg HKLM\Software\Microsoft\Windows\CurrentVersion\Setup\Updates\W98\UPD311561
+ reg HKLM\Software\Microsoft\Windows\CurrentVersion\Setup\Updates\W98.SE\UPD311561
+Notice: Restart Windows to finish installing this Microsoft update.

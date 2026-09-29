@@ -1,0 +1,14 @@
+Package: ms-q812709-me
+Name: Windows Me Q812709 Help and Support update
+Version: Q812709
+Section: System
+Summary: Windows Me Q812709 Help and Support update
+License: Microsoft EULA (external)
+License-File: pool/ms-q812709-me/Q812709/LICENSE.TXT
+Systems: ME
+Availability: external
+Download: http://download.windowsupdate.com/msdownload/update/v3-19990518/cabpool/812709_3FE395B778B7C8704A0DE247305222EB07ED386A.EXE 300352 2013dcbe7b5376b801c7b8480e3edb10d4fb07f023773b619fe36a47deac1cc8
+Install: exe /Q:A /R:N
+Uninstall: none
+Detect: reg HKLM\Software\Microsoft\Windows\CurrentVersion\Setup\Updates\WinME\UPD812709
+Notice: Restart Windows to finish installing this Microsoft update.

@@ -1,0 +1,14 @@
+Package: ms-q272991-me
+Name: Windows Me Q272991 VNETBIOS update
+Version: Q272991
+Section: System
+Summary: Windows Me Q272991 VNETBIOS update
+License: Microsoft EULA (external)
+License-File: pool/ms-q272991-me/Q272991/LICENSE.TXT
+Systems: ME
+Availability: external
+Download: https://download.microsoft.com/download/winme/update/13387/winme/en-us/272991usam.exe 152216 4e40b159af9f2088705cbbbac364b097f244e0183d56bb260335fae78d944afd
+Install: exe /Q:A /R:N
+Uninstall: none
+Detect: reg HKLM\Software\Microsoft\Windows\CurrentVersion\Setup\Updates\WinME\UPD272991
+Notice: Restart Windows to finish installing this Microsoft update.

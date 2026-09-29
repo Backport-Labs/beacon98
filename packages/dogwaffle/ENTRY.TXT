@@ -1,0 +1,18 @@
+# Freeware that the publisher allows anyone to redistribute. Listed as
+# external for now because it ships an LGPL text for an unidentified part.
+Package: dogwaffle
+Name: Project Dogwaffle
+Version: 1.2
+Section: Multimedia
+Summary: Paint program with brushes, filters and animation
+Description: A paint and image-processing program with natural-media
+ brushes, filters, animation frames and plug-ins. This is the free 1.2
+ version from 2004; the commercial successor is PD Howler.
+Homepage: https://www.thebest3d.com/dogwaffle/free/
+License: Freeware
+License-File: pool/dogwaffle/1.2/LICENSE.TXT
+Systems: 95, 98, ME, NT4, 2000
+Availability: external
+Download: https://www.thebest3d.com/dogwaffle/free/Dogwaffle_Install_1_2_free.exe 4558273 acd8618fe3600439c932803a69cfde2c4a64cdd1b5c6f3d8cafce94eb7b9442e http://www.thebest3d.com/dogwaffle/free/Dogwaffle_Install_1_2_free.exe
+Install: exe
+Uninstall: registry project dogwaffle

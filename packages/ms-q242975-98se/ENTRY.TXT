@@ -1,0 +1,14 @@
+Package: ms-q242975-98se
+Name: Windows 98 SE Q242975 IEEE 1394 / hot-plug update
+Version: Q242975
+Section: System
+Summary: Windows 98 SE Q242975 IEEE 1394 / hot-plug update
+License: Microsoft EULA (external)
+License-File: pool/ms-q242975-98se/Q242975/LICENSE.TXT
+Systems: 98SE
+Availability: external
+Download: https://download.microsoft.com/download/win98se/Update/2944-2/W98/EN-US/242975USA8.EXE 597720 26d0af06768f3c7ce906946ce7a13b45cb9421f845e1cea5aa5a637fbb6ff62d
+Install: exe /Q:A /R:N
+Uninstall: none
+Detect: reg HKLM\Software\Microsoft\Windows\CurrentVersion\Setup\Updates\W98.SE\UPD242975
+Notice: Restart Windows to finish installing this Microsoft update.

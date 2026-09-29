@@ -1,0 +1,5 @@
+Windows 95 OSR2 AMD-K6-2 update (990602N1)
+
+This package contains no license agreement of its own. It is Microsoft software, downloaded from Microsoft's own server; Backport Labs does not distribute it. Microsoft's terms for the Windows product it updates apply.
+
+The package readme (AMDK6UPD.TXT) says: the Software is provided at no additional charge; Microsoft owns all rights; no warranties; "Any transfer of this Software must be accompanied by this statement and may only be transferred if first approved by Microsoft."

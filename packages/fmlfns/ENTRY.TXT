@@ -1,0 +1,21 @@
+Package: fmlfns
+Name: FmLfns
+Version: 1.1
+Section: Utilities
+Summary: Long file name support for the old File Manager (WINFILE.EXE)
+Description: Makes the Windows 3.1-style File Manager (WINFILE.EXE) that
+ comes with Windows 95, 98 and ME display and handle long file names, so
+ that "PROGRA~1" appears as "Program Files". Shareware by WinCorner.
+Homepage: http://www.wincorner.com/home/fmlfns.html
+License: Shareware
+License-File: pool/fmlfns/1.1/LICENSE.TXT
+Systems: 95, 98, ME
+Availability: external
+Download: http://www.wincorner.com/files/fmlfns95.exe 49416 aa500a714002aa51a64f4c9d5b6fd6042dc3c85f39ea554b0e9578e120ed2043 https://www.wincorner.com/files/fmlfns95.exe
+Install: exe
+Uninstall: registry File Manager Long File Name Support (FmLfns)
+Notice: FMLFNS95.EXE only unpacks the files. Run INSTALL.EXE from the folder
+ it unpacked them to, to install FmLfns. Shareware: after 30 days it asks
+ you to buy a license (11 US dollars or 10 Euro, still offered on
+ www.wincorner.com). Until then the caption shows "Unregistered" and a
+ reminder appears twice a month.

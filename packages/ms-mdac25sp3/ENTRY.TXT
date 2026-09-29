@@ -1,0 +1,18 @@
+# HOLD until the silent install and restart behaviour are tested on 98.
+Package: ms-mdac25sp3
+Name: Microsoft Data Access Components 2.5 SP3
+Version: 2.53.6200.2
+Section: System
+Summary: Database access components (ADO, ODBC, OLE DB) from Microsoft
+Description: Microsoft Data Access Components 2.5 Service Pack 3, needed by
+ programs that use ADO, OLE DB or ODBC. MDAC 2.8 is no longer offered by
+ Microsoft. On Windows 95 it needs DCOM95 first. Downloaded from Microsoft's
+ own server. It cannot be removed again.
+License: Microsoft EULA (external)
+License-File: pool/ms-mdac25sp3/2.53.6200.2/LICENSE.TXT
+Systems: 95, 98, ME
+Availability: external
+Download: https://download.microsoft.com/download/MDAC2.5/SP/3/W9XNT4/EN-US/mdac_typ.exe 7945048 bc9eae72a67c61796204219c5e42d48945e02484a8babb2fcd840f6c5475b04a
+Install: exe /q:a /c:"dasetup.exe /q"
+Uninstall: none
+Notice: Restart Windows to finish installing MDAC.

@@ -1,0 +1,13 @@
+Neutron 1.07 - terms as shipped in readme.txt inside neutron.zip
+(https://keir.net/download/neutron.zip, downloaded 2026-09-29):
+
+This software was written by Robin Keir and is distributed as freeware.
+I take no responsibility for any damage or problems caused by using it
+but I do welcome comments and suggestions.
+
+robin@keir.net
+http://keir.net/
+
+Note from Backport Labs: these terms say "freeware" but do not state that
+others may redistribute the file. Beacon 98 therefore does not host it; the
+file is downloaded from the author's own server (keir.net).

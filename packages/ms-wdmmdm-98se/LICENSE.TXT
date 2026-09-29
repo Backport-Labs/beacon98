@@ -1,0 +1,3 @@
+WDM Modem and USB Modem Kit (kit)
+
+This package contains no license agreement of its own. It is Microsoft software, downloaded from Microsoft's own server; Backport Labs does not distribute it. Microsoft's terms for the Windows product it updates apply.

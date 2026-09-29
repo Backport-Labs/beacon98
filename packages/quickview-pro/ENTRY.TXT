@@ -1,0 +1,30 @@
+# Shareware, downloaded from the author's own server. Its license allows
+# sharing the unmodified archive, but it contains LGPL FFmpeg code whose
+# source version we cannot name, so we do not host it.
+Package: quickview-pro
+Name: QuickView Pro for DOS
+Version: 2.61
+Section: Multimedia
+Summary: DOS video, music and picture player (AVI, MP4, MPEG, MP3, JPG)
+Description: A fast full-screen player for DOS that also runs in an MS-DOS
+ window or MS-DOS mode under Windows 95, 98 and ME. Plays AVI (including
+ DivX and XviD), MP4, MPEG, MOV, FLI/FLC, VideoCD, MP3, WAV, Ogg Vorbis and
+ shows JPG, GIF, BMP, PCX and TGA pictures. Needs a 386, VGA and a Sound
+ Blaster compatible card for sound.
+Homepage: http://www.multimediaware.com/qv/
+License: Shareware
+License-File: pool/quickview-pro/2.61/LICENSE.TXT
+Systems: 95, 98, ME
+Availability: external
+Download: http://www.multimediaware.com/qv/qvpro261.zip 1223996 e276a25bfc421e123dec29902444263cfb3deedb4bd1430424690346213bcfb5 https://www.multimediaware.com/qv/qvpro261.zip
+Installed-Size: 1280
+Install: unzip {pf}\QuickView
+Shortcut: QuickView Pro | {dir}\qv.exe |
+Uninstall: files
+Warning: QuickView 2.61 contains old versions of FFmpeg and other media
+ decoders with known security flaws. Only open media files you trust.
+Notice: Shareware: you may try it for three weeks; after that the author asks
+ you to buy a license (still sold at multimediaware.com/qv/register). The
+ unregistered version shows nag screens, waits before starting and plays at
+ most 10 files in a playlist. For sound, set the BLASTER variable or get a
+ driver from multimediaware.com/qv/snddrv/.

@@ -1,0 +1,21 @@
+# Downloaded from r2 Studios' own server. "Free to download and use"; no
+# license text was found, so we do not host it.
+Package: system-lock
+Name: System Lock
+Version: 1.2 build 1
+Section: System
+Summary: Locks the desktop with a password until you unlock it
+Description: Locks the computer behind a password screen, with a custom
+ wallpaper or the system wallpaper, so nobody can use it while you are away.
+ Uses the key combination Ctrl+Alt+F9. No longer developed (2001).
+Homepage: https://www.r2.com.au/page/products/download/system-lock/
+License: Freeware
+License-File: pool/system-lock/1.2b1/LICENSE.TXT
+Systems: 98
+Availability: external
+Download: https://www.r2.com.au/static/downloads/files/system-lock-v1.2b1.exe 160147 e973570a9bfd7398d92fc3b3327bca0122dfa1f0ad1b5da8e1b63d5c70cccd68 http://www.r2.com.au/static/downloads/files/system-lock-v1.2b1.exe
+Install: exe
+# Add/Remove Programs name not verified
+Uninstall: registry System Lock
+Notice: System Lock is no longer developed. On Windows 9x a screen lock is
+ not real security: the computer can be restarted or started in DOS.

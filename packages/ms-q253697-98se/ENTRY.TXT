@@ -1,0 +1,14 @@
+Package: ms-q253697-98se
+Name: Windows 98 SE Q253697 OpenHCI update
+Version: Q253697
+Section: System
+Summary: Windows 98 SE Q253697 OpenHCI update
+License: Microsoft EULA (external)
+License-File: pool/ms-q253697-98se/Q253697/LICENSE.TXT
+Systems: 98SE
+Availability: external
+Download: https://download.microsoft.com/download/win98SE/Update/6101/W98/EN-US/253697USA8.EXE 154328 ea31d6bf61151be0ed0184ecfac5d8d2d1181296c46fef82dd9b24b0e82db829
+Install: exe /Q:A /R:N
+Uninstall: none
+Detect: reg HKLM\Software\Microsoft\Windows\CurrentVersion\Setup\Updates\W98.SE\UPD253697
+Notice: Restart Windows to finish installing this Microsoft update.

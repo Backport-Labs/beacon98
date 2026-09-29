@@ -1,0 +1,14 @@
+Package: ms-q252958-98se
+Name: Windows 98 SE Q252958 IEEE 1394 update
+Version: Q252958
+Section: System
+Summary: Windows 98 SE Q252958 IEEE 1394 update
+License: Microsoft EULA (external)
+License-File: pool/ms-q252958-98se/Q252958/LICENSE.TXT
+Systems: 98SE
+Availability: external
+Download: https://download.microsoft.com/download/win98se/update/5982/w98/en-us/252958usa8.exe 187608 285bd1754605f8daf940bc5c66bb913961309c04e98c54bc25ae76ff396b1a6e
+Install: exe /Q:A /R:N
+Uninstall: none
+Detect: reg HKLM\Software\Microsoft\Windows\CurrentVersion\Setup\Updates\W98.SE\UPD252958
+Notice: Restart Windows to finish installing this Microsoft update.

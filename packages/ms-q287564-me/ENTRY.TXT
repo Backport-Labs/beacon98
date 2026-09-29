@@ -1,0 +1,14 @@
+Package: ms-q287564-me
+Name: Windows Me Q287564 Movie Maker update
+Version: Q287564
+Section: System
+Summary: Windows Me Q287564 Movie Maker update
+License: Microsoft EULA (external)
+License-File: pool/ms-q287564-me/Q287564/LICENSE.TXT
+Systems: ME
+Availability: external
+Download: http://download.windowsupdate.com/msdownload/update/v3-19990518/cabpool/287564_C357B6006425BFFD54868CA64F1A975D567C1451.EXE 459416 09bb9a7e1d1c3e24aeea712a8836171258e633f8e2477eddba0a9db2144d83d2
+Install: exe /Q:A /R:N
+Uninstall: none
+Detect: reg HKLM\Software\Microsoft\Windows\CurrentVersion\Setup\Updates\WinME\UPD287564
+Notice: Restart Windows to finish installing this Microsoft update.

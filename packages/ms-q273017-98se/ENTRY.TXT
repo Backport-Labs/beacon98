@@ -1,0 +1,14 @@
+Package: ms-q273017-98se
+Name: Windows 98 SE Q273017 IFSMGR update
+Version: Q273017
+Section: System
+Summary: Windows 98 SE Q273017 IFSMGR update
+License: Microsoft EULA (external)
+License-File: pool/ms-q273017-98se/Q273017/LICENSE.TXT
+Systems: 98SE
+Availability: external
+Download: https://download.microsoft.com/download/win98SE/Update/11956/W98/EN-US/273017USA8.EXE 229568 6b37203663621010cabe3b4bf69ee3b03386db1b2bfa46e0e42639779dfe0196
+Install: exe /Q:A /R:N
+Uninstall: none
+Detect: reg HKLM\Software\Microsoft\Windows\CurrentVersion\Setup\Updates\W98.SE\UPD273017
+Notice: Restart Windows to finish installing this Microsoft update.
