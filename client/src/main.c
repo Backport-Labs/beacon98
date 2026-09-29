@@ -1,0 +1,59 @@
+/* main.c - Beacon 98, a package manager for Windows 95 and 98.
+ *
+ * Beacon 98 reads a catalog signed by Backport Labs and lists the packages in
+ * it. Two switches are for testing and change nothing on the computer:
+ *   BEACON98.EXE /selftest                  runs the self-test (test.c)
+ *   BEACON98.EXE /shot FILE.BMP [row] [search words]
+ *                                           draws the window into a bitmap
+ */
+#include "beacon.h"
+
+HINSTANCE g_inst;
+CATALOG g_cat;
+char g_dir[MAX_PATH];
+int g_testMode;
+
+/* Copies the next word of a command line; a word may be in double quotes. */
+static const char *NextWord(const char *p, char *out, int outLen)
+{
+    int i = 0;
+    while (*p == ' ') p++;
+    if (*p == '"') {
+        p++;
+        while (*p && *p != '"' && i < outLen - 1) out[i++] = *p++;
+        if (*p == '"') p++;
+    } else {
+        while (*p && *p != ' ' && i < outLen - 1) out[i++] = *p++;
+    }
+    out[i] = 0;
+    return p;
+}
+
+int WINAPI WinMain(HINSTANCE inst, HINSTANCE prev, LPSTR cmd, int show)
+{
+    char *slash, word[MAX_PATH], file[MAX_PATH];
+    const char *p;
+    int row = -1;
+    (void)prev;
+    g_inst = inst;
+    GetModuleFileName(NULL, g_dir, sizeof(g_dir));
+    slash = strrchr(g_dir, '\\');
+    if (slash) slash[1] = 0;
+    p = NextWord(cmd, word, sizeof(word));
+    if (lstrcmpi(word, "/selftest") == 0) {
+        g_testMode = 1;
+        return SelfTest();
+    }
+    if (lstrcmpi(word, "/shot") == 0) {
+        g_testMode = 1;
+        p = NextWord(p, file, sizeof(file));
+        while (*p == ' ') p++;
+        if (*p >= '0' && *p <= '9') {
+            p = NextWord(p, word, sizeof(word));
+            row = atoi(word);
+        }
+        while (*p == ' ') p++;
+        return Shot(file, row, p);
+    }
+    return RunWindow(show);
+}

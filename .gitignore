@@ -9,3 +9,7 @@ pilot/**
 !keys/*.pub.pem
 *.dpapi
 *.key
+
+# Build output
+client/build/out/
+

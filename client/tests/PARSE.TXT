@@ -1,0 +1,47 @@
+# A catalog with unusual but valid lines, for the self-test.
+Format: 1
+Catalog: Beacon 98
+Publisher: Backport Labs
+Serial: 2026010101
+Date: 2026-01-01
+Expires: 2026-04-01
+Base: http://get.backportlabs.com/
+Future-Field: a later catalog may add fields; they are ignored
+
+# A comment between blocks.
+Package: two-files
+Name: Two Files
+Version: 1.0
+Section: Utilities
+Summary: A package with two files and a long description
+Description: First line.
+ .
+ Third line, after an empty one.
+License: MIT
+License-File: pool/two-files/1.0/LICENSE.TXT
+Systems: 95, 98
+Download: pool/two-files/1.0/a.zip 1000 0000000000000000000000000000000000000000000000000000000000000000
+ pool/two-files/1.0/b.zip 2345 1111111111111111111111111111111111111111111111111111111111111111
+Unknown-Field: ignored
+Install: unzip {dir}
+Uninstall: files
+
+Package: incomplete
+Name: Incomplete
+Version: 1.0
+Section: Games
+Summary: This package has no Download field and is left out
+
+Package: external-one
+Name: External One
+Version: 2.0 beta
+Section: Internet
+Summary: Downloaded from its publisher
+License: GPL-2.0-or-later
+License-File: pool/external-one/2.0/LICENSE.TXT
+Systems: 98
+Availability: external
+Download: http://example.com/files/setup.exe 4096 2222222222222222222222222222222222222222222222222222222222222222
+Depends: two-files
+Install: nsis
+Uninstall: registry External One
