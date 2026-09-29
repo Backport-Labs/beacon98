@@ -8,6 +8,10 @@
  *                                           clicking column N, or the Sources window
  *   BEACON98.EXE /unzip ARCHIVE FOLDER [strip]
  *                                           unpacks an archive, to test unzip.c
+ *   BEACON98.EXE /get URL FILE [HEADERS.TXT]
+ *                                           downloads a file, sending the access
+ *                                           headers in HEADERS.TXT as a source would;
+ *                                           writes FILE.ERR when it fails
  */
 #include "beacon.h"
 
@@ -54,6 +58,28 @@ int WINAPI WinMain(HINSTANCE inst, HINSTANCE prev, LPSTR cmd, int show)
         p = NextWord(p, file, sizeof(file));
         p = NextWord(p, word, sizeof(word));
         return Unzip(archive, file, atoi(word), NULL, NULL, NULL, err, sizeof(err)) ? 0 : 1;
+    }
+    if (lstrcmpi(word, "/get") == 0) {             /* test: download as a source would */
+        char url[700], hdrFile[MAX_PATH], headers[512], err[300];
+        FILE *f;
+        int ok, n = 0;
+        g_testMode = 1;
+        p = NextWord(p, url, sizeof(url));
+        p = NextWord(p, file, sizeof(file));
+        p = NextWord(p, hdrFile, sizeof(hdrFile));
+        headers[0] = 0;
+        if (hdrFile[0] && (f = fopen(hdrFile, "rb")) != NULL) {
+            n = (int)fread(headers, 1, sizeof(headers) - 1, f);
+            headers[n] = 0;
+            fclose(f);
+        }
+        ok = HttpGetFileH(url, n ? headers : NULL, 1, file, 0, NULL, NULL, NULL, err, sizeof(err));
+        if (!ok) {
+            lstrcat(file, ".ERR");
+            if ((f = fopen(file, "w")) != NULL) { fprintf(f, "%s\n", err); fclose(f); }
+        }
+        CloseNet();
+        return ok ? 0 : 1;
     }
     if (lstrcmpi(word, "/shot") == 0) {
         g_testMode = 1;
