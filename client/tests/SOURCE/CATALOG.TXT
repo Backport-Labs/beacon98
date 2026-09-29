@@ -1,0 +1,19 @@
+Format: 1
+Catalog: Test source
+Publisher: Beacon 98 self-test
+Serial: 2026092901
+Date: 2026-09-29
+Expires: 2036-09-29
+Base: http://example.invalid/
+
+Package: hello
+Name: Hello
+Version: 1.0
+Section: Games
+Summary: A file for the self-test of custom sources
+License: Public domain
+License-File: pool/hello/1.0/LICENSE.TXT
+Systems: 95, 98, ME
+Download: pool/hello/1.0/HELLO.TXT 29 24151ae026c7dcf305fd9da402c5f6ddc3298a7d373a4d0951e98c4356d0db95
+Install: copy
+Uninstall: files

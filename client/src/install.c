@@ -308,11 +308,21 @@ static void Host(const char *url, char *out, int outLen)
  * own server. Copies the local path to out. Returns 1 on success. */
 int FetchFile(const char *line, const char *dir, char *out)
 {
-    char loc[8][600], urls[16][700], sizePart[20], shaPart[70], url[700], err[300], hex[65], host[100], *name;
+    return FetchFileFrom(line, g_cat.base, NULL, NULL, dir, out);
+}
+
+/* The same, for a package of any source. base is the source's address or
+ * folder, for locations that are paths; headers are the source's access
+ * headers, sent only with those paths and only over HTTPS; referer, when
+ * given, is sent with full addresses (some publishers' servers want it). */
+int FetchFileFrom(const char *line, const char *base, const char *headers, const char *referer, const char *dir, char *out)
+{
+    char loc[8][600], urls[16][700], sizePart[20], shaPart[70], url[700], err[300], hex[65], host[100], *name, *q;
+    char refHeader[700];
     const char *p = line;
     BYTE want[32], got[32];
     DWORD size, gotSize;
-    int n = 0, i, k, tries = 0;
+    int n = 0, i, k, tries = 0, kind[16], folder = !IsUrl(base), ok;
 
     /* Split into words: the first location, the size, the hash, then more locations. */
     for (k = 0; *p && k < 11; k++) {
@@ -333,25 +343,38 @@ int FetchFile(const char *line, const char *dir, char *out)
     name = strrchr(loc[0], '/');
     name = name ? name + 1 : loc[0];
     wsprintf(out, "%s%s", dir, name);
-    /* The addresses to try, in order. A path on our own server is tried over
-     * HTTPS first, then over plain HTTP. */
+    /* The places to try, in order: kind 0 is a full address, 1 a path on the
+     * source's server (tried over HTTPS first, then plain HTTP), 2 a file in the
+     * source's folder. */
     for (i = 0; i < n && tries < 15; i++) {
-        if (IsUrl(loc[i])) lstrcpyn(urls[tries++], loc[i], sizeof(urls[0]));
-        else {
-            if (strncmp(g_cat.base, "http://", 7) == 0) wsprintf(urls[tries++], "https://%s%s", g_cat.base + 7, loc[i]);
-            wsprintf(urls[tries++], "%s%s", g_cat.base, loc[i]);
+        if (IsUrl(loc[i])) { kind[tries] = 0; lstrcpyn(urls[tries++], loc[i], sizeof(urls[0])); }
+        else if (folder) {
+            kind[tries] = 2;
+            wsprintf(urls[tries], "%s%s", base, loc[i]);
+            for (q = urls[tries]; *q; q++) if (*q == '/') *q = '\\';
+            tries++;
+        } else {
+            if (strncmp(base, "http://", 7) == 0) { kind[tries] = 1; wsprintf(urls[tries++], "https://%s%s", base + 7, loc[i]); }
+            if (!headers || !headers[0] || strncmp(base, "https://", 8) == 0) { kind[tries] = 1; wsprintf(urls[tries++], "%s%s", base, loc[i]); }
         }
     }
+    if (referer) wsprintf(refHeader, "Referer: %s\r\n", referer);
     for (i = 0; i < tries; i++) {
         if (TaskCancelled()) return 0;
         lstrcpyn(url, urls[i], sizeof(url));
-        Host(url, host, sizeof(host));
-        TaskLog("%s %s (%lu KB) from %s%s", i ? "Trying" : "Downloading", name, (size + 1023) / 1024, host,
-                strncmp(url, "https://", 8) == 0 ? " over HTTPS" : "");
-        TaskProgress(0);
-        if (!HttpGetFile(url, out, size, TaskCancelFlag(), OnProgress, NULL, err, sizeof(err))) {
-            TaskLog("  %s", err);
-            continue;
+        if (kind[i] == 2) {
+            TaskLog("%s %s (%lu KB) from %s", i ? "Trying" : "Copying", name, (size + 1023) / 1024, base);
+            ok = CopyFile(url, out, FALSE);
+            if (!ok) { TaskLog("  %s could not be read.", url); continue; }
+            SetFileAttributes(out, FILE_ATTRIBUTE_NORMAL);
+        } else {
+            Host(url, host, sizeof(host));
+            TaskLog("%s %s (%lu KB) from %s%s", i ? "Trying" : "Downloading", name, (size + 1023) / 1024, host,
+                    strncmp(url, "https://", 8) == 0 ? " over HTTPS" : "");
+            TaskProgress(0);
+            if (kind[i] == 1) ok = HttpGetFileH(url, headers && headers[0] ? headers : NULL, 1, out, size, TaskCancelFlag(), OnProgress, NULL, err, sizeof(err));
+            else ok = HttpGetFileH(url, referer ? refHeader : NULL, 0, out, size, TaskCancelFlag(), OnProgress, NULL, err, sizeof(err));
+            if (!ok) { TaskLog("  %s", err); continue; }
         }
         if (!Sha256File(out, got, &gotSize) || gotSize != size || memcmp(got, want, 32) != 0) {
             ToHex(got, 32, hex);
@@ -373,7 +396,7 @@ static int Fetch(PKG *p, char files[][MAX_PATH], int *count)
     int n;
     *count = 0;
     for (n = 0; Line(p->f[F_DOWNLOAD], n, line, sizeof(line)) && n < 8; n++) {
-        if (!FetchFile(line, g_downloadDir, files[n])) return 0;
+        if (!FetchFileFrom(line, SourceBase(p), g_src[p->source].headers, p->f[F_REFERER], g_downloadDir, files[n])) return 0;
         *count = n + 1;
     }
     return *count > 0;
@@ -609,14 +632,28 @@ static void Enqueue(JOB *job, PKG *p)
 /* The license text of p, downloaded into memory. */
 static char *GetLicense(PKG *p, char *err, int errLen)
 {
-    char url[600], path[MAX_PATH];
+    char url[600], path[MAX_PATH], *q;
+    const char *base = SourceBase(p), *headers = g_src[p->source].headers;
     HANDLE f;
     DWORD n, got;
     char *text = NULL;
     Dirs();
-    wsprintf(url, "%s%s", g_cat.base, p->f[F_LICENSE_FILE]);
     wsprintf(path, "%sLICENSE.TMP", g_downloadDir);
-    if (!HttpGetFile(url, path, 0, NULL, NULL, NULL, err, errLen)) return NULL;
+    if (!IsUrl(base)) {                                     /* a folder source */
+        wsprintf(url, "%s%s", base, p->f[F_LICENSE_FILE]);
+        for (q = url; *q; q++) if (*q == '/') *q = '\\';
+        if (!CopyFile(url, path, FALSE)) { wsprintf(err, "%s could not be read.", url); return NULL; }
+        SetFileAttributes(path, FILE_ATTRIBUTE_NORMAL);
+    } else {
+        /* Over HTTPS first; plain HTTP only when the source has no access key. */
+        if (strncmp(base, "http://", 7) == 0) wsprintf(url, "https://%s%s", base + 7, p->f[F_LICENSE_FILE]);
+        else wsprintf(url, "%s%s", base, p->f[F_LICENSE_FILE]);
+        if (!HttpGetFileH(url, headers[0] ? headers : NULL, 1, path, 0, NULL, NULL, NULL, err, errLen)) {
+            if (headers[0] || strncmp(base, "http://", 7) != 0) return NULL;
+            wsprintf(url, "%s%s", base, p->f[F_LICENSE_FILE]);
+            if (!HttpGetFile(url, path, 0, NULL, NULL, NULL, err, errLen)) return NULL;
+        }
+    }
     f = CreateFile(path, GENERIC_READ, 0, NULL, OPEN_EXISTING, 0, NULL);
     if (f != INVALID_HANDLE_VALUE) {
         n = GetFileSize(f, NULL);
@@ -857,6 +894,11 @@ int RemovePackage(HWND owner, PKG *p)
     char msg[600];
     int i;
     Dirs();
+    if (lstrcmp(p->f[F_UNINSTALL], "none") == 0) {
+        wsprintf(msg, "%s cannot be removed: it becomes part of Windows.", p->f[F_NAME]);
+        MessageBox(owner, msg, APP_NAME, MB_OK | MB_ICONINFORMATION);
+        return 0;
+    }
     for (i = 0; i < g_cat.count; i++) {
         PKG *o = &g_cat.pkg[i];
         if (o->status != ST_NO && o->f[F_DEPENDS] && lstrcmp(o->f[F_DEPENDS], p->f[F_PACKAGE]) == 0) {
@@ -874,41 +916,61 @@ int RemovePackage(HWND owner, PKG *p)
  * Updating the catalog
  * --------------------------------------------------------------------- */
 
-static int UpdateWork(void *ctx)
+/* Fetches a source's CATALOG.TXT or CATALOG.SIG into path: from its folder,
+ * or from its address, over HTTPS first. */
+static int FetchCatalogFile(int n, const char *file, const char *path)
 {
-    char url[400], cat[MAX_PATH], sig[MAX_PATH], newCat[MAX_PATH], newSig[MAX_PATH], err[300];
+    char url[600], err[300];
+    SOURCE *s = &g_src[n];
+    int secure;
+    if (!IsUrl(s->location)) {
+        wsprintf(url, "%s%s", s->location, file);
+        if (CopyFile(url, path, FALSE)) { SetFileAttributes(path, FILE_ATTRIBUTE_NORMAL); return 1; }
+        TaskLog("  %s could not be read.", url);
+        return 0;
+    }
+    for (secure = 1; secure >= 0; secure--) {
+        const char *rest = strstr(s->location, "://") + 3;
+        if (!secure && (s->headers[0] || strncmp(s->location, "https://", 8) == 0)) break;
+        wsprintf(url, "%s://%s%s", secure ? "https" : "http", rest, file);
+        if (HttpGetFileH(url, s->headers[0] ? s->headers : NULL, 1, path, 0, TaskCancelFlag(), NULL, NULL, err, sizeof(err))) return 1;
+        TaskLog("  %s: %s", url, err);
+    }
+    return 0;
+}
+
+/* Updates the catalog of source n. Returns 1 when it has a valid catalog. */
+static int UpdateSource(int n)
+{
+    char cat[MAX_PATH], sig[MAX_PATH], newCat[MAX_PATH], newSig[MAX_PATH], err[300], keyId[17];
+    SOURCE *s = &g_src[n];
     CATALOG c;
-    int r, secure;
-    (void)ctx;
-    wsprintf(cat, "%s%s", g_dir, CATALOG_FILE);
-    wsprintf(sig, "%s%s", g_dir, SIG_FILE);
+    int r;
+    SourceFiles(n, cat, sig);
     wsprintf(newCat, "%sCATALOG.NEW", g_dir);
     wsprintf(newSig, "%sSIGNATUR.NEW", g_dir);
-    /* Over HTTPS if possible; the signature, not the connection, is what is trusted. */
-    for (secure = 1; secure >= 0; secure--) {
-        TaskLog("Downloading the catalog from %s%s", CATALOG_HOST, secure ? " over HTTPS" : "");
-        wsprintf(url, "%s://%s/%s", secure ? "https" : "http", CATALOG_HOST, CATALOG_FILE);
-        if (!HttpGetFile(url, newCat, 0, TaskCancelFlag(), NULL, NULL, err, sizeof(err))) { TaskLog("  %s", err); continue; }
-        wsprintf(url, "%s://%s/%s", secure ? "https" : "http", CATALOG_HOST, SIG_FILE);
-        if (!HttpGetFile(url, newSig, 0, TaskCancelFlag(), NULL, NULL, err, sizeof(err))) { TaskLog("  %s", err); DeleteFile(newCat); continue; }
-        break;
-    }
-    if (secure < 0) return 0;
+    TaskLog("");
+    TaskLog("%s: downloading the catalog from %s", s->name, s->location);
+    if (!FetchCatalogFile(n, CATALOG_FILE, newCat)) return 0;
+    if (!FetchCatalogFile(n, SIG_FILE, newSig)) { DeleteFile(newCat); return 0; }
     if (ClockNote()[0]) TaskLog("%s", ClockNote());
-    r = VerifyCatalogFile(newCat, newSig);
+    r = VerifySource(n, newCat, newSig);
     if (r != SIG_OK) {
-        TaskLog("The downloaded catalog was not used: %s.", SigText(r));
+        TaskLog("The downloaded catalog was not used: %s.", n ? (r == SIG_INVALID ? "its signature does not match" : SigText(r)) : SigText(r));
         DeleteFile(newCat); DeleteFile(newSig);
         return 0;
     }
-    TaskLog("Signature verified: Backport Labs key %s.", g_keyId);
+    if (n) {
+        KeyIdOf(s->key, keyId);
+        TaskLog("Signature verified with this source's key %s.", keyId);
+    } else TaskLog("Signature verified: Backport Labs key %s.", g_keyId);
     if (!LoadCatalog(newCat, &c, err, sizeof(err))) {
         TaskLog("The downloaded catalog was not used: %s", err);
         DeleteFile(newCat); DeleteFile(newSig);
         return 0;
     }
-    if (g_cat.serial[0] && lstrcmp(c.serial, g_cat.serial) < 0) {
-        TaskLog("The server offered catalog %s, older than the %s already here. It was not used.", c.serial, g_cat.serial);
+    if (s->loaded && s->cat.serial[0] && lstrcmp(c.serial, s->cat.serial) < 0) {
+        TaskLog("The source offered catalog %s, older than the %s already here. It was not used.", c.serial, s->cat.serial);
         FreeCatalog(&c);
         DeleteFile(newCat); DeleteFile(newSig);
         return 0;
@@ -920,6 +982,14 @@ static int UpdateWork(void *ctx)
     return 1;
 }
 
+static int UpdateWork(void *ctx)
+{
+    int i, ok;
+    (void)ctx;
+    ok = UpdateSource(0);
+    for (i = 1; i < g_nsrc && !TaskCancelled(); i++) UpdateSource(i);
+    return ok;
+}
 int UpdateCatalog(HWND owner)
 {
     char probe[MAX_PATH];

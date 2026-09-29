@@ -12,6 +12,10 @@
 #define ID_TREE    105
 #define ID_LIST    106
 #define ID_STATUS  107
+#define ID_EXIT    120
+#define ID_SOURCES 121
+#define ID_README  122
+#define ID_ABOUT   123
 
 #define WM_FIRST_RUN (WM_APP + 1)
 #define WM_OFFER     (WM_APP + 2)
@@ -19,6 +23,7 @@
 #define G_ALL       (-1)
 #define G_INSTALLED (-2)
 #define G_UPDATES   (-3)
+#define G_SOURCE(i) (-10 - (i))       /* the packages of custom source i */
 
 #define BAR_H   32
 #define TREE_W  176
@@ -29,6 +34,7 @@ static HFONT g_font;
 static int g_group = G_ALL;
 static int g_filling;               /* the list is being refilled: ignore its notices */
 static char g_catalogState[200];
+static int g_sortCol = -1, g_sortDesc;  /* -1: catalog order */
 
 static int ContainsNoCase(const char *text, const char *word)
 {
@@ -68,6 +74,7 @@ static int InGroup(PKG *p, int group)
     if (group == G_ALL) return 1;
     if (group == G_INSTALLED) return p->status == ST_YES || p->status == ST_UPDATE;
     if (group == G_UPDATES) return p->status == ST_UPDATE;
+    if (group <= G_SOURCE(0)) return p->source == G_SOURCE(0) - group;
     return SectionIndex(p->f[F_SECTION]) == group;
 }
 
@@ -107,6 +114,13 @@ static void FillTree(void)
         if (!Count(i)) continue;
         h = AddGroup(g_sections[i], i, all);
         if (g_group == i) sel = h;
+    }
+    for (i = 1; i < g_nsrc; i++) {
+        char label[90];
+        if (!g_src[i].loaded) continue;
+        wsprintf(label, "From %s", g_src[i].name);
+        h = AddGroup(label, G_SOURCE(i), MY_TVI_ROOT);
+        if (g_group == G_SOURCE(i)) sel = h;
     }
     SendMessage(g_tree, MY_TVM_EXPAND, MY_TVE_EXPAND, (LPARAM)all);
     SendMessage(g_tree, MY_TVM_SELECTITEM, MY_TVGN_CARET, (LPARAM)(sel ? sel : first));
@@ -166,6 +180,33 @@ static void StatusCount(int shown)
     SendMessage(g_status, MY_SB_SETTEXTA, 1, (LPARAM)text);
 }
 
+/* Where a package stands, for sorting by the Status column. */
+static int StatusRank(PKG *p)
+{
+    if (p->status == ST_UPDATE) return 0;
+    if (p->status == ST_YES) return 1;
+    if (p->reqMissing) return 3;
+    return 2;
+}
+
+static int CALLBACK CompareRows(LPARAM a, LPARAM b, LPARAM col)
+{
+    PKG *p = &g_cat.pkg[a], *q = &g_cat.pkg[b];
+    int r = 0;
+    if (col == 1) r = CompareVersions(p->f[F_VERSION] ? p->f[F_VERSION] : "", q->f[F_VERSION] ? q->f[F_VERSION] : "");
+    else if (col == 2) r = p->bytes < q->bytes ? -1 : p->bytes > q->bytes;
+    else if (col == 3) r = StatusRank(p) - StatusRank(q);
+    if (!r) r = lstrcmpi(p->f[F_NAME], q->f[F_NAME]);
+    if (!r) r = (int)(a - b);
+    return g_sortDesc ? -r : r;
+}
+
+/* Sorts the list by the column last clicked; the catalog's order until then. */
+static void SortList(void)
+{
+    if (g_sortCol >= 0) SendMessage(g_list, MY_LVM_SORTITEMS, (WPARAM)g_sortCol, (LPARAM)CompareRows);
+}
+
 static void FillList(void)
 {
     char search[100], text[80];
@@ -196,7 +237,9 @@ static void FillList(void)
         if (p == keep) selRow = row;
         row++;
     }
+    SortList();
     if (row) {
+        for (i = 0; keep && i < row; i++) if (RowPkg(i) == keep) selRow = i;
         if (selRow < 0) selRow = 0;
         memset(&it, 0, sizeof(it));
         it.stateMask = MY_LVIS_SELECTED | MY_LVIS_FOCUSED;
@@ -279,25 +322,62 @@ static void AddColumn(int i, const char *title, int width, int right)
 
 static void LoadAndCheck(void)
 {
-    char cat[MAX_PATH], sig[MAX_PATH], err[200], text[300];
+    char text[300];
     int r;
-    wsprintf(cat, "%s%s", g_dir, CATALOG_FILE);
-    wsprintf(sig, "%s%s", g_dir, SIG_FILE);
-    FreeCatalog(&g_cat);
-    r = VerifyCatalogFile(cat, sig);
-    if (r != SIG_OK) {
-        wsprintf(g_catalogState, "No catalog: %s", SigText(r));
-    } else if (!LoadCatalog(cat, &g_cat, err, sizeof(err))) {
-        wsprintf(g_catalogState, "No catalog: %s", err);
-    } else {
-        CheckSystem(&g_cat);
-        wsprintf(g_catalogState, "Catalog %s, %s", g_cat.serial, SigText(r));
-    }
+    LoadAllCatalogs(g_catalogState, sizeof(g_catalogState), &r);
     SendMessage(g_status, MY_SB_SETTEXTA, 0, (LPARAM)g_catalogState);
     SendMessage(g_status, MY_SB_SETTEXTA, 2, (LPARAM)"get.backportlabs.com");
     if (r != SIG_OK && r != SIG_NO_FILE && !g_testMode) {
         wsprintf(text, "The catalog was not loaded: %s.\n\nBeacon 98 only uses a catalog signed by Backport Labs.", SigText(r));
         MessageBox(g_main, text, APP_NAME, MB_OK | MB_ICONWARNING);
+    }
+}
+
+static void ShowReadMe(void)
+{
+    char path[MAX_PATH], cmd[MAX_PATH + 20];
+    wsprintf(path, "%sREADME.TXT", g_dir);
+    if (GetFileAttributes(path) == (DWORD)-1) {
+        MessageBox(g_main, "README.TXT is not in the folder of Beacon 98. It is also at\nhttps://github.com/Backport-Labs/beacon98",
+                   APP_NAME, MB_OK | MB_ICONINFORMATION);
+        return;
+    }
+    wsprintf(cmd, "notepad.exe \"%s\"", path);
+    WinExec(cmd, SW_SHOWNORMAL);
+}
+
+static void ShowAbout(void)
+{
+    char text[1200];
+    wsprintf(text,
+        APP_NAME " " APP_VERSION "\n"
+        "A package manager for Windows 95, 98 and Me.\n\n"
+        "Copyright (C) 2026 Backport Labs\n"
+        "Free software under the MIT License (LICENSE.TXT).\n"
+        "https://github.com/Backport-Labs/beacon98\n\n"
+        "Catalog key: %s\n"
+        "Custom sources: %d\n\n"
+        "Beacon 98 includes:\n"
+        "  BearSSL 0.6, by Thomas Pornin (MIT License)\n"
+        "  TweetNaCl, by Bernstein, van Gastel, Janssen, Lange,\n"
+        "    Schwabe and Smetsers (public domain)\n"
+        "  miniz 3.1.2, by Rich Geldreich and others (MIT License)\n"
+        "  Root certificates from Mozilla, as published by curl\n"
+        "    (Mozilla Public License 2.0)",
+        g_keyId, g_nsrc - 1);
+    MessageBox(g_main, text, "About " APP_NAME, MB_OK | MB_ICONINFORMATION);
+}
+
+static void Refresh(void);
+
+static void EditSources(void)
+{
+    if (!SourcesDialog(g_main)) return;
+    Refresh();
+    if (MessageBox(g_main, "The sources were saved. Update the catalog now, to fetch the catalogs of new or changed sources?",
+                   APP_NAME, MB_YESNO | MB_ICONQUESTION) == IDYES) {
+        UpdateCatalog(g_main);
+        Refresh();
     }
 }
 
@@ -318,7 +398,7 @@ static LRESULT CALLBACK MainProc(HWND hwnd, UINT msg, WPARAM wp, LPARAM lp)
         g_bUpdate = Make("BUTTON", "&Update Catalog", BS_PUSHBUTTON | WS_TABSTOP, 0, ID_UPDATE);
         g_bInstall = Make("BUTTON", "&Install", BS_PUSHBUTTON | WS_TABSTOP, 0, ID_INSTALL);
         g_bRemove = Make("BUTTON", "&Remove", BS_PUSHBUTTON | WS_TABSTOP, 0, ID_REMOVE);
-        g_searchLabel = Make("STATIC", "&Search:", SS_RIGHT, 0, 0);
+        g_searchLabel = Make("STATIC", "S&earch:", SS_RIGHT, 0, 0);
         g_search = Make("EDIT", "", ES_AUTOHSCROLL | WS_TABSTOP, WS_EX_CLIENTEDGE, ID_SEARCH);
         SendMessage(g_search, EM_LIMITTEXT, 90, 0);
         g_tree = Make(MY_WC_TREEVIEW, "", MY_TVS_HASBUTTONS | MY_TVS_HASLINES | MY_TVS_LINESATROOT | MY_TVS_SHOWSELALWAYS | WS_TABSTOP,
@@ -337,7 +417,7 @@ static LRESULT CALLBACK MainProc(HWND hwnd, UINT msg, WPARAM wp, LPARAM lp)
         FillList();
         SetFocus(g_search);
         /* The first time, there is no catalog yet: fetch it once the window shows. */
-        if (!g_cat.count && !g_testMode) PostMessage(hwnd, WM_FIRST_RUN, 0, 0);
+        if (!g_src[0].loaded && !g_testMode) PostMessage(hwnd, WM_FIRST_RUN, 0, 0);
         return 0;
     case WM_SIZE:
         if (g_status) Layout();
@@ -348,6 +428,18 @@ static LRESULT CALLBACK MainProc(HWND hwnd, UINT msg, WPARAM wp, LPARAM lp)
         return 0;
     case WM_COMMAND:
         switch (LOWORD(wp)) {
+        case ID_EXIT:
+            DestroyWindow(hwnd);
+            return 0;
+        case ID_SOURCES:
+            EditSources();
+            return 0;
+        case ID_README:
+            ShowReadMe();
+            return 0;
+        case ID_ABOUT:
+            ShowAbout();
+            return 0;
         case ID_SEARCH:
             if (HIWORD(wp) == EN_CHANGE) FillList();
             return 0;
@@ -401,6 +493,12 @@ static LRESULT CALLBACK MainProc(HWND hwnd, UINT msg, WPARAM wp, LPARAM lp)
                 ShowDetails(g_details, SelectedPkg());
                 UpdateButtons();
             }
+        } else if (n->idFrom == ID_LIST && n->code == (UINT)MY_LVN_COLUMNCLICK) {
+            int col = ((MY_NMLISTVIEW *)lp)->iSubItem;
+            g_sortDesc = col == g_sortCol ? !g_sortDesc : 0;
+            g_sortCol = col;
+            SortList();
+            SendMessage(g_list, MY_LVM_ENSUREVISIBLE, SendMessage(g_list, MY_LVM_GETNEXTITEM, (WPARAM)-1, MY_LVNI_SELECTED), FALSE);
         }
         return 0;
     }
@@ -409,6 +507,22 @@ static LRESULT CALLBACK MainProc(HWND hwnd, UINT msg, WPARAM wp, LPARAM lp)
         return 0;
     }
     return DefWindowProc(hwnd, msg, wp, lp);
+}
+
+static HMENU MakeMenu(void)
+{
+    HMENU bar = CreateMenu(), file = CreatePopupMenu(), set = CreatePopupMenu(), help = CreatePopupMenu();
+    AppendMenu(file, MF_STRING, ID_UPDATE, "&Update Catalog");
+    AppendMenu(file, MF_SEPARATOR, 0, NULL);
+    AppendMenu(file, MF_STRING, ID_EXIT, "E&xit");
+    AppendMenu(set, MF_STRING, ID_SOURCES, "&Sources...");
+    AppendMenu(help, MF_STRING, ID_README, "&Read Me\tF1");
+    AppendMenu(help, MF_SEPARATOR, 0, NULL);
+    AppendMenu(help, MF_STRING, ID_ABOUT, "&About " APP_NAME);
+    AppendMenu(bar, MF_POPUP, (UINT)file, "&File");
+    AppendMenu(bar, MF_POPUP, (UINT)set, "&Settings");
+    AppendMenu(bar, MF_POPUP, (UINT)help, "&Help");
+    return bar;
 }
 
 static HWND MakeMain(int x, int y, DWORD visible)
@@ -425,7 +539,7 @@ static HWND MakeMain(int x, int y, DWORD visible)
     wc.lpszClassName = CLASS_MAIN;
     RegisterClass(&wc);
     return CreateWindow(CLASS_MAIN, APP_NAME, WS_OVERLAPPEDWINDOW | WS_CLIPCHILDREN | visible,
-                        x, y, 760, 540, NULL, NULL, g_inst, NULL);
+                        x, y, 760, 560, NULL, MakeMenu(), g_inst, NULL);
 }
 
 /* Test mode: the window off the screen, with a search typed and a row selected. */
@@ -444,19 +558,42 @@ HWND OpenForShot(const char *search, int row)
     return hwnd;
 }
 
+/* Test mode: a click on a column heading, through the same notice. */
+void SortForShot(int col)
+{
+    MY_NMLISTVIEW lv;
+    memset(&lv, 0, sizeof(lv));
+    lv.hdr.hwndFrom = g_list;
+    lv.hdr.idFrom = ID_LIST;
+    lv.hdr.code = (UINT)MY_LVN_COLUMNCLICK;
+    lv.iItem = -1;
+    lv.iSubItem = col;
+    SendMessage(g_main, WM_NOTIFY, ID_LIST, (LPARAM)&lv);
+}
+
 int RunWindow(int show)
 {
     MSG m;
+    ACCEL keys[1];
+    HACCEL acc;
+    int i;
     HWND hwnd = MakeMain(CW_USEDEFAULT, CW_USEDEFAULT, 0);
     if (!hwnd) return 1;
+    keys[0].fVirt = FVIRTKEY;
+    keys[0].key = VK_F1;
+    keys[0].cmd = ID_README;
+    acc = CreateAcceleratorTable(keys, 1);
     ShowWindow(hwnd, show);
     UpdateWindow(hwnd);
     while (GetMessage(&m, NULL, 0, 0) > 0) {
+        if (acc && TranslateAccelerator(hwnd, acc, &m)) continue;
         if (IsDialogMessage(hwnd, &m)) continue;
         TranslateMessage(&m);
         DispatchMessage(&m);
     }
+    if (acc) DestroyAcceleratorTable(acc);
     FreeCatalog(&g_cat);
+    for (i = 0; i < g_nsrc; i++) FreeCatalog(&g_src[i].cat);
     CloseNet();
     return (int)m.wParam;
 }

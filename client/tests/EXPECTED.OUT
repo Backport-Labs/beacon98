@@ -1,4 +1,4 @@
-Beacon 98 0.5.0 self-test
+Beacon 98 0.6.0 self-test
 SHA256 empty e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 SHA256 abc ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad
 SHA256 448-bits 248d6a61d20638b8e5c026930c3e6039a33ce45964ff2167f6ecedd419db06c1
@@ -35,9 +35,13 @@ REQUIRES the system library: met
 REQUIRES a file that does not exist: missing
 REQUIRES one megabyte of memory: met
 REQUIRES a terabyte of memory: missing
-REQUIRES DirectX 9: not checked
+REQUIRES DirectX 9: met
 REQUIRES a check a later version may add: not checked
 REQUIRES a package the catalog does not have: missing
+REQUIRES the Windows registry key: met
+REQUIRES a registry key that does not exist: missing
+REQUIRES DirectX 1 or later: met
+REQUIRES DirectX 99: missing
 SYSTEMS "95, 98, ME" and "NT4" name this Windows: no
 SYSTEMS an empty list names this Windows: no
 UNZIP TEST.ZIP, strip 0: unpacked
@@ -65,3 +69,15 @@ CLOCK 24 years behind: fetched; Beacon used the server's date and said so
 CLOCK 14 years ahead: fetched; Beacon used the server's date and said so
 DATE Tue, 29 Sep 2026 00:45:08 GMT is day 20725, second 2708
 DATE a date that is not a date: refused
+SOURCES 3 custom sources read; Catalog 2026092901, signed by Backport Labs, verified; 1 of 3 custom sources
+SOURCES Test source, a folder: loaded
+SOURCES Wrong key, a folder: signed with a key this program does not know
+SOURCES Private, a web address: the catalog or its signature is missing
+SOURCES access headers of the web source [X-Test: 1\r\nX-Other: two\r\n]
+SOURCES package hello: from Test source, 11 packages in all
+SOURCES a file from the source's folder: HELLO.TXT
+SOURCES a file that does not match the source's catalog: refused
+SOURCES access headers over plain HTTP: This source's access key is only sent over HTTPS; its address must start with https://.
+SOURCES saved and read again: 3 custom sources
+SOURCES access headers after saving [X-Test: 1\r\nX-Other: two\r\n]
+VERSIONS 1.10 against 1.9: later; 2.03 against 2.21: earlier

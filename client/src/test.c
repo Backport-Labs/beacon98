@@ -175,7 +175,11 @@ static void TestRequirements(void)
         "memory 999999 | a terabyte of memory",
         "dx 9 | DirectX 9",
         "future-check 1 | a check a later version may add",
-        "package no-such-package | a package the catalog does not have"
+        "package no-such-package | a package the catalog does not have",
+        "reg HKLM\\Software\\Microsoft\\Windows\\CurrentVersion | the Windows registry key",
+        "reg HKLM\\Software\\No Such Key Beacon | a registry key that does not exist",
+        "dx 1 | DirectX 1 or later",
+        "dx 99 | DirectX 99"
     };
     char what[200];
     int i, r;
@@ -306,6 +310,62 @@ static void TestSystems(void)
     fprintf(g_out, "SYSTEMS an empty list names this Windows: %s\n", SystemListed("") ? "yes" : "no");
 }
 
+static void QuoteHeaders(const char *label, const char *h)
+{
+    fprintf(g_out, "%s [", label);
+    for (; *h; h++) {
+        if (h[0] == '\r' && h[1] == '\n') { fprintf(g_out, "\\r\\n"); h++; }
+        else fputc(*h, g_out);
+    }
+    fprintf(g_out, "]\n");
+}
+
+/* Custom sources. The build writes SOURCES.TXT with a folder source (SRC, a
+ * catalog signed with a test key), the same folder under another key, a
+ * damaged line, and a web source with access headers; it copies the test
+ * catalog as CAT1 and CAT2. */
+static void TestSources(void)
+{
+    char state[200], dir[MAX_PATH], path[MAX_PATH], err[300], line[300];
+    int i, r;
+    PKG *p;
+    LoadAllCatalogs(state, sizeof(state), &r);
+    fprintf(g_out, "SOURCES %d custom sources read; %s\n", g_nsrc - 1, state);
+    for (i = 1; i < g_nsrc; i++)
+        fprintf(g_out, "SOURCES %s, %s: %s\n", g_src[i].name, IsUrl(g_src[i].location) ? "a web address" : "a folder",
+                g_src[i].loaded ? "loaded" : SigText(g_src[i].state));
+    if (g_nsrc > 3) QuoteHeaders("SOURCES access headers of the web source", g_src[3].headers);
+    p = FindPkg(&g_cat, "hello");
+    fprintf(g_out, "SOURCES package hello: from %s, %d packages in all\n", p ? g_src[p->source].name : "NOWHERE", g_cat.count);
+    if (p) {
+        wsprintf(dir, "%sDL\\", g_dir);
+        CreateDirectory(dir, NULL);
+        fprintf(g_out, "SOURCES a file from the source's folder: %s\n",
+                FetchFileFrom(p->f[F_DOWNLOAD], SourceBase(p), g_src[p->source].headers, NULL, dir, path) ? strrchr(path, '\\') + 1 : "FAILED");
+        lstrcpyn(line, p->f[F_DOWNLOAD], sizeof(line));
+        if (strchr(line, ' ') && lstrlen(line) > 64) {
+            char *h = line + lstrlen(line) - 64;
+            for (i = 0; i < 64; i++) h[i] = '0';
+        }
+        fprintf(g_out, "SOURCES a file that does not match the source's catalog: %s\n",
+                FetchFileFrom(line, SourceBase(p), NULL, NULL, dir, path) ? "FETCHED" : "refused");
+    }
+    wsprintf(path, "%sKEYS.DL", g_dir);
+    if (HttpGetFileH("http://" CATALOG_HOST "/KEYS.TXT", "X-Test: 1\r\n", 1, path, 0, NULL, NULL, NULL, err, sizeof(err))) lstrcpy(err, "SENT");
+    fprintf(g_out, "SOURCES access headers over plain HTTP: %s\n", err);
+    DeleteFile(path);
+    /* Saving and reading again keeps the sources as they were. */
+    WriteSources(g_src, g_nsrc);
+    ReadSources();
+    fprintf(g_out, "SOURCES saved and read again: %d custom sources\n", g_nsrc - 1);
+    if (g_nsrc > 3) QuoteHeaders("SOURCES access headers after saving", g_src[3].headers);
+    FreeCatalog(&g_cat);
+    for (i = 0; i < g_nsrc; i++) FreeCatalog(&g_src[i].cat);
+    fprintf(g_out, "VERSIONS 1.10 against 1.9: %s; 2.03 against 2.21: %s\n",
+            CompareVersions("1.10", "1.9") > 0 ? "later" : "NOT LATER", CompareVersions("2.03", "2.21") < 0 ? "earlier" : "NOT EARLIER");
+    CloseNet();
+}
+
 static void TestHashFiles(void)
 {
     char path[MAX_PATH], name[MAX_PATH], hex[65];
@@ -330,10 +390,32 @@ static void TestHashFiles(void)
     fclose(out);
 }
 
-/* Draws the main window, off the screen, into a 24-bit bitmap file. */
-int Shot(const char *file, int row, const char *search)
+const char *g_shotFile;
+
+/* Draws the main window, off the screen, into a 24-bit bitmap file; first
+ * clicking the given column headings, or opening the Sources window and
+ * drawing that instead. */
+int Shot(const char *file, int row, const char *search, const int *sorts, int nsort, int sources)
 {
     HWND hwnd;
+    MSG m;
+    int i, r;
+    hwnd = OpenForShot(search, row);
+    if (!hwnd) return 2;
+    for (i = 0; i < nsort; i++) SortForShot(sorts[i]);
+    while (PeekMessage(&m, NULL, 0, 0, PM_REMOVE)) { TranslateMessage(&m); DispatchMessage(&m); }
+    if (sources) {
+        g_shotFile = file;
+        SourcesDialog(hwnd);
+        r = g_shotFile ? 4 : 0;
+    } else r = CaptureWindow(hwnd, file);
+    DestroyWindow(hwnd);
+    return r;
+}
+
+/* Draws a window into a 24-bit bitmap file. */
+int CaptureWindow(HWND hwnd, const char *file)
+{
     RECT rc;
     HDC screen, dc;
     HBITMAP bmp;
@@ -344,8 +426,6 @@ int Shot(const char *file, int row, const char *search)
     MSG m;
     FILE *f;
     int w, h;
-    hwnd = OpenForShot(search, row);
-    if (!hwnd) return 2;
     while (PeekMessage(&m, NULL, 0, 0, PM_REMOVE)) { TranslateMessage(&m); DispatchMessage(&m); }
     GetWindowRect(hwnd, &rc);
     w = rc.right - rc.left;
@@ -379,7 +459,6 @@ int Shot(const char *file, int row, const char *search)
     }
     DeleteDC(dc);
     DeleteObject(bmp);
-    DestroyWindow(hwnd);
     return f ? 0 : 4;
 }
 
@@ -399,6 +478,7 @@ int SelfTest(void)
     TestUnzip();
     TestHttp();
     TestHttps();
+    TestSources();
     fclose(g_out);
     TestHashFiles();
     return 0;

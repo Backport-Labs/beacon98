@@ -520,7 +520,7 @@ int SplitUrl(const char *url, int *tls, char *host, int hostLen, int *port, char
 /* GETs url over a socket (with TLS for https) and saves the body in path.
  * On a redirect, copies the Location to location and returns 1 without a
  * file; *status tells which. Returns 1 on success. */
-int SockHttpGet(const char *url, const char *path, DWORD expect, volatile int *cancel,
+int SockHttpGet(const char *url, const char *headers, const char *path, DWORD expect, volatile int *cancel,
                 void (*progress)(DWORD done, DWORD total, void *ctx), void *pctx,
                 int *status, char *location, int locLen, char *err, int errLen)
 {
@@ -543,7 +543,9 @@ int SockHttpGet(const char *url, const char *path, DWORD expect, volatile int *c
         wsprintf(req, "GET %s HTTP/1.1\r\nHost: %s:%d\r\n", rpath, host, port);
     else
         wsprintf(req, "GET %s HTTP/1.1\r\nHost: %s\r\n", rpath, host);
-    lstrcat(req, "User-Agent: Beacon98/" APP_VERSION "\r\nAccept: */*\r\nAccept-Encoding: identity\r\nConnection: close\r\n\r\n");
+    lstrcat(req, "User-Agent: Beacon98/" APP_VERSION "\r\nAccept: */*\r\nAccept-Encoding: identity\r\nConnection: close\r\n");
+    if (headers && lstrlen(req) + lstrlen(headers) < (int)sizeof(req) - 3) lstrcat(req, headers);
+    lstrcat(req, "\r\n");
     memset(&r, 0, sizeof(r));
     r.c = &c;
     if (!ConnWriteAll(&c, req, lstrlen(req)) || !ReadLine(&r, line, sizeof(line))) goto failed;

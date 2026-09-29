@@ -3,7 +3,11 @@
 param([string]$Catalog = (Join-Path $PSScriptRoot '..\catalog\CATALOG.TXT'),
       [string]$OpenSsl = 'C:\Program Files\Git\usr\bin\openssl.exe',
       [string]$KeyDir = (Join-Path $env:USERPROFILE '.backportlabs'),
-      [string]$PublicKey = (Join-Path $PSScriptRoot '..\keys\beacon-signing-key.pub.pem'))
+      # Another key, for a custom source: its files are <KeyName>.pem, .pass.dpapi,
+      # .pub.pem and .pub.txt, as new-signing-key.ps1 -Name writes them.
+      [string]$KeyName = 'beacon-signing-key',
+      [string]$PublicDir = (Join-Path $PSScriptRoot '..\keys'),
+      [string]$PublicKey = (Join-Path $PublicDir "$KeyName.pub.pem"))
 $ErrorActionPreference = 'Stop'
 $ansi = [Text.Encoding]::GetEncoding(1252)
 $Catalog = (Resolve-Path $Catalog).Path
@@ -45,7 +49,7 @@ $head = $blocks[0]
 foreach ($f in 'Format', 'Catalog', 'Publisher', 'Serial', 'Date', 'Expires', 'Base') { if (-not $head.Contains($f)) { $errors.Add("catalog block: $f missing") } }
 if ($head.Format -ne '1') { $errors.Add('catalog block: Format must be 1') }
 if ($head.Serial -notmatch '^\d{10}$') { $errors.Add('catalog block: Serial must be YYYYMMDDNN') }
-if ($head.Base -notmatch '^http://.+/$') { $errors.Add('catalog block: Base must be an http:// address ending in /') }
+if ($head.Base -notmatch '^https?://.+/$') { $errors.Add('catalog block: Base must be an http:// or https:// address ending in /') }
 
 $ids = @{}
 $sections = 'Utilities', 'Internet', 'Multimedia', 'Office', 'Development', 'Games', 'System'
@@ -75,7 +79,7 @@ foreach ($b in $blocks[1..($blocks.Count - 1)]) {
         }
     }
     if ($b.Install -and $b.Install -notmatch '^(inno|nsis|msi|exe|unzip|copy)( |$)') { $errors.Add("${where}: unknown Install kind") }
-    if ($b.Uninstall -and $b.Uninstall -notmatch '^(registry .+|run .+|files)$') { $errors.Add("${where}: bad Uninstall") }
+    if ($b.Uninstall -and $b.Uninstall -notmatch '^(registry .+|run .+|files|none)$') { $errors.Add("${where}: bad Uninstall") }
 }
 foreach ($b in $blocks[1..($blocks.Count - 1)]) {
     if ($b.Contains('Depends')) { foreach ($d in ($b.Depends -split ',\s*')) { if (-not $ids.ContainsKey($d)) { $errors.Add("package $($b.Package): depends on unknown $d") } } }
@@ -87,11 +91,11 @@ if ($errors.Count) { $errors | ForEach-Object { "  $_" }; throw "$($errors.Count
 "Catalog checked: serial $($head.Serial), $($blocks.Count - 1) packages."
 
 # 4. Sign and verify.
-$pass = Get-Content (Join-Path $KeyDir 'beacon-signing-key.pass.dpapi') | ConvertTo-SecureString
+$pass = Get-Content (Join-Path $KeyDir "$KeyName.pass.dpapi") | ConvertTo-SecureString
 $env:BEACON_KEY_PASS = [Runtime.InteropServices.Marshal]::PtrToStringAuto([Runtime.InteropServices.Marshal]::SecureStringToBSTR($pass))
 $raw = [IO.Path]::GetTempFileName()
 try {
-    & $OpenSsl pkeyutl -sign -rawin -inkey (Join-Path $KeyDir 'beacon-signing-key.pem') -passin env:BEACON_KEY_PASS -in $Catalog -out $raw
+    & $OpenSsl pkeyutl -sign -rawin -inkey (Join-Path $KeyDir "$KeyName.pem") -passin env:BEACON_KEY_PASS -in $Catalog -out $raw
     if ($LASTEXITCODE -ne 0) { throw 'Signing failed.' }
 } finally { Remove-Item Env:\BEACON_KEY_PASS -ErrorAction SilentlyContinue }
 $sig = [IO.File]::ReadAllBytes($raw)
@@ -101,7 +105,7 @@ $ok = $LASTEXITCODE -eq 0
 Remove-Item $raw
 if (-not $ok) { throw 'The new signature does not verify with the public key.' }
 
-$keyId = ((Get-Content (Join-Path $PSScriptRoot '..\keys\beacon-signing-key.pub.txt')) -match '^Key-Id: ')[0].Substring(8)
+$keyId = ((Get-Content (Join-Path $PublicDir "$KeyName.pub.txt")) -match '^Key-Id: ')[0].Substring(8)
 $hex = ($sig | ForEach-Object { $_.ToString('x2') }) -join ''
 $sigFile = Join-Path (Split-Path $Catalog) 'CATALOG.SIG'
 [IO.File]::WriteAllText($sigFile, "Key-Id: $keyId`r`nSignature: $hex`r`n", [Text.Encoding]::ASCII)

@@ -13,6 +13,7 @@
 #define MAX_REDIRECTS 6
 
 static HANDLE g_net;
+static const char *g_headers;           /* extra request lines for the next WinInet request */
 
 /* Returns the WinInet session, opening it the first time. */
 static HANDLE Session(void)
@@ -37,7 +38,7 @@ static HANDLE OpenUrl(const char *url, char *err, int errLen)
 {
     HANDLE net = Session(), req;
     if (!net) { lstrcpyn(err, "The internet functions of Windows could not be started.", errLen); return NULL; }
-    req = InternetOpenUrlA(net, url, NULL, 0, MY_INTERNET_FLAG_RELOAD | MY_INTERNET_FLAG_NO_CACHE_WRITE
+    req = InternetOpenUrlA(net, url, g_headers, g_headers ? (DWORD)-1 : 0, MY_INTERNET_FLAG_RELOAD | MY_INTERNET_FLAG_NO_CACHE_WRITE
                            | MY_INTERNET_FLAG_PRAGMA_NOCACHE | MY_INTERNET_FLAG_NO_UI | MY_INTERNET_FLAG_NO_AUTO_REDIRECT, 0);
     if (!req) wsprintf(err, "Could not connect (error %lu). Check the internet connection.", GetLastError());
     return req;
@@ -146,25 +147,55 @@ static void Resolve(const char *base, const char *loc, char *out, int outLen)
     lstrcpyn(out + n, loc, outLen - n);
 }
 
-/* Downloads url into path. expect, when not 0, is the exact size the file
- * must have; a longer answer is cut off and reported. Calls progress with
- * the bytes received so far. Returns 1 on success. */
 int HttpGetFile(const char *url, const char *path, DWORD expect, volatile int *cancel,
                 void (*progress)(DWORD done, DWORD total, void *ctx), void *ctx, char *err, int errLen)
 {
+    return HttpGetFileH(url, NULL, 0, path, expect, cancel, progress, ctx, err, errLen);
+}
+
+static int SameHost(const char *a, const char *b)
+{
+    const char *p = strstr(a, "://"), *q = strstr(b, "://");
+    int i;
+    if (!p || !q) return 0;
+    p += 3; q += 3;
+    for (i = 0; p[i] && p[i] != '/' && q[i] && q[i] != '/'; i++)
+        if (CharLower((LPSTR)(DWORD_PTR)(BYTE)p[i]) != CharLower((LPSTR)(DWORD_PTR)(BYTE)q[i])) return 0;
+    return (!p[i] || p[i] == '/') && (!q[i] || q[i] == '/');
+}
+
+/* Downloads url into path. expect, when not 0, is the exact size the file
+ * must have; a longer answer is cut off and reported. Calls progress with
+ * the bytes received so far. headers, when given, are extra request lines
+ * ("Name: value\r\n" each). With secret set (an access token of a source),
+ * they are sent only over HTTPS and only to the host of url, never to a
+ * server a redirect points to. Returns 1 on success. */
+int HttpGetFileH(const char *url, const char *headers, int secret, const char *path, DWORD expect, volatile int *cancel,
+                 void (*progress)(DWORD done, DWORD total, void *ctx), void *ctx, char *err, int errLen)
+{
     char cur[1024], next[1024], loc[1024];
+    const char *h;
     int hop, status, ok;
     err[0] = 0;
+    g_headers = NULL;
     if (strncmp(url, "http://", 7) != 0 && strncmp(url, "https://", 8) != 0) {
         lstrcpyn(err, "Only http:// and https:// addresses can be used.", errLen);
         return 0;
     }
+    if (secret && headers && strncmp(url, "https://", 8) != 0) {
+        lstrcpyn(err, "This source's access key is only sent over HTTPS; its address must start with https://.", errLen);
+        return 0;
+    }
     lstrcpyn(cur, url, sizeof(cur));
     for (hop = 0; hop <= MAX_REDIRECTS; hop++) {
+        h = headers && (!secret || (strncmp(cur, "https://", 8) == 0 && SameHost(cur, url))) ? headers : NULL;
         if (strncmp(cur, "https://", 8) == 0)
-            ok = SockHttpGet(cur, path, expect, cancel, progress, ctx, &status, loc, sizeof(loc), err, errLen);
-        else
+            ok = SockHttpGet(cur, h, path, expect, cancel, progress, ctx, &status, loc, sizeof(loc), err, errLen);
+        else {
+            g_headers = h;
             ok = InetGet(cur, path, expect, cancel, progress, ctx, &status, loc, sizeof(loc), err, errLen);
+            g_headers = NULL;
+        }
         if (!ok) return 0;
         if (status == 200) return 1;
         Resolve(cur, loc, next, sizeof(next));
