@@ -1,0 +1,14 @@
+Package: ms-q168115-98
+Name: Windows 98 Q168115 MSNP32 update
+Version: Q168115
+Section: System
+Summary: Windows 98 Q168115 MSNP32 update
+License: Microsoft EULA (external)
+License-File: pool/ms-q168115-98/Q168115/LICENSE.TXT
+Systems: 98FE
+Availability: external
+Download: https://download.microsoft.com/download/win98/update/168115/w98/en-us/168115us8.exe 165864 0dcde9d6effcb870e32c35fa65c01a028d47513ce52f757513dfcf66343c4f17
+Install: exe /Q:A /R:N
+Uninstall: none
+Detect: reg HKLM\Software\Microsoft\Windows\CurrentVersion\Setup\Updates\W98.SP1\UPD168115
+Notice: Restart Windows to finish installing this Microsoft update.

@@ -1,0 +1,22 @@
+Package: inforapid-search-replace
+Name: InfoRapid Search & Replace
+Version: 3.1f
+Section: Utilities
+Summary: Full-text search and replace across files, with a preview window
+Description: Searches the text of many files at once (with AND, OR, NOT,
+ NEAR, phonetic search and regular expressions), shows the matches in a
+ preview with the found text highlighted, and replaces text in plain text
+ files. Can use Microsoft Office converters to search Word and Excel files.
+Homepage: https://www.inforapid.de/html/searchreplace.htm
+License: Freeware (private use only)
+License-File: pool/inforapid-search-replace/3.1f/LICENSE.TXT
+Systems: 98, ME, NT4, 2000
+Availability: external
+Download: https://inforapid.de/sr/sr.exe 1037513 fecbd8b862beaabf261d8b85ac3c4daaa899a5132bce705974c789d59d498f37 http://www.inforapid.com/sr/sr.exe
+Installed-Size: 2110
+Install: exe /s
+Uninstall: registry InfoRapid Search & Replace
+Notice: The free version of InfoRapid Search & Replace may be used only for
+ private purposes. Using it on a computer used for business needs a license
+ (25 Euro per user) from the author, Ingo Straub (www.inforapid.com).
+ The free version shows an advertising banner above the search results.

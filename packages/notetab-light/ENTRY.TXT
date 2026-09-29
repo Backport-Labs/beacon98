@@ -1,0 +1,21 @@
+Package: notetab-light
+Name: NoteTab Light
+Version: 7.2
+Section: Office
+Summary: Tabbed text and HTML editor with Clip macros, a Notepad replacement
+Description: A free tabbed text editor from Fookes Software. Opens many
+ documents at once, searches and replaces across files, strips HTML tags,
+ reformats text and runs "Clip" text macros. Optional 30-day trial mode for
+ the features of the paid editions; it then returns to the free mode.
+Homepage: https://www.notetab.com/notetab-light/
+License: Freeware
+License-File: pool/notetab-light/7.2/LICENSE.TXT
+Systems: 95, 98, ME, NT4, 2000
+Download: pool/notetab-light/7.2/NoteTab_Light_Setup.exe 2060990 b0923198ffd6dca66d8cca6242ef2781e8bf2cb9b0e0439d663aa42fa2856749 https://www.fookes.com/ftp/free/NoteTab_Light_Setup.exe http://www.fookes.com/ftp/free/NoteTab_Light_Setup.exe
+Installed-Size: 4100
+Install: inno
+Uninstall: registry NoteTab Light
+Notice: NoteTab Light is free. Its help is in HTML Help (.chm) format. On
+ Windows 95 Fookes offers the older WinHelp files in a separate
+ "Windows 95 and NT4 Compatibility Pack" at
+ http://www.notetab.com/ftp/Win95-NT4.zip

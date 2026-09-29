@@ -1,0 +1,29 @@
+# Downloaded from FastStone's own servers: free for personal and educational
+# use only, and the license does not clearly permit redistribution by others.
+Package: faststone-viewer
+Name: FastStone Image Viewer
+Version: 5.3
+Section: Multimedia
+Summary: Image browser, viewer, converter and editor
+Description: Browses folders of pictures with thumbnails and views them full
+ screen, with slide shows, EXIF information, red-eye removal, resizing,
+ cropping, colour adjustments and batch conversion and renaming. Version
+ 5.3 is the last one whose requirements list Windows 98 SE and ME. This is
+ FastStone's portable (zip) edition.
+Homepage: https://www.faststone.org/FSViewerDetail.htm
+License: Freeware (personal and educational use)
+License-File: pool/faststone-viewer/5.3/LICENSE.TXT
+Systems: 98, ME
+Availability: external
+Download: https://www.faststone.org/DN/FSViewer53.zip 7204728 a22af33858dad8f1f2ce4dd33c1fdd8995f6ef58dd4996a511f42061355e2c38 https://www.faststonesoft.net/DN/FSViewer53.zip http://www.faststonesoft.net/DN/FSViewer53.zip
+Installed-Size: 14930
+Install: unzip {pf}\FastStone Image Viewer strip 1
+Shortcut: FastStone Image Viewer | {dir}\FSViewer.exe |
+Uninstall: files
+Warning: FastStone Image Viewer 5.3 is from 2014. Many flaws in its image
+ decoders (JPEG, BMP, PNG, CUR, PSD, TGA and others) were reported later,
+ and some can run harmful code when you open a specially crafted picture.
+ Only open pictures you trust.
+Notice: FastStone Image Viewer is free for personal and educational use
+ (including non-profit organizations). Commercial use requires a license
+ from FastStone, which may no longer be sold for this version.

@@ -1,0 +1,14 @@
+Package: ms-q313829-9x
+Name: Windows Shell update Q313829 (MS02-014)
+Version: Q313829
+Section: System
+Summary: Windows Shell update Q313829 (MS02-014)
+Homepage: https://learn.microsoft.com/en-us/security-updates/securitybulletins/2002/ms02-014
+License: Microsoft EULA (external)
+License-File: pool/ms-q313829-9x/Q313829/LICENSE.TXT
+Systems: 95, 98
+Availability: external
+Download: https://download.microsoft.com/download/ie4095/actdesk/4.01_sp2/W9XNT4/EN-US/q313829.exe 854096 f76c332781520b19207ce97995b76924127d05bec511c92e0eac06c4ae963cc1
+Install: exe /Q:A /R:N
+Uninstall: none
+Notice: Restart Windows to finish installing this Microsoft update.

@@ -1,0 +1,14 @@
+Package: ms-q274113-98
+Name: Windows 98 Q274113 WebTV update
+Version: Q274113
+Section: System
+Summary: Windows 98 Q274113 WebTV update
+License: Microsoft EULA (external)
+License-File: pool/ms-q274113-98/Q274113/LICENSE.TXT
+Systems: 98
+Availability: external
+Download: https://download.microsoft.com/download/win98SE/Update/12278/W98/EN-US/274113USA8.EXE 185536 cd8969ee1ee06cf05d5f676b90af9ff13006c6562e3a9a503e1429836ca008d6
+Install: exe /Q:A /R:N
+Uninstall: none
+Detect: reg HKLM\Software\Microsoft\Windows\CurrentVersion\Setup\Updates\W98\UPD274113
+Notice: Restart Windows to finish installing this Microsoft update.

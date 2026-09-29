@@ -1,0 +1,14 @@
+Package: ms-q279866-me
+Name: Windows Me Q279866 IPHLPAPI update
+Version: Q279866
+Section: System
+Summary: Windows Me Q279866 IPHLPAPI update
+License: Microsoft EULA (external)
+License-File: pool/ms-q279866-me/Q279866/LICENSE.TXT
+Systems: ME
+Availability: external
+Download: https://download.microsoft.com/download/winme/Update/13195/WinMe/EN-US/279866USAM.EXE 161432 36f43037fdfed16bf868d963e45eaf3a190bfeab68f1ac44150a3399eda97def
+Install: exe /Q:A /R:N
+Uninstall: none
+Detect: reg HKLM\Software\Microsoft\Windows\CurrentVersion\Setup\Updates\WinME\UPD279866
+Notice: Restart Windows to finish installing this Microsoft update.

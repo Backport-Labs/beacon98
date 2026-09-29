@@ -1,0 +1,19 @@
+Cacheman 5.50 (Outertech) - license information
+================================================
+
+The license agreement shown by the Cacheman 5.50 setup program could not be
+extracted: cachm550.exe is a Wise installer whose data is stored in a format
+the tools used here cannot open, and the program was not run.
+
+What the publisher states today, on https://www.outertech.com/en/cacheman-classic
+(page opened on 2026-09-29):
+
+  "Cacheman Classic. This Cacheman edition is outdated and has been designed for
+  Windows 95, 98 and ME. [...] Download Cacheman 5.50 for Windows 95, 98, ME
+  (32bit) Freeware. Available in English."
+
+Copyright (c) 1999-2026 Outertech. All rights reserved.
+
+Beacon 98 does not distribute this file. It is downloaded from Outertech's own
+server (https://www.outertech.com/downloads/cachm550.exe). The setup program
+shows Outertech's own license agreement, which applies.

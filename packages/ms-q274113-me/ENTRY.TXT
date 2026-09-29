@@ -1,0 +1,14 @@
+Package: ms-q274113-me
+Name: Windows Me Q274113 WebTV update
+Version: Q274113
+Section: System
+Summary: Windows Me Q274113 WebTV update
+License: Microsoft EULA (external)
+License-File: pool/ms-q274113-me/Q274113/LICENSE.TXT
+Systems: ME
+Availability: external
+Download: https://download.microsoft.com/download/winme/Update/12278/WinMe/EN-US/274113USAM.EXE 184984 817ade72cff267cc1ef1e7d0cd92924d825ddddcb39c10f65f506308e5b3b0cd
+Install: exe /Q:A /R:N
+Uninstall: none
+Detect: reg HKLM\Software\Microsoft\Windows\CurrentVersion\Setup\Updates\WinME\UPD274113
+Notice: Restart Windows to finish installing this Microsoft update.

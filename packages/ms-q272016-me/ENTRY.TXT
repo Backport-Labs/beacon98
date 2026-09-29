@@ -1,0 +1,14 @@
+Package: ms-q272016-me
+Name: Windows Me Q272016 CCPORT update
+Version: Q272016
+Section: System
+Summary: Windows Me Q272016 CCPORT update
+License: Microsoft EULA (external)
+License-File: pool/ms-q272016-me/Q272016/LICENSE.TXT
+Systems: ME
+Availability: external
+Download: https://download.microsoft.com/download/winme/Update/11698/WinMe/EN-US/272016USAM.EXE 159896 d7a12ca85582e69dd7e41491cd6ad1ee033cc53baf6794f755551c125e20f8bc
+Install: exe /Q:A /R:N
+Uninstall: none
+Detect: reg HKLM\Software\Microsoft\Windows\CurrentVersion\Setup\Updates\WinME\UPD272016
+Notice: Restart Windows to finish installing this Microsoft update.

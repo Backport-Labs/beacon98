@@ -1,0 +1,21 @@
+Package: aviutl
+Name: AviUtl
+Version: 0.99c
+Section: Multimedia
+Summary: AVI filter, simple editing and re-compression tool (Japanese)
+Description: KEN-kun's AviUtl applies filters to AVI files, does simple
+ editing and re-compresses video with the codecs installed. Version 0.99c
+ is the last whose readme names Windows 98. The program is in Japanese.
+ Needs a processor with MMX.
+Homepage: http://spring-fragrance.mints.ne.jp/aviutl/
+License: Freeware
+License-File: pool/aviutl/0.99c/LICENSE.TXT
+Systems: 98, 2000
+Availability: external
+Download: http://spring-fragrance.mints.ne.jp/aviutl/aviutl99c.zip 288663 169cc00ca4c68ed7915168afcac44b9af87860bb5980d661ca8dca38543f7772 https://spring-fragrance.mints.ne.jp/aviutl/aviutl99c.zip
+Installed-Size: 840
+Install: unzip {pf}\AviUtl
+Shortcut: AviUtl | {dir}\aviutl.exe |
+Uninstall: files
+Notice: AviUtl's menus and readme are in Japanese; on a non-Japanese Windows
+ the text may not display correctly. It needs a processor with MMX.

@@ -1,0 +1,20 @@
+# HOLD: pre-release build (download/xml/Beta path, 2.0.2505.0). Do not publish before testing on 98/ME.
+Package: ms-instmsia-20
+Name: Windows Installer 2.0 (pre-release build)
+Version: 2.0.2505.0
+Section: System
+Summary: Microsoft Windows Installer 2.0 (msiexec) for Windows 95, 98 and ME
+Description: Adds Windows Installer 2.0, which newer .msi packages need.
+ This is a build Microsoft published with the MSXML 4.0 beta; the final
+ Windows Installer 2.0 download is no longer offered by Microsoft.
+ Downloaded from Microsoft's own server. It cannot be removed again.
+License: Microsoft EULA (external)
+License-File: pool/ms-instmsia-20/2.0.2505.0/LICENSE.TXT
+Systems: 95, 98, ME
+Availability: external
+Download: https://download.microsoft.com/download/xml/Beta/4.0/W98NT42KMeXP/EN-US/instmsia.exe 1702232 b37eafa02fe6f6b498485a473bf5d1bb44a945fb780b6550bb1226d84484ed30
+Install: exe /q
+Uninstall: none
+Warning: This is a pre-release build of Windows Installer 2.0 that
+ Microsoft published with a beta of MSXML 4.0. It cannot be uninstalled.
+Notice: Restart Windows before installing .msi packages.

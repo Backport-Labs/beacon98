@@ -1,0 +1,14 @@
+Package: ms-q273727-me
+Name: Windows Me Q273727 IPX NMPI update
+Version: Q273727
+Section: System
+Summary: Windows Me Q273727 IPX NMPI update
+License: Microsoft EULA (external)
+License-File: pool/ms-q273727-me/Q273727/LICENSE.TXT
+Systems: ME
+Availability: external
+Download: https://download.microsoft.com/download/winme/Update/11974/WinMe/EN-US/273727USAM.EXE 221848 bd0e0559277b22a5e847208b0a03f077bb3a3e307d373cf49d04293a190f75c9
+Install: exe /Q:A /R:N
+Uninstall: none
+Detect: reg HKLM\Software\Microsoft\Windows\CurrentVersion\Setup\Updates\WinME\UPD273727
+Notice: Restart Windows to finish installing this Microsoft update.

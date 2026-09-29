@@ -1,0 +1,262 @@
+NOTETAB LIGHT END USER LICENSE AGREEMENT (Version: June 2012)
+
+This End User License Agreement (this "Agreement"), governs the
+terms and conditions of the Licensee's access and use of NoteTab
+Light software ("NoteTab Light"), and is made between the Licensee
+("you") and Fookes Software Ltd, La Petite Fin 27, 1637 Charmey,
+Switzerland ("Fookes Software"). However, if you are using NoteTab
+Light as or on behalf of an entity, such as a corporation,
+partnership, limited liability company or other entity, the term
+"you" used below refers to the entity which will be bound by this
+Agreement. You represent and warrant that you have power and
+authority to enter into this Agreement on behalf of the entity.
+This Agreement does not address any third-party or free or open
+source software separately licensed to you.
+
+By clicking the "I accept the Agreement" option during setup
+and/or by using NoteTab Light, you confirm your acceptance of, and
+agree to be bound by, this Agreement. If you do not agree to this
+Agreement or if you do not understand it, do not install or use
+NoteTab Light.
+
+In case you have another written agreement directly with Fookes
+Software, such written agreement prevails in the event of any
+conflict with the terms and conditions of this Agreement.
+
+1. Definitions
+
+"Software" means the version of NoteTab Light in executable form
+and documentation.
+
+"Evaluation Period" means a limited evaluation period of usually
+no more than one month, beginning on the day that you first enable
+trial features.
+
+"Trial Mode" means a state of the Software, so identified, to be
+used only to review, demonstrate and evaluate for a limited time
+period extra commercial features, which are not available by
+default in NoteTab Light. The trial features will cease operating
+after an Evaluation Period due to an internal mechanism within the
+Software; NoteTab Light will then continue operating in its
+default freeware mode.
+
+"Use" means loading, installing, executing, displaying, performing
+and/or transmitting the Software for your internal business
+purposes, and not for distribution or resale.
+
+2. Software License Grants
+
+2.1. License Grant
+
+Fookes Software grants you a license to Use the Software without
+charge on any number of computers, including in a business
+environment, as long as the terms of this Agreement are respected.
+If you choose to enable Trial Mode, you are granted a time-limited
+Evaluation Period, after which time you may not use the trial
+features unless you purchase a license for NoteTab Pro and/or
+NoteTab Std.
+
+2.2 License Restrictions
+
+The Software is licensed, not given or sold. This Agreement only
+gives you certain limited rights (sections 2.1 and 11). Fookes
+Software reserves all other rights. Especially you may not: (a)
+modify, adapt, translate, rent, lease or sublicense (including
+offering the Software to third parties on an application service
+provider, web service or time sharing basis) the Software except
+to the extent explicitly permitted in this Agreement; (b) disable
+or block any licensing, rights management or control features of
+the Software except as an intended part of the Software's
+programming features; (c) assign, loan, or resell the Software;
+(d) modify, decompile, disassemble or reverse engineer the
+Software; (e) remove or modify any legal notices in the Software.
+
+3. Technical Support / Feedback
+
+Use of NoteTab Light does not entitle you to free technical support
+from Fookes Software. You therefore accept that Fookes Software has no
+obligation to provide any form of technical support to you in relation
+to this Software.
+
+By emailing, uploading, posting, or otherwise transmitting or
+submitting any content, information or ideas to Fookes Software, you
+automatically grant (or warrant that the owner of such rights has
+expressly granted) to Fookes Software a perpetual, irrevocable,
+royalty-free, worldwide, non-exclusive, sublicensable right and
+license to use, reproduce, modify, publish, distribute, display,
+perform, and transmit such content, information and ideas, in public
+or non-public form, without compensation to you, unless otherwise
+expressly agreed in writing by Fookes Software. However, Fookes
+Software holds the contents of any personal files and screen shots
+sent to us for software testing and improvement strictly confidential,
+except as may be required by applicable law.
+
+4. Ownership
+
+The Software is proprietary to Fookes Software. The Software is
+licensed, not given or sold, to you notwithstanding any reference
+herein to "purchases." You acknowledge and agree that: (a) the
+Software is protected under U.S. copyright and other national and
+international copyright laws; (b) Fookes Software and its
+licensors retain all copyrights and other intellectual property
+rights in the Software; (c) there are no implied licenses under
+this License, and any rights not expressly granted to you
+hereunder are reserved by Fookes Software; (d) you acquire no
+ownership or other interest (other than your license rights) in or
+to the Software; and (e) Fookes Software owns all copies of the
+Software, however made. You agree that you will not, at any time,
+contest anywhere in the world Fookes Software's ownership of or
+rights in the Software. You have no rights hereunder to use any
+trademark or service mark belonging to Fookes Software.
+
+5. Bundling
+
+In no case may the Software be bundled with a hardware or software
+product without written permission from Fookes Software.
+
+6. Distribution License
+
+Provided that you are distributing the then-current version of
+NoteTab Light (without any feature-unlocking file and/or
+instructions) you are hereby licensed to make as many copies of
+NoteTab Light as you wish; give exact copies of the original
+NoteTab Light package to anyone; and distribute NoteTab Light in
+its unmodified form via electronic means (Internet, BBS's,
+software distribution libraries, CD-ROMs, DVDs, etc.). You may
+charge a small distribution fee for NoteTab Light, but you must
+not represent in any way that you are selling the software itself.
+All copies must reproduce copyright notices.
+
+You may not make NoteTab Light available on any site, CD-ROM, DVD,
+or with any package, or with any other medium or service, which
+makes available or contains viruses, virus source code, virus
+construction programs, virus creation material, software cracks,
+spyware, malware or other malicious code or material.
+
+Permission to distribute NoteTab Light is not transferable,
+assignable, saleable, or franchisable, and any attempt to do so is
+void. Each entity wishing to distribute NoteTab Light must
+independently satisfy the terms of the foregoing distribution
+license.
+
+7. Compliance
+
+You shall conduct your business in compliance with all laws and
+regulations in any way applicable to the Software or to the
+performance of your obligations under this Agreement. Without
+limiting the generality of the foregoing, you shall not take any
+action that would violate, or cause Fookes Software to be in
+violation of, any applicable law of the United States or any other
+jurisdiction including but not limited to the U.S. Foreign Corrupt
+Practices Act and all import and export laws, regulations and
+restrictions of the United States or any foreign agency or
+authority.
+
+8. U.S. Government Rights
+
+This is a notice to U.S. Government End Users:
+
+The Software and the documentation which accompanies the Software
+are "Commercial Items," as that term is defined at 48 C.F.R.
+§2.101, consisting of "Commercial Computer Software" and
+"Commercial Computer Software Documentation," as such terms are
+used in 48 C.F.R. §12.212 or 48 C.F.R. §227.7202, as applicable.
+Consistent with 48 C.F.R. §12.212 or 48 C.F.R. §§227.7202-1
+through 227.7202-4, as applicable, the Commercial Computer
+Software and Commercial Computer Software Documentation are being
+licensed to U.S. Government end users (a) only as Commercial Items
+and (b) with only those rights as are granted to all other end
+users pursuant to the terms and conditions herein. Fookes
+Software Ltd, La Petite Fin 27, 1637 Charmey, Switzerland.
+
+9. WARRANTY DISCLAIMER AND LIMITATION OF LIABILITY
+
+THE SOFTWARE IS PROVIDED ON AN "AS IS" BASIS. FOOKES SOFTWARE
+DISCLAIMS as far as legally permissible ALL WARRANTIES RELATING TO
+THE SOFTWARE, WHETHER EXPRESSED, IMPLIED OR STATUTORY, INCLUDING
+BUT NOT LIMITED TO ANY IMPLIED WARRANTIES OF SATISFACTORY QUALITY,
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, COMPATIBILITY
+OR NON-INFRINGEMENT . FOOKES SOFTWARE DOES NOT WARRANT THAT THE
+SOFTWARE WILL MEET YOUR REQUIREMENTS OR BE UNINTERRUPTED, SECURE
+OR ERROR-FREE. NEITHER FOOKES SOFTWARE NOR ANYONE ELSE WHO HAS
+BEEN INVOLVED IN THE CREATION, PRODUCTION, OR DELIVERY OF THE
+SOFTWARE ("SUPPLIERS") SHALL BE LIABLE FOR ANY SPECIAL, INDIRECT,
+CONSEQUENTIAL, INCIDENTAL OR PUNITIVE DAMAGES (INCLUDING BUT NOT
+LIMITED TO LOST REVENUES, PROFITS AND/OR SAVINGS) ARISING OUT OF
+THE USE OR INABILITY TO USE SUCH SOFTWARE, EVEN IF FOOKES SOFTWARE
+HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES OR CLAIMS. THE
+PERSON USING THE SOFTWARE BEARS ALL RISK AS TO THE QUALITY AND
+PERFORMANCE OF THE SOFTWARE.
+
+THE ENTIRE LIABILITY OF FOOKES SOFTWARE AND ITS SUPPLIERS, AND
+YOUR EXCLUSIVE REMEDY, WITH RESPECT TO THE USE OF THE SOFTWARE OR
+ANY BREACH OF THIS AGREEMENT ARE LIMITED TO THE AMOUNT ACTUALLY
+PAID BY YOU, IF ANY, FOR USE OF THE SOFTWARE. YOU HEREBY RELEASE
+FOOKES SOFTWARE AND SUCH OTHER PERSONS FROM ANY AND ALL
+OBLIGATIONS, LIABILITIES AND CLAIMS IN EXCESS OF THIS LIMITATION.
+YOU AGREE THAT ANY CLAIM OR CAUSE OF ACTION ARISING OUT OF OR
+RELATED TO USE OF THE SOFTWARE OR THIS AGREEMENT MUST BE FILED
+WITHIN ONE (1) YEAR AFTER SUCH CLAIM OR CAUSE OF ACTION AROSE OR
+BE FOREVER BARRED.
+
+YOU ARE SOLELY RESPONSIBLE FOR SELECTION, INSTALLATION AND LAUNCH
+OF THE SOFTWARE AND FOR BACKING UP YOUR DATA AND FILES, AND HEREBY
+RELEASE US AND OUR SUPPLIERS FROM ANY LIABILITY OR DAMAGES DUE TO
+THE LOSS OF ANY SUCH DATA OR FILES.
+
+FOOKES SOFTWARE IS NOT LIABLE FOR ANY INAPPROPRIATE OR ILLEGAL USE
+OF THE SOFTWARE.
+
+10. Governing Law / Jurisdiction
+
+This Agreement is governed by Swiss Law, subject to the express
+exclusion of the United Nations Convention on Contracts for the
+International Sale of Goods (CISG, 1980). The parties consent to the
+exclusive jurisdiction of the competent Swiss courts of Gruyère,
+Switzerland, for the resolution of any litigation arising out or
+related to this Agreement.
+
+11. Termination
+
+Fookes Software may terminate this Agreement at any time upon
+default by you of the license provisions of this Agreement, or any
+other material default by you of this Agreement not cured within
+thirty (30) days after written notice thereof. Except for Sections
+2 and 6, all provisions of this Agreement shall survive
+termination of this Agreement.
+
+12. Severability Clause
+
+If any provision of this Agreement is or becomes ineffective or if
+there is an omission from this Agreement, this does not affect the
+legal validity of the remaining provisions. The ineffective
+provision will be replaced by an effective provision that is as
+close as possible in economic terms to the provision wanted by the
+parties. The same procedure applies in the case of an omission.
+
+13. General
+
+You shall not assign, delegate or sublicense any of your rights or
+obligations under this Agreement, by operation of law or
+otherwise, without prior written consent of Fookes Software, and
+any attempt without such consent shall be void. Subject to the
+preceding sentence, this Agreement binds and benefits the
+permitted successors and assigns of the parties. Fookes Software
+may change the terms, conditions and pricing relating to the
+future licensing of its Software and other intellectual property
+rights, including this Agreement, from time to time. No waiver
+will be implied from conduct or failure to enforce rights nor
+effective unless in a writing signed on behalf of the party
+against whom the waiver is asserted.
+
+There are no third-party beneficiaries to this Agreement. Fookes
+Software is not bound by additional and/or conflicting provisions
+in any purchase order or other correspondence unless expressly
+agreed in writing. This Agreement is the complete and exclusive
+statement of agreement between the parties as to its subject
+matter and supersedes all proposals or prior agreements, verbal or
+written, advertising, representations or communications concerning
+the Software.
+
+
+Last updated: 14 June 2012

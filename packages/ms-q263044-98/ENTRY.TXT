@@ -1,0 +1,15 @@
+Package: ms-q263044-98
+Name: Windows 98 Q263044 FDISK update (disks over 64 GB)
+Version: Q263044
+Section: System
+Summary: Windows 98 Q263044 FDISK update (disks over 64 GB)
+License: Microsoft EULA (external)
+License-File: pool/ms-q263044-98/Q263044/LICENSE.TXT
+Systems: 98
+Availability: external
+Download: https://download.microsoft.com/download/Win98/Update/8266R/W98/EN-US/263044USA8.EXE 179360 2c6ece8a4ab9b7930a0ded16879a9bc6163cbfaf2d860847c9970671ba6a6d44
+Install: exe /Q:A /R:N
+Uninstall: none
+Detect: reg HKLM\Software\Microsoft\Windows\CurrentVersion\Setup\Updates\W98\UPD263044
+ reg HKLM\Software\Microsoft\Windows\CurrentVersion\Setup\Updates\W98.SE\UPD263044
+Notice: Restart Windows to finish installing this Microsoft update.

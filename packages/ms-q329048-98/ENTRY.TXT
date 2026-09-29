@@ -1,0 +1,15 @@
+Package: ms-q329048-98
+Name: Windows 98 Q329048 Compressed Folders update (MS02-054)
+Version: Q329048
+Section: System
+Summary: Windows 98 Q329048 Compressed Folders update (MS02-054)
+Homepage: https://learn.microsoft.com/en-us/security-updates/securitybulletins/2002/ms02-054
+License: Microsoft EULA (external)
+License-File: pool/ms-q329048-98/Q329048/LICENSE.TXT
+Systems: 98
+Availability: external
+Download: https://download.microsoft.com/download/WIN98/UPDATE/25556/W98/EN-US/329048USA8.EXE 273744 84fbb600e8cebff778df1f2b0b31a65e9fdef6588e6c2a0d8a1b19fdf721505b
+Install: exe /Q:A /R:N
+Uninstall: none
+Detect: reg HKLM\Software\Microsoft\Windows\CurrentVersion\Setup\Updates\W98\UPD329048
+Notice: Restart Windows to finish installing this Microsoft update.

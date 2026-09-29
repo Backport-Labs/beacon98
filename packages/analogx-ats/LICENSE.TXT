@@ -1,0 +1,34 @@
+AnalogX Atomic TimeSync 1.04 - terms of use
+============================================
+
+AnalogX Atomic TimeSync is freeware by AnalogX, LLC (Tempe, AZ, USA).
+The installer (atsi.exe) contains no separate license file that could be
+read without running it. The terms below are the publisher's own, copied on
+2026-09-29 from the AnalogX download FAQ:
+https://www.analogx.com/contents/download/faq.htm
+
+"Unlike most of the other people out there that have useful utilities on
+their sites, I am giving away all of the programs on here, for free; not
+shareware or grovelware or whatever you want to call it."
+
+"Can I put your programs on my website?
+If you would like to put any of my programs on your website, I would ask a
+couple of things. The best scenario would be if you just put a link on your
+page to the respective download page on my site. This way, the person
+downloading can see what the latest version is, and whatever information
+that might be available related to the program. The next option would be
+just to have a link to the actual file, although if you do this, I would
+appreciate it if you also put a link to my website main page as well, so
+they could check it out and see what else is going on. I don't normally
+allow offsite hosting of any of the programs on my site, simply because I do
+update them fairly regularly, and it makes it a maintenance nightmare for
+me."
+
+The program's PAD file (https://www.analogx.com/contents/download/Network/ats/pad.xml)
+gives its license type as "Freeware".
+
+Beacon 98 does not host this file. It is downloaded from www.analogx.com,
+the publisher's own server, as the publisher asks.
+
+AnalogX is a registered trademark of AnalogX, LLC.
+Download page: https://www.analogx.com/contents/download/network/ats.htm

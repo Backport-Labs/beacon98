@@ -1,0 +1,21 @@
+Package: neutron
+Name: Neutron
+Version: 1.07
+Section: Internet
+Summary: Tiny clock synchronizer using the Internet Time protocol
+Description: Gets the exact time from an Internet time server (Time
+ protocol, RFC 868, UDP port 37) and sets the computer's clock. Can sync
+ automatically at startup and exit, for use from the Startup folder.
+Homepage: https://keir.net/neutron.html
+License: Freeware
+License-File: pool/neutron/1.07/LICENSE.TXT
+Systems: 95, 98, ME, NT4, 2000
+Availability: external
+Download: https://keir.net/download/neutron.zip 6765 9a9ae494fe176d49abf2b764c00ffaa0d9a3b4ed9b270d0f30b5d337264b46a2 http://keir.net/download/neutron.zip
+Installed-Size: 16
+Install: unzip {pf}\Neutron
+Shortcut: Neutron | {dir}\Neutron.exe |
+Uninstall: files
+Notice: Neutron uses the old Time protocol (UDP port 37), not SNTP. Its list
+ of time servers dates from 2008 and some may no longer answer; if syncing
+ fails, pick another server in the options (click ">>").

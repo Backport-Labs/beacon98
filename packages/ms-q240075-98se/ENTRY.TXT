@@ -1,0 +1,14 @@
+Package: ms-q240075-98se
+Name: Windows 98 SE UHCD update (AMD + VIA USB)
+Version: Q240075
+Section: System
+Summary: Windows 98 SE UHCD update (AMD + VIA USB)
+License: Microsoft EULA (external)
+License-File: pool/ms-q240075-98se/Q240075/LICENSE.TXT
+Systems: 98SE
+Availability: external
+Download: https://download.microsoft.com/download/win98SE/Patch/4.10.2223/W98/EN-US/240075up.exe 162304 a171800cd56a2cdcc9107d4757cb367febe98daf2b1976a152824f5ab9fa84d9
+Install: exe /Q:A /R:N
+Uninstall: none
+Detect: reg HKLM\Software\Microsoft\Windows\CurrentVersion\Setup\Updates\Win98.SE\UPD3781
+Notice: Restart Windows to finish installing this Microsoft update.

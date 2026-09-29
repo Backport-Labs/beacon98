@@ -1,0 +1,133 @@
+QuickView Pro 2.61 license terms, copied verbatim from QV.TXT and REGISTER.TXT inside qvpro261.zip
+(http://www.multimediaware.com/qv/qvpro261.zip).
+
+===== From QV.TXT =====
+
+This program is Shareware. You may test this unregistered version for at
+most three weeks but after that you must register. You are encouraged to
+share it with others. If you do so, please pass along the complete 
+unmodified archive. All files must be included.
+
+ATTENTION: A registration is required for any commercial use.
+
+
+
+Legal Stuff
+===========
+
+This program is copyrighted 1994-2016 by Wolfgang Hesseler, all
+rights reserved.
+
+This Software is provided "AS IS". The author makes no warranty of any kind
+either expressed or implied. In particular the author makes no warranty as
+to merchantability or fitness for a particular purpose or a particular
+hardware configuration. Furthermore the author is not responsible for any
+damages of any kind, including profit losses and data loss or other
+incidental or consequential damages arising out of your use or inability
+to use the program. The person using the software bears all risk as to the
+quality and performance of the software.
+
+All files belonging to QuickView contain proprietary information which are
+protected by copyright. This Agreement is governed by the laws of Germany,
+the State of California and the United States, including patent and
+copyright laws.
+
+The invalidity or unenforceability of any provision of this agreement will
+not affect the validity or enforceability of any other provision of this
+agreement.
+
+License agreement for Shareware distributors:
+Shareware distributors may distribute this program if no files of the
+package are left out or modified.
+
+The information about some codecs is from XAnim. Thanks to Mark Podlipec.
+Thanks to Edd SonicSound for providing sound processing algorithms.
+Cinepak is a trademark of Radius.
+Indeo and the Indeo Logo are trademarks of Intel Corporation in the USA and
+other countries.
+QPEG is a registered trademark of Q-Team Dr. Knabe GmbH, www.q-team.de
+This product uses Ultimotion(tm) IBM video technology. Copyright
+International Business Machines Corporation 1994, All rights reserved.
+The GSM 6.10 support is based on code from the Communications and Operating
+Systems Research Group at the Technische Universitaet Berlin; Copyright
+1992, 1993, 1994 by Jutta Degener and Carsten Bormann.
+The MPEG Audio Code is based in part on MPG123; Copyright (c) 1995-98 by
+Michael Hipp, all rights reserved.
+The Graphics Interchange Format(c) is the Copyright property of CompuServe
+Incorporated. GIF(sm) is a Service Mark property of CompuServe Incorporated
+TARGA is a registered trademark of Truevision, Inc.
+This software is based in part on the work of the Independent JPEG Group.
+This product includes software developed by DivX DivXNetworks, Inc.
+DivX is a trademark of DivXNetworks, Inc, www.divx.com
+This product uses parts of FFmpeg, Copyright (c) Fabrice Bellard.
+FFmpeg is available under the terms of the GNU Lesser General Public
+License. Source code of FFmpeg can be downloaded from http://ffmpeg.org
+or is available upon request. The FFmpeg files were used without
+modification in this product.
+QuickTime is a trademark of Apple Computer, Inc.
+Windows is a trademark of Microsoft Corporation.
+Sound Blaster is a registered trademark and Blaster is a trademark of
+Creative Technology Ltd.
+All other product names mentioned in this software are trademarks or
+registered trademarks of their respective owners.
+The video overlay code is based in part on the WarpOverlay! Project
+Copyright (C) 2002-2005  Valery Gaynullin.  All Rights Reserved.
+The Ogg Vorbis code is Copyright (c) 2002, Xiph.org Foundation. This
+software is provided by the copyright holders and contributors "as is"
+and any express or implied warranties, including, but not limited to, the
+implied warranties of merchantability and fitness for a particular purpose
+are disclaimed. In no event shall the foundation or contributors be liable
+for any direct, indirect, incidental, special, exemplary, or consequential
+damages (including, but not limited to, procurement of substitute goods or
+services; loss of use, data, or profits; or business interruption) however
+caused and on any theory of liability, whether in contract, strict
+liability, or tort (including negligence or otherwise) arising in any way
+out of the use of this software, even if advised of the possibility of such
+damage.
+This product uses DOS/32 Advanced DOS Extender technology.
+
+===== REGISTER.TXT =====
+
+QuickView registration information
+----------------------------------
+
+QuickView is distributed as shareware. You are welcome to test QuickView
+without charge for an evaluation period of three weeks. If you continue to
+use it after the trial period, you are obligated to register by paying a
+license fee. If you like and use this program then please register.
+
+When you register, you'll get:
+- Latest registered version of QuickView, with reference to "unregistered"
+  removed, plus any enhancements that have been added since this version
+  was released. You will receive your registered version via email. 
+- Further functions (see QV.TXT)
+- Free support from the author via email.
+- Notification of updates through email.
+- All updates are free provided the registration fee hasn't changed. 
+
+The prices are as follows:
+QuickView registration for personal use     20 EURO or $25US
+QuickView Light version for personal use    10 EURO or $15US
+        (no additional command line parameters)
+QuickView registration for students         10 EURO or $15US
+QuickView registration for commercial use   35 EURO or $50US
+
+A QuickView registration is only valid for use on a single CPU. If you want
+to use QuickView on several computers you must register it for each one.
+
+For a student version you must send a certificate that you are a student.
+A commercial use of this version is not allowed.
+
+Please ask for the conditions of
+- Multiple licences and site licenses.
+- Dealer pricing.
+- Special versions tailored to your application.
+  One modification could be a Multimedia presentation program including AVI
+  or MP4 without Windows! This might be interesting for business.
+
+You can easily register online and pay with your credit card or via PayPal
+under
+http://multimediaware.com/qv/register
+
+For other ways of payment like cash, cheque or bank wire transfer please
+contact me under http://www.multimediaware.com/qv/contact

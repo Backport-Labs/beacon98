@@ -1,0 +1,21 @@
+Package: hwinfo32
+Name: HWiNFO32
+Version: 8.52
+Section: System
+Summary: Detailed hardware information, sensors and reports
+Description: Identifies the processor, mainboard, memory, drives, graphics
+ and sound hardware, shows temperatures and voltages where sensors can be
+ read, and writes reports. REALiX still builds this 32-bit edition for
+ Windows 95 and later.
+Homepage: https://www.hwinfo.com/
+License: Freeware
+License-File: pool/hwinfo32/8.52/LICENSE.TXT
+Systems: 95, 98, ME, 2000
+Availability: external
+Download: https://www.sac.sk/download/utildiag/hwi_852.zip 20828120 0ce80064422e128a0f4257733c41e02970b5997a04361accc1f7f2f4b059f1ed
+Installed-Size: 29610
+Install: unzip {pf}\HWiNFO32
+Shortcut: HWiNFO32 | {dir}\HWiNFO32.exe |
+Uninstall: files
+Notice: Use HWiNFO32.exe. The package also contains HWiNFO64.exe and
+ HWiNFO_ARM64.exe, which do not run on this computer.

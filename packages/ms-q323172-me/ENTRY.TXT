@@ -1,0 +1,15 @@
+Package: ms-q323172-me
+Name: Windows Me Q323172 certificate enrollment update (MS02-048)
+Version: Q323172
+Section: System
+Summary: Windows Me Q323172 certificate enrollment update (MS02-048)
+Homepage: https://learn.microsoft.com/en-us/security-updates/securitybulletins/2002/ms02-048
+License: Microsoft EULA (external)
+License-File: pool/ms-q323172-me/Q323172/LICENSE.TXT
+Systems: ME
+Availability: external
+Download: https://download.microsoft.com/download/WINME/PATCH/24421/WINME/EN-US/323172USAM.EXE 216896 9dbd8188f643ef430ed1810d6d0bead7b8d74478044c77962e311c0c4ddf4159
+Install: exe /Q:A /R:N
+Uninstall: none
+Detect: reg HKLM\Software\Microsoft\Windows\CurrentVersion\Setup\Updates\WinME\UPD323172
+Notice: Restart Windows to finish installing this Microsoft update.

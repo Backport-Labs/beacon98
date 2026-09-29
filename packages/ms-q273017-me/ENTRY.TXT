@@ -1,0 +1,14 @@
+Package: ms-q273017-me
+Name: Windows Me Q273017 IFSMGR update
+Version: Q273017
+Section: System
+Summary: Windows Me Q273017 IFSMGR update
+License: Microsoft EULA (external)
+License-File: pool/ms-q273017-me/Q273017/LICENSE.TXT
+Systems: ME
+Availability: external
+Download: https://download.microsoft.com/download/winme/Update/11956/WinME/EN-US/273017USAM.EXE 228504 6fddaf29bbf286237c737c66e0a1ddc516fdeb9ca1ad73544535ecc05f966e89
+Install: exe /Q:A /R:N
+Uninstall: none
+Detect: reg HKLM\Software\Microsoft\Windows\CurrentVersion\Setup\Updates\WinME\UPD273017
+Notice: Restart Windows to finish installing this Microsoft update.

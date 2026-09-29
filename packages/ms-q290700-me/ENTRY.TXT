@@ -1,0 +1,14 @@
+Package: ms-q290700-me
+Name: Windows Me Q290700 System Restore update
+Version: Q290700
+Section: System
+Summary: Windows Me Q290700 System Restore update
+License: Microsoft EULA (external)
+License-File: pool/ms-q290700-me/Q290700/LICENSE.TXT
+Systems: ME
+Availability: external
+Download: https://download.microsoft.com/download/winme/update/16372/winme/en-us/290700usam.exe 225136 e2d61572e1ecd50d7d3b7992de7922a8c8679470895c6fe8e9964ce5f5b5bc95
+Install: exe /Q:A /R:N
+Uninstall: none
+Detect: reg HKLM\Software\Microsoft\Windows\CurrentVersion\Setup\Updates\WinME\UPD290700
+Notice: Restart Windows to finish installing this Microsoft update.

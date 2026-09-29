@@ -1,0 +1,14 @@
+Package: ms-q236926-98
+Name: Windows 98 Q236926 VTCP.386 update
+Version: Q236926
+Section: System
+Summary: Windows 98 Q236926 VTCP.386 update
+License: Microsoft EULA (external)
+License-File: pool/ms-q236926-98/Q236926/LICENSE.TXT
+Systems: 98
+Availability: external
+Download: https://download.microsoft.com/download/win98/Update/3111/W98/EN-US/236926USA8.EXE 174056 901eddb32cac64abd583fd3dbd209ca7c3c2baf8eb0691a36db156fbe0994a7f
+Install: exe /Q:A /R:N
+Uninstall: none
+Detect: reg HKLM\Software\Microsoft\Windows\CurrentVersion\Setup\Updates\Win98.SE\UPD236926
+Notice: Restart Windows to finish installing this Microsoft update.

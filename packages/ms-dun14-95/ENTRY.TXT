@@ -1,0 +1,13 @@
+Package: ms-dun14-95
+Name: Dial-Up Networking 1.4 for Windows 95
+Version: 1.4
+Section: System
+Summary: Dial-Up Networking 1.4 for Windows 95
+License: Microsoft EULA (external)
+License-File: pool/ms-dun14-95/1.4/LICENSE.TXT
+Systems: 95
+Availability: external
+Download: https://download.microsoft.com/download/win95/Update/17648/W95/EN-US/dun14-95.exe 1890376 1f72fcfbaedd9be514b3c7851a4d0190753bace91b089d6c6ac6253b02deabd2
+Install: exe /Q:A /R:N
+Uninstall: registry Dial-up Networking 1.4 Update for Windows 95
+Notice: Restart Windows to finish installing this Microsoft update.

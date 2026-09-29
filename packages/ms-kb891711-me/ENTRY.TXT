@@ -1,0 +1,15 @@
+Package: ms-kb891711-me
+Name: Windows Me KB891711 cursor and icon update (MS05-002)
+Version: KB891711-v2
+Section: System
+Summary: Windows Me KB891711 cursor and icon update (MS05-002)
+Homepage: https://learn.microsoft.com/en-us/security-updates/securitybulletins/2005/ms05-002
+License: Microsoft EULA (external)
+License-File: pool/ms-kb891711-me/KB891711-v2/LICENSE.TXT
+Systems: ME
+Availability: external
+Download: http://download.windowsupdate.com/msdownload/update/v3-19990518/cabpool/WindowsME-KB891711-v2-ENU_71c3336e6d7630cff2739a9d05d2eed.EXE 147928 97f7864d06d08c181a6d6405c599dade388555d1d853d1150d37684ed40fd33d
+Install: exe /Q:A /R:N
+Uninstall: registry Windows Millennium Edition KB891711 Update
+Detect: reg HKLM\Software\Microsoft\Windows\CurrentVersion\Setup\Updates\WinME\UPD891711
+Notice: Restart Windows to finish installing this Microsoft update.

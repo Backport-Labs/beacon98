@@ -1,0 +1,14 @@
+Package: ms-q278031-me
+Name: Windows Me Q278031 NETPPTP update
+Version: Q278031
+Section: System
+Summary: Windows Me Q278031 NETPPTP update
+License: Microsoft EULA (external)
+License-File: pool/ms-q278031-me/Q278031/LICENSE.TXT
+Systems: ME
+Availability: external
+Download: https://download.microsoft.com/download/winme/update/13111/winme/en-us/278031usam.exe 166040 fe25991508325b36a026cda9d20167d77be2ae2c371554ad759cc24e2d39e0c7
+Install: exe /Q:A /R:N
+Uninstall: none
+Detect: reg HKLM\Software\Microsoft\Windows\CurrentVersion\Setup\Updates\WinME\UPD278031
+Notice: Restart Windows to finish installing this Microsoft update.

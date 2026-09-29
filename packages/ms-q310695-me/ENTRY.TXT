@@ -1,0 +1,14 @@
+Package: ms-q310695-me
+Name: Windows Me Q310695 UDF update
+Version: Q310695
+Section: System
+Summary: Windows Me Q310695 UDF update
+License: Microsoft EULA (external)
+License-File: pool/ms-q310695-me/Q310695/LICENSE.TXT
+Systems: ME
+Availability: external
+Download: https://download.microsoft.com/download/WinMe/Update/22366/WinME/EN-US/310695USAM.EXE 168512 070a663f1ecb42bf27eb44f5c9ec54bda745928cd1ea76664132618f845bf30d
+Install: exe /Q:A /R:N
+Uninstall: none
+Detect: reg HKLM\Software\Microsoft\Windows\CurrentVersion\Setup\Updates\WinME\UPD310695
+Notice: Restart Windows to finish installing this Microsoft update.

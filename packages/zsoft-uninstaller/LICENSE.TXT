@@ -1,0 +1,37 @@
+ZSoft Uninstaller 2.4.1 - license terms
+
+Source: "About ZSoft Uninstaller" page (about.html) in UninstallerHelp.chm,
+extracted from ZSoft_Uninstaller_2.4.1.exe as published at
+https://www.zsoft.dk/downloads/ZSoft_Uninstaller_2.4.1.exe (checked 2026-09-29).
+No separate license file ships in the installer.
+
+----------------------------------------------------------------------
+About ZSoft Uninstaller
+About of ZSoft Uninstaller
+This software is provided 'as-is', without
+any express or implied warranty. In no event will the authors be held
+liable for any damages arising from the use of this software.
+Permission is granted to use this software for non-commercial purpose
+only.
+This program includes code from the following projects:
+Toolbar2000
+&
+TBX
+(for components that make this program look good)
+Indy
+(for components enabling the
+internet)
+Wisnu Aribowo (for the scrolling text component)
+Executable packed with
+UPX
+Installer powered by
+NSIS
+Splashscreen made with
+The Gimp For Windows
+This software is copyright (C) 2004-2005
+ZSoft
+Software
+.
+Portions of this software are Copyright (c) 1993 - 2003, Chad Z. Hower
+(Kudzu) and
+the Indy Pit Crew - IndyProject.org

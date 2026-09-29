@@ -1,0 +1,14 @@
+Package: ms-kb918547-me
+Name: Windows Me KB918547 WMF update
+Version: KB918547
+Section: System
+Summary: Windows Me KB918547 WMF update
+License: Microsoft EULA (external)
+License-File: pool/ms-kb918547-me/KB918547/LICENSE.TXT
+Systems: ME
+Availability: external
+Download: http://download.windowsupdate.com/msdownload/update/v3-19990518/cabpool/WindowsME-KB918547-ENU_346d1c5b14e4c033781cc9630fd4a9a.exe 153128 5edc36bc9261623e5aaff34c6b62c631965967f9d3cd44c69302c27c5e2eeb96
+Install: exe /Q:A /R:N
+Uninstall: none
+Detect: reg HKLM\Software\Microsoft\Windows\CurrentVersion\Setup\Updates\WinME\UPD918547
+Notice: Restart Windows to finish installing this Microsoft update.

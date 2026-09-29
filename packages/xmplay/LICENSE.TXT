@@ -1,0 +1,14 @@
+XMPlay 4.1
+Copyright (c) 1998-2025 Un4seen Developments Ltd. All rights reserved.
+
+Licence
+=======
+XMPlay is free for non-commercial use.
+
+This software is provided as-is. The author makes absolutely no warranties on
+it. You use it at your own risk. The author shall not be held responsible for
+any damage that may result from its use.
+
+All trademarks and other registered names contained in the XMPlay package
+are the property of their respective owners.
+

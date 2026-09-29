@@ -1,0 +1,15 @@
+Package: ms-q273727-98
+Name: Windows 98 Q273727 IPX NMPI update
+Version: Q273727
+Section: System
+Summary: Windows 98 Q273727 IPX NMPI update
+License: Microsoft EULA (external)
+License-File: pool/ms-q273727-98/Q273727/LICENSE.TXT
+Systems: 98
+Availability: external
+Download: https://download.microsoft.com/download/win98/Update/11974/W98/EN-US/273727USA8.EXE 243360 e417564904f97e8c92380e33e4b2dcd4c3df029c4ca4f39c34a0611157277e1a
+Install: exe /Q:A /R:N
+Uninstall: none
+Detect: reg HKLM\Software\Microsoft\Windows\CurrentVersion\Setup\Updates\W98\UPD273727
+ reg HKLM\Software\Microsoft\Windows\CurrentVersion\Setup\Updates\W98.SE\UPD273727
+Notice: Restart Windows to finish installing this Microsoft update.

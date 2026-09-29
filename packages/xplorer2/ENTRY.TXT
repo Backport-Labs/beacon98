@@ -1,0 +1,28 @@
+# Downloaded from Zabkat's own server. Commercial trial; its licence forbids
+# copying or distributing it. NOTE: zabkat.com serves this file only when the
+# request carries a Referer header from zabkat.com (e.g.
+# https://www.zabkat.com/alldown.htm); without one it redirects to a download
+# portal. The Referer field makes Beacon send it.
+Package: xplorer2
+Name: xplorer2 Professional
+Version: 5.0.0.3
+Section: Utilities
+Summary: Dual-pane tabbed file manager (21-day trial)
+Description: A file manager that looks like Windows Explorer but adds two
+ panes, tabs, previews, file search, folder comparison, batch renaming and
+ duplicate finding. This build 5003 is the last version that works on
+ Windows 98, according to its author.
+Homepage: https://www.zabkat.com/
+License: Commercial trial
+License-File: pool/xplorer2/5.0.0.3/LICENSE.TXT
+Systems: 98
+Availability: external
+Download: https://www.zabkat.com/download.php?f=5003_98.exe 2969032 a378c55e744367ceb2ebadb60eb8fb4d4c79789c7ad7b75a1f3918ccf4bb758a
+Referer: https://www.zabkat.com/alldown.htm
+Installed-Size: 9600
+Install: nsis /D={dir}
+Uninstall: run "{dir}\Uninstall.exe" /S
+Notice: xplorer2 Professional is a trial: it runs fully for 21 days, then
+ 10 more days with extra reminders. After 31 days it refuses to start
+ without a license key from Zabkat (zabkat.com); whether keys for this old
+ version are still sold is not known.

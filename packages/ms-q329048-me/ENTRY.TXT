@@ -1,0 +1,15 @@
+Package: ms-q329048-me
+Name: Windows Me Q329048 Compressed Folders update (MS02-054)
+Version: Q329048
+Section: System
+Summary: Windows Me Q329048 Compressed Folders update (MS02-054)
+Homepage: https://learn.microsoft.com/en-us/security-updates/securitybulletins/2002/ms02-054
+License: Microsoft EULA (external)
+License-File: pool/ms-q329048-me/Q329048/LICENSE.TXT
+Systems: ME
+Availability: external
+Download: http://download.windowsupdate.com/msdownload/update/v3-19990518/CabPool/329048_3E84647A527E386B05A78DD79AF876BFCFC147E1.EXE 293184 f32042677925c526da8ca17f9089113aca74c231ceb8f4ad179ef8f3c7f20a61
+Install: exe /Q:A /R:N
+Uninstall: none
+Detect: reg HKLM\Software\Microsoft\Windows\CurrentVersion\Setup\Updates\WinME\UPD329048
+Notice: Restart Windows to finish installing this Microsoft update.

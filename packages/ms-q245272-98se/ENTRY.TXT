@@ -1,0 +1,14 @@
+Package: ms-q245272-98se
+Name: Windows 98 SE Q245272 WebTV update
+Version: Q245272
+Section: System
+Summary: Windows 98 SE Q245272 WebTV update
+License: Microsoft EULA (external)
+License-File: pool/ms-q245272-98se/Q245272/LICENSE.TXT
+Systems: 98SE
+Availability: external
+Download: http://download.windowsupdate.com/msdownload/update/v3-19990518/cabpool/245272USA8_BCB9234CBD9818C3EAB1E0DEA97DC09087CDCB25.EXE 291520 39fd35e8715c886c24d03ae1c02888946bbc4e1df1baaa87811ecf6ff00c05a2
+Install: exe /Q:A /R:N
+Uninstall: none
+Detect: reg HKLM\Software\Microsoft\Windows\CurrentVersion\Setup\Updates\W98.SE\UPD245272
+Notice: Restart Windows to finish installing this Microsoft update.

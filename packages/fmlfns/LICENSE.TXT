@@ -1,0 +1,28 @@
+FmLfns 1.1 (WinCorner) - license information
+=============================================
+
+FmLfns is shareware. Its license and registration terms are in the help file
+FMLFNS.HLP (topics "Registration", "Why should I register", "How do I
+register and what does it cost"), which the setup opens after installing.
+The help file's text is compressed; it could be read only partly here, so it
+is not reproduced. What could be read states a 30-day evaluation, that using
+an unregistered copy for more than 30 days is prohibited, that unregistered
+copies show "Unregistered" in the caption and a reminder dialog twice a
+month, and a registration fee of 10 Euro or 10 US dollars.
+
+What the publisher states today (pages opened on 2026-09-29):
+
+  http://www.wincorner.com/home/fmlfns.html:
+  "FmLfns 1.1 - File Manager Long File Name Support for Windows ME/98/95 [...]
+  Download FmLfns 1.1 for Windows ME/98/95 - FMLFNS95.EXE (42 KB)"
+
+  http://www.wincorner.com/home/orders.html:
+  "FmLfns 1.1 Long File Names in FM $11 / 10 EUR"
+
+README.TXT inside FMLFNS95.EXE:
+  "FmLfns 1.1 - File Manager Long File Name Support for Win ME/98/95 [...]
+  FmLfns requires Windows ME/98/95. [...] For the latest new visit
+  http://www.wincorner.com"
+
+Beacon 98 does not distribute this file. It is downloaded from WinCorner's own
+server (http://www.wincorner.com/files/fmlfns95.exe).

@@ -1,0 +1,14 @@
+Package: ms-pccardupd-95
+Name: Windows 95 OSR2 PC Card update
+Version: UPD980225N1
+Section: System
+Summary: Windows 95 OSR2 PC Card update
+License: Microsoft EULA (external)
+License-File: pool/ms-pccardupd-95/UPD980225N1/LICENSE.TXT
+Systems: 95OSR2
+Availability: external
+Download: https://download.microsoft.com/download/win95/Update/5503/W95/EN-US/PCCARDUPD.EXE 220328 4a4b89470d82f0910792965dff257ab2b83bcceb1b0cf72a9ecb68080c30cc04
+Install: exe /Q:A /R:N
+Uninstall: none
+Detect: reg HKLM\Software\Microsoft\Windows\CurrentVersion\Setup\Updates\OSR2\UPD980225N1
+Notice: Restart Windows to finish installing this Microsoft update.

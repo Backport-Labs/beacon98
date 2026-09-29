@@ -1,0 +1,23 @@
+# Downloaded from AnalogX's own server: the publisher does not allow
+# offsite hosting (download FAQ), so we do not host it.
+# The installer is AnalogX's own; no silent switch is documented, so it runs
+# interactively. The Add/Remove Programs name below is not verified.
+Package: analogx-ats
+Name: AnalogX Atomic TimeSync
+Version: 1.04
+Section: Internet
+Summary: Sets the computer clock from an internet time server (NTP)
+Description: Sets the Windows clock from an NTP time server such as NIST's,
+ once or at an interval, with an optional offset. Includes a small NTP
+ server so other computers on the local network can sync to this one.
+ Does not work through a proxy.
+Homepage: https://www.analogx.com/contents/download/network/ats.htm
+License: Freeware
+License-File: pool/analogx-ats/1.04/LICENSE.TXT
+Systems: 95, 98, ME, NT4, 2000
+Availability: external
+Download: https://www.analogx.com/files/atsi.exe 354536 b00c4f995854b087c5197bcf53bb8f4d692129c133dba1ba1567508db5df4402 http://www.analogx.com/files/atsi.exe
+Install: exe
+Uninstall: registry AnalogX Atomic TimeSync
+Notice: Atomic TimeSync is free software from AnalogX (www.analogx.com). Set
+ the time server and the update interval in its configuration window.

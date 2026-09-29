@@ -1,0 +1,13 @@
+Package: ms-amdk6upd-95
+Name: Windows 95 OSR2 AMD-K6-2 update
+Version: 990602N1
+Section: System
+Summary: Windows 95 OSR2 AMD-K6-2 update
+License: Microsoft EULA (external)
+License-File: pool/ms-amdk6upd-95/990602N1/LICENSE.TXT
+Systems: 95OSR2
+Availability: external
+Download: https://download.microsoft.com/download/win95upg/patch/1.2/w95/en-us/amdk6upd.exe 290288 8b31adafdeea166ef37b8724130d7477921b3fe671fd3ac1ff0ae037a7eb0b8b
+Install: exe /Q:A /R:N
+Uninstall: none
+Notice: Restart Windows to finish installing this Microsoft update.

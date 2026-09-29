@@ -1,0 +1,21 @@
+# Freeware whose license allows copying and distribution without fee.
+# The publisher still offers it only by FTP (ftp://ftp.altap.cz/pub/altap/salamand/salam152.zip),
+# which Beacon cannot use, so we host it.
+Package: servant-salamander
+Name: Servant Salamander
+Version: 1.52
+Section: Utilities
+Summary: Two-panel file manager in the style of Norton Commander
+Description: A small, fast two-panel file manager: copy, move, delete,
+ rename and compare files and folders with the keyboard or the mouse,
+ view files, filter panels and run user-defined commands. Freeware
+ version from 1998, the predecessor of Altap Salamander.
+Homepage: https://www.altap.cz/
+License: Freeware
+License-File: pool/servant-salamander/1.52/LICENSE.TXT
+Systems: 95, 98, ME, NT4, 2000
+Download: pool/servant-salamander/1.52/salam152.zip 211773 a8cbff2e25b602e8ae06162e6b669ea5850cbcfc09550fd96e93bc88419c0949
+Installed-Size: 440
+Install: unzip {pf}\Servant Salamander
+Shortcut: Servant Salamander | {dir}\SALAMAND.EXE |
+Uninstall: files

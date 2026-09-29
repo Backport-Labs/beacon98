@@ -1,0 +1,15 @@
+Package: ms-q314941-98
+Name: Windows 98 Q314941 UPnP update (MS01-059)
+Version: Q314941
+Section: System
+Summary: Windows 98 Q314941 UPnP update (MS01-059)
+Homepage: https://learn.microsoft.com/en-us/security-updates/securitybulletins/2001/ms01-059
+License: Microsoft EULA (external)
+License-File: pool/ms-q314941-98/Q314941/LICENSE.TXT
+Systems: 98
+Availability: external
+Download: https://download.microsoft.com/download/win98SE/Patch/Q314941/W98/EN-US/314941USA8.EXE 228936 5a5097615095c015edf09057cda32f639f14371be116418f9cb16dbf4914dcbf
+Install: exe /Q:A /R:N
+Uninstall: none
+Detect: reg HKLM\Software\Microsoft\Windows\CurrentVersion\Setup\Updates\W98\UPD314941
+Notice: Restart Windows to finish installing this Microsoft update.

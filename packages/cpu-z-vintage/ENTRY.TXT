@@ -1,0 +1,21 @@
+# Downloaded from CPUID's own server: CPU-Z is freeware, but CPUID's terms
+# do not clearly permit others to redistribute it.
+Package: cpu-z-vintage
+Name: CPU-Z Vintage Edition
+Version: 1.04
+Section: System
+Summary: CPU-Z for 486, Pentium, K5 and Cyrix era computers
+Description: The Vintage Edition of CPU-Z, made by CPUID for Windows 95 and
+ 98 on old hardware: 486, Pentium, Pentium Overdrive, AMD K5, Cyrix and
+ Texas Instruments processors, and chipsets such as the Intel 430FX and VIA
+ Apollo VPX and MVP4. Shows the processor, chipset, memory and BIOS.
+Homepage: https://www.cpuid.com/softwares/cpu-z.html
+License: Freeware
+License-File: pool/cpu-z-vintage/1.04/LICENSE.TXT
+Systems: 95, 98
+Availability: external
+Download: https://download.cpuid.com/cpu-z/cpu-z_1.04-win9x.zip 1446689 5bbd2a01cf2768248b82f93338815ee1e37445fa255d514272db7ade72bcbc78 http://download.cpuid.com/cpu-z/cpu-z_1.04-win9x.zip
+Installed-Size: 3620
+Install: unzip {pf}\CPU-Z Vintage
+Shortcut: CPU-Z Vintage | {dir}\cpuz_w9x.exe |
+Uninstall: files

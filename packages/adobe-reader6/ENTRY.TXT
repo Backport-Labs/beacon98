@@ -1,0 +1,30 @@
+# Downloaded from Adobe's own server; Adobe required web sites to link to
+# Adobe for Reader downloads and did not permit independent hosting.
+# Adobe Reader 7.0 requires Windows 2000 or XP, so 6.0 is the last for 98/ME.
+# No silent switch verified; the installer runs interactively. The
+# Add/Remove Programs name below is not verified.
+Package: adobe-reader6
+Name: Adobe Reader
+Version: 6.0
+Section: Office
+Summary: Adobe's free viewer for PDF documents
+Description: Views, searches and prints PDF documents. Version 6.0 is the
+ last Adobe Reader for Windows 98 Second Edition and ME; it does not support
+ Windows 95 or the first edition of Windows 98.
+Homepage: https://www.adobe.com/acrobat/pdf-reader.html
+License: Proprietary (Adobe Reader EULA)
+License-File: pool/adobe-reader6/6.0/LICENSE.TXT
+Systems: 98, ME, NT4, 2000
+Availability: external
+Download: http://ardownload.adobe.com/pub/adobe/reader/win/6.x/6.0/enu/AdbeRdr60_enu_full.exe 16706160 dba7eb0e39e54d427a7fdb86b84cb563e8a40f1c187179313549ca4761437db2 https://ardownload2.adobe.com/pub/adobe/reader/win/6.x/6.0/enu/AdbeRdr60_enu_full.exe https://ardownload.adobe.com/pub/adobe/reader/win/6.x/6.0/enu/AdbeRdr60_enu_full.exe http://ardownload2.adobe.com/pub/adobe/reader/win/6.x/6.0/enu/AdbeRdr60_enu_full.exe
+Requires: ie 5.01 | Adobe Reader 6.0 needs Internet Explorer 5.01 or later.
+ memory 32 | Adobe Reader 6.0 needs at least 32 MB of memory (64 MB recommended).
+Install: exe
+Uninstall: registry Adobe Reader 6.0
+Warning: Adobe Reader 6.0 is from 2003 and has well over a hundred known
+ security problems that Adobe fixed only in later versions, which do not run
+ on Windows 98. Opening a malicious PDF file can run harmful code on this
+ computer. Open only PDF files you trust, and consider turning off
+ JavaScript in the program's preferences.
+Notice: Adobe Reader 6.0 requires Windows 98 Second Edition or ME; it is not
+ supported on the first edition of Windows 98. Adobe no longer supports it.

@@ -1,0 +1,28 @@
+# Evaluation version whose license allows free redistribution of the unmodified package.
+# The publisher still offers it only by FTP (ftp://ftp.altap.cz/pub/altap/salamand/salen200.exe),
+# which Beacon cannot use, so we host it.
+Package: servant-salamander-2
+Name: Servant Salamander 2.0
+Version: 2.0
+Section: Utilities
+Summary: Two-panel file manager with archive and picture viewer plugins
+Description: A fast two-panel file manager in the style of Norton Commander,
+ with plugins for ZIP, TAR, CAB, ARJ, ACE and RAR archives, a picture viewer
+ for over 40 formats, an MP3 viewer and a file viewer. This is the 30-day
+ evaluation version from 2001; the free version 1.52 is the package
+ servant-salamander.
+Homepage: https://www.altap.cz/
+License: Shareware (ALTAP evaluation license)
+License-File: pool/servant-salamander-2/2.0/LICENSE.TXT
+Systems: 95, 98, ME, NT4, 2000
+Download: pool/servant-salamander-2/2.0/salen200.exe 1361121 9682a428696d0bce07fb854bebac562b0522cda08b582448df30da7da76c8513
+Installed-Size: 2700
+Requires: ie 4.0 | Servant Salamander 2.0 needs Internet Explorer 4.0 or later (common controls 4.71 and HTML Help).
+Install: exe
+Uninstall: registry Servant Salamander 2.0
+Warning: This version has a known security problem: opening a specially
+ crafted program file in its PE viewer plugin can run harmful code
+ (CVE-2007-3314). Its archive plugins are from 1998-2001.
+Notice: Shareware: Servant Salamander 2.0 is a 30-day evaluation. After 30
+ days its license asks you to buy a license or uninstall, and a 2.0 license
+ can no longer be bought. The free Servant Salamander 1.52 has no time limit.

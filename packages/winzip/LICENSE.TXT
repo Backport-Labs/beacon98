@@ -1,0 +1,85 @@
+WinZip 10.0 (build 7245) - license information
+===============================================
+
+WinZip 10.0 is shareware (an evaluation version). Its license agreement is
+shown by the setup program and "included in the program"; it is stored inside
+an encrypted archive in winzip100.exe and could not be read here. The current
+WinZip/Corel license (https://www.winzip.com/eula.htm, which now redirects to
+https://www.corel.com/en/eula/) is for current versions, not for 10.0.
+
+Beacon 98 does not distribute this file. It is downloaded from WinZip's own
+server (download.winzip.com). The license shown by its setup program applies.
+
+README.TXT from winzip100.exe, unchanged:
+------------------------------------------------------------------------------
+WinZip(R) Version 10.0 (7245)
+Copyright (C) 1991-2005 WinZip International LLC
+All rights reserved.
+
+For a brief description of WinZip and a list of changes in this
+version, see the WinZip help file.
+
+*** License agreement ***
+
+The installation and use of this software is subject to the
+license agreement included in the program.  At the time of
+installation you will have the opportunity to read and accept
+the license agreement by clicking the Yes button. Upon your
+acceptance of the license agreement you will be able to continue
+the installation process.  If you do not accept the license
+agreement you will not be allowed to continue installing the
+program.
+
+*** Installation ***
+
+    If you received this version of WinZip on a CD-ROM, you can
+    install it as follows:
+
+    Insert the CD-ROM into your drive.  The autorun capability
+    of Windows will start the WinZip 10.0 setup program.  If it
+    does not, select the Run... option of the taskbar Start Menu
+    and type:
+
+        D:\setup.exe
+
+    replacing D: with your CD-ROM drive.
+
+    If you received this version of WinZip in a self-extracting
+    Zip file (for example, WINZIP100.EXE), you can install it as
+    follows:
+
+    1 Select the Run... option from the Taskbar Start menu
+    2 Type the full name of the file
+      (for example, C:\DNLOAD\WINZIP100.EXE)
+    3 Press the Enter key, and follow the prompts
+
+*** Upgrade Instructions ***
+
+    Caution, WinZip 10.0 is not a free upgrade. If you are a
+    registered user of a previous version of WinZip and install
+    WinZip 10.0, you will no longer be registered. If you have a
+    multi-user license and you wish to try WinZip 10.0, make
+    sure you save a backup copy of your current WinZip before
+    installing WinZip 10.0, so you can go back to your previous
+    registered version of WinZip, if you desire to. You do not
+    need to uninstall your older, registered version of WinZip.
+    Follow the installation instructions above.  You can install
+    this version of WinZip to the same location as a previously
+    installed copy of WinZip.
+
+
+*** Requirements ***
+
+    This version of WinZip requires Windows 98, Windows Me,
+    Windows 2000, or Windows XP.  Some optional features require
+    external programs. Note: CD burning requires Windows XP. See
+    the documentation for details.
+
+*** Documentation ***
+
+    For full documentation, including context sensitive help,
+    press the F1 key at any time while running WinZip.
+
+
+
+

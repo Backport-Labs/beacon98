@@ -1,0 +1,23 @@
+# Downloaded from CPUID's own server: CPU-Z is freeware, but CPUID's terms
+# do not clearly permit others to redistribute it.
+Package: cpu-z
+Name: CPU-Z
+Version: 1.78
+Section: System
+Summary: Shows details of the processor, mainboard, chipset and memory
+Description: Identifies the processor (name, core, cache, clock speed),
+ mainboard and chipset, BIOS, memory type and timings (SPD) and the video
+ card. This is the special Windows 98 build that CPUID still offers. For
+ very old processors (486, Pentium, K5, Cyrix) see CPU-Z Vintage.
+Homepage: https://www.cpuid.com/softwares/cpu-z.html
+License: Freeware
+License-File: pool/cpu-z/1.78/LICENSE.TXT
+Systems: 98
+Availability: external
+Download: https://download.cpuid.com/cpu-z/cpu-z_1.78-win98.zip 1154222 e32663cd4982f616a01acd9e57dbf365a9145adee250b0d6e0a29346fa085128 http://download.cpuid.com/cpu-z/cpu-z_1.78-win98.zip
+Installed-Size: 2760
+Install: unzip {pf}\CPU-Z
+Shortcut: CPU-Z | {dir}\cpuz.exe |
+Uninstall: files
+Notice: CPU-Z checks for a newer version when it starts. To turn this off,
+ set CheckUpdates=0 in cpuz.ini in the CPU-Z folder.

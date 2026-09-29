@@ -1,0 +1,17 @@
+Package: treesize-free
+Name: TreeSize Free
+Version: 2.1
+Section: Utilities
+Summary: Shows which folders use the most disk space
+Description: Scans a drive or folder and shows the size of every folder in a
+ tree, sorted by size, so you can find what fills the disk. This is the
+ build JAM Software still offers for Windows 9x and ME.
+Homepage: https://www.jam-software.com/treesize_free
+License: Freeware
+License-File: pool/treesize-free/2.1/LICENSE.TXT
+Systems: 95, 98, ME
+Download: pool/treesize-free/2.1/TreeSizeFree_9x.zip 739972 98c52603ebd2278aa3abea9331f84cb71b1f7d291c14810856c81ac8dbf2afdc https://downloads.jam-software.de/treesize_free/TreeSizeFree_9x.zip
+Installed-Size: 850
+Install: unzip {pf}\TreeSize Free
+Shortcut: TreeSize Free | {dir}\TreeSizeFree.exe |
+Uninstall: files

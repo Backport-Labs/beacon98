@@ -1,0 +1,14 @@
+Package: ms-telnet-95
+Name: Windows 95 Telnet update
+Version: W95.TELNET
+Section: System
+Summary: Windows 95 Telnet update
+License: Microsoft EULA (external)
+License-File: pool/ms-telnet-95/W95.TELNET/LICENSE.TXT
+Systems: 95
+Availability: external
+Download: https://download.microsoft.com/download/win95upg/Update/10/W95/EN-US/telnet95.exe 178144 505f0e58bef857d56d26169977b98fccb3a2228187ac61606377e7d1338b43d0
+Install: exe /Q:A /R:N
+Uninstall: none
+Detect: reg HKLM\Software\Microsoft\Windows\CurrentVersion\Setup\Updates\W95.TELNET
+Notice: Restart Windows to finish installing this Microsoft update.

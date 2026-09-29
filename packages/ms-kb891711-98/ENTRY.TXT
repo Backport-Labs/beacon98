@@ -1,0 +1,15 @@
+Package: ms-kb891711-98
+Name: Windows 98 KB891711 cursor and icon update (MS05-002)
+Version: KB891711-v2
+Section: System
+Summary: Windows 98 KB891711 cursor and icon update (MS05-002)
+Homepage: https://learn.microsoft.com/en-us/security-updates/securitybulletins/2005/ms05-002
+License: Microsoft EULA (external)
+License-File: pool/ms-kb891711-98/KB891711-v2/LICENSE.TXT
+Systems: 98
+Availability: external
+Download: http://download.windowsupdate.com/msdownload/update/v3-19990518/cabpool/Windows98-KB891711-v2-ENU_27519b9f8157c1e9a52e443b0208e0e.EXE 153048 a25d2b74c765975f8a196209200cb4ec05ce9736bf5af64b2dab6cad70354894
+Install: exe /Q:A /R:N
+Uninstall: registry Windows 98 KB891711 Update
+Detect: reg HKLM\Software\Microsoft\Windows\CurrentVersion\Setup\Updates\W98\UPD891711
+Notice: Restart Windows to finish installing this Microsoft update.

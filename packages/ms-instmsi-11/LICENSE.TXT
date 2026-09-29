@@ -1,0 +1,10 @@
+Windows Installer 1.1 redistributable (instmsi.exe 1.11.2405.0)
+
+This software is made by Microsoft Corporation and is licensed under Microsoft's
+End-User License Agreement (EULA). Backport Labs does not distribute it: Beacon 98
+downloads it directly from Microsoft's server (download.microsoft.com) and only
+checks that the file is Microsoft's original.
+
+The package itself contains no license text. Microsoft's terms for Windows
+Installer apply. By installing it you accept Microsoft's terms for this software.
+Windows Installer cannot be uninstalled once installed.

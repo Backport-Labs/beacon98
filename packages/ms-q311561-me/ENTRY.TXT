@@ -1,0 +1,14 @@
+Package: ms-q311561-me
+Name: Windows Me Q311561 IO.SYS update
+Version: Q311561
+Section: System
+Summary: Windows Me Q311561 IO.SYS update
+License: Microsoft EULA (external)
+License-File: pool/ms-q311561-me/Q311561/LICENSE.TXT
+Systems: ME
+Availability: external
+Download: https://download.microsoft.com/download/WinME/Patch/22527/WinME/EN-US/311561USAM.EXE 356416 99ad200ac4abb7a70d6a050a234d96769ad2b0e95c0b6ae1129c25b261568e54
+Install: exe /Q:A /R:N
+Uninstall: none
+Detect: reg HKLM\Software\Microsoft\Windows\CurrentVersion\Setup\Updates\WinME\UPD311561
+Notice: Restart Windows to finish installing this Microsoft update.

@@ -1,0 +1,56 @@
+JAM Software GmbH - License Agreement
+Source: https://www.jam-software.com/company/license_agreement.shtml (retrieved 2026-09-29).
+This is the publisher's current license agreement, linked from the TreeSize Free page that offers the Windows 9x/ME download. TreeSizeFree_9x.zip (TreeSize Free 2.1, 2007) contains no license file of its own.
+
+Please read the following terms and conditions carefully before installing and using the software. By using our software you accept this license agreement and warranty.
+Registered Version
+Terms of Use
+Passing on the licensed Software
+Updates & Support
+Annual licenses (subscription model)
+Terms of Use
+This License Agreement is a legal agreement between you ("Licensee"), the end-user, and JAM Software GmbH for the use of this software product ("Software") for both commercial and non-commercial purposes.
+In general, you need at least as many licenses as there are computers or clients on which our software is available for execution. Each instance (installation) provided to more than one user must be licensed based on the number of users and each license may only be assigned to a new user or computer system every 30 days. A user is identified by the windows account name. For some of our products, online activation is required to verify correct license usage.
+A licensed copy of the Software may be used by one user on up to three dedicated computers (but not simultaneously and not more than one virtual or physical server).
+For products that have a portable installation option, the above restrictions apply. "Portable Installation" in this context means that the user is entitled to install the software on a removable medium (e.g. USB stick or external hard drive) in order to use it on another computer without further installation. The portable installation is equivalent to a full installation on an independent system in terms of licensing law. It is exclusively for use on removable media and does not include network sharing. The portable use on an external medium (if possible) remains unaffected by the 30-day transfer restriction, since the user of the medium is usually also the license holder.
+If the licensed software is made available for execution over a network, the number of licenses purchased for the software must be at least equal to the number of physical PCs, servers and terminal clients on which it can be executed. For example, if the Software can be executed on 8 different PCs or terminal clients on the network, a minimum of 8 licenses is required, regardless of whether the Software actually runs simultaneously on all PCs.
+Each SpaceObServer server instance includes one access license for one administrator by default. Additional Client Access Licenses are available for further users accessing the SpaceObServer server instance at a lower price than the main license. Access to the server instance by multiple users must in all cases be fully covered by the corresponding Client Access Licenses.
+For passive users or report recipients who do not require administrative or active access to the server instance, Web Access Licenses are available.
+A site license allows you to use the software for all users and on all computers in one location (city). Site or company-wide licenses may not be used by other legal entities in the group but are limited to the respective legal entity of the licensee.
+In the case of processing data on behalf of or for a customer, our licenses only cover the installation of the commissioned party and the data of one customer to be supported. Additional customers must be licensed additionally. For this purpose, discounted licenses, consultant licenses or a provider license can be purchased on request.
+In contrast to the other licenses, a consultant license is a named-user license. This is an independent product license and allows the dedicated user to use it on different machines for processing data of any number of third parties. For this purpose, both the portable version (if available) and local installations may be used.
+For more information on separate license forms, their pricing and online activation, please refer to the price list and our Knowledgebase.
+Our software may include modules that are subject to other license conditions, especially the GPL. In addition to these modules, their licenses are also being installed, which must be considered in case of redistribution and which may contain a reference to the source code of these modules.
+Passing on the licensed Software
+The transfer of the licensed software to third parties in any form without permission is prohibited. The distribution right of the software remains with the author. Unauthorized sharing of the programs constitutes an infringement of the law.
+Licensed developer components, such as the ShellBrowser Components, may be used in projects without additional license fees as long as they are delivered with the software in binary form and without a license file or if they are linked statically and not decompileable in corresponding applications. It is not allowed to develop and distribute own libraries or developer components using our software components.
+The number of licenses required is based on the number of workstations on which the components can be used for development.
+Updates & Support
+After purchase, updates and support are free of charge within the selected support period. The licensed software and the associated license keys are only available for download in our customer area during this period.
+For the perpetual licenses with maintenance the software may be used indefinitely regardless of the support period. If the support period has expired and the update authorization has expired, it is possible to purchase an extension at a reduced price in our customer area within 3 months. An interruption in maintenance does not result in the license expiring.
+Support will be provided during our business hours within the selected support period.
+Annual licenses (subscription model)
+Since the beginning of 2025, we have also been offering subscription licenses (annual licenses) in addition to the previous license model (perpetual licenses with maintenance).
+To find out which licenses are offered as annual subscription licenses, please visit the price list.
+The basic terms of use remain the same in accordance with our license agreement.
+The subscription includes an annual right of use.
+It is automatically renewed for a further year unless it is terminated.
+The right of use under existing perpetual licenses is retained. Please make a backup of the installation file and the corresponding key.
+Updates and support for annual licenses are only offered as part of the subscription.
+Customers will be informed of the upcoming renewal by email before the license expires. This information can also be viewed in the customer area.
+Cancellation can be made in the customer area up to the 7th day before the automatic renewal. Written, informal termination by email to sales@jam-software.com is also possible.
+Trial version
+Testing and licensing
+Freeware and Trial Versions
+Testing and licensing
+According to the conditions below you may use the software within the validity period of the trial version. If you wish to continue using the software as a full version after the trial period has expired, you must license it. After the purchase, you can download the latest version of your licensed software free of charge within your update entitlement, which equates to the chosen maintenance period or for most products you can convert the trial version into a full version using the license key you received.
+Continued use of the trial version of the software after the trial period as well as the use of an improperly licensed version is a violation of German and international copyright laws. However, some of our products are automatically downgraded to the freeware version after the trial expires, and you may continue to use them as such.
+Freeware and Trial Versions
+You may acquire and use freeware and trial versions of the Software free of charge. Use of these versions is free for both commercial and non-commercial purposes. You are not allowed to install or run TreeSize Free on server operating systems such as Windows Server.
+These versions may not be modified and no derivative works may be created from the software. Provided that the software is in its original state and all files are distributed, JAM Software GmbH permits copies of the software to be made and distributed as long as duplication and distribution are not for profit or fundraising purposes.
+Warranty Terms and Conditions
+The following disclaimer does not apply to the use of so-called Free and Open Source Software ("FOSS") and related breaches of duty or any violation of third-party rights by the supplier.
+Although the software has been extensively tested, no warranty or liability claims can be made due to the wide variety of hardware and software environments in which the software can be used. THIS SOFTWARE IS PROVIDED TO YOU "AS IS" WITHOUT WARRANTY OF ANY KIND. THE PERFORMANCE OR RESULTS YOU OBTAIN BY USING THE SOFTWARE OR ACCOMPANYING MATERIALS AND THAT THE SOFTWARE IS MERCHANTABLE OR FIT FOR ANY PARTICULAR PURPOSE CANNOT BE GUARANTEED. THERE IS NO WARRANTY OR GUARANTEE, EITHER EXPRESS OR IMPLIED, OF ANY KIND. IN NO EVENT SHALL WE BE LIABLE FOR ANY DIRECT, INDIRECT, CONSEQUENTIAL OR SPECIAL DAMAGES, INCLUDING LOSS OF BUSINESS PROFITS OR LOST SAVINGS.
+Nothing contained in this Agreement limits the statutory rights of any party acting as a consumer.
+Copyright (c) by Joachim Marder
+All rights reserved

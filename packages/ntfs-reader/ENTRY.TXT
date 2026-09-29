@@ -1,0 +1,17 @@
+Package: ntfs-reader
+Name: DiskInternals NTFS Reader
+Version: 2.1
+Section: Utilities
+Summary: Reads files from NTFS disks on Windows 95, 98 and Me
+Description: Gives read access to NTFS partitions and disks, which Windows
+ 95, 98 and Me cannot read themselves, and copies files from them to any
+ local or network drive. Compressed and encrypted files are supported.
+ DiskInternals has replaced it with Linux Reader, which does not run on 9x.
+Homepage: https://www.diskinternals.com/ntfs-reader/
+License: Freeware
+License-File: pool/ntfs-reader/2.1/LICENSE.TXT
+Systems: 95, 98, ME
+Download: pool/ntfs-reader/2.1/NTFS_Reader.exe 3470933 bdd06e58a0c6c85f2f2db14d12fbea6d353a8cd2da62dbd889192af6bbce5c1b https://eu.diskinternals.com/download/NTFS_Reader.exe http://eu.diskinternals.com/download/NTFS_Reader.exe
+Installed-Size: 3340
+Install: nsis /D={dir}
+Uninstall: run "{dir}\Uninstall.exe" /S

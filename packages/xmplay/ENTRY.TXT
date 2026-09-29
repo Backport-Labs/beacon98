@@ -1,0 +1,23 @@
+# Downloaded from Un4seen's own server. XMPlay is free for non-commercial
+# use only and its licence gives no permission to redistribute it.
+Package: xmplay
+Name: XMPlay
+Version: 4.1
+Section: Multimedia
+Summary: Small audio player for MP3, OGG, WAV, CD audio and tracker modules
+Description: A small audio player without installer. Plays MP3, MP2, OGG,
+ WAV, AIFF, CD audio and module formats (MO3, IT, XM, S3M, MTM, MOD, UMX),
+ with skins, playlists, Internet radio and Winamp DSP plugin support.
+Homepage: https://www.un4seen.com/xmplay.html
+License: Freeware (non-commercial use)
+License-File: pool/xmplay/4.1/LICENSE.TXT
+Systems: 95, 98, ME, 2000
+Availability: external
+Download: https://www.un4seen.com/files/xmplay41.zip 337689 f364d9490d722d1ff21b9a027d803cbf4d5489422b39b782580085bbc463dd5e http://www.un4seen.com/files/xmplay41.zip
+Installed-Size: 370
+Install: unzip {pf}\XMPlay
+Shortcut: XMPlay | {dir}\xmplay.exe |
+Uninstall: files
+Notice: XMPlay is free for non-commercial use only. On Windows 95 and 98,
+ skins with a full-window alpha channel need an updated MSIMG32.DLL, which
+ Un4seen offers on the XMPlay page (put it in the XMPlay folder).

@@ -1,0 +1,29 @@
+Adobe Reader 6.0 - license
+==========================
+
+Adobe Reader 6.0 is proprietary software by Adobe Systems Incorporated,
+distributed free of charge by Adobe. It is used under Adobe's End User
+License Agreement, which the Adobe Reader 6.0 installer shows and asks you
+to accept during setup.
+
+The text of that 6.0 agreement could not be saved here: it is inside the
+installer's compressed (Netopsystems FEAD) package, which cannot be opened
+without running the installer, and Adobe's archive of older license terms
+(https://www.adobe.com/legal/licenses-terms/licenses-terms-archive.html,
+checked 2026-09-29) lists Reader agreements only from 2015 onwards.
+
+Adobe's "Distributing Adobe Reader" page of that time
+(http://www.adobe.com/products/acrobat/distribute.html, 2004 copy read at
+the Internet Archive on 2026-09-29) said:
+
+"Third-party Web sites are required to link directly to Adobe.com for the
+download of Adobe Reader software. Hosting the software independently is
+not permitted."
+
+Distribution on CDs and intranets needed Adobe's separate Adobe Reader
+Distribution Agreement. Backport Labs has no such agreement and does not
+host this file. Beacon 98 downloads it from Adobe's own server
+(ardownload.adobe.com / ardownload2.adobe.com). Read and accept the
+agreement the installer shows before using the program.
+
+Adobe, Acrobat and Adobe Reader are trademarks of Adobe.
