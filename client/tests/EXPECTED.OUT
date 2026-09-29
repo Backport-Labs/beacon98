@@ -1,0 +1,36 @@
+Beacon 98 0.1.0 self-test
+SHA256 empty e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+SHA256 abc ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad
+SHA256 448-bits 248d6a61d20638b8e5c026930c3e6039a33ce45964ff2167f6ecedd419db06c1
+SHA256 million-a cdc76e5c9914fb9281a1c7e284d73e67f1809a48a497200e046d39ccc7112cd0
+SHA256 in pieces of 1 to 130 bytes: same
+ED25519 256 vectors: 256 valid, 256 forged signatures rejected, 255 changed messages rejected, 0 unreadable lines
+CATALOG signature: signed by Backport Labs, verified
+CATALOG with one bit changed: THE SIGNATURE DOES NOT MATCH THE CATALOG
+CATALOG signed with another key: signed with a key this program does not know
+CATALOG without a signature: the catalog or its signature is missing
+CATALOG serial 2026092901, date 2026-09-29, expires 2026-12-28, base http://get.backportlabs.com/, 10 packages
+PKG searchlight98 | Searchlight 98 | 0.3.4 | Utilities | 350340 bytes | hosted | depends -
+PKG 7zip | 7-Zip | 9.20 | Utilities | 1110476 bytes | hosted | depends -
+PKG retrozilla | RetroZilla | 2.3 | Internet | 13410304 bytes | hosted | depends -
+PKG vlc | VLC media player | 0.8.6i | Multimedia | 9398688 bytes | external | depends -
+PKG putty | PuTTY | 0.67 | Internet | 1798184 bytes | hosted | depends -
+PKG vim | Vim | 7.2 | Development | 8174465 bytes | hosted | depends -
+PKG infozip | Info-ZIP Zip and UnZip | 3.0 and 6.0 | Utilities | 769932 bytes | hosted | depends -
+PKG scummvm | ScummVM | 2026.1.0 | Games | 114460830 bytes | hosted | depends -
+PKG beneath-a-steel-sky | Beneath a Steel Sky | CD 1.2 | Games | 69377781 bytes | hosted | depends scummvm
+PKG python | Python | 2.5.4 | Development | 11323392 bytes | hosted | depends -
+PARSE 2 packages
+PKG two-files | Two Files | 1.0 | Utilities | 3345 bytes | hosted | depends -
+  Description [First line.\n\nThird line, after an empty one.]
+  Download [pool/two-files/1.0/a.zip 1000 0000000000000000000000000000000000000000000000000000000000000000\npool/two-files/1.0/b.zip 2345 1111111111111111111111111111111111111111111111111111111111111111]
+PKG external-one | External One | 2.0 beta | Internet | 4096 bytes | external | depends two-files
+  Description []
+  Download [http://example.com/files/setup.exe 4096 2222222222222222222222222222222222222222222222222222222222222222]
+PARSE a file that is not a catalog: The catalog is in a format this version of Beacon does not know. Please update Beacon 98.
+REQUIRES the system library: met
+REQUIRES a file that does not exist: missing
+REQUIRES one megabyte of memory: met
+REQUIRES a terabyte of memory: missing
+REQUIRES DirectX 9: not checked
+REQUIRES a check a later version may add: not checked

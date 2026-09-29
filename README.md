@@ -6,8 +6,9 @@ Beacon 98 installs software that is legal to distribute: open source programs an
 license permits sharing, in the last versions that run on Windows 95 and 98. It downloads a
 signed catalog and checks every file against it before installing anything.
 
-This repository is at the design stage. It holds the catalog format, the tools that sign the
-catalog, and the records of the first packages. The Windows 98 program is not written yet.
+This repository is at an early stage. It holds the catalog format, the tools that sign the
+catalog, the records of the first packages, and the first version of the Windows 98 program,
+which reads and verifies the catalog but does not install anything yet.
 
 ## How it works
 
@@ -32,6 +33,33 @@ The full specification is in [`design/FORMAT.md`](design/FORMAT.md).
 | `keys/` | The public signing key |
 | `tools/` | Scripts that create the signing key, and check, sign and verify the catalog |
 | `pilot/` | One folder per package: `RECORD.md` with the checks made, and the license text |
+| `client/` | The Windows 95/98 program, `BEACON98.EXE`, in C |
+
+## The program
+
+`client/src` is plain C for Tiny C Compiler 0.9.27, like Searchlight 98. It uses only what
+Windows 95 and 98 provide.
+
+| File | Contents |
+|---|---|
+| `beacon.h` | Constants, types, and the functions each file offers to the others |
+| `main.c` | Start-up and command line |
+| `window.c` | The main window: groups, package list, search box, status bar |
+| `details.c` | The pane that describes the selected package |
+| `catalog.c` | Reading `CATALOG.TXT` |
+| `sign.c` | Checking `CATALOG.SIG` with the public key built into the program |
+| `sha256.c` | SHA-256, for checking downloaded files |
+| `system.c` | Requirements, and which packages are installed |
+| `test.c` | The self-test and the `/shot` test mode |
+| `tweetnacl.c`, `tweetnacl.h` | [TweetNaCl](https://tweetnacl.cr.yp.to/) 20140427, public domain, unchanged. Used for Ed25519. |
+
+```powershell
+.\client\build\build.ps1 -Tcc C:\tools\tcc\tcc.exe
+```
+
+The build compiles the program and runs its self-test: SHA-256 test values, 256 Ed25519 test
+vectors from the reference software together with forged signatures and changed messages that
+must be rejected, the signed catalog, and file hashes compared with those Windows computes.
 
 The package files themselves are not in this repository. They are published on the download
 server.
