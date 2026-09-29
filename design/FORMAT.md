@@ -66,8 +66,9 @@ The first block describes the catalog. Each further block is one package.
 | `License` | yes | License name, SPDX identifier where one exists, or `Freeware` |
 | `License-File` | yes | Path of the license text. The client shows it before installing. |
 | `Systems` | yes | Systems it runs on, from `95`, `98`, `ME`, `NT4`, `2000` |
-| `Download` | yes | One line per file: `path size sha256`. Several files are installed in the order given. |
-| `Source` | no | One line per file: `path size sha256`. Not downloaded by the client; offered on the package's page. |
+| `Availability` | no | `hosted` (the default): the files are on our server. `external`: the files are downloaded from the publisher's own server, and Backport Labs does not distribute them. |
+| `Download` | yes | One line per file: `path size sha256`. Several files are installed in the order given. For an `external` package, the path is the full `http://` address on the publisher's server. |
+| `Source` | no | One line per file: `path size sha256`. Not downloaded by the client; offered on the package's page. Not given for `external` packages, which we do not distribute. |
 | `Installed-Size` | no | Disk space needed after installation, in KB |
 | `Depends` | no | Packages from this catalog to install first, separated by commas |
 | `Requires` | no | Conditions the client checks before installing. One per line: `check argument | text`. If one fails, the client shows the text and does not install. |
@@ -106,6 +107,13 @@ Paths in `Install`, `After`, `Shortcut` and `Requires` may use:
 The text after `|` says what is missing and where to get it. Beacon never
 downloads anything a `Requires` line names; those are components we have no
 right to distribute.
+
+## What the catalog contains
+
+Only software that is certain to be legal to distribute: open source, and
+freeware whose terms permit sharing. A package whose own files we should not
+host, but which its publisher still offers, is listed as `external`. Software
+that neither we nor its publisher distribute is not listed.
 
 ### Install
 
@@ -158,7 +166,10 @@ key, in hexadecimal. It only selects the key; the signature does the checking.
 4. On install: checks `Systems` and `Requires`, shows `License-File` and any
    `Warning`, installs `Depends` first.
 5. Downloads each file, checks its size, then its SHA-256. A file that does not
-   match is deleted and the installation stops.
+   match is deleted and the installation stops. For an `external` package the
+   client says which server the file comes from. The checksum in the catalog
+   only confirms that the file is the publisher's original; the publisher, not
+   Backport Labs, distributes it.
 6. Runs `Install`, then `After`, creates the shortcuts, and records what it did in
    `INSTALLED.TXT`.
 

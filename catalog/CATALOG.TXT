@@ -1,9 +1,9 @@
 Format: 1
 Catalog: Beacon 98
 Publisher: Backport Labs
-Serial: 2026092801
-Date: 2026-09-28
-Expires: 2026-12-27
+Serial: 2026092901
+Date: 2026-09-29
+Expires: 2026-12-28
 Base: http://get.backportlabs.com/
 
 Package: searchlight98
@@ -57,9 +57,8 @@ Warning: RetroZilla is based on a browser engine from 2008 with hundreds of
  known security problems. Its authors state that it is not a secure browser.
  Do not use it for banking or passwords.
 
-# License review open: the Windows build bundles the FAAC encoder, and the
-# sources of the bundled libraries have not been found. Not published until
-# that is settled.
+# Downloaded from VideoLAN's own server: its Windows build bundles libraries
+# whose sources we could not find, so we do not host it ourselves.
 Package: vlc
 Name: VLC media player
 Version: 0.8.6i
@@ -69,8 +68,8 @@ Homepage: https://www.videolan.org/
 License: GPL-2.0-or-later
 License-File: pool/vlc/0.8.6i/LICENSE.TXT
 Systems: 98, ME
-Download: pool/vlc/0.8.6i/vlc-0.8.6i-win32.exe 9398688 afd20c08ebf2f73e0d1ad6a341699207728eacaa57ce8bb797fb4abb5aaf3166
-Source: pool/vlc/0.8.6i/src/vlc-0.8.6i.tar.bz2 11786172 a866768f7dd8254c62e059327094073800ed968214b5b35e2682eb81f448214f
+Availability: external
+Download: http://download.videolan.org/pub/videolan/vlc/0.8.6i/win32/vlc-0.8.6i-win32.exe 9398688 afd20c08ebf2f73e0d1ad6a341699207728eacaa57ce8bb797fb4abb5aaf3166
 Requires: file {sys}\UNICOWS.DLL | VLC needs the Microsoft Layer for Unicode (UNICOWS.DLL) in the Windows SYSTEM folder.
 Install: nsis
 Uninstall: registry VLC media player

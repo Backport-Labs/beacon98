@@ -75,3 +75,7 @@
 
 - Verified by opening: NEWS (from videolan/vlc GitHub mirror), wiki FAQ, docs compatibility matrix, archive listings, checksums, GPG signatures, advisory pages, NVD API, installer contents and DLL strings.
 - Not verified: Windows 95 operation; FAAC licence status (general knowledge); the exact contrib source bundle for the Win32 build.
+
+## Decision, 2026-09-29
+
+Listed as `external`: Beacon downloads the installer from VideoLAN's own server, which still serves it over plain HTTP (checked 2026-09-29: http://download.videolan.org/pub/videolan/vlc/0.8.6i/win32/vlc-0.8.6i-win32.exe, 9,398,688 bytes). Backport Labs does not host or distribute VLC, because the sources of the libraries bundled in the Windows build could not be found. UNICOWS.DLL is a requirement the user must meet; Beacon does not supply it.

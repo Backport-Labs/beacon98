@@ -50,6 +50,7 @@ if ($head.Base -notmatch '^http://.+/$') { $errors.Add('catalog block: Base must
 $ids = @{}
 $sections = 'Utilities', 'Internet', 'Multimedia', 'Office', 'Development', 'Games', 'System'
 $fileLine = '^[A-Za-z0-9._/-]+ \d+ [0-9a-f]{64}$'
+$urlLine = '^http://[A-Za-z0-9.-]+/[A-Za-z0-9._/~%-]+ \d+ [0-9a-f]{64}$'
 foreach ($b in $blocks[1..($blocks.Count - 1)]) {
     $where = "package at line $($b._line)"
     foreach ($f in 'Package', 'Name', 'Version', 'Section', 'Summary', 'License', 'License-File', 'Systems', 'Download', 'Install', 'Uninstall') {
@@ -60,8 +61,16 @@ foreach ($b in $blocks[1..($blocks.Count - 1)]) {
     else { $ids[$b.Package] = $true }
     if ($b.Section -and $sections -notcontains $b.Section) { $errors.Add("${where}: unknown Section") }
     if ($b.Summary -and $b.Summary.Length -gt 70) { $errors.Add("${where}: Summary longer than 70 characters") }
+    $external = $b.Availability -eq 'external'
+    if ($b.Contains('Availability') -and @('hosted', 'external') -notcontains $b.Availability) { $errors.Add("${where}: Availability must be hosted or external") }
+    if ($external -and $b.Contains('Source')) { $errors.Add("${where}: an external package has no Source") }
     foreach ($f in 'Download', 'Source') {
-        if ($b.Contains($f)) { foreach ($x in ($b[$f] -split "`n")) { if ($x -notmatch $fileLine) { $errors.Add("${where}: bad $f line '$x'") } } }
+        if ($b.Contains($f)) {
+            foreach ($x in ($b[$f] -split "`n")) {
+                $pattern = if ($external) { $urlLine } else { $fileLine }
+                if ($x -notmatch $pattern) { $errors.Add("${where}: bad $f line '$x'") }
+            }
+        }
     }
     if ($b.Install -and $b.Install -notmatch '^(inno|nsis|msi|exe|unzip|copy)( |$)') { $errors.Add("${where}: unknown Install kind") }
     if ($b.Uninstall -and $b.Uninstall -notmatch '^(registry .+|files)$') { $errors.Add("${where}: bad Uninstall") }
