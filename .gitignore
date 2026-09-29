@@ -16,6 +16,7 @@ research/import/cache/
 # Never commit a private key or stored credentials.
 *.pem
 !keys/*.pub.pem
+!client/vendor/cacert/cacert.pem
 *.dpapi
 *.key
 
