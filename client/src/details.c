@@ -185,6 +185,8 @@ static int Layout(HDC dc, int draw, DETAILS *d, int width)
     else lstrcpy(buf, what);
     if (p->source > 0) y += Fact(dc, draw, x, y, w, "Source", g_src[p->source].name);
     y += Fact(dc, draw, x, y, w, "Downloaded from", buf);
+    if (p->f[F_HARDWARE])
+        y += Fact(dc, draw, x, y, w, "For this computer", p->fits[0] ? p->fits : "None of the devices it is for was found in this computer.");
     y += Fact(dc, draw, x, y, w, "License", p->f[F_LICENSE]);
     wsprintf(buf, "Windows %s", p->f[F_SYSTEMS]);
     y += Fact(dc, draw, x, y, w, "Runs on", buf);

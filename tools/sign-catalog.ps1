@@ -80,6 +80,7 @@ foreach ($b in $blocks[1..($blocks.Count - 1)]) {
     }
     if ($b.Install -and $b.Install -notmatch '^(inno|nsis|msi|exe|unzip|copy)( |$)') { $errors.Add("${where}: unknown Install kind") }
     if ($b.Uninstall -and $b.Uninstall -notmatch '^(registry .+|run .+|files|none)$') { $errors.Add("${where}: bad Uninstall") }
+    if ($b.Hardware) { foreach ($h in ($b.Hardware -split "`n" | Where-Object { $_ })) { if ($h -notmatch '^pci VEN_[0-9A-F]{4}&DEV_[0-9A-F]{4}$') { $errors.Add("${where}: bad Hardware line: $h") } } }
 }
 foreach ($b in $blocks[1..($blocks.Count - 1)]) {
     if ($b.Contains('Depends')) { foreach ($d in ($b.Depends -split ',\s*')) { if (-not $ids.ContainsKey($d)) { $errors.Add("package $($b.Package): depends on unknown $d") } } }

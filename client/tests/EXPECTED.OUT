@@ -42,6 +42,8 @@ REQUIRES the Windows registry key: met
 REQUIRES a registry key that does not exist: missing
 REQUIRES DirectX 1 or later: met
 REQUIRES DirectX 99: missing
+PCI a device this computer has, if it has any, is found: yes
+PCI a device that does not exist: missing
 SYSTEMS "95, 98, ME" and "NT4" name this Windows: no
 SYSTEMS an empty list names this Windows: no
 UNZIP TEST.ZIP, strip 0: unpacked

@@ -184,7 +184,7 @@ enum {
     F_HOMEPAGE, F_LICENSE, F_LICENSE_FILE, F_SYSTEMS, F_AVAILABILITY,
     F_DOWNLOAD, F_SOURCE, F_INSTALLED_SIZE, F_DEPENDS, F_REQUIRES,
     F_INSTALL, F_AFTER, F_SHORTCUT, F_UNINSTALL, F_WARNING, F_NOTICE,
-    F_REMOVE, F_DETECT, F_REFERER,
+    F_REMOVE, F_DETECT, F_REFERER, F_HARDWARE,
     F_COUNT
 };
 
@@ -203,6 +203,7 @@ typedef struct {
     int reqMissing;          /* number of Requires lines that fail */
     int marked;              /* ticked for installing */
     int source;              /* index in g_src: 0 is Backport Labs */
+    char fits[80];           /* a device of this computer its Hardware lines name, or "" */
 } PKG;
 
 typedef struct {
@@ -282,6 +283,7 @@ const char *ThisEdition(void);
 PKG *MissingPackage(PKG *p);
 int  SystemListed(const char *systems);
 int  CompareVersions(const char *a, const char *b);
+int  PciDevice(int n, char *id, int idLen, char *name, int nameLen);
 
 /* net.c: downloading over HTTP */
 int  HttpGetFile(const char *url, const char *path, DWORD expect, volatile int *cancel,
