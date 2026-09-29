@@ -22,6 +22,7 @@
 ## Download
 
 - URL: https://downloads.sourceforge.net/project/virtualdub/virtualdub-win/1.10.4.35491/VirtualDub-1.10.4.zip (SourceForge project virtualdub, linked from the official page)
+- SourceForge path for Beacon: http://downloads.sourceforge.net/project/virtualdub/virtualdub-win/1.10.4.35491/VirtualDub-1.10.4.zip (source: .../1.10.4.35491/VirtualDub-1.10.4-src.7z)
 - File: VirtualDub-1.10.4.zip, 1,908,225 bytes (32-bit x86, plain zip, no installer)
 - SHA-256: 0502648057fd1345f6755914e5d32bb55230ae63f63cd829298544e9ea5a4b98
 - MD5: df7b280908f7383525134d37c692f61e

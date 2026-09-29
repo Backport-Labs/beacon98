@@ -1,7 +1,7 @@
 Format: 1
 Catalog: Beacon 98
 Publisher: Backport Labs
-Serial: 2026092903
+Serial: 2026092904
 Date: 2026-09-29
 Expires: 2026-12-28
 Base: http://get.backportlabs.com/
@@ -228,6 +228,31 @@ Warning: Apache 1.3 has not been maintained since 2010 and may have security
  problems that were never fixed. It listens on all network connections:
  use it only on a home network or for testing, never on the internet.
 
+Package: audacity
+Name: Audacity
+Version: 2.0.0
+Section: Multimedia
+Summary: Records and edits sound, with effects and many file formats
+Description: A multi-track audio editor and recorder. Cut, copy, mix and apply
+ effects; import and export WAV, AIFF, Ogg Vorbis, FLAC and MP2. This is the
+ Audacity Team's own build for Windows 98 and ME.
+ .
+ To save MP3 files, Audacity needs the LAME encoder (lame_enc.dll), which is
+ not included and must be obtained separately.
+Homepage: https://www.audacityteam.org/
+License: GPL-2.0-or-later
+License-File: pool/audacity/2.0.0/LICENSE.TXT
+Systems: 98, ME
+Download: https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/audacity/audacity-win-2.0-ansi.exe 20091246 e76dd84393950b366bdf754e527c53e1357a71fa2e8a6b6b1c8a9930a31b4c8d pool/audacity/2.0.0/audacity-win-2.0-ansi.exe
+Source: pool/audacity/2.0.0/src/audacity-fullsrc-2.0.0.tar.bz2 18784590 7a531f13f36362eaa073c1f37c14f59a7118958d4d7c0ec52399c6b80ec3bbb6
+ pool/audacity/2.0.0/src/swh-plugins_0.4.15.orig.tar.gz 1051623 d05ee8a4f4d92e828412bce3449a034f6ef16bb630eaf60f8fe4e15a89168640
+ pool/audacity/2.0.0/src/wxWidgets-2.8.12.tar.bz2 13824774 3b0ac1d2d017683851841501c8e1b744b97242d684a1668ded61809b0504f707
+Install: inno
+Uninstall: registry Audacity 2.0
+Warning: This version has 2 known security problems, fixed only in versions
+ that do not run on Windows 98. Opening a malicious WAV or MP2 file can
+ damage memory and may run code on this computer.
+
 Package: autoit
 Name: AutoIt v3
 Version: 3.2.12.1
@@ -276,6 +301,22 @@ Warning: Avidemux 2.5.2 is from 2009. Its video and image libraries (FFmpeg,
  trust.
 Notice: Avidemux runs on Windows 98 only with KernelEx. Users report that the
  volume (loudness) adjustment does not work.
+
+Package: beacon98
+Name: Beacon 98
+Version: 0.5.0
+Section: System
+Summary: This package manager; installing it updates Beacon itself
+Description: Beacon 98 installs free software on Windows 95, 98 and
+ Millennium. Installing this package updates Beacon: it starts the new setup
+ program and closes, and the setup program starts it again when it is done.
+Homepage: https://github.com/Backport-Labs/beacon98
+License: MIT
+License-File: pool/beacon98/0.5.0/LICENSE.TXT
+Systems: 95, 98, ME
+Download: pool/beacon98/0.5.0/B98SETUP.EXE 494878 8cfa06811d7d82471440db1fc1271f320accd8dbd425cdbc8f2d57aae1ac3189
+Install: inno
+Uninstall: registry Beacon 98
 
 Package: bochs
 Name: Bochs
@@ -424,6 +465,28 @@ Warning: FCEUX opens games packed in archives with an old 7-Zip library that
  has known security problems. Use game files you trust, and run only Lua
  scripts you trust.
 
+Package: ffdshow
+Name: ffdshow
+Version: rev2322
+Section: Multimedia
+Summary: Video and audio decoders for Windows Media Player and other players
+Description: A DirectShow and Video for Windows codec package based on FFmpeg.
+ It lets Windows Media Player, Media Player Classic and other programs play
+ DivX, Xvid, H.264, MPEG-2, Theora, AAC, AC3 and many other formats, with
+ optional picture and sound filters. This is the last ffdshow-tryouts build
+ known to work on Windows 98.
+Homepage: https://ffdshow-tryout.sourceforge.net/
+License: GPL-2.0
+License-File: pool/ffdshow/rev2322/LICENSE.TXT
+Systems: 98, ME
+Availability: external
+Download: http://downloads.sourceforge.net/project/ffdshow-tryout/SVN%20builds%20by%20clsid/very%20old%20builds/ffdshow_rev2322_20081114_clsid.exe 4259365 f1f5877c96d9fdfa753899f38a655ca2f54a9a676116e8e54f72d473d68a2ea7
+Install: inno
+Uninstall: registry ffdshow [rev 2322] [2008-11-14]
+Warning: This version has a known security problem: a long address in a
+ media stream can run code on this computer. The libraries it includes have
+ many more, fixed only in versions that do not run on Windows 98.
+
 Package: firefox
 Name: Mozilla Firefox
 Version: 2.0.0.20
@@ -485,6 +548,35 @@ Download: http://downloads.sourceforge.net/project/freepascal/Win32/2.6.2/fpc-2.
 Install: inno /DIR=C:\FPC\2.6.2
 After: path C:\FPC\2.6.2\bin\i386-win32
 Uninstall: registry Free Pascal 2.6.2
+
+Package: gimp
+Name: GIMP
+Version: 2.0.5
+Section: Office
+Summary: Image editor for photos, drawings and web graphics
+Description: The GNU Image Manipulation Program: retouch photos, paint, work
+ with layers, and read and write most image formats. This is GIMP 2.0.5 as
+ built for Windows by Jernej Simoncic, with the GTK+ 2.4 runtime, which is
+ installed first.
+ .
+ Its builder did not support Windows 98 and ME any more but let it install
+ there: "It may run without problems, but do not expect fixes for bugs that
+ only occur on these platforms."
+Homepage: https://www.gimp.org/
+License: GPL-2.0-or-later
+License-File: pool/gimp/2.0.5/LICENSE.TXT
+Systems: 98, ME, NT4, 2000
+Availability: external
+Download: https://ftp.arnes.si/software/gimp-win/gimp-2.0.5-i586-setup.zip 7110219 c7cf15d1ceb3c6e0c0210a06630d855d060aa6fc53bd7bb8a39b4e1b872bfa6c http://ftp.arnes.si/software/gimp-win/gimp-2.0.5-i586-setup.zip
+Depends: gtk-runtime
+Installed-Size: 28600
+Install: inno
+Uninstall: registry The GIMP 2.0.5
+Warning: This version has known security problems, fixed only in versions
+ that do not run on Windows 98. Opening a malicious image file can run code
+ on this computer.
+Notice: If GIMP warns about fonts falling back to "Sans", set all fonts in
+ Display Properties, Appearance, to Tahoma or another TrueType font.
 
 Package: gnuwin32-core
 Name: GnuWin32 core tools
@@ -557,6 +649,27 @@ Requires: package kernelex | Golly 1.4 needs KernelEx on Windows 98 and ME. Inst
 Install: unzip {pf}\Golly strip 1
 Shortcut: Golly | {pf}\Golly\Golly.exe |
 Uninstall: files
+
+Package: gtk-runtime
+Name: GTK+ 2.4 runtime
+Version: 2.4.9
+Section: System
+Summary: Libraries needed by GIMP 2.0 and other GTK+ 2.4 programs
+Description: The GTK+ 2.4 user interface libraries with GLib, Pango, ATK and
+ image libraries, as built for Windows by Jernej Simoncic for GIMP 2.0.5.
+Homepage: https://www.gtk.org/
+License: LGPL-2.0-or-later
+License-File: pool/gtk-runtime/2.4.9/LICENSE.TXT
+Systems: 98, ME, NT4, 2000
+Availability: external
+Download: https://ftp.arnes.si/software/gimp-win/gtk+-2.4.9-setup.zip 4045552 a210b645308c62bf64a0b697ea330f410634ddfda6604d2808b7e4493b3d8efe http://ftp.arnes.si/software/gimp-win/gtk+-2.4.9-setup.zip
+Installed-Size: 17650
+Install: inno
+Uninstall: registry GTK+ 2.4.9 runtime environment
+Warning: These libraries have many known security problems. Opening malicious
+ image or font files in programs that use them can run code on this computer.
+Notice: On Windows 98 and ME the setup program adds the GTK+ folder to PATH in
+ AUTOEXEC.BAT. It takes effect after a restart; GIMP works without one.
 
 Package: hashmyfiles
 Name: HashMyFiles
@@ -781,6 +894,31 @@ Warning: Miranda IM 0.7.19 is from 2009 and no longer maintained. Its
  handled by old code that may have unfixed security problems.
 Notice: The picture and IRC plugins need MSVCP60.DLL in the Windows SYSTEM
  folder. Your chat history is stored in the Miranda IM folder.
+
+Package: mpc
+Name: Media Player Classic
+Version: 6.4.9.1
+Section: Multimedia
+Summary: Small, fast media player for video, audio and DVDs
+Description: The classic Media Player Classic by Gabest, in the 6.4.9.1
+ maintenance release by the guliverkli2 project (build of 2008-10-05,
+ revision 82, the Windows 9x edition). Plays AVI, MPEG, Matroska, MP4,
+ Ogg, FLV and DVDs with built-in splitters and MPEG/MP3/AC3/DTS/AAC
+ decoders; other formats need DirectShow codecs.
+Homepage: https://sourceforge.net/projects/guliverkli2/
+License: GPL-2.0-or-later
+License-File: pool/mpc/6.4.9.1/LICENSE.TXT
+Systems: 98, ME
+Availability: external
+Download: http://downloads.sourceforge.net/project/guliverkli2/Media%20Player%20Classic/6.4.9.1/mplayerc_20081005_win9x.zip 2070308 804a66aad98b2b79b3f9ae535d3e2d1dbcdc9bac31d32f9d55d79edd16b1e7d8
+Requires: dx 7.0 | Media Player Classic needs DirectX 7 or later. Windows 98 SE comes with DirectX 6.1; install a newer DirectX from Microsoft first.
+Installed-Size: 4300
+Install: unzip {dir}
+Shortcut: Media Player Classic | {dir}\mplayerc.exe |
+Uninstall: files
+Warning: This version has known security problems. Opening a malicious video
+ file (for example AVI, FLV or MPEG audio) can crash the player or run code on
+ this computer.
 
 Package: myuninstaller
 Name: MyUninstaller
@@ -1190,6 +1328,25 @@ Uninstall: files
 Warning: This version contains old image and compression libraries with known
  security problems. Opening a malicious game file or skin can run code on
  this computer.
+
+Package: virtualdub
+Name: VirtualDub
+Version: 1.10.4
+Section: Multimedia
+Summary: Video capture and processing for AVI files
+Description: Captures video from capture cards, cuts and joins AVI files, and
+ runs filters and compressors over them without re-encoding what it does not
+ need to. Includes a command-line version (vdub.exe).
+Homepage: https://www.virtualdub.org/
+License: GPL-2.0-or-later
+License-File: pool/virtualdub/1.10.4/LICENSE.TXT
+Systems: 98, ME, NT4, 2000
+Download: http://downloads.sourceforge.net/project/virtualdub/virtualdub-win/1.10.4.35491/VirtualDub-1.10.4.zip 1908225 0502648057fd1345f6755914e5d32bb55230ae63f63cd829298544e9ea5a4b98 pool/virtualdub/1.10.4/VirtualDub-1.10.4.zip
+Source: pool/virtualdub/1.10.4/src/VirtualDub-1.10.4-src.7z 1811455 7d11ee30b437d06888b6fbc1820faaf284727c453e387dd865ce9628331c8d76
+Installed-Size: 3900
+Install: unzip {pf}\VirtualDub
+Shortcut: VirtualDub | {pf}\VirtualDub\VirtualDub.exe |
+Uninstall: files
 
 Package: volumouse
 Name: Volumouse

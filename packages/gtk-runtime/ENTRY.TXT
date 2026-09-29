@@ -1,0 +1,26 @@
+# DRAFT - GTK+ 2.4.9 runtime for GIMP 2.0.5, external (ftp.arnes.si, a mirror
+# named by the builder). The earlier GTK+ 2.6.10 draft (for GIMP 2.2.17) is kept
+# in ENTRY-2.2.17.TXT.
+# FORMAT GAP: the publisher's file is a zip holding the Inno Setup program; see
+# gimp\ENTRY.TXT. Test in the VM whether the GTK-Wimp font note (a message box
+# on 9x) interrupts the silent install.
+Package: gtk-runtime
+Name: GTK+ 2.4 runtime
+Version: 2.4.9
+Section: System
+Summary: Libraries needed by GIMP 2.0 and other GTK+ 2.4 programs
+Description: The GTK+ 2.4 user interface libraries with GLib, Pango, ATK and
+ image libraries, as built for Windows by Jernej Simoncic for GIMP 2.0.5.
+Homepage: https://www.gtk.org/
+License: LGPL-2.0-or-later
+License-File: pool/gtk-runtime/2.4.9/LICENSE.TXT
+Systems: 98, ME, NT4, 2000
+Availability: external
+Download: https://ftp.arnes.si/software/gimp-win/gtk+-2.4.9-setup.zip 4045552 a210b645308c62bf64a0b697ea330f410634ddfda6604d2808b7e4493b3d8efe http://ftp.arnes.si/software/gimp-win/gtk+-2.4.9-setup.zip
+Installed-Size: 17650
+Install: inno
+Uninstall: registry GTK+ 2.4.9 runtime environment
+Warning: These libraries have many known security problems. Opening malicious
+ image or font files in programs that use them can run code on this computer.
+Notice: On Windows 98 and ME the setup program adds the GTK+ folder to PATH in
+ AUTOEXEC.BAT. It takes effect after a restart; GIMP works without one.

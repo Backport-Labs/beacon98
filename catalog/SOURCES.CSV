@@ -62,3 +62,11 @@ smplayer,no,,,,7z archive; Beacon cannot unpack 7z yet
 tcltk84,no,,,,no redistributable build
 wings3d,no,,,,bundles closed FBX plug-in
 xchm,no,,,,no Windows build exists
+beacon98,yes,yes,,,Beacon itself; self-update
+virtualdub,yes,yes,virtualdub/virtualdub-win/1.10.4.35491/VirtualDub-1.10.4.zip,,
+audacity,yes,yes,,https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/audacity/audacity-win-2.0-ansi.exe,Google Code archive; Windows 98/ME build
+mpc,yes,no,,,already external (links Microsoft and Apple libraries)
+ffdshow,yes,no,,,already external (non-free AMR code)
+gimp,yes,no,,,2.0.5 external from ftp.arnes.si
+gtk-runtime,yes,no,,,2.4.9 external from ftp.arnes.si
+ac3filter,no,,,,contains DVD CSS decryption code (user decision)

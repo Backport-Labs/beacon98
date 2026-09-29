@@ -205,6 +205,14 @@ static void TestUnzip(void)
     }
     wsprintf(path, "%sEVIL.TXT", g_dir);
     fprintf(g_out, "UNZIP a file outside the target was %s\n", GetFileAttributes(path) == 0xFFFFFFFF ? "not written" : "WRITTEN");
+    /* A setup program inside a zip: one is found, two are refused. */
+    wsprintf(archive, "%sSETUP1.ZIP", g_dir);
+    wsprintf(target, "%sOUT5", g_dir);
+    if (SetupFromZip(archive, target, path, err, sizeof(err))) fprintf(g_out, "UNZIP a zip with one setup program: %s\n", strrchr(path, '\\') + 1);
+    else fprintf(g_out, "UNZIP a zip with one setup program: %s\n", err);
+    wsprintf(archive, "%sSETUP2.ZIP", g_dir);
+    wsprintf(target, "%sOUT6", g_dir);
+    fprintf(g_out, "UNZIP a zip with two setup programs: %s\n", SetupFromZip(archive, target, path, err, sizeof(err)) ? "ACCEPTED" : err);
     wsprintf(archive, "%sED25519.TXT", g_dir);
     wsprintf(target, "%sOUT4", g_dir);
     fprintf(g_out, "UNZIP a file that is not an archive: %s\n", Unzip(archive, target, 0, NULL, NULL, NULL, err, sizeof(err)) ? "unpacked" : err);

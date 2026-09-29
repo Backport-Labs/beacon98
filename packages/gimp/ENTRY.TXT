@@ -1,0 +1,33 @@
+# DRAFT - GIMP 2.0.5, external (ftp.arnes.si, a mirror named by the builder).
+# The 2.2.17 draft is kept in ENTRY-2.2.17.TXT.
+# FORMAT GAP: the publisher's file is a zip holding the Inno Setup program.
+# Install/After below work with format draft 1 but record {temp}\gimp-setup
+# as the package folder. Decide on a format addition before publishing.
+Package: gimp
+Name: GIMP
+Version: 2.0.5
+Section: Office
+Summary: Image editor for photos, drawings and web graphics
+Description: The GNU Image Manipulation Program: retouch photos, paint, work
+ with layers, and read and write most image formats. This is GIMP 2.0.5 as
+ built for Windows by Jernej Simoncic, with the GTK+ 2.4 runtime, which is
+ installed first.
+ .
+ Its builder did not support Windows 98 and ME any more but let it install
+ there: "It may run without problems, but do not expect fixes for bugs that
+ only occur on these platforms."
+Homepage: https://www.gimp.org/
+License: GPL-2.0-or-later
+License-File: pool/gimp/2.0.5/LICENSE.TXT
+Systems: 98, ME, NT4, 2000
+Availability: external
+Download: https://ftp.arnes.si/software/gimp-win/gimp-2.0.5-i586-setup.zip 7110219 c7cf15d1ceb3c6e0c0210a06630d855d060aa6fc53bd7bb8a39b4e1b872bfa6c http://ftp.arnes.si/software/gimp-win/gimp-2.0.5-i586-setup.zip
+Depends: gtk-runtime
+Installed-Size: 28600
+Install: inno
+Uninstall: registry The GIMP 2.0.5
+Warning: This version has known security problems, fixed only in versions
+ that do not run on Windows 98. Opening a malicious image file can run code
+ on this computer.
+Notice: If GIMP warns about fonts falling back to "Sans", set all fonts in
+ Display Properties, Appearance, to Tahoma or another TrueType font.

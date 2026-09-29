@@ -4,7 +4,7 @@
 ; or run client\build\build.ps1 with -Iscc, which compiles BEACON98.EXE first.
 
 #define AppName    "Beacon 98"
-#define AppVersion "0.4.0"
+#define AppVersion "0.5.0"
 
 [Setup]
 AppName={#AppName}

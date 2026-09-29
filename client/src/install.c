@@ -389,11 +389,57 @@ static const char *After(const char *s, int words)
     return s;
 }
 
+/* Deletes a folder and everything in it. */
+static void DeleteTree(const char *dir)
+{
+    char pattern[MAX_PATH], path[MAX_PATH];
+    WIN32_FIND_DATA fd;
+    HANDLE h;
+    wsprintf(pattern, "%s\\*", dir);
+    h = FindFirstFile(pattern, &fd);
+    if (h != INVALID_HANDLE_VALUE) {
+        do {
+            if (lstrcmp(fd.cFileName, ".") == 0 || lstrcmp(fd.cFileName, "..") == 0) continue;
+            wsprintf(path, "%s\\%s", dir, fd.cFileName);
+            if (fd.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY) DeleteTree(path);
+            else { SetFileAttributes(path, FILE_ATTRIBUTE_NORMAL); DeleteFile(path); }
+        } while (FindNextFile(h, &fd));
+        FindClose(h);
+    }
+    RemoveDirectory(dir);
+}
+
+/* Unpacks zip into folder and copies the path of the one setup program it
+ * holds (.exe or .msi, at the top of the archive) to setup. */
+int SetupFromZip(const char *zip, const char *folder, char *setup, char *err, int errLen)
+{
+    static const char *kinds[2] = { "*.exe", "*.msi" };
+    char pattern[MAX_PATH], found[MAX_PATH];
+    WIN32_FIND_DATA fd;
+    HANDLE h;
+    int i, n = 0;
+    DeleteTree(folder);
+    TaskLog("Unpacking the setup program from %s", strrchr(zip, '\\') + 1);
+    if (!Unzip(zip, folder, 0, TaskCancelFlag(), NULL, NULL, err, errLen)) return 0;
+    for (i = 0; i < 2; i++) {
+        wsprintf(pattern, "%s\\%s", folder, kinds[i]);
+        h = FindFirstFile(pattern, &fd);
+        if (h == INVALID_HANDLE_VALUE) continue;
+        do { wsprintf(found, "%s\\%s", folder, fd.cFileName); n++; } while (FindNextFile(h, &fd));
+        FindClose(h);
+    }
+    if (n != 1) { wsprintf(err, "The zip file holds %d setup programs; Beacon 98 expects exactly one.", n); return 0; }
+    lstrcpy(setup, found);
+    return 1;
+}
+
 static int InstallOne(PKG *p, RECORD *rec)
 {
     char files[8][MAX_PATH], dir[MAX_PATH], cmd[1200], line[700], exp[1024], err[300], sysdir[MAX_PATH];
     const char *inst = p->f[F_INSTALL], *extra;
     int count, i, k, code, strip = 0, ok = 1;
+    char unpacked[MAX_PATH], zipPath[MAX_PATH];
+    unpacked[0] = zipPath[0] = 0;
 
     TaskLog("");
     TaskLog("%s %s", p->f[F_NAME], p->f[F_VERSION]);
@@ -438,6 +484,13 @@ static int InstallOne(PKG *p, RECORD *rec)
             }
         }
     } else {
+        /* Some setup programs are published inside a zip file: unpack it and
+         * run the one setup program in it. */
+        if (lstrlen(files[0]) > 4 && lstrcmpi(files[0] + lstrlen(files[0]) - 4, ".zip") == 0) {
+            lstrcpy(zipPath, files[0]);
+            wsprintf(unpacked, "%s%s", g_downloadDir, p->f[F_PACKAGE]);
+            if (!SetupFromZip(zipPath, unpacked, files[0], err, sizeof(err))) { TaskLog("  %s", err); return 0; }
+        }
         Expand(After(inst, 1), dir, exp, sizeof(exp));   /* switches may name {dir}, e.g. /D={dir} for NSIS */
         extra = exp;
         if (strncmp(inst, "inno", 4) == 0)
@@ -511,6 +564,7 @@ static int InstallOne(PKG *p, RECORD *rec)
         if (MakeShortcut(name, target, args, rec)) TaskLog("Added %s to the Start Menu.", name);
     }
     for (i = 0; i < count; i++) DeleteFile(files[i]);
+    if (zipPath[0]) { DeleteFile(zipPath); DeleteTree(unpacked); }
     TaskLog("%s is installed.", p->f[F_NAME]);
     return 1;
 }

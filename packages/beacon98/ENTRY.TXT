@@ -1,0 +1,15 @@
+Package: beacon98
+Name: Beacon 98
+Version: 0.5.0
+Section: System
+Summary: This package manager; installing it updates Beacon itself
+Description: Beacon 98 installs free software on Windows 95, 98 and
+ Millennium. Installing this package updates Beacon: it starts the new setup
+ program and closes, and the setup program starts it again when it is done.
+Homepage: https://github.com/Backport-Labs/beacon98
+License: MIT
+License-File: pool/beacon98/0.5.0/LICENSE.TXT
+Systems: 95, 98, ME
+Download: pool/beacon98/0.5.0/B98SETUP.EXE 494878 8cfa06811d7d82471440db1fc1271f320accd8dbd425cdbc8f2d57aae1ac3189
+Install: inno
+Uninstall: registry Beacon 98
