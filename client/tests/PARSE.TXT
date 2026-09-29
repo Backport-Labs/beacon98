@@ -20,7 +20,7 @@ Description: First line.
 License: MIT
 License-File: pool/two-files/1.0/LICENSE.TXT
 Systems: 95, 98
-Download: pool/two-files/1.0/a.zip 1000 0000000000000000000000000000000000000000000000000000000000000000
+Download: pool/two-files/1.0/a.zip 1000 0000000000000000000000000000000000000000000000000000000000000000 http://mirror.example.com/a.zip
  pool/two-files/1.0/b.zip 2345 1111111111111111111111111111111111111111111111111111111111111111
 Unknown-Field: ignored
 Install: unzip {dir}
@@ -45,3 +45,15 @@ Download: http://example.com/files/setup.exe 4096 222222222222222222222222222222
 Depends: two-files
 Install: nsis
 Uninstall: registry External One
+
+Package: mirrored
+Name: Mirrored
+Version: 3
+Section: Games
+Summary: Offered by two other servers and not by ours
+License: GPL-2.0-or-later
+License-File: pool/mirrored/3/LICENSE.TXT
+Systems: 98
+Download: http://one.example.com/m.zip 777 3333333333333333333333333333333333333333333333333333333333333333 http://two.example.com/m.zip
+Install: unzip {dir}
+Uninstall: files

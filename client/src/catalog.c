@@ -61,6 +61,23 @@ static DWORD DownloadBytes(const char *lines)
     return total;
 }
 
+/* Whether some Download line offers the file from the catalog's own server
+ * (a location that is a path, not an http:// address). */
+static int HostedHere(const char *lines)
+{
+    const char *p = lines;
+    int word = 0;
+    while (p && *p) {
+        while (*p == ' ') p++;
+        if (*p == '\n') { p++; word = 0; continue; }
+        if (!*p) break;
+        if (word != 1 && word != 2 && strncmp(p, "http://", 7) != 0) return 1;   /* words 1 and 2 are size and hash */
+        while (*p && *p != ' ' && *p != '\n') p++;
+        word++;
+    }
+    return 0;
+}
+
 static int PkgComplete(PKG *p)
 {
     int i;
@@ -176,7 +193,7 @@ int LoadCatalog(const char *path, CATALOG *cat, char *err, int errLen)
     for (i = 0; i < cat->count; i++) {
         PKG *p = &cat->pkg[i];
         p->bytes = DownloadBytes(p->f[F_DOWNLOAD]);
-        p->external = p->f[F_AVAILABILITY] && lstrcmp(p->f[F_AVAILABILITY], "external") == 0;
+        p->external = (p->f[F_AVAILABILITY] && lstrcmp(p->f[F_AVAILABILITY], "external") == 0) || !HostedHere(p->f[F_DOWNLOAD]);
     }
     return 1;
 }

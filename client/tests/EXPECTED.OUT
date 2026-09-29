@@ -20,13 +20,16 @@ PKG infozip | Info-ZIP Zip and UnZip | 3.0 and 6.0 | Utilities | 769932 bytes | 
 PKG scummvm | ScummVM | 2026.1.0 | Games | 114460830 bytes | hosted | depends -
 PKG beneath-a-steel-sky | Beneath a Steel Sky | CD 1.2 | Games | 69377781 bytes | hosted | depends scummvm
 PKG python | Python | 2.5.4 | Development | 11323392 bytes | hosted | depends -
-PARSE 2 packages
+PARSE 3 packages
 PKG two-files | Two Files | 1.0 | Utilities | 3345 bytes | hosted | depends -
   Description [First line.\n\nThird line, after an empty one.]
-  Download [pool/two-files/1.0/a.zip 1000 0000000000000000000000000000000000000000000000000000000000000000\npool/two-files/1.0/b.zip 2345 1111111111111111111111111111111111111111111111111111111111111111]
+  Download [pool/two-files/1.0/a.zip 1000 0000000000000000000000000000000000000000000000000000000000000000 http://mirror.example.com/a.zip\npool/two-files/1.0/b.zip 2345 1111111111111111111111111111111111111111111111111111111111111111]
 PKG external-one | External One | 2.0 beta | Internet | 4096 bytes | external | depends two-files
   Description []
   Download [http://example.com/files/setup.exe 4096 2222222222222222222222222222222222222222222222222222222222222222]
+PKG mirrored | Mirrored | 3 | Games | 777 bytes | external | depends -
+  Description []
+  Download [http://one.example.com/m.zip 777 3333333333333333333333333333333333333333333333333333333333333333 http://two.example.com/m.zip]
 PARSE a file that is not a catalog: The catalog is in a format this version of Beacon does not know. Please update Beacon 98.
 REQUIRES the system library: met
 REQUIRES a file that does not exist: missing
@@ -47,3 +50,6 @@ HTTP with a size smaller than the file: The server sent more than the catalog li
 HTTP the partial file was deleted
 HTTP a missing file: The server answered 404.
 HTTP an https address: Only http:// addresses can be used on this computer.
+FETCH a missing first location, then a good one: fetched NO-SUCH-FILE.TXT, 145 bytes
+FETCH a file that matches no location: refused
+FETCH the refused file was deleted

@@ -66,8 +66,8 @@ The first block describes the catalog. Each further block is one package.
 | `License` | yes | License name, SPDX identifier where one exists, or `Freeware` |
 | `License-File` | yes | Path of the license text. The client shows it before installing. |
 | `Systems` | yes | Systems it runs on, from `95`, `98`, `ME`, `NT4`, `2000` |
-| `Availability` | no | `hosted` (the default): the files are on our server. `external`: the files are downloaded from the publisher's own server, and Backport Labs does not distribute them. |
-| `Download` | yes | One line per file: `path size sha256`. Several files are installed in the order given. For an `external` package, the path is the full `http://` address on the publisher's server. |
+| `Availability` | no | `hosted` (the default): Backport Labs distributes the files, from its own server or another. `external`: Backport Labs does not distribute them; every location is someone else's server, such as the publisher's or SourceForge. A package whose Download lines name no location on our server is treated as `external` either way. |
+| `Download` | yes | One line per file: `location size sha256`, optionally followed by more locations: `location size sha256 location2 location3`. A location is a path on our server (relative to `Base`) or a full `http://` address. The client tries the locations in order until one gives a file with this size and SHA-256. Several files are installed in the order of the lines. An `external` package names no location on our server. |
 | `Source` | no | One line per file: `path size sha256`. Not downloaded by the client; offered on the package's page. Not given for `external` packages, which we do not distribute. |
 | `Installed-Size` | no | Disk space needed after installation, in KB |
 | `Depends` | no | Packages from this catalog to install first, separated by commas |

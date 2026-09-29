@@ -229,6 +229,19 @@ static void TestHttp(void)
         fprintf(g_out, "HTTP a missing file: %s\n", err);
     if (!HttpGetFile("https://" CATALOG_HOST "/KEYS.TXT", path, 0, NULL, NULL, NULL, err, sizeof(err)))
         fprintf(g_out, "HTTP an https address: %s\n", err);
+
+    /* A file with several locations: the first is missing, the second is right. */
+    lstrcpy(g_cat.base, "http://" CATALOG_HOST "/");
+    if (FetchFile("NO-SUCH-FILE.TXT 145 0adb5197c506dfb57350af9fbf70686decad570db7bc278e1fdc88ec4173b42a KEYS.TXT", g_dir, path)
+        && Sha256File(path, h, &size))
+        fprintf(g_out, "FETCH a missing first location, then a good one: fetched %s, %lu bytes\n", strrchr(path, '\\') + 1, size);
+    else fprintf(g_out, "FETCH a missing first location, then a good one: FAILED\n");
+    DeleteFile(path);
+    fprintf(g_out, "FETCH a file that matches no location: %s\n",
+            FetchFile("KEYS.TXT 145 0000000000000000000000000000000000000000000000000000000000000000 http://" CATALOG_HOST "/KEYS.TXT",
+                      g_dir, path) ? "FETCHED" : "refused");
+    fprintf(g_out, "FETCH the refused file was %s\n", GetFileAttributes(path) == 0xFFFFFFFF ? "deleted" : "KEPT");
+    g_cat.base[0] = 0;
     CloseNet();
 }
 
