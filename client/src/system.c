@@ -87,8 +87,33 @@ static int FileVersion(const char *path, char *out)
  * CurrentControlSet copy on NT. Windows 9x keeps devices it has seen even
  * after they are removed, so a device may be one that was there before. */
 #define MAX_PCI 96
-static struct { char id[18]; char name[80]; } g_pci[MAX_PCI];
+static struct { char id[18]; char name[80]; char cc[40]; } g_pci[MAX_PCI];   /* cc: " CC_030000 CC_0300" */
 static int g_npci = -1;
+
+/* The class codes in a device's CompatibleIDs ("PCI\CC_030000,PCI\CC_0300"
+ * on 9x, a list of strings on NT), as " CC_030000 CC_0300". */
+static void ClassCodes(const char *key, char *out, int outLen)
+{
+    char buf[1024];
+    DWORD n = sizeof(buf) - 2, type, i;
+    HKEY k;
+    int o = 0, j;
+    out[0] = 0;
+    if (RegOpenKeyEx(HKEY_LOCAL_MACHINE, key, 0, KEY_READ, &k) != ERROR_SUCCESS) return;
+    if (RegQueryValueEx(k, "CompatibleIDs", NULL, &type, (BYTE *)buf, &n) != ERROR_SUCCESS) n = 0;
+    RegCloseKey(k);
+    for (i = 0; i + 4 <= n; i++) {
+        if (buf[i] != '\\' || strncmp(buf + i + 1, "CC_", 3) != 0) continue;
+        for (j = 4; i + j < n && isxdigit((unsigned char)buf[i + j]); j++) ;
+        if (j > 4 && o + j + 1 < outLen) {
+            out[o++] = ' ';
+            memcpy(out + o, buf + i + 1, j - 1);
+            o += j - 1;
+            out[o] = 0;
+        }
+    }
+    CharUpper(out);
+}
 
 static void ReadPci(void)
 {
@@ -110,8 +135,10 @@ static void ReadPci(void)
             lstrcpy(g_pci[g_npci].id, id);
             g_pci[g_npci].name[0] = 0;
             if (RegOpenKeyEx(r, sub, 0, KEY_READ, &d) == ERROR_SUCCESS) {
+                g_pci[g_npci].cc[0] = 0;
                 if (RegEnumKey(d, 0, inst, sizeof(inst)) == ERROR_SUCCESS) {
                     wsprintf(key, "%s\\%s\\%s", roots[k], sub, inst);
+                    ClassCodes(key, g_pci[g_npci].cc, sizeof(g_pci[0].cc));
                     if (RegText(HKEY_LOCAL_MACHINE, key, "DeviceDesc", g_pci[g_npci].name, sizeof(g_pci[0].name))
                         && (semi = strrchr(g_pci[g_npci].name, ';')) != NULL)   /* NT: "@x.inf,%y%;Name" */
                         lstrcpy(g_pci[g_npci].name, semi + 1);
@@ -134,13 +161,24 @@ int PciDevice(int n, char *id, int idLen, char *name, int nameLen)
     return 1;
 }
 
-/* Whether a PCI device "VEN_xxxx&DEV_yyyy" is in this computer; copies its name. */
+/* Whether a PCI device is in this computer; copies its name. want is a device,
+ * "VEN_xxxx&DEV_yyyy", or a class, "CC_0300" (any display adapter) or
+ * "CC_0C0330" (any USB 3 controller), for drivers made for every device of a kind. */
 static int PciPresent(const char *want, char *name, int nameLen)
 {
-    char id[18], dev[80];
-    int n;
-    for (n = 0; PciDevice(n, id, sizeof(id), dev, sizeof(dev)); n++)
-        if (lstrcmpi(id, want) == 0) { if (name) lstrcpyn(name, dev, nameLen); return 1; }
+    char id[18], dev[80], w[20], *t;
+    int n, len;
+    lstrcpyn(w, want, sizeof(w));
+    CharUpper(w);
+    len = lstrlen(w);
+    for (n = 0; PciDevice(n, id, sizeof(id), dev, sizeof(dev)); n++) {
+        int hit = 0;
+        if (strncmp(w, "CC_", 3) == 0) {
+            for (t = g_pci[n].cc; !hit && (t = strstr(t, w)) != NULL; t += len)
+                hit = t[-1] == ' ';                        /* a code that starts with w */
+        } else hit = lstrcmp(id, w) == 0;
+        if (hit) { if (name) lstrcpyn(name, dev, nameLen); return 1; }
+    }
     return 0;
 }
 
