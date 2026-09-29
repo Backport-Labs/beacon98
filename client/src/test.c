@@ -174,7 +174,8 @@ static void TestRequirements(void)
         "memory 1 | one megabyte of memory",
         "memory 999999 | a terabyte of memory",
         "dx 9 | DirectX 9",
-        "future-check 1 | a check a later version may add"
+        "future-check 1 | a check a later version may add",
+        "package no-such-package | a package the catalog does not have"
     };
     char what[200];
     int i, r;

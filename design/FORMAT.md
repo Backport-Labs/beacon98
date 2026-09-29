@@ -103,10 +103,15 @@ Paths in `Install`, `After`, `Shortcut` and `Requires` may use:
 | `dx` | version | DirectX of this version or later is present |
 | `winsock2` | | Windows Sockets 2 is present |
 | `memory` | MB | The computer has at least this much memory |
+| `package` | package identifier | That package of this catalog is installed |
 
 The text after `|` says what is missing and where to get it. Beacon never
 downloads anything a `Requires` line names; those are components we have no
-right to distribute.
+right to distribute. The exception is `package`: the requirement is another
+package of the catalog, such as KernelEx, which changes Windows itself.
+Beacon does not install it without asking. When the user ticks or installs a
+package that needs it, Beacon shows that package's warning and offers to
+tick it too; it is then installed first.
 
 ## What the catalog contains
 

@@ -14,6 +14,7 @@
 #define ID_STATUS  107
 
 #define WM_FIRST_RUN (WM_APP + 1)
+#define WM_OFFER     (WM_APP + 2)
 
 #define G_ALL       (-1)
 #define G_INSTALLED (-2)
@@ -218,6 +219,8 @@ static void MarkChanged(int row)
     on = ((UINT)SendMessage(g_list, MY_LVM_GETITEMSTATE, row, MY_LVIS_STATEIMAGEMASK) >> 12) == 2;
     if (on == p->marked) return;
     p->marked = on;
+    if (on && (dep = MissingPackage(p)) != NULL && !dep->marked)
+        PostMessage(g_main, WM_OFFER, 0, (LPARAM)p);          /* ask once the tick is drawn */
     if (on && p->f[F_DEPENDS] && (dep = FindPkg(&g_cat, p->f[F_DEPENDS])) != NULL && !dep->marked && dep->status == ST_NO) {
         dep->marked = 1;
         n = (int)SendMessage(g_list, MY_LVM_GETITEMCOUNT, 0, 0);
@@ -371,6 +374,20 @@ static LRESULT CALLBACK MainProc(HWND hwnd, UINT msg, WPARAM wp, LPARAM lp)
     case WM_FIRST_RUN:
         if (UpdateCatalog(hwnd)) Refresh();
         return 0;
+    case WM_OFFER: {
+        PKG *p = (PKG *)lp, *need = MissingPackage(p);
+        int i, n;
+        if (!need || need->marked || !p->marked) return 0;
+        if (OfferPackage(hwnd, p, need)) {
+            need->marked = 1;
+            n = (int)SendMessage(g_list, MY_LVM_GETITEMCOUNT, 0, 0);
+            g_filling = 1;
+            for (i = 0; i < n; i++) if (RowPkg(i) == need) SetCheck(i, 1);
+            g_filling = 0;
+            UpdateButtons();
+        }
+        return 0;
+    }
     case WM_NOTIFY: {
         NMHDR *n = (NMHDR *)lp;
         if (g_filling) return 0;
