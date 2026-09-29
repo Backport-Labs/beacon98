@@ -1,5 +1,5 @@
                                 BEACON 98
-                              Version 0.4.0
+                              Version 0.5.0
 
          Installs free software on Windows 95, 98 and Millennium.
 

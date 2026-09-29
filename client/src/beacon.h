@@ -170,7 +170,7 @@ int crypto_sign_ed25519_tweet_open(unsigned char *m, unsigned long long *mlen,
  * Constants, types and the state the files share
  * --------------------------------------------------------------------- */
 #define APP_NAME     "Beacon 98"
-#define APP_VERSION  "0.4.0"
+#define APP_VERSION  "0.5.0"
 #define CATALOG_HOST "get.backportlabs.com"
 #define SELF_PACKAGE "beacon98"          /* the catalog's package for Beacon itself */
 #define CATALOG_FILE "CATALOG.TXT"
@@ -295,6 +295,7 @@ int  InstallPackages(HWND owner, PKG **chosen, int count);
 int  RemovePackage(HWND owner, PKG *p);
 int  OfferPackage(HWND owner, PKG *p, PKG *need);
 int  FetchFile(const char *line, const char *dir, char *out);
+int  SetupFromZip(const char *zip, const char *folder, char *setup, char *err, int errLen);
 
 /* window.c: the main window */
 int  RunWindow(int show);

@@ -82,6 +82,11 @@ $bin = New-Object byte[] 300001
 $prefix = New-Object byte[] 5000
 (New-Object Random 7).NextBytes($prefix)
 [IO.File]::WriteAllBytes((Join-Path $test 'SFX.EXE'), $prefix + [IO.File]::ReadAllBytes((Join-Path $test 'TEST.ZIP')))
+foreach ($z in @(@('SETUP1.ZIP', @('setup.exe', 'readme.txt')), @('SETUP2.ZIP', @('one.exe', 'two.exe')))) {
+    $zip = [IO.Compression.ZipFile]::Open((Join-Path $test $z[0]), 'Create')
+    foreach ($n in $z[1]) { $w = New-Object IO.StreamWriter ($zip.CreateEntry($n).Open()); $w.Write("not a real $n"); $w.Dispose() }
+    $zip.Dispose()
+}
 $evil = [IO.Compression.ZipFile]::Open((Join-Path $test 'EVIL.ZIP'), 'Create')
 $w = New-Object IO.StreamWriter ($evil.CreateEntry('../EVIL.TXT').Open())
 $w.Write('This must not be written.'); $w.Dispose(); $evil.Dispose()
