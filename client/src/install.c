@@ -291,39 +291,79 @@ static int Line(const char *field, int n, char *out, int outLen)
     return i > 0;
 }
 
+/* The host part of an address, for messages: "downloads.sourceforge.net". */
+static void Host(const char *url, char *out, int outLen)
+{
+    const char *p = strstr(url, "://");
+    int i = 0;
+    p = p ? p + 3 : CATALOG_HOST;
+    while (p[i] && p[i] != '/' && i < outLen - 1) { out[i] = p[i]; i++; }
+    out[i] = 0;
+}
+
+/* Downloads one file of a Download line, "location size sha256 [location...]",
+ * into dir, trying each location in turn until one gives a file whose size and
+ * SHA-256 match. A location is an http:// address, or a path on the catalog's
+ * own server. Copies the local path to out. Returns 1 on success. */
+int FetchFile(const char *line, const char *dir, char *out)
+{
+    char loc[8][600], sizePart[20], shaPart[70], url[700], err[300], hex[65], host[100], *name;
+    const char *p = line;
+    BYTE want[32], got[32];
+    DWORD size, gotSize;
+    int n = 0, i, k;
+
+    /* Split into words: the first location, the size, the hash, then more locations. */
+    for (k = 0; *p && k < 11; k++) {
+        char word[600];
+        while (*p == ' ') p++;
+        for (i = 0; *p && *p != ' ' && i < (int)sizeof(word) - 1; i++) word[i] = *p++;
+        word[i] = 0;
+        if (!i) break;
+        if (k == 1) lstrcpyn(sizePart, word, sizeof(sizePart));
+        else if (k == 2) lstrcpyn(shaPart, word, sizeof(shaPart));
+        else if (n < 8) lstrcpyn(loc[n++], word, sizeof(loc[0]));
+    }
+    if (k < 3 || !n || lstrlen(shaPart) != 64 || !FromHex(shaPart, want, 32)) {
+        TaskLog("A Download line of the catalog is damaged.");
+        return 0;
+    }
+    size = strtoul(sizePart, NULL, 10);
+    name = strrchr(loc[0], '/');
+    name = name ? name + 1 : loc[0];
+    wsprintf(out, "%s%s", dir, name);
+    for (i = 0; i < n; i++) {
+        if (TaskCancelled()) return 0;
+        if (strncmp(loc[i], "http://", 7) == 0) lstrcpyn(url, loc[i], sizeof(url));
+        else wsprintf(url, "%s%s", g_cat.base, loc[i]);
+        Host(url, host, sizeof(host));
+        TaskLog("%s %s (%lu KB) from %s", i ? "Trying" : "Downloading", name, (size + 1023) / 1024, host);
+        TaskProgress(0);
+        if (!HttpGetFile(url, out, size, TaskCancelFlag(), OnProgress, NULL, err, sizeof(err))) {
+            TaskLog("  %s", err);
+            continue;
+        }
+        if (!Sha256File(out, got, &gotSize) || gotSize != size || memcmp(got, want, 32) != 0) {
+            ToHex(got, 32, hex);
+            TaskLog("  The file does not match the catalog (SHA-256 %s). It was deleted.", hex);
+            DeleteFile(out);
+            continue;
+        }
+        TaskLog("  Size and SHA-256 match the signed catalog.");
+        return 1;
+    }
+    TaskLog("  No source gave the file listed in the catalog. Nothing was run.");
+    return 0;
+}
+
 /* Downloads and checks every file of p. Fills files with their local paths. */
 static int Fetch(PKG *p, char files[][MAX_PATH], int *count)
 {
-    char line[700], url[700], err[300], hex[65], *name;
-    char pathPart[600], sizePart[20], shaPart[70];
-    BYTE want[32], got[32];
-    DWORD size, gotSize;
+    char line[1200];
     int n;
     *count = 0;
     for (n = 0; Line(p->f[F_DOWNLOAD], n, line, sizeof(line)) && n < 8; n++) {
-        if (sscanf(line, "%599s %19s %69s", pathPart, sizePart, shaPart) != 3 || !FromHex(shaPart, want, 32)) {
-            TaskLog("The catalog entry of %s is damaged.", p->f[F_NAME]);
-            return 0;
-        }
-        size = strtoul(sizePart, NULL, 10);
-        if (p->external) lstrcpyn(url, pathPart, sizeof(url));
-        else wsprintf(url, "%s%s", g_cat.base, pathPart);
-        name = strrchr(pathPart, '/');
-        name = name ? name + 1 : pathPart;
-        wsprintf(files[n], "%s%s", g_downloadDir, name);
-        TaskLog("Downloading %s (%lu KB)%s", name, (size + 1023) / 1024, p->external ? " from its publisher" : "");
-        TaskProgress(0);
-        if (!HttpGetFile(url, files[n], size, TaskCancelFlag(), OnProgress, NULL, err, sizeof(err))) {
-            TaskLog("  %s", err);
-            return 0;
-        }
-        if (!Sha256File(files[n], got, &gotSize) || gotSize != size || memcmp(got, want, 32) != 0) {
-            ToHex(got, 32, hex);
-            TaskLog("  The file does not match the catalog (SHA-256 %s). It was deleted and nothing was run.", hex);
-            DeleteFile(files[n]);
-            return 0;
-        }
-        TaskLog("  Size and SHA-256 match the signed catalog.");
+        if (!FetchFile(line, g_downloadDir, files[n])) return 0;
         *count = n + 1;
     }
     return *count > 0;

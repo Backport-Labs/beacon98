@@ -277,6 +277,7 @@ int  UpdateCatalog(HWND owner);
 int  InstallPackages(HWND owner, PKG **chosen, int count);
 int  RemovePackage(HWND owner, PKG *p);
 int  OfferPackage(HWND owner, PKG *p, PKG *need);
+int  FetchFile(const char *line, const char *dir, char *out);
 
 /* window.c: the main window */
 int  RunWindow(int show);
