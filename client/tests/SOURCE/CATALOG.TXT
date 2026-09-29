@@ -15,5 +15,6 @@ License: Public domain
 License-File: pool/hello/1.0/LICENSE.TXT
 Systems: 95, 98, ME
 Download: pool/hello/1.0/HELLO.TXT 29 24151ae026c7dcf305fd9da402c5f6ddc3298a7d373a4d0951e98c4356d0db95
-Install: copy
+Install: copy {pf}\Beacon Test
+Shortcut: Hello | {dir}\HELLO.TXT |
 Uninstall: files
