@@ -1,0 +1,29 @@
+# Downloaded from Mozilla's own archive. SeaMonkey is a Mozilla Foundation
+# trademark and 1.1.19 was distributed by Mozilla; Mozilla's current
+# distribution policy lets others redistribute only the most recent version,
+# so we do not host it (same decision as firefox and thunderbird). If the
+# SeaMonkey Council gives written permission, switch to hosted:
+# Download: pool/seamonkey/1.1.19/seamonkey-1.1.19.en-US.win32.installer.exe 13266944 34dca09d77e11f6b9f0275a51aa3a90b1e2185f915e50e0b5cd0deea56d2d1b6
+# Source: pool/seamonkey/1.1.19/src/seamonkey-1.1.19.source.tar.bz2 36272561 665e0998e7af516826b12d943206de9d9ed6d341503660b72251821fccf1932e
+# (and drop the Availability line)
+Package: seamonkey
+Name: SeaMonkey
+Version: 1.1.19
+Section: Internet
+Summary: Web browser, mail and news, and HTML editor in one suite
+Description: The Mozilla internet suite: web browser, e-mail and newsgroups,
+ Composer HTML editor, ChatZilla IRC client and developer tools. This is the
+ last version for Windows 95, 98 and ME. Windows 95 needs Microsoft's DCOM95
+ update.
+Homepage: https://www.seamonkey-project.org/
+License: MPL-1.1 OR GPL-2.0-or-later OR LGPL-2.1-or-later
+License-File: pool/seamonkey/1.1.19/LICENSE.TXT
+Systems: 95, 98, ME, NT4, 2000
+Availability: external
+Download: http://archive.mozilla.org/pub/seamonkey/releases/1.1.19/seamonkey-1.1.19.en-US.win32.installer.exe 13266944 34dca09d77e11f6b9f0275a51aa3a90b1e2185f915e50e0b5cd0deea56d2d1b6
+Install: exe -ms
+Uninstall: registry SeaMonkey (1.1.19)
+Warning: SeaMonkey 1.1.19 is from 2010 and has hundreds of known security
+ problems, fixed only in versions that do not run on Windows 98. A malicious
+ web page, image or e-mail can run code on this computer. Most current secure
+ web sites will not open. Do not use it for banking or passwords.

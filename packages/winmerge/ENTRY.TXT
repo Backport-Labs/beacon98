@@ -1,0 +1,18 @@
+Package: winmerge
+Name: WinMerge
+Version: 2.12.4
+Section: Utilities
+Summary: Compares and merges files and folders side by side
+Description: Shows the differences between two text files or two folders
+ and lets you copy changes from one side to the other. Can be added to the
+ Explorer context menu.
+Homepage: https://winmerge.org/
+License: GPL-2.0-or-later
+License-File: pool/winmerge/2.12.4/LICENSE.TXT
+Systems: 95, 98, ME, NT4, 2000
+Download: pool/winmerge/2.12.4/WinMerge-2.12.4-Setup.exe 3212078 155896d41247f4cb933d4b24bd67ee8fd02bf2268ca4db189dc8e56b88f263c4
+Source: pool/winmerge/2.12.4/src/WinMerge-2.12.4-src.zip 9378049 95f8625ee8dcac82e157259fdcbbe302a7ecbb2b68c3958e8f012a4f3a66f3c9
+Install: inno
+Uninstall: registry WinMerge 2.12.4
+Notice: This is the last WinMerge version for Windows 95, 98 and ME. Its
+ setup also installs the Microsoft Visual C++ 7.1 runtime files.

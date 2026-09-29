@@ -1,0 +1,20 @@
+Package: metapad
+Name: Metapad
+Version: 3.6
+Section: Utilities
+Summary: Small, fast Notepad replacement with many extra features
+Description: A text editor in the spirit of Notepad, with no file size limit,
+ multiple undo, find and replace with history, auto-indent, block indent,
+ UNIX and UTF-8 files, recent files, favourites and a portable INI mode.
+Homepage: https://liquidninja.com/metapad/
+License: GPL-3.0-or-later
+License-File: pool/metapad/3.6/LICENSE.TXT
+Systems: 95, 98, ME
+Download: pool/metapad/3.6/metapad36.zip 111496 b350e854eab7ecd2d6f0510eb4bd03ea3a2eb1ff854c226247a4acda1bf36b51
+Source: pool/metapad/3.6/src/metapad-5f04b9a2ad3d39964d9d853f022db345b31e561b.zip 150922 7205b6c095bb0be88338145c7970cfc22a24a74365b8f2b8b36e1234a68b8d15
+Requires: file {sys}\RICHED20.DLL | Metapad needs RICHED20.DLL (RichEdit 2.0 or later), which Windows 98 and ME include. Windows 95 does not; other programs such as Microsoft Office install it.
+ file {sys}\MSVCRT.DLL | Metapad needs the Microsoft C runtime MSVCRT.DLL, which Windows 98 and ME include.
+Installed-Size: 200
+Install: unzip {dir}
+Shortcut: Metapad | {dir}\metapad.exe |
+Uninstall: files

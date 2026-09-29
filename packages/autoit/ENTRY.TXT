@@ -1,0 +1,25 @@
+# The Add/Remove Programs name below is a placeholder: it is unknown and must
+# be read from the VM after a test install before this entry is used.
+Package: autoit
+Name: AutoIt v3
+Version: 3.2.12.1
+Section: Development
+Summary: Scripting language to automate Windows programs, mouse and keyboard
+Description: Write scripts that start programs, click buttons, type text and
+ read windows, for unattended setups and repetitive jobs. Scripts can be
+ compiled into stand-alone programs. On Windows 95, 98 and ME use the ANSI
+ programs whose names end in A, such as AutoIt3A.exe and Aut2ExeA.exe.
+Homepage: https://www.autoitscript.com/
+License: Freeware
+License-File: pool/autoit/3.2.12.1/LICENSE.TXT
+Systems: 95, 98, ME, NT4, 2000
+Download: pool/autoit/3.2.12.1/autoit-v3.2.12.1-setup.exe 7170440 a3efcf49b90d96b23cd30b2d4cb57cd47268fd46839e5a167b45fe0e3a153f93
+Source: pool/autoit/3.2.12.1/src/upx-3.01-src.tar.bz2 728384 dfc05143d37277ef2c937fa7e1bbeda54bf8b54b923589716ac6338dda6f7f64
+ pool/autoit/3.2.12.1/src/ucl-1.03.tar.gz 534881 b865299ffd45d73412293369c9754b07637680e5c826915f097577cd27350348
+ pool/autoit/3.2.12.1/src/lzma443.tar.bz2 178493 ba85f63243f1f530882cadae401e6f42f624ebb07829e467ea6177e303fa64b2
+Installed-Size: 20600
+Install: nsis
+Uninstall: registry UNKNOWN-CHECK-IN-VM
+Notice: The source code offered with this package is for UPX, the compressor
+ that AutoIt's script compiler uses. AutoIt itself is freeware without
+ published source.

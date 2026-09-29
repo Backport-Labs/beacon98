@@ -1,0 +1,23 @@
+Package: miranda-im
+Name: Miranda IM
+Version: 0.7.19
+Section: Internet
+Summary: Small instant messenger for IRC, Jabber/XMPP and other networks
+Description: A light multi-protocol chat program, the ANSI edition made for
+ Windows 95, 98 and ME. It includes IRC, Jabber (XMPP), ICQ, AIM, MSN,
+ Yahoo and Gadu-Gadu. Most of those networks have since closed; IRC and
+ Jabber servers that still accept older encryption or none work best.
+Homepage: https://sourceforge.net/projects/miranda/
+License: GPL-2.0-or-later
+License-File: pool/miranda-im/0.7.19/LICENSE.TXT
+Systems: 95, 98, ME
+Download: pool/miranda-im/0.7.19/miranda-im-v0.7.19-ansi.exe 1497672 ec5f238109b357a93779f24d83ab987d3c8c6e4b797b5b6df85aad28d7b7beb4
+Source: pool/miranda-im/0.7.19/src/miranda-im-v0.7.19-src.zip 5946513 308e6babd4f3fb5afcb914f5759fe1c2cb411fc457774bd3eadb875bf343658d
+Installed-Size: 3700
+Install: nsis
+Uninstall: registry Miranda IM 0.7.19
+Warning: Miranda IM 0.7.19 is from 2009 and no longer maintained. Its
+ encryption is outdated, and messages from other users and servers are
+ handled by old code that may have unfixed security problems.
+Notice: The picture and IRC plugins need MSVCP60.DLL in the Windows SYSTEM
+ folder. Your chat history is stored in the Miranda IM folder.

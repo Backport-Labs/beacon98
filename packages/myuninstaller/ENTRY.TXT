@@ -1,0 +1,16 @@
+Package: myuninstaller
+Name: MyUninstaller
+Version: 1.77
+Section: System
+Summary: Lists installed programs, uninstalls them, removes stale entries
+Description: An alternative to the Add/Remove Programs control panel. Shows
+ version, company, folder and uninstall string of each program, can delete
+ entries left behind by removed programs and save the list to a file.
+Homepage: https://www.nirsoft.net/utils/myuninst.html
+License: Freeware
+License-File: pool/myuninstaller/1.77/LICENSE.TXT
+Systems: 98, ME
+Download: pool/myuninstaller/1.77/myuninst.zip 52781 22f2fc8d324fcd8d36698e0496d7a4c5b69a09f3a36de533f99c83ba4446f799
+Install: unzip {pf}\MyUninstaller
+Shortcut: MyUninstaller | {dir}\myuninst.exe |
+Uninstall: files

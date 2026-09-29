@@ -1,0 +1,35 @@
+Package: lavfilters
+Name: LAV Filters
+Version: 0.66
+Section: Multimedia
+Summary: Modern DirectShow splitter and decoders for most video and audio
+Description: DirectShow filters based on FFmpeg that let DirectShow players
+ such as Media Player Classic and Windows Media Player open MKV, MP4, FLV,
+ TS and many other formats, and decode H.264, HEVC, AAC, DTS and more.
+Homepage: https://github.com/Nevcairiel/LAVFilters
+License: GPL-2.0-or-later
+License-File: pool/lavfilters/0.66/LICENSE.TXT
+Systems: 98, ME
+Download: pool/lavfilters/0.66/LAVFilters-0.66-x86.zip 6801476 826e63a4b11d2318adf6249e94cb97ad8237c18645787ce3c8e576fb6949f249
+Source: pool/lavfilters/0.66/src/LAVFilters-0.66.tar.gz 1208829 cc8435fd257d53a076c7863e5782c1b1aca556c991edd8320a92ef389b11cd7e
+ pool/lavfilters/0.66/src/FFmpeg-c6229c738e2fa6de1b3aea79d2e062a882a5b4be.tar.gz 10294114 3e107adef38a3ee588166202f71fa84d0c1d67fdb93cd358ffedc603efc4fb13
+ pool/lavfilters/0.66/src/libbluray-6f37d6ad12a70f7fe90bce51dbf9393021fa6e4a.tar.gz 449639 a51ffe4de982129a48fdcd2a0296defd2e637ef6a9fb031a30f86dd216ab30c5
+ pool/lavfilters/0.66/src/qsdecoder-36b2fcd80469eb7a5e958de17e3cea072ac50b86.tar.gz 2034412 e71175d13cf3817a3b1160c65874bf0560fc91165bea980d9a6231e3408f1053
+ pool/lavfilters/0.66/src/dcadec-2a9186e34ce557d3af1a20f5b558d1e6687708b9.tar.gz 218186 766cfcad08f57f2398fd684e4a44c464e6db5507d9c9c46202b0df00b0384e92
+Installed-Size: 15200
+Requires: package kernelex | LAV Filters needs KernelEx on Windows 98 and ME. Install the KernelEx package first.
+Install: unzip {dir}
+After: run {sys}\regsvr32.exe /s "{dir}\LAVSplitter.ax"
+ run {sys}\regsvr32.exe /s "{dir}\LAVAudio.ax"
+ run {sys}\regsvr32.exe /s "{dir}\LAVVideo.ax"
+Remove: run {sys}\regsvr32.exe /u /s "{dir}\LAVSplitter.ax"
+ run {sys}\regsvr32.exe /u /s "{dir}\LAVAudio.ax"
+ run {sys}\regsvr32.exe /u /s "{dir}\LAVVideo.ax"
+Uninstall: files
+Warning: LAV Filters 0.66 is from 2015. Its FFmpeg libraries have many
+ security flaws that were fixed later (for example CVE-2016-10190). A
+ specially crafted video file could run harmful code in your player. Only
+ open files you trust.
+Notice: LAV Filters was reported working on Windows 98 with KernelEx in
+ Windows XP SP3 mode. If videos do not play, set the XP SP3 mode in KernelEx
+ for your player.

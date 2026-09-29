@@ -1,0 +1,20 @@
+# Downloaded from Mozilla's own archive: Mozilla's distribution policy lets
+# others redistribute only the most recent version, so we do not host it.
+Package: thunderbird
+Name: Mozilla Thunderbird
+Version: 2.0.0.24
+Section: Internet
+Summary: E-mail and newsgroup client, the last version for Windows 98
+Homepage: https://www.thunderbird.net/
+License: MPL-1.1
+License-File: pool/thunderbird/2.0.0.24/LICENSE.TXT
+Systems: 98, ME
+Availability: external
+Download: http://archive.mozilla.org/pub/thunderbird/releases/2.0.0.24/win32/en-US/Thunderbird%20Setup%202.0.0.24.exe 6876688 585e5b7ef922fc224079dbad7ff02c7dc7cd40c3bb7a12a4a94e02ecfea2da29
+Installed-Size: 26000
+Install: exe -ms
+Uninstall: registry Mozilla Thunderbird (2.0.0.24)
+Warning: This version has hundreds of known security problems that were fixed
+ only in versions that do not run on Windows 98. Opening a malicious message
+ can run code on this computer. Its encryption is too old for many current
+ mail servers.

@@ -1,0 +1,22 @@
+# DO NOT ADD TO CATALOG.TXT. Draft only, kept for reference (2026-09-29).
+# Pale Moon's binary redistribution license (palemoon.org/redist.shtml,
+# points 4 and 5) forbids including the official builds in a package
+# manager without an individual agreement with Moonchild Productions, and
+# the publisher no longer offers 3.6.x, so it cannot be "external" either.
+# Download, size and SHA-256 are unknown: no official copy exists.
+#Package: palemoon
+#Name: Pale Moon
+#Version: 3.6.26
+#Section: Internet
+#Summary: Web browser based on Firefox 3.6, needs KernelEx
+#Homepage: https://www.palemoon.org/
+#License: MPL-1.1 (source); binaries under the Pale Moon redistribution license
+#License-File: pool/palemoon/3.6.26/LICENSE.TXT
+#Systems: 98, ME
+#Availability: external
+#Download: unknown (no publisher http:// address for 3.6.26)
+#Requires: package kernelex | Pale Moon needs KernelEx, which adds the Windows 2000 functions it uses. It also needs a processor with SSE2 (Pentium 4 or Athlon 64).
+#Install: exe -ms (Mozilla installer, not verified)
+#Uninstall: registry unknown
+#Warning: Pale Moon 3.6 is based on a browser engine from 2012 with hundreds of
+# known security problems. Do not use it for banking or passwords.

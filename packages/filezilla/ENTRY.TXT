@@ -1,0 +1,32 @@
+# FileZilla's own server no longer offers 2.x; the files were taken from the
+# Internet Archive copy of download.filezilla-project.org/legacy/ and match
+# the author's published MD5 list. GPL, so we host them with the source.
+# HOLD (2026-09-29): the installer contains FzGSS.dll, whose source is not in
+# FileZilla_2_2_22_src.zip (only source/gss/*.h headers). Until its source is
+# found, the source offer is incomplete; see RECORD.md. There is no publisher
+# server left, so "external" is not an option.
+Package: filezilla
+Name: FileZilla
+Version: 2.2.22
+Section: Internet
+Summary: FTP, FTPS and SFTP client, the last version for Windows 98 and ME
+Description: The classic FileZilla 2 client: Site Manager, transfer queue,
+ resume, drag and drop, FTP over SSL/TLS, SFTP, proxies and firewalls.
+ .
+ This is the last FileZilla that runs on Windows 98 and ME; from 2.2.23 on
+ it needs Windows 2000 or later.
+Homepage: https://filezilla-project.org/
+License: GPL-2.0-or-later
+License-File: pool/filezilla/2.2.22/LICENSE.TXT
+Systems: 98, ME
+Download: pool/filezilla/2.2.22/FileZilla_2_2_22_setup.exe 3503265 debbded0540a69803ce6e3a99a9d9fff9996652b987d82c5bd1ae3b5bd82d6b0
+Source: pool/filezilla/2.2.22/src/FileZilla_2_2_22_src.zip 2372507 f76c65ec29b9ae8ba59f3b4df1ad13b0c83251be81e73e16e86a8a1049f0d0aa
+ pool/filezilla/2.2.22/src/openssl-0.9.8a.tar.gz 3271435 30f8f61fb1316f4fb51410c740b4879b8e26b417c8d870e486144b10b8041c73
+ pool/filezilla/2.2.22/src/zlib-1.2.3.tar.gz 496597 1795c7d067a43174113fdf03447532f373e1c6c57c08d61d9e4e9be5e244b05e
+Installed-Size: 12600
+Install: nsis
+Uninstall: registry FileZilla (remove only)
+Warning: This version has known security problems that were fixed only in
+ versions that do not run on Windows 98. Connecting to a malicious FTP server
+ can run code on this computer, and its built-in OpenSSL is from 2005. Use it
+ only with servers you trust.

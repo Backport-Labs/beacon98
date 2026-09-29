@@ -1,0 +1,19 @@
+Package: nircmd
+Name: NirCmd
+Version: 2.87
+Section: Utilities
+Summary: Command-line tool for scripts: volume, windows, registry, shutdown
+Description: A small program without a window that performs system tasks from
+ batch files: change the volume, close or hide windows, write registry
+ values, create shortcuts, turn off the monitor, shut down Windows, and more.
+ Type NIRCMD followed by a command in a batch file or at the DOS prompt.
+Homepage: https://www.nirsoft.net/utils/nircmd.html
+License: Freeware
+License-File: pool/nircmd/2.87/LICENSE.TXT
+Systems: 98, ME
+Download: pool/nircmd/2.87/nircmd.zip 124310 122aee2fbdd0c793367b519635c45e5611688159b72f5e58a27f9256a53c9014
+Installed-Size: 135
+Install: unzip C:\NIRCMD
+After: path C:\NIRCMD
+Shortcut: NirCmd Help | C:\NIRCMD\NirCmd.chm |
+Uninstall: files

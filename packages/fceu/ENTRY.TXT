@@ -1,0 +1,22 @@
+Package: fceu
+Name: FCEUX
+Version: 2.1.5
+Section: Games
+Summary: NES and Famicom emulator with debugging and movie tools
+Description: Plays NES and Famicom cartridge images, with a debugger, cheat
+ search and Lua scripting. This is the build made for Windows 98 and 2000.
+ No games are included.
+Homepage: https://fceux.com/
+License: GPL-2.0-or-later
+License-File: pool/fceu/2.1.5/LICENSE.TXT
+Systems: 98, ME
+Download: pool/fceu/2.1.5/fceux-2.1.5-win32-Win2000_Win98.zip 1686703 8ac5fe8ad76a3e475d99bc7815c0bb8f667a60e6ae0b0f5e531cf995fcf7382f
+Source: pool/fceu/2.1.5/src/fceux-2.1.5.src.tar.bz2 7322199 ee6b1ee6a0347e325032f6655a5caa289e2b0458f7fccddccd5137f1cd63bf9f
+ pool/fceu/2.1.5/src/7z457.tar.bz2 620119 09fc3719fbe373edd1c62bf8e48c1f98caea4522c26d0244aa40d2058ee2fd7e
+Installed-Size: 1960
+Install: unzip {dir}
+Shortcut: FCEUX | {dir}\fceux.exe |
+Uninstall: files
+Warning: FCEUX opens games packed in archives with an old 7-Zip library that
+ has known security problems. Use game files you trust, and run only Lua
+ scripts you trust.

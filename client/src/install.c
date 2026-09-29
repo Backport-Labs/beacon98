@@ -409,7 +409,8 @@ static int InstallOne(PKG *p, RECORD *rec)
             }
         }
     } else {
-        extra = After(inst, 1);
+        Expand(After(inst, 1), dir, exp, sizeof(exp));   /* switches may name {dir}, e.g. /D={dir} for NSIS */
+        extra = exp;
         if (strncmp(inst, "inno", 4) == 0)
             wsprintf(cmd, "\"%s\" /VERYSILENT /SUPPRESSMSGBOXES /NORESTART %s", files[0], extra);
         else if (strncmp(inst, "nsis", 4) == 0)
@@ -694,22 +695,37 @@ static int FindUninstallString(const char *display, char *out, int outLen)
 static int RemoveWork(void *ctx)
 {
     PKG *p = (PKG *)ctx;
-    char path[MAX_PATH], cmd[1024], line[MAX_PATH + 4];
+    char path[MAX_PATH], cmd[1024], line[MAX_PATH + 4], dir[MAX_PATH];
     char **items = NULL;
     FILE *f;
     int n = 0, cap = 0, i, code;
     const char *u = p->f[F_UNINSTALL];
 
     TaskLog("Removing %s", p->f[F_NAME]);
+    InstalledDir(p->f[F_PACKAGE], dir, sizeof(dir));
+    /* Remove steps run first, while the files are still there (for example regsvr32 /u). */
+    for (i = 0; Line(p->f[F_REMOVE], i, line, sizeof(line)); i++) {
+        if (strncmp(line, "run ", 4) != 0) continue;
+        Expand(line + 4, dir, cmd, sizeof(cmd));
+        TaskLog("Running %s", cmd);
+        Run(cmd, 120000);
+    }
     if (strncmp(u, "registry ", 9) == 0) {
         if (!FindUninstallString(u + 9, cmd, sizeof(cmd))) { TaskLog("Windows does not list an uninstaller for it."); return 0; }
         TaskLog("Running its uninstaller. Answer its questions if it asks any.");
         code = Run(cmd, INFINITE);
         if (code == -1) { TaskLog("The uninstaller could not be started."); return 0; }
-    } else {
-        wsprintf(path, "%s%s.TXT", g_filesDir, p->f[F_PACKAGE]);
-        f = fopen(path, "r");
-        if (!f) { TaskLog("Beacon 98 has no record of what it installed for this package."); return 0; }
+    } else if (strncmp(u, "run ", 4) == 0) {
+        Expand(u + 4, dir, cmd, sizeof(cmd));
+        TaskLog("Running its uninstaller.");
+        code = Run(cmd, INFINITE);
+        if (code == -1) { TaskLog("The uninstaller could not be started."); return 0; }
+    }
+    /* Then what Beacon itself created: every file for "files"; shortcuts and PATH lines otherwise. */
+    wsprintf(path, "%s%s.TXT", g_filesDir, p->f[F_PACKAGE]);
+    f = fopen(path, "r");
+    if (!f && strncmp(u, "files", 5) == 0) { TaskLog("Beacon 98 has no record of what it installed for this package."); return 0; }
+    if (f) {
         while (fgets(line, sizeof(line), f)) {
             int len = lstrlen(line);
             while (len && (line[len - 1] == '\n' || line[len - 1] == '\r')) line[--len] = 0;

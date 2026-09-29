@@ -1,0 +1,19 @@
+Package: hashmyfiles
+Name: HashMyFiles
+Version: 2.51
+Section: Utilities
+Summary: Calculates MD5, SHA-1 and CRC32 checksums to verify downloaded files
+Description: Shows the checksums of one or more files or whole folders, marks
+ identical files, and saves the list as text or HTML. This is the version
+ for Windows 98 and ME (non-Unicode build).
+Homepage: https://www.nirsoft.net/utils/hash_my_files.html
+License: Freeware
+License-File: pool/hashmyfiles/2.51/LICENSE.TXT
+Systems: 98, ME
+Download: pool/hashmyfiles/2.51/hashmyfiles98.zip 65521 895d96fb19846570abc0db493124d49c03f27d469a139bcd4907b0a69c38b19d
+Installed-Size: 92
+Install: unzip {dir}
+Shortcut: HashMyFiles | {dir}\HashMyFiles.exe |
+Uninstall: files
+Notice: On Windows 98 and ME, use MD5, SHA-1 or CRC32. The author states that
+ SHA-256 and longer hashes need Windows XP SP3 or later.

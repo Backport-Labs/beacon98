@@ -1,0 +1,18 @@
+Package: regshot
+Name: Regshot
+Version: 1.8.2
+Section: System
+Summary: Compares two registry and folder snapshots to see what changed
+Description: Take a snapshot of the registry and chosen folders, install or
+ change something, take a second snapshot, and Regshot lists every key,
+ value and file that was added, changed or deleted, as text or HTML.
+Homepage: https://sourceforge.net/projects/regshot/
+License: GPL-2.0-or-later
+License-File: pool/regshot/1.8.2/LICENSE.TXT
+Systems: 95, 98, ME
+Download: pool/regshot/1.8.2/regshot_1.8.2_src_bin.zip 91309 434b02c54677d8dece6c0ffb6644fd595b3e18ef9c29e675a9b08a3d013c123c
+Source: pool/regshot/1.8.2/src/regshot_1.8.2_src_bin.zip 91309 434b02c54677d8dece6c0ffb6644fd595b3e18ef9c29e675a9b08a3d013c123c
+Installed-Size: 262
+Install: unzip {dir}
+Shortcut: Regshot | {dir}\regshot.exe |
+Uninstall: files

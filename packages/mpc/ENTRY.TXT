@@ -1,0 +1,27 @@
+# Downloaded from the project's SourceForge file area: the Windows build
+# statically links Microsoft Detours 1.5, Apple QuickTime SDK and Windows Media
+# SDK libraries that have no source, so we cannot offer complete source.
+Package: mpc
+Name: Media Player Classic
+Version: 6.4.9.1
+Section: Multimedia
+Summary: Small, fast media player for video, audio and DVDs
+Description: The classic Media Player Classic by Gabest, in the 6.4.9.1
+ maintenance release by the guliverkli2 project (build of 2008-10-05,
+ revision 82, the Windows 9x edition). Plays AVI, MPEG, Matroska, MP4,
+ Ogg, FLV and DVDs with built-in splitters and MPEG/MP3/AC3/DTS/AAC
+ decoders; other formats need DirectShow codecs.
+Homepage: https://sourceforge.net/projects/guliverkli2/
+License: GPL-2.0-or-later
+License-File: pool/mpc/6.4.9.1/LICENSE.TXT
+Systems: 98, ME
+Availability: external
+Download: http://downloads.sourceforge.net/project/guliverkli2/Media%20Player%20Classic/6.4.9.1/mplayerc_20081005_win9x.zip 2070308 804a66aad98b2b79b3f9ae535d3e2d1dbcdc9bac31d32f9d55d79edd16b1e7d8
+Requires: dx 7.0 | Media Player Classic needs DirectX 7 or later. Windows 98 SE comes with DirectX 6.1; install a newer DirectX from Microsoft first.
+Installed-Size: 4300
+Install: unzip {dir}
+Shortcut: Media Player Classic | {dir}\mplayerc.exe |
+Uninstall: files
+Warning: This version has known security problems. Opening a malicious video
+ file (for example AVI, FLV or MPEG audio) can crash the player or run code on
+ this computer.

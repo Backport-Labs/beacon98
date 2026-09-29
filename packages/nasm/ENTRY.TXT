@@ -1,0 +1,20 @@
+Package: nasm
+Name: NASM
+Version: 2.14.02
+Section: Development
+Summary: The Netwide Assembler, an x86 assembler, and its disassembler
+Description: Assembles 16-, 32- and 64-bit x86 code into DOS, Windows, ELF
+ and other object formats. Includes ndisasm and the RDOFF tools. Command
+ line only.
+Homepage: https://www.nasm.us/
+License: BSD-2-Clause
+License-File: pool/nasm/2.14.02/LICENSE.TXT
+Systems: 98, ME
+Download: pool/nasm/2.14.02/nasm-2.14.02-win32.zip 557565 250f9b5eeb2111e8c7b494a977490985b8604fe7518a6f5041cde37cc727a067
+Source: pool/nasm/2.14.02/src/nasm-2.14.02.tar.xz 827620 e24ade3e928f7253aa8c14aa44726d1edf3f98643f87c9d72ec1df44b26be8f5
+Installed-Size: 2300
+Install: unzip C:\NASM strip 1
+After: path C:\NASM
+Uninstall: files
+Warning: This version has 5 known security problems. Assembling a malicious
+ source file can crash NASM; only assemble files you trust.

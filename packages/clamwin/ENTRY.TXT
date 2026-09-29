@@ -1,0 +1,24 @@
+Package: clamwin
+Name: ClamWin Free Antivirus
+Version: 0.99.1
+Section: Utilities
+Summary: Virus scanner based on ClamAV, with its 2016 signatures
+Description: A graphical virus scanner with a scheduler, Explorer right-click
+ scanning and a tray icon, built on the ClamAV engine 0.99.1. This is the full
+ installer, with the virus signatures of April 2016 included.
+ .
+ Its signatures can no longer be updated: the ClamAV servers refuse this old
+ engine. It recognizes viruses known up to 2016.
+Homepage: https://clamwin.com/
+License: GPL-2.0-only
+License-File: pool/clamwin/0.99.1/LICENSE.TXT
+Systems: 98, ME
+Download: pool/clamwin/0.99.1/clamwin-0.99.1-setup.exe 120690586 de65ec83d2eac626169ad4db0b24dcabff8c0ac49960ed91940443afe8267ade
+Install: inno /TASKS=""
+Uninstall: registry ClamWin Free Antivirus 0.99.1
+Warning: ClamWin cannot download new virus signatures, so it does not know
+ viruses written after April 2016. Its scanning engine also has known
+ security problems: scanning a malicious file can crash it or run code on
+ this computer.
+Notice: ClamWin starts with Windows (tray icon). Its Update command will fail;
+ this is expected.

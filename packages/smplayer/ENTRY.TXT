@@ -1,0 +1,30 @@
+# NOTE: the download is a 7z archive. FORMAT.md "unzip" does not cover 7z yet;
+# this entry assumes the client learns 7z, or the files are repacked (see RECORD.md).
+Package: smplayer
+Name: SMPlayer Portable
+Version: 14.3.0
+Section: Multimedia
+Summary: Media player for nearly every video and audio format (with MPlayer)
+Description: A graphical front-end for MPlayer that plays almost any video,
+ audio file, DVD and stream, remembers where you stopped, and finds
+ subtitles. This portable edition includes MPlayer and keeps its settings
+ in its own folder.
+Homepage: https://www.smplayer.info/
+License: GPL-2.0-or-later
+License-File: pool/smplayer/14.3.0/LICENSE.TXT
+Systems: 98, ME
+Download: pool/smplayer/14.3.0/smplayer-portable-14.3.0.7z 19454066 186630a00f3b90d2b166fe246f4c23134fd0fc7e054959a58cab96414f256de1
+Source: pool/smplayer/14.3.0/src/smplayer-14.3.0.tar.bz2 3675657 9b8db20043d1528ee5c6054526779e88a172d2c757429bd7095c794d65ecbc18
+ pool/smplayer/14.3.0/src/mplayer-r36621-src.7z 11130495 ecb2933dee68bf54181b31ff69e254f751f311dc7718175b53cd473eee7d6247
+Installed-Size: 65900
+Requires: package kernelex | SMPlayer 14.3.0 needs KernelEx on Windows 98 and ME. Install the KernelEx package first.
+Install: unzip {pf}\SMPlayer strip 1
+Shortcut: SMPlayer | {pf}\SMPlayer\smplayer.exe |
+Uninstall: files
+Warning: This SMPlayer and its MPlayer are from 2014. MPlayer has known
+ security flaws (for example CVE-2022-38862) that let a specially crafted
+ video or playlist crash the player or possibly run harmful code. Only open
+ files you trust.
+Notice: SMPlayer was reported working on Windows 98 with KernelEx (default
+ mode). It keeps its settings in its own folder and does not set file
+ associations.

@@ -1,0 +1,24 @@
+Package: openwatcom
+Name: Open Watcom C/C++
+Version: 1.9
+Section: Development
+Summary: C and C++ compilers for DOS, Windows 3.x, Windows 95 and OS/2
+Description: The Watcom C/C++ compilers, linker, make, debugger, resource
+ compiler and editor. Builds 16-bit and 32-bit programs for DOS (including
+ DOS extenders), Windows 3.x, Windows 95 and later, and OS/2.
+ .
+ Before compiling in a DOS box, run C:\WATCOM\OWSETENV.BAT to set the WATCOM
+ and INCLUDE variables. The source code is available from the package page.
+Homepage: https://www.openwatcom.org/
+License: Watcom-1.0
+License-File: pool/openwatcom/1.9/LICENSE.TXT
+Systems: 95, 98, ME, NT4, 2000
+Download: pool/openwatcom/1.9/open-watcom-c-win32-1.9.exe 84012543 040c910aba304fdb5f39b8fe508cd3c772b1da1f91a58179fa0895e0b2bf190b
+Source: pool/openwatcom/1.9/src/open_watcom_1.9.0-src.zip 52554323 c1cddd52405757a24987ea4fbcc455f3d1e61646798d908679dd6a4cc3b5272c
+Installed-Size: 192100
+Install: unzip C:\WATCOM
+After: path C:\WATCOM\BINNT
+ path C:\WATCOM\BINW
+ write C:\WATCOM\OWSETENV.BAT | @ECHO OFF\nSET WATCOM=C:\WATCOM\nSET PATH=%WATCOM%\BINNT;%WATCOM%\BINW;%PATH%\nSET EDPATH=%WATCOM%\EDDAT\nSET INCLUDE=%WATCOM%\H;%WATCOM%\H\NT\n
+Shortcut: Open Watcom IDE | C:\WATCOM\BINNT\IDE.EXE |
+Uninstall: files

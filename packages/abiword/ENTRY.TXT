@@ -1,0 +1,25 @@
+# abisource.com is gone; files and sources taken from the Internet Archive's
+# copy of abisource.com/downloads/, all matching AbiSource's MD5SUM files.
+# Plugin installers are left out: they download dependencies from the dead site.
+Package: abiword
+Name: AbiWord
+Version: 2.4.6
+Section: Office
+Summary: Word processor that opens and saves Word, RTF and HTML documents
+Description: A small, fast word processor with tables, styles, spell checking
+ and mail merge. It opens Microsoft Word (.doc), RTF, HTML and its own .abw
+ documents. This is the last version for Windows 95, 98 and ME. On
+ Windows 95 it needs OSR2 (95b) or later.
+Homepage: https://gitlab.gnome.org/World/AbiWord
+License: GPL-2.0-or-later
+License-File: pool/abiword/2.4.6/LICENSE.TXT
+Systems: 95, 98, ME
+Download: pool/abiword/2.4.6/abiword-setup-2.4.6.exe 5410865 685a82ca2a9c56861e5ca22b38e697791485664c36ad883f410dac9e96d09f62
+Source: pool/abiword/2.4.6/src/abiword-2.4.6.tar.bz2 24994889 1ca509814d1ce939c98f2776f95351a2a6ea216d12c20be30d40eefd13f43020
+ pool/abiword/2.4.6/src/zlib-1.2.3.tar.gz 496597 1795c7d067a43174113fdf03447532f373e1c6c57c08d61d9e4e9be5e244b05e
+Installed-Size: 20000
+Install: nsis
+Uninstall: registry AbiWord 2.4.6 (remove only)
+Warning: This version contains old image and XML libraries with known security
+ problems. Opening a malicious document or picture can run code on this
+ computer.

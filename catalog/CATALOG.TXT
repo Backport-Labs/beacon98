@@ -1,7 +1,7 @@
 Format: 1
 Catalog: Beacon 98
 Publisher: Backport Labs
-Serial: 2026092901
+Serial: 2026092903
 Date: 2026-09-29
 Expires: 2026-12-28
 Base: http://get.backportlabs.com/
@@ -32,7 +32,7 @@ Homepage: https://www.7-zip.org/
 License: LGPL-2.1-or-later
 License-File: pool/7zip/9.20/LICENSE.TXT
 Systems: 95, 98, ME
-Download: pool/7zip/9.20/7z920.exe 1110476 1e2f2a8fb52d3972b9b65b8ad1bebb66965c47a2994f89b3d652c31e6f6e4c3c
+Download: http://downloads.sourceforge.net/project/sevenzip/7-Zip/9.20/7z920.exe 1110476 1e2f2a8fb52d3972b9b65b8ad1bebb66965c47a2994f89b3d652c31e6f6e4c3c pool/7zip/9.20/7z920.exe
 Source: pool/7zip/9.20/src/7z920.tar.bz2 773136 a151d8faced15ed3035f0aac43679b512dd66ae7885898cc2bc8a5823aad81fb
 Install: nsis
 Uninstall: registry 7-Zip
@@ -180,3 +180,1144 @@ Install: msi ALLUSERS=1
 Uninstall: registry Python 2.5.4
 Warning: This version has known security problems, and its built-in OpenSSL is
  from 2005. Do not rely on it for secure connections.
+
+Package: abiword
+Name: AbiWord
+Version: 2.4.6
+Section: Office
+Summary: Word processor that opens and saves Word, RTF and HTML documents
+Description: A small, fast word processor with tables, styles, spell checking
+ and mail merge. It opens Microsoft Word (.doc), RTF, HTML and its own .abw
+ documents. This is the last version for Windows 95, 98 and ME. On
+ Windows 95 it needs OSR2 (95b) or later.
+Homepage: https://gitlab.gnome.org/World/AbiWord
+License: GPL-2.0-or-later
+License-File: pool/abiword/2.4.6/LICENSE.TXT
+Systems: 95, 98, ME
+Download: pool/abiword/2.4.6/abiword-setup-2.4.6.exe 5410865 685a82ca2a9c56861e5ca22b38e697791485664c36ad883f410dac9e96d09f62
+Source: pool/abiword/2.4.6/src/abiword-2.4.6.tar.bz2 24994889 1ca509814d1ce939c98f2776f95351a2a6ea216d12c20be30d40eefd13f43020
+ pool/abiword/2.4.6/src/zlib-1.2.3.tar.gz 496597 1795c7d067a43174113fdf03447532f373e1c6c57c08d61d9e4e9be5e244b05e
+Installed-Size: 20000
+Install: nsis
+Uninstall: registry AbiWord 2.4.6 (remove only)
+Warning: This version contains old image and XML libraries with known security
+ problems. Opening a malicious document or picture can run code on this
+ computer.
+
+Package: apache13
+Name: Apache HTTP Server
+Version: 1.3.41
+Section: Development
+Summary: Web server for a home network or for testing web pages
+Description: The Apache web server, version 1.3, the last series with a
+ Windows 95/98 build. It serves the files in its htdocs folder on port 80
+ and can run CGI scripts and PHP. Start it from the Start Menu; the
+ configuration is in conf\httpd.conf in its folder.
+Homepage: https://httpd.apache.org/
+License: Apache-2.0
+License-File: pool/apache13/1.3.41/LICENSE.TXT
+Systems: 95, 98, ME
+Download: pool/apache13/1.3.41/apache_1.3.41-win32-x86-no_src.msi 2160128 5ce8f31d36e09c006f31422af6825cf6bb6e7bc9f6c03f0ce4f2a6d58cd3ba11
+Source: pool/apache13/1.3.41/src/apache_1.3.41.tar.gz 2483180 4b016d3998f822af7a1a515e9626590f5473a4dd5c3e8466f20a6a86a2a63adc
+Requires: msi 1.1 | Apache needs Windows Installer 1.1 or later. Microsoft offered it as a free update for Windows 95 and 98 (InstMsiA.exe).
+ winsock2 | Apache needs Windows Sockets 2, which Windows 95 needs as an update.
+Installed-Size: 7100
+Install: msi SERVERNAME=localhost SERVERDOMAIN=localdomain SERVERADMIN=admin@localhost
+Uninstall: registry Apache HTTP Server 1.3.41
+Warning: Apache 1.3 has not been maintained since 2010 and may have security
+ problems that were never fixed. It listens on all network connections:
+ use it only on a home network or for testing, never on the internet.
+
+Package: autoit
+Name: AutoIt v3
+Version: 3.2.12.1
+Section: Development
+Summary: Scripting language to automate Windows programs, mouse and keyboard
+Description: Write scripts that start programs, click buttons, type text and
+ read windows, for unattended setups and repetitive jobs. Scripts can be
+ compiled into stand-alone programs. On Windows 95, 98 and ME use the ANSI
+ programs whose names end in A, such as AutoIt3A.exe and Aut2ExeA.exe.
+Homepage: https://www.autoitscript.com/
+License: Freeware
+License-File: pool/autoit/3.2.12.1/LICENSE.TXT
+Systems: 95, 98, ME, NT4, 2000
+Download: pool/autoit/3.2.12.1/autoit-v3.2.12.1-setup.exe 7170440 a3efcf49b90d96b23cd30b2d4cb57cd47268fd46839e5a167b45fe0e3a153f93
+Source: pool/autoit/3.2.12.1/src/upx-3.01-src.tar.bz2 728384 dfc05143d37277ef2c937fa7e1bbeda54bf8b54b923589716ac6338dda6f7f64
+ pool/autoit/3.2.12.1/src/ucl-1.03.tar.gz 534881 b865299ffd45d73412293369c9754b07637680e5c826915f097577cd27350348
+ pool/autoit/3.2.12.1/src/lzma443.tar.bz2 178493 ba85f63243f1f530882cadae401e6f42f624ebb07829e467ea6177e303fa64b2
+Installed-Size: 20600
+Install: nsis
+Uninstall: registry UNKNOWN-CHECK-IN-VM
+Notice: The source code offered with this package is for UPX, the compressor
+ that AutoIt's script compiler uses. AutoIt itself is freeware without
+ published source.
+
+Package: avidemux
+Name: Avidemux
+Version: 2.5.2
+Section: Multimedia
+Summary: Simple video cutter, filter and re-encoder
+Description: Cuts, joins, filters and re-encodes video files (AVI, MPEG,
+ MP4, MKV, FLV and more) with a simple Qt interface. Includes a
+ command-line version (avidemux2_cli.exe).
+Homepage: https://avidemux.sourceforge.net/
+License: GPL-2.0-or-later
+License-File: pool/avidemux/2.5.2/LICENSE.TXT
+Systems: 98, ME
+Availability: external
+Download: http://downloads.sourceforge.net/project/avidemux/avidemux/2.5.2/avidemux_2.5.2_win32.exe 10327518 a11b59d517b87d9fabe1c1016bb7a26d358e6f4297001549d8f2e4ad1416a6b3
+Installed-Size: 36400
+Requires: package kernelex | Avidemux 2.5.2 needs KernelEx on Windows 98 and ME. Install the KernelEx package first.
+Install: nsis
+Uninstall: registry Avidemux 2.5
+Warning: Avidemux 2.5.2 is from 2009. Its video and image libraries (FFmpeg,
+ libpng and others) have many security flaws that were fixed later. Opening a
+ specially crafted video file could run harmful code. Only open files you
+ trust.
+Notice: Avidemux runs on Windows 98 only with KernelEx. Users report that the
+ volume (loudness) adjustment does not work.
+
+Package: bochs
+Name: Bochs
+Version: 2.3.7
+Section: System
+Summary: Emulates a complete x86 PC, for running other operating systems
+Description: Emulates an x86 PC with its BIOS, VGA, disks, sound and network
+ card, so that other operating systems can run in a window. Slow, but
+ very exact. No operating system is included.
+Homepage: https://bochs.sourceforge.io/
+License: LGPL-2.0-or-later
+License-File: pool/bochs/2.3.7/LICENSE.TXT
+Systems: 98, ME
+Availability: external
+Download: http://downloads.sourceforge.net/project/bochs/bochs/2.3.7/Bochs-2.3.7.exe 3358844 4854dffb9de6492e98bad7d4fbfb2e302668d51df111650edc25a95d3f19173b
+Installed-Size: 5000
+Install: nsis
+Uninstall: registry Bochs 2.3.7 (remove only)
+Notice: Bochs 2.3.7 is the last version that runs on Windows 98 without
+ KernelEx. A virtual PC is described by a .bxrc configuration file; see
+ bochsrc-sample.txt in the Bochs folder.
+
+Package: clamwin
+Name: ClamWin Free Antivirus
+Version: 0.99.1
+Section: Utilities
+Summary: Virus scanner based on ClamAV, with its 2016 signatures
+Description: A graphical virus scanner with a scheduler, Explorer right-click
+ scanning and a tray icon, built on the ClamAV engine 0.99.1. This is the full
+ installer, with the virus signatures of April 2016 included.
+ .
+ Its signatures can no longer be updated: the ClamAV servers refuse this old
+ engine. It recognizes viruses known up to 2016.
+Homepage: https://clamwin.com/
+License: GPL-2.0-only
+License-File: pool/clamwin/0.99.1/LICENSE.TXT
+Systems: 98, ME
+Availability: external
+Download: http://downloads.sourceforge.net/project/clamwin/clamwin/0.99.1/clamwin-0.99.1-setup.exe 120690586 de65ec83d2eac626169ad4db0b24dcabff8c0ac49960ed91940443afe8267ade
+Install: inno /TASKS=""
+Uninstall: registry ClamWin Free Antivirus 0.99.1
+Warning: ClamWin cannot download new virus signatures, so it does not know
+ viruses written after April 2016. Its scanning engine also has known
+ security problems: scanning a malicious file can crash it or run code on
+ this computer.
+Notice: ClamWin starts with Windows (tray icon). Its Update command will fail;
+ this is expected.
+
+Package: depends
+Name: Dependency Walker
+Version: 2.2.6000
+Section: Development
+Summary: Shows which DLLs a program needs and which are missing
+Homepage: https://www.dependencywalker.com/
+License: Freeware
+License-File: pool/depends/2.2.6000/LICENSE.TXT
+Systems: 95, 98, ME
+Availability: external
+Download: http://www.dependencywalker.com/depends22_x86.zip 610769 03d73abba0e856c81ba994505373fdb94a13b84eb29e6c268be1bf21b7417ca3
+Installed-Size: 1000
+Install: unzip {dir}
+Shortcut: Dependency Walker | {dir}\depends.exe |
+Uninstall: files
+
+Package: devcpp
+Name: Dev-C++
+Version: 4.9.9.2
+Section: Development
+Summary: C and C++ IDE with the MinGW GCC 3.4.2 compiler included
+Description: An integrated development environment for C and C++: editor,
+ project manager, class browser and debugger front end, with the MinGW port
+ of GCC 3.4.2, binutils, make and gdb included. Builds Windows and console
+ programs.
+Homepage: https://sourceforge.net/projects/dev-cpp/
+License: GPL-2.0-or-later
+License-File: pool/devcpp/4.9.9.2/LICENSE.TXT
+Systems: 98, NT4, 2000
+Availability: external
+Download: http://downloads.sourceforge.net/project/dev-cpp/Binaries/Dev-C%2B%2B%204.9.9.2/devcpp-4.9.9.2_setup.exe 9326468 98ca778d39ce72d1d8dd8c362a19ff5c63d8b827cd02dfbf139d4d0fd6328c40
+Installed-Size: 60000
+Install: nsis
+Uninstall: registry Dev-C++ 5 beta 9 release (4.9.9.2)
+Warning: This version has a known security problem: opening a source file
+ with a very long line can crash Dev-C++ or run code. The included compiler
+ tools are from 2004.
+
+Package: dosbox
+Name: DOSBox
+Version: 0.74-3
+Section: Games
+Summary: Emulates an MS-DOS PC with sound and graphics, for old DOS games
+Homepage: https://www.dosbox.com/
+License: GPL-2.0-or-later
+License-File: pool/dosbox/0.74-3/LICENSE.TXT
+Systems: 98, ME
+Download: http://downloads.sourceforge.net/project/dosbox/dosbox/0.74-3/DOSBox0.74-3-win32-installer.exe 1493703 a9e270217d12867c2609d9423d1b2ed83fcf7cd08aeeee3ab09a4afdf9e9418e pool/dosbox/0.74-3/DOSBox0.74-3-win32-installer.exe
+Source: pool/dosbox/0.74-3/src/dosbox-0.74-3.tar.gz 1326339 c0d13dd7ed2ed363b68de615475781e891cd582e8162b5c3669137502222260a
+ pool/dosbox/0.74-3/src/SDL-1.2.13.tar.gz 3373673 94f99df1d60f296b57f4740650a71b6425da654044ca30f8f0ce34934429e132
+ pool/dosbox/0.74-3/src/SDL_net-1.2.7.tar.gz 373866 2ce7c84e62ff8117b9f205758bcce68ea603e08bc9d6936ded343735b8b77c53
+Install: nsis /D={dir}
+Uninstall: run "{dir}\uninstall.exe" /S
+Notice: Programs running inside DOSBox can read and change every folder you
+ mount. For files you do not trust, type config -securemode after mounting.
+ The video codec in the Video Codec folder does not work on Windows 98.
+
+Package: eraser
+Name: Eraser
+Version: 5.82
+Section: Utilities
+Summary: Securely deletes files and wipes unused disk space
+Description: Overwrites files, folders and free disk space several times so
+ that deleted data cannot be recovered. Includes an Explorer menu command and
+ a scheduler.
+Homepage: https://eraser.heidi.ie/
+License: GPL-2.0-or-later
+License-File: pool/eraser/5.82/LICENSE.TXT
+Systems: 95, 98, ME
+Availability: external
+Download: http://downloads.sourceforge.net/project/eraser/OldFiles/eraser582setup.exe 2694679 7f6afa94dd935ef2217b5c800f5fb0ac9a1815b556a952b265a71589556cd02e
+Installed-Size: 4718
+Install: inno
+Uninstall: registry Eraser 5.82
+Notice: Windows 95 needs Common Controls 4.72 or later (Internet Explorer
+ 4.01 or later provides them).
+
+Package: fceu
+Name: FCEUX
+Version: 2.1.5
+Section: Games
+Summary: NES and Famicom emulator with debugging and movie tools
+Description: Plays NES and Famicom cartridge images, with a debugger, cheat
+ search and Lua scripting. This is the build made for Windows 98 and 2000.
+ No games are included.
+Homepage: https://fceux.com/
+License: GPL-2.0-or-later
+License-File: pool/fceu/2.1.5/LICENSE.TXT
+Systems: 98, ME
+Download: http://downloads.sourceforge.net/project/fceultra/Binaries/2.1.5/fceux-2.1.5-win32-Win2000_Win98.zip 1686703 8ac5fe8ad76a3e475d99bc7815c0bb8f667a60e6ae0b0f5e531cf995fcf7382f pool/fceu/2.1.5/fceux-2.1.5-win32-Win2000_Win98.zip
+Source: pool/fceu/2.1.5/src/fceux-2.1.5.src.tar.bz2 7322199 ee6b1ee6a0347e325032f6655a5caa289e2b0458f7fccddccd5137f1cd63bf9f
+ pool/fceu/2.1.5/src/7z457.tar.bz2 620119 09fc3719fbe373edd1c62bf8e48c1f98caea4522c26d0244aa40d2058ee2fd7e
+Installed-Size: 1960
+Install: unzip {dir}
+Shortcut: FCEUX | {dir}\fceux.exe |
+Uninstall: files
+Warning: FCEUX opens games packed in archives with an old 7-Zip library that
+ has known security problems. Use game files you trust, and run only Lua
+ scripts you trust.
+
+Package: firefox
+Name: Mozilla Firefox
+Version: 2.0.0.20
+Section: Internet
+Summary: Web browser, the last Firefox for Windows 98 and ME
+Description: Mozilla Firefox 2, the official build from Mozilla, unmodified.
+ Firefox 3 and later need Windows 2000 or newer.
+Homepage: https://www.mozilla.org/firefox/
+License: Mozilla Firefox EULA 2.0 (code: MPL-1.1 OR GPL-2.0-or-later OR LGPL-2.1-or-later)
+License-File: pool/firefox/2.0.0.20/LICENSE.TXT
+Systems: 98, ME, NT4, 2000
+Availability: external
+Download: http://archive.mozilla.org/pub/firefox/releases/2.0.0.20/win32/en-US/Firefox%20Setup%202.0.0.20.exe 6048152 b7ca35bdddb8e4adf099c62013e889efd0e0b0bbac90bb18c847f7632b214960
+Install: exe -ms
+Uninstall: registry Mozilla Firefox (2.0.0.20)
+Warning: Firefox 2 has not received security updates since December 2008.
+ Mozilla has since fixed at least 31 serious problems in its engine, many of
+ which let a web page run code on this computer. It supports only TLS 1.0,
+ so most secure (https) sites will not open. Do not use it for banking or
+ passwords.
+Notice: Firefox is a trademark of the Mozilla Foundation. Backport Labs is not
+ affiliated with Mozilla; this file comes directly from Mozilla's server.
+
+Package: freedoom
+Name: Freedoom
+Version: 0.13.0
+Section: Games
+Summary: Free first-person shooter game data for Doom engines, two games
+Description: Freedoom is a complete, free game in the style of Doom, with
+ its own levels, monsters, graphics, sound and music. Phase 1 has four
+ episodes; Phase 2 is one long campaign of 32 levels. It is played with the
+ PrBoom engine.
+Homepage: https://freedoom.github.io/
+License: BSD-3-Clause
+License-File: pool/freedoom/0.13.0/LICENSE.TXT
+Systems: 98, ME
+Download: pool/freedoom/0.13.0/freedoom-0.13.0.zip 24143781 3f9b264f3e3ce503b4fb7f6bdcb1f419d93c7b546f4df3e874dd878db9688f59
+Depends: prboom
+Installed-Size: 60300
+Install: unzip {dir} strip 1
+Shortcut: Freedoom Phase 1 | {dir:prboom}\prboom.exe | -iwad "{dir}\freedoom1.wad"
+ Freedoom Phase 2 | {dir:prboom}\prboom.exe | -iwad "{dir}\freedoom2.wad"
+Uninstall: files
+
+Package: freepascal
+Name: Free Pascal
+Version: 2.6.2
+Section: Development
+Summary: Pascal and Object Pascal compiler, with a text-mode IDE
+Description: A Turbo Pascal and Delphi compatible compiler for 32-bit Windows
+ and many other systems, with its run-time library, packages, the text-mode
+ IDE (fp.exe) and the GNU tools it needs.
+Homepage: https://www.freepascal.org/
+License: GPL-2.0-or-later
+License-File: pool/freepascal/2.6.2/LICENSE.TXT
+Systems: 95, 98, ME, NT4, 2000
+Availability: external
+Download: http://downloads.sourceforge.net/project/freepascal/Win32/2.6.2/fpc-2.6.2.i386-win32.exe 41195678 2bdf6428ba5e53f3de01d73e9cd427018e264b725d8ebc93a5c5aafdd483da79
+Install: inno /DIR=C:\FPC\2.6.2
+After: path C:\FPC\2.6.2\bin\i386-win32
+Uninstall: registry Free Pascal 2.6.2
+
+Package: gnuwin32-core
+Name: GnuWin32 core tools
+Version: grep 2.5.4, sed 4.2, gawk 3.1.6, wget 1.11.4, diff 2.8.7, less 394
+Section: Utilities
+Summary: grep, sed, gawk, wget, diff, less and which for the command line
+Description: Unix text tools from the GnuWin32 project, for batch files and
+ the MS-DOS Prompt: grep, egrep, fgrep, sed, gawk (awk), wget, diff, cmp,
+ diff3, sdiff, less, which and iconv, with the libraries they need
+ (libintl, libiconv, regex, PCRE, OpenSSL 0.9.8h). These are the 2008-2009
+ builds whose GnuWin32 pages list Windows 95, 98 and ME.
+Homepage: https://gnuwin32.sourceforge.net/
+License: GPL-3.0-or-later AND GPL-2.0-or-later AND LGPL-2.0-or-later AND LGPL-2.1-or-later AND BSD-3-Clause AND OpenSSL
+License-File: pool/gnuwin32-core/2009.06/LICENSE.TXT
+Systems: 95, 98, ME
+Download: pool/gnuwin32-core/2009.06/grep-2.5.4-bin.zip 451824 3fd98201561b5af3f54a7dacc4f88068f5b5edf19ccdfc981c3c9fc60ff73519
+ pool/gnuwin32-core/2009.06/sed-4.2-1-bin.zip 368423 7956b4ded4804aad8d72cb65b57c10265fb34eb56e38b2ff41a1336881a5f063
+ pool/gnuwin32-core/2009.06/gawk-3.1.6-1-bin.zip 1448542 f05128cc735e8a4a0dff027a2c54a8ce69c30b4c0774bfb2994638317927c224
+ pool/gnuwin32-core/2009.06/wget-1.11.4-1-bin.zip 850448 40dc40fe4f9aa02644c2648d7d337632f5a50eed004e3d3b68da0306e4f50f1b
+ pool/gnuwin32-core/2009.06/diffutils-2.8.7-1-bin.zip 456027 6d64ee291c9b49a2841dbccea9795140802ff6b73fd2f4848635bbc974dc5a9c
+ pool/gnuwin32-core/2009.06/less-394-bin.zip 176349 cd8233cb3caee8ccbbed6883443f44f2002218eceb4d697d38a0c40c2d181896
+ pool/gnuwin32-core/2009.06/which-2.20-bin.zip 41833 035ec15541649f75459fb81f02406c72e1129fc9041b308160938ae712a603a4
+ pool/gnuwin32-core/2009.06/libiconv-1.9.2-1-bin.zip 828380 66f494fb37d2ac9367ef8398071f19db4b670a3d2ea2361f970d65195c336bd9
+ pool/gnuwin32-core/2009.06/libintl-0.14.4-bin.zip 394081 4e2e5f2e9becb50ee9d828f2400ca4115a8887d99c3c2b8fb59b1b77e504655b
+ pool/gnuwin32-core/2009.06/pcre-7.0-bin.zip 302480 a28aeda3ef00951f21ecd8d97f72fe015a8081fc365248850494d241bbd8a7c3
+ pool/gnuwin32-core/2009.06/regex-2.7-bin.zip 73283 64d7c7f2fc9e121d468e676af9fa3b074d552aefb8529221dd4c832baa186767
+ pool/gnuwin32-core/2009.06/openssl-0.9.8h-1-bin.zip 5906403 920c1473ed6646701cc5179b6d0a81d260228499568013334bc6f73b7f6e0787
+Source: pool/gnuwin32-core/2009.06/src/grep-2.5.4-src.zip 1361303 4591fa32fbed45abd9ace524db4847f68f60a478725441fdfab3602a57983b67
+ pool/gnuwin32-core/2009.06/src/sed-4.2-1-src.zip 2072628 dd99ae79b0bc1f53bfbc21c0ea82818bb2cd47a68107900a80dea2e516de5908
+ pool/gnuwin32-core/2009.06/src/gawk-3.1.6-1-src.zip 3126204 78eec584753be8204e94fb0efea79e27bef5f5b2deb270c6c3874c935e14a16c
+ pool/gnuwin32-core/2009.06/src/wget-1.11.4-1-src.zip 2189442 8732dbdefdb34fe0938ec0cb7384497cd8ca9d6b76a48e0dc0dbf1720245a9bf
+ pool/gnuwin32-core/2009.06/src/diffutils-2.8.7-1-src.zip 1482028 622cdfe2dcf94d5f9fd05b9546395e624fe1b84ccb7ab473bbbe893f04423821
+ pool/gnuwin32-core/2009.06/src/less-394-src.zip 373073 03098c71da92893e2526dbed98b62b641d16f40f872272659bed3ed6f52849c8
+ pool/gnuwin32-core/2009.06/src/which-2.20-src.zip 228221 87ebfb51793647f4f24136c7bc7877c4aa025795e7e15496fdd33eaaac1d1224
+ pool/gnuwin32-core/2009.06/src/libiconv-1.9.2-1-src.zip 4638975 06e31e8c7019fbaa0dd58aeaff97cdfe7238e67865b52de5f53083e2e04ed33f
+ pool/gnuwin32-core/2009.06/src/libintl-0.14.4-src.zip 257432 e51f536e6aaffdfe11f2c48280c985c18cc252264258362325816aaa127cd4da
+ pool/gnuwin32-core/2009.06/src/pcre-7.0-src.zip 1306504 04fd80bb9cbc005c3d3ef9a0d59b94821ffcb666dd698835c410a7f718507c15
+ pool/gnuwin32-core/2009.06/src/regex-2.7-src.zip 2291538 321000f891a7a89e6a610cb46c7a500152791e8653ec6228366c02a9293271f3
+ pool/gnuwin32-core/2009.06/src/openssl-0.9.8h-1-src.zip 14375398 6c6bd581e64e1a0ff67ab5cd8ecc50cbbc9b3eecd01076209ad1e68aff7055dc
+Installed-Size: 27000
+Requires: file {sys}\MSVCP60.DLL | grep, sed, gawk and diff need MSVCP60.DLL (Microsoft Visual C++ 6.0 runtime) in the Windows SYSTEM folder.
+Install: unzip C:\GNUWIN32
+After: path C:\GNUWIN32\BIN
+Uninstall: files
+Warning: These are old versions with known security problems. wget 1.11.4
+ can be made to overwrite files by a malicious server (recursive FTP
+ downloads, HTTP-to-FTP redirects), and its OpenSSL 0.9.8h has dozens of
+ known flaws. less and the PCRE library can crash or run code on crafted
+ input. Do not rely on wget for secure (HTTPS) connections.
+Notice: The tools are in C:\GNUWIN32\BIN, which is added to PATH after a
+ restart. On Windows 95, wget also needs the Windows Sockets 2 update.
+
+Package: golly
+Name: Golly
+Version: 1.4
+Section: Games
+Summary: Explorer for Conway's Game of Life and other cellular automata
+Description: Runs Conway's Game of Life and other cellular automata on an
+ unbounded universe, very fast thanks to the Hashlife algorithm. Includes a
+ large pattern collection, the Life Lexicon, unlimited undo, layers, and
+ scripting in Perl or Python (if installed).
+Homepage: http://golly.sourceforge.net/
+License: GPL-2.0-or-later
+License-File: pool/golly/1.4/LICENSE.TXT
+Systems: 98, ME
+Download: http://downloads.sourceforge.net/project/golly/golly/golly-1.4/golly-1.4-win.zip 2347109 3b7eb6e853eb68092baa4f400ab4231cd7f5aa439563f4819f5776279726de0c pool/golly/1.4/golly-1.4-win.zip
+Source: pool/golly/1.4/src/golly-1.4-src.tar.gz 1444433 db7109d09d4ad46c882949fbbf9a94dc3dc99d538cf18ffd2e3638bf06a5dafc
+Installed-Size: 5800
+Requires: package kernelex | Golly 1.4 needs KernelEx on Windows 98 and ME. Install the KernelEx package first.
+Install: unzip {pf}\Golly strip 1
+Shortcut: Golly | {pf}\Golly\Golly.exe |
+Uninstall: files
+
+Package: hashmyfiles
+Name: HashMyFiles
+Version: 2.51
+Section: Utilities
+Summary: Calculates MD5, SHA-1 and CRC32 checksums to verify downloaded files
+Description: Shows the checksums of one or more files or whole folders, marks
+ identical files, and saves the list as text or HTML. This is the version
+ for Windows 98 and ME (non-Unicode build).
+Homepage: https://www.nirsoft.net/utils/hash_my_files.html
+License: Freeware
+License-File: pool/hashmyfiles/2.51/LICENSE.TXT
+Systems: 98, ME
+Download: pool/hashmyfiles/2.51/hashmyfiles98.zip 65521 895d96fb19846570abc0db493124d49c03f27d469a139bcd4907b0a69c38b19d
+Installed-Size: 92
+Install: unzip {dir}
+Shortcut: HashMyFiles | {dir}\HashMyFiles.exe |
+Uninstall: files
+Notice: On Windows 98 and ME, use MD5, SHA-1 or CRC32. The author states that
+ SHA-256 and longer hashes need Windows XP SP3 or later.
+
+Package: hxd
+Name: HxD
+Version: 1.7.7.0
+Section: Utilities
+Summary: Hex editor for files, disks and memory
+Description: A fast hex editor that also edits raw disks and the memory of
+ running programs, and handles files of any size. Includes checksums, file
+ compare, splitting and joining, and a file shredder.
+Homepage: https://mh-nexus.de/en/hxd/
+License: Freeware
+License-File: pool/hxd/1.7.7.0/LICENSE.TXT
+Systems: 95, 98, ME, NT4, 2000
+Download: pool/hxd/1.7.7.0/HxDenu.zip 807089 ec8ab9522eefd2db19a18203e4195430a12c0c9e49b1e15cf195cee385da0d0c
+Installed-Size: 1700
+Install: unzip {pf}\HxD
+Shortcut: HxD | {dir}\HxD.exe |
+Uninstall: files
+
+Package: iconsextract
+Name: IconsExtract
+Version: 1.47
+Section: Utilities
+Summary: Finds and saves icons and cursors from EXE, DLL, OCX and CPL files
+Description: Scans files and folders for icons and cursors, shows them all and
+ saves the ones you choose as .ico or .cur files, or copies one to the
+ clipboard. Works only with 32-bit program files.
+Homepage: https://www.nirsoft.net/utils/iconsext.html
+License: Freeware
+License-File: pool/iconsextract/1.47/LICENSE.TXT
+Systems: 95, 98, ME
+Download: pool/iconsextract/1.47/iconsext.zip 34712 97582531dd0176e312f3a8b101e50d02224970aec5030f0e0ff2ac767f572981
+Installed-Size: 50
+Install: unzip {dir}
+Shortcut: IconsExtract | {dir}\iconsext.exe |
+Uninstall: files
+
+Package: infrarecorder
+Name: InfraRecorder
+Version: 0.45
+Section: Multimedia
+Summary: Burns data, audio and image CDs and DVDs, and copies discs
+Homepage: http://infrarecorder.org/
+License: GPL-2.0-or-later
+License-File: pool/infrarecorder/0.45/LICENSE.TXT
+Systems: 98, ME
+Availability: external
+Download: http://downloads.sourceforge.net/project/infrarecorder/InfraRecorder/0.45/ir045_ansi.exe 3101025 7cf044a461574ebe3a80207395ad26564541ca0f50ee0a3991bacffb610ed1bf
+Install: nsis
+Uninstall: registry InfraRecorder
+
+Package: kernelex
+Name: KernelEx
+Version: 4.5.2
+Section: System
+Summary: Lets many Windows 2000 and XP programs run on Windows 98 and ME
+Description: A compatibility layer that adds functions of newer Windows
+ versions to Windows 98 and ME, so that programs written for Windows 2000
+ and XP can run. It works for all programs and can be switched off per
+ program in the file properties.
+Homepage: https://sourceforge.net/projects/kernelex/
+License: GPL-2.0-only
+License-File: pool/kernelex/4.5.2/LICENSE.TXT
+Systems: 98, ME
+Download: http://downloads.sourceforge.net/project/kernelex/KernelEx/4.5.2/KernelEx-4.5.2.exe 228428 b4d4e6475ecf5e3099c0807ba85340a07dabdf9ac0d77b9f03fa5c37312c321b pool/kernelex/4.5.2/KernelEx-4.5.2.exe
+Source: pool/kernelex/4.5.2/src/KernelEx-4.5.2-source-2.tar.bz2 401703 ab7d16f7d025cf298edcb0b284898ba8034a478d244088a015231e18b68a23b7
+Installed-Size: 500
+Requires: file {sys}\UNICOWS.DLL | KernelEx needs the Microsoft Layer for Unicode (UNICOWS.DLL version 1.1.3790.0) in the Windows SYSTEM folder.
+Install: nsis
+Uninstall: registry KernelEx 4.5.2
+Warning: KernelEx changes how Windows itself works: it loads a system driver
+ and changes Windows functions for every program. If something goes wrong,
+ Windows may become unstable or fail to start. Make a backup of your system
+ before installing. There are no known security advisories for KernelEx, but
+ it has had no security review, and programs made for Windows XP get none of
+ XP's protection on Windows 98 and ME.
+Notice: Restart the computer to finish installing KernelEx. It is then on for
+ all programs; you can change this per program in its file properties.
+
+Package: k-meleon
+Name: K-Meleon
+Version: 1.5.4
+Section: Internet
+Summary: Fast, light web browser based on Mozilla's Gecko engine
+Description: The last K-Meleon for Windows 95, 98 and ME, with tabs, macros,
+ mouse gestures and skins. It does not support the encryption most secure
+ web sites require today, so many https:// pages will not open.
+Homepage: http://kmeleonbrowser.org/
+License: GPL-2.0-or-later AND MPL-1.1
+License-File: pool/k-meleon/1.5.4/LICENSE.TXT
+Systems: 95, 98, ME, NT4, 2000
+Availability: external
+Download: http://downloads.sourceforge.net/project/kmeleon/k-meleon/1.5.4/K-Meleon1.5.4en-US.exe 6049917 79b58ef35dc54c21d1080aeab4eba813480ed0a037fa7d7d1b2644262b2ca458
+Installed-Size: 18700
+Install: nsis
+Uninstall: registry K-Meleon 1.5.4 en-US (remove only)
+Warning: K-Meleon 1.5.4 is based on a browser engine from 2010 that gets no
+ security fixes. A malicious web page can run code on this computer. Do not
+ use it for banking or passwords. On Windows 95 it needs the COMCTL32.DLL
+ from Internet Explorer 5 or later.
+
+Package: lavfilters
+Name: LAV Filters
+Version: 0.66
+Section: Multimedia
+Summary: Modern DirectShow splitter and decoders for most video and audio
+Description: DirectShow filters based on FFmpeg that let DirectShow players
+ such as Media Player Classic and Windows Media Player open MKV, MP4, FLV,
+ TS and many other formats, and decode H.264, HEVC, AAC, DTS and more.
+Homepage: https://github.com/Nevcairiel/LAVFilters
+License: GPL-2.0-or-later
+License-File: pool/lavfilters/0.66/LICENSE.TXT
+Systems: 98, ME
+Download: pool/lavfilters/0.66/LAVFilters-0.66-x86.zip 6801476 826e63a4b11d2318adf6249e94cb97ad8237c18645787ce3c8e576fb6949f249
+Source: pool/lavfilters/0.66/src/LAVFilters-0.66.tar.gz 1208829 cc8435fd257d53a076c7863e5782c1b1aca556c991edd8320a92ef389b11cd7e
+ pool/lavfilters/0.66/src/FFmpeg-c6229c738e2fa6de1b3aea79d2e062a882a5b4be.tar.gz 10294114 3e107adef38a3ee588166202f71fa84d0c1d67fdb93cd358ffedc603efc4fb13
+ pool/lavfilters/0.66/src/libbluray-6f37d6ad12a70f7fe90bce51dbf9393021fa6e4a.tar.gz 449639 a51ffe4de982129a48fdcd2a0296defd2e637ef6a9fb031a30f86dd216ab30c5
+ pool/lavfilters/0.66/src/qsdecoder-36b2fcd80469eb7a5e958de17e3cea072ac50b86.tar.gz 2034412 e71175d13cf3817a3b1160c65874bf0560fc91165bea980d9a6231e3408f1053
+ pool/lavfilters/0.66/src/dcadec-2a9186e34ce557d3af1a20f5b558d1e6687708b9.tar.gz 218186 766cfcad08f57f2398fd684e4a44c464e6db5507d9c9c46202b0df00b0384e92
+Installed-Size: 15200
+Requires: package kernelex | LAV Filters needs KernelEx on Windows 98 and ME. Install the KernelEx package first.
+Install: unzip {dir}
+After: run {sys}\regsvr32.exe /s "{dir}\LAVSplitter.ax"
+ run {sys}\regsvr32.exe /s "{dir}\LAVAudio.ax"
+ run {sys}\regsvr32.exe /s "{dir}\LAVVideo.ax"
+Remove: run {sys}\regsvr32.exe /u /s "{dir}\LAVSplitter.ax"
+ run {sys}\regsvr32.exe /u /s "{dir}\LAVAudio.ax"
+ run {sys}\regsvr32.exe /u /s "{dir}\LAVVideo.ax"
+Uninstall: files
+Warning: LAV Filters 0.66 is from 2015. Its FFmpeg libraries have many
+ security flaws that were fixed later (for example CVE-2016-10190). A
+ specially crafted video file could run harmful code in your player. Only
+ open files you trust.
+Notice: LAV Filters was reported working on Windows 98 with KernelEx in
+ Windows XP SP3 mode. If videos do not play, set the XP SP3 mode in KernelEx
+ for your player.
+
+Package: lua51
+Name: Lua
+Version: 5.1.5
+Section: Development
+Summary: Small, fast scripting language (interpreter and compiler)
+Description: The Lua 5.1 interpreter (lua5.1.exe, wlua5.1.exe for scripts
+ without a console window) and bytecode compiler (luac5.1.exe), as built by
+ the LuaBinaries project with Visual C++ 2005.
+Homepage: https://www.lua.org/
+License: MIT
+License-File: pool/lua51/5.1.5/LICENSE.TXT
+Systems: 98, ME
+Availability: external
+Download: http://downloads.sourceforge.net/project/luabinaries/5.1.5/Tools%20Executables/lua-5.1.5_Win32_bin.zip 829421 c831a26d9c2280adf594a33690324de5de3cf6fb75f26b3753bae00812bcf162
+Installed-Size: 2500
+Install: unzip C:\LUA51
+After: path C:\LUA51
+ path C:\LUA51\Microsoft.VC80.CRT
+Shortcut: Lua 5.1 | C:\LUA51\lua5.1.exe |
+Uninstall: files
+Notice: Lua is on PATH after you restart Windows. Until then, the shortcut may
+ report that MSVCR80.DLL is missing.
+
+Package: metapad
+Name: Metapad
+Version: 3.6
+Section: Utilities
+Summary: Small, fast Notepad replacement with many extra features
+Description: A text editor in the spirit of Notepad, with no file size limit,
+ multiple undo, find and replace with history, auto-indent, block indent,
+ UNIX and UTF-8 files, recent files, favourites and a portable INI mode.
+Homepage: https://liquidninja.com/metapad/
+License: GPL-3.0-or-later
+License-File: pool/metapad/3.6/LICENSE.TXT
+Systems: 95, 98, ME
+Download: pool/metapad/3.6/metapad36.zip 111496 b350e854eab7ecd2d6f0510eb4bd03ea3a2eb1ff854c226247a4acda1bf36b51
+Source: pool/metapad/3.6/src/metapad-5f04b9a2ad3d39964d9d853f022db345b31e561b.zip 150922 7205b6c095bb0be88338145c7970cfc22a24a74365b8f2b8b36e1234a68b8d15
+Requires: file {sys}\RICHED20.DLL | Metapad needs RICHED20.DLL (RichEdit 2.0 or later), which Windows 98 and ME include. Windows 95 does not; other programs such as Microsoft Office install it.
+ file {sys}\MSVCRT.DLL | Metapad needs the Microsoft C runtime MSVCRT.DLL, which Windows 98 and ME include.
+Installed-Size: 200
+Install: unzip {dir}
+Shortcut: Metapad | {dir}\metapad.exe |
+Uninstall: files
+
+Package: miranda-im
+Name: Miranda IM
+Version: 0.7.19
+Section: Internet
+Summary: Small instant messenger for IRC, Jabber/XMPP and other networks
+Description: A light multi-protocol chat program, the ANSI edition made for
+ Windows 95, 98 and ME. It includes IRC, Jabber (XMPP), ICQ, AIM, MSN,
+ Yahoo and Gadu-Gadu. Most of those networks have since closed; IRC and
+ Jabber servers that still accept older encryption or none work best.
+Homepage: https://sourceforge.net/projects/miranda/
+License: GPL-2.0-or-later
+License-File: pool/miranda-im/0.7.19/LICENSE.TXT
+Systems: 95, 98, ME
+Download: http://downloads.sourceforge.net/project/miranda/OldFiles/miranda-im-v0.7.19-ansi.exe 1497672 ec5f238109b357a93779f24d83ab987d3c8c6e4b797b5b6df85aad28d7b7beb4 pool/miranda-im/0.7.19/miranda-im-v0.7.19-ansi.exe
+Source: pool/miranda-im/0.7.19/src/miranda-im-v0.7.19-src.zip 5946513 308e6babd4f3fb5afcb914f5759fe1c2cb411fc457774bd3eadb875bf343658d
+Installed-Size: 3700
+Install: nsis
+Uninstall: registry Miranda IM 0.7.19
+Warning: Miranda IM 0.7.19 is from 2009 and no longer maintained. Its
+ encryption is outdated, and messages from other users and servers are
+ handled by old code that may have unfixed security problems.
+Notice: The picture and IRC plugins need MSVCP60.DLL in the Windows SYSTEM
+ folder. Your chat history is stored in the Miranda IM folder.
+
+Package: myuninstaller
+Name: MyUninstaller
+Version: 1.77
+Section: System
+Summary: Lists installed programs, uninstalls them, removes stale entries
+Description: An alternative to the Add/Remove Programs control panel. Shows
+ version, company, folder and uninstall string of each program, can delete
+ entries left behind by removed programs and save the list to a file.
+Homepage: https://www.nirsoft.net/utils/myuninst.html
+License: Freeware
+License-File: pool/myuninstaller/1.77/LICENSE.TXT
+Systems: 98, ME
+Download: pool/myuninstaller/1.77/myuninst.zip 52781 22f2fc8d324fcd8d36698e0496d7a4c5b69a09f3a36de533f99c83ba4446f799
+Install: unzip {pf}\MyUninstaller
+Shortcut: MyUninstaller | {dir}\myuninst.exe |
+Uninstall: files
+
+Package: nasm
+Name: NASM
+Version: 2.14.02
+Section: Development
+Summary: The Netwide Assembler, an x86 assembler, and its disassembler
+Description: Assembles 16-, 32- and 64-bit x86 code into DOS, Windows, ELF
+ and other object formats. Includes ndisasm and the RDOFF tools. Command
+ line only.
+Homepage: https://www.nasm.us/
+License: BSD-2-Clause
+License-File: pool/nasm/2.14.02/LICENSE.TXT
+Systems: 98, ME
+Download: pool/nasm/2.14.02/nasm-2.14.02-win32.zip 557565 250f9b5eeb2111e8c7b494a977490985b8604fe7518a6f5041cde37cc727a067
+Source: pool/nasm/2.14.02/src/nasm-2.14.02.tar.xz 827620 e24ade3e928f7253aa8c14aa44726d1edf3f98643f87c9d72ec1df44b26be8f5
+Installed-Size: 2300
+Install: unzip C:\NASM strip 1
+After: path C:\NASM
+Uninstall: files
+Warning: This version has 5 known security problems. Assembling a malicious
+ source file can crash NASM; only assemble files you trust.
+
+Package: nircmd
+Name: NirCmd
+Version: 2.87
+Section: Utilities
+Summary: Command-line tool for scripts: volume, windows, registry, shutdown
+Description: A small program without a window that performs system tasks from
+ batch files: change the volume, close or hide windows, write registry
+ values, create shortcuts, turn off the monitor, shut down Windows, and more.
+ Type NIRCMD followed by a command in a batch file or at the DOS prompt.
+Homepage: https://www.nirsoft.net/utils/nircmd.html
+License: Freeware
+License-File: pool/nircmd/2.87/LICENSE.TXT
+Systems: 98, ME
+Download: pool/nircmd/2.87/nircmd.zip 124310 122aee2fbdd0c793367b519635c45e5611688159b72f5e58a27f9256a53c9014
+Installed-Size: 135
+Install: unzip C:\NIRCMD
+After: path C:\NIRCMD
+Shortcut: NirCmd Help | C:\NIRCMD\NirCmd.chm |
+Uninstall: files
+
+Package: notepad2
+Name: Notepad2
+Version: 1.0.12
+Section: Utilities
+Summary: Small, fast Notepad replacement with syntax highlighting
+Description: A light-weight text editor based on the Scintilla component, with
+ syntax highlighting for HTML, XML, CSS, JavaScript, PHP, C/C++, Perl, Python,
+ SQL and more, Unicode and UTF-8 support, and regular expression search. This
+ is the last version for Windows 95, 98 and ME.
+Homepage: https://www.flos-freeware.ch/notepad2.html
+License: GPL-2.0-only
+License-File: pool/notepad2/1.0.12/LICENSE.TXT
+Systems: 95, 98, ME
+Download: pool/notepad2/1.0.12/notepad2_1.0.12.zip 246814 a20f099decfe5588623b1cc868a9205ffe7050469fe66fd8ca5393b2d592836d
+Source: pool/notepad2/1.0.12/src/np2src_1.0.12.zip 169497 16566be7ad3eaf02242f44aa92db379f3f3d2ad81e636efb8d7795b672529191
+Requires: ie 5.0 | Notepad2 needs Internet Explorer 5 or later (its SHLWAPI.DLL), which Windows 98 Second Edition and ME include.
+Installed-Size: 600
+Install: unzip {pf}\Notepad2
+Shortcut: Notepad2 | {dir}\Notepad2.exe |
+Uninstall: files
+Notice: Notepad2 keeps its settings in the registry. To remove them, run
+ "Notepad2.exe /u" before removing Notepad2.
+
+Package: notepad-plus-plus
+Name: Notepad++
+Version: 5.9.6.2
+Section: Development
+Summary: Source code editor with syntax highlighting, tabs and macros
+Description: A text and source code editor based on Scintilla, with syntax
+ highlighting for many languages, tabs, search and replace with regular
+ expressions, macros and plugins. This is the ANSI build, the one that runs
+ on Windows 98; it cannot open files whose names contain characters outside
+ the Windows code page.
+Homepage: https://notepad-plus-plus.org/
+License: GPL-2.0-or-later
+License-File: pool/notepad-plus-plus/5.9.6.2/LICENSE.TXT
+Systems: 98, ME
+Availability: external
+Download: http://download.tuxfamily.org/notepadplus/archive/5.9.6.2/npp.5.9.6.2.bin.zip 8037190 ac1cb232f400ec22d56a86e67946b743fc7adb2f9756508553ca6cc634f82d58
+Installed-Size: 22000
+Install: unzip {dir}
+Shortcut: Notepad++ | {dir}\ansi\notepad++.exe |
+Uninstall: files
+Warning: This version has known security problems, fixed only in versions
+ that do not run on Windows 98. Opening a malicious text file, session or
+ settings file can crash Notepad++ or run code on this computer.
+Notice: Notepad++ is in the "ansi" folder; the "unicode" folder is not used on
+ Windows 98. If the Open and Save dialogs do not appear, drag files onto the
+ Notepad++ window instead.
+
+Package: openoffice
+Name: OpenOffice.org
+Version: 2.4.3
+Section: Office
+Summary: Office suite: word processor, spreadsheet, presentations, drawing
+Description: Writer, Calc, Impress, Draw, Math and Base. Opens and saves
+ Microsoft Office 97-2003 and OpenDocument files, and exports PDF. This is the
+ last version for Windows 98 and ME.
+ .
+ Java is not needed. Without it, the Base database wizards and the built-in
+ HSQLDB database do not work.
+Homepage: https://www.openoffice.org/
+License: LGPL-2.1-only
+License-File: pool/openoffice/2.4.3/LICENSE.TXT
+Systems: 98, ME
+Availability: external
+Download: http://archive.apache.org/dist/incubator/ooo/stable/2.4.3/OOo_2.4.3_Win32Intel_install_en-US.exe 118490487 4b31cca4a379e6437eca95ba435308cd3c2ba51b2044a60077d9f7c3f7193759
+Installed-Size: 325000
+Requires: memory 128 | OpenOffice.org 2.4 needs at least 128 MB of memory (256 MB recommended).
+Install: exe /S /GUILEVEL=qb /POSTREMOVE=ON
+Uninstall: registry OpenOffice.org 2.4
+Warning: This version has more than 50 known security problems, fixed only in
+ versions that do not run on Windows 98. Opening a malicious Word, RTF,
+ PowerPoint or image file, or clicking a link in a document, can run code on
+ this computer. Do not open documents from people you do not trust.
+Notice: If Windows Installer 2.0 was missing, setup installed it and Windows 98
+ restarts at the end. OpenOffice.org and the OpenOffice.org name are trademarks
+ of The Apache Software Foundation.
+
+Package: openwatcom
+Name: Open Watcom C/C++
+Version: 1.9
+Section: Development
+Summary: C and C++ compilers for DOS, Windows 3.x, Windows 95 and OS/2
+Description: The Watcom C/C++ compilers, linker, make, debugger, resource
+ compiler and editor. Builds 16-bit and 32-bit programs for DOS (including
+ DOS extenders), Windows 3.x, Windows 95 and later, and OS/2.
+ .
+ Before compiling in a DOS box, run C:\WATCOM\OWSETENV.BAT to set the WATCOM
+ and INCLUDE variables. The source code is available from the package page.
+Homepage: https://www.openwatcom.org/
+License: Watcom-1.0
+License-File: pool/openwatcom/1.9/LICENSE.TXT
+Systems: 95, 98, ME, NT4, 2000
+Download: pool/openwatcom/1.9/open-watcom-c-win32-1.9.exe 84012543 040c910aba304fdb5f39b8fe508cd3c772b1da1f91a58179fa0895e0b2bf190b
+Source: pool/openwatcom/1.9/src/open_watcom_1.9.0-src.zip 52554323 c1cddd52405757a24987ea4fbcc455f3d1e61646798d908679dd6a4cc3b5272c
+Installed-Size: 192100
+Install: unzip C:\WATCOM
+After: path C:\WATCOM\BINNT
+ path C:\WATCOM\BINW
+ write C:\WATCOM\OWSETENV.BAT | @ECHO OFF\nSET WATCOM=C:\WATCOM\nSET PATH=%WATCOM%\BINNT;%WATCOM%\BINW;%PATH%\nSET EDPATH=%WATCOM%\EDDAT\nSET INCLUDE=%WATCOM%\H;%WATCOM%\H\NT\n
+Shortcut: Open Watcom IDE | C:\WATCOM\BINNT\IDE.EXE |
+Uninstall: files
+
+Package: prboom
+Name: PrBoom
+Version: 2.5.0
+Section: Games
+Summary: Doom game engine; needs Freedoom or your own DOOM.WAD to play
+Description: A version of the Doom engine, based on Boom and MBF, with higher
+ screen resolutions and many fixes. It plays original Doom levels and Boom
+ and MBF add-ons. It contains no game data: install Freedoom, or copy your
+ own DOOM.WAD or DOOM2.WAD into the PrBoom folder.
+Homepage: https://prboom.sourceforge.net/
+License: GPL-2.0-or-later
+License-File: pool/prboom/2.5.0/LICENSE.TXT
+Systems: 98, ME
+Download: http://downloads.sourceforge.net/project/prboom/prboom%20stable/2.5.0/prboom-2.5.0-win32.zip 1241174 1d0fbf0675770e8d47aa3d5874a0ab4d003aa79442da4786fe16f451697aa216 pool/prboom/2.5.0/prboom-2.5.0-win32.zip
+Source: pool/prboom/2.5.0/src/prboom-2.5.0.tar.gz 1049505 226c1c470f8cc983327536404f405a1d026cf0a5188c694a1243cc8630014bae
+ pool/prboom/2.5.0/src/SDL-1.2.13.tar.gz 3373673 94f99df1d60f296b57f4740650a71b6425da654044ca30f8f0ce34934429e132
+ pool/prboom/2.5.0/src/SDL_mixer-1.2.8.tar.gz 2096559 a8222a274778ff16d0e3ee49a30db27a48a4d357169a915fc599a764e405e0b6
+ pool/prboom/2.5.0/src/SDL_net-1.2.7.tar.gz 373866 2ce7c84e62ff8117b9f205758bcce68ea603e08bc9d6936ded343735b8b77c53
+ pool/prboom/2.5.0/src/smpeg-svn-20070614-423fd9ff39.tar.gz 339663 09d0318165c1e3760e13293f1a46ffc61f99bb2a07169f41b7b6c8db3d58c945
+Installed-Size: 3000
+Install: unzip {dir} strip 1
+Shortcut: PrBoom | {dir}\prboom.exe |
+Uninstall: files
+Warning: PrBoom's network game code has a known buffer overflow
+ (CVE-2019-20797). Only join network games with people you trust.
+Notice: PrBoom needs game data. Install the Freedoom package, or copy your own
+ DOOM.WAD or DOOM2.WAD into the PrBoom folder. Settings and saved games are
+ kept in the PrBoom folder.
+
+Package: privoxy
+Name: Privoxy
+Version: 3.0.19
+Section: Internet
+Summary: Local web proxy that removes ads and unwanted content
+Description: Privoxy runs in the background and filters web pages before the
+ browser sees them: it blocks ads and trackers and removes annoying
+ scripts. Set your browser's HTTP proxy to 127.0.0.1, port 8118. This is
+ the IPv4-only build made for Windows 98. It filters plain HTTP only.
+Homepage: https://www.privoxy.org/
+License: GPL-2.0-or-later
+License-File: pool/privoxy/3.0.19/LICENSE.TXT
+Systems: 95, 98, ME
+Download: pool/privoxy/3.0.19/privoxy-3.0.19-ipv4only.zip 728027 c4dfa26703b759a9d496a657f829a3cfaf493ee7099a833afed9e3bb3963609c
+Source: pool/privoxy/3.0.19/src/privoxy-3.0.19-stable-src.tar.gz 1722316 816e627b31caa3d9e71d0a8b83ac9ea7dcbeaaafef3c9a9c792696aa56255232
+ pool/privoxy/3.0.19/src/privoxy-3.0.19-ipv4Only-notes.txt 779 e8346c58a1b5285f502c3071977026f15fab89afb0da6fed53c7fee641ded8d0
+Requires: file {sys}\MSVCRT.DLL | Privoxy needs the Microsoft C runtime (MSVCRT.DLL). Windows 98 includes it; on Windows 95 it comes with Internet Explorer 4 or later.
+Installed-Size: 1950
+Install: unzip {pf}\Privoxy strip 1
+Shortcut: Privoxy | {pf}\Privoxy\privoxy.exe |
+Uninstall: files
+Warning: This version has known security problems, fixed only in versions that
+ do not run on Windows 98. Most let a malicious web page or server crash
+ Privoxy; one may corrupt its memory.
+Notice: Start Privoxy from the Start Menu, then set your browser's HTTP proxy
+ to 127.0.0.1, port 8118. Its settings are in config.txt in its folder.
+
+Package: regshot
+Name: Regshot
+Version: 1.8.2
+Section: System
+Summary: Compares two registry and folder snapshots to see what changed
+Description: Take a snapshot of the registry and chosen folders, install or
+ change something, take a second snapshot, and Regshot lists every key,
+ value and file that was added, changed or deleted, as text or HTML.
+Homepage: https://sourceforge.net/projects/regshot/
+License: GPL-2.0-or-later
+License-File: pool/regshot/1.8.2/LICENSE.TXT
+Systems: 95, 98, ME
+Download: http://downloads.sourceforge.net/project/regshot/regshot/1.8.2/regshot_1.8.2_src_bin.zip 91309 434b02c54677d8dece6c0ffb6644fd595b3e18ef9c29e675a9b08a3d013c123c pool/regshot/1.8.2/regshot_1.8.2_src_bin.zip
+Source: pool/regshot/1.8.2/src/regshot_1.8.2_src_bin.zip 91309 434b02c54677d8dece6c0ffb6644fd595b3e18ef9c29e675a9b08a3d013c123c
+Installed-Size: 262
+Install: unzip {dir}
+Shortcut: Regshot | {dir}\regshot.exe |
+Uninstall: files
+
+Package: seamonkey
+Name: SeaMonkey
+Version: 1.1.19
+Section: Internet
+Summary: Web browser, mail and news, and HTML editor in one suite
+Description: The Mozilla internet suite: web browser, e-mail and newsgroups,
+ Composer HTML editor, ChatZilla IRC client and developer tools. This is the
+ last version for Windows 95, 98 and ME. Windows 95 needs Microsoft's DCOM95
+ update.
+Homepage: https://www.seamonkey-project.org/
+License: MPL-1.1 OR GPL-2.0-or-later OR LGPL-2.1-or-later
+License-File: pool/seamonkey/1.1.19/LICENSE.TXT
+Systems: 95, 98, ME, NT4, 2000
+Availability: external
+Download: http://archive.mozilla.org/pub/seamonkey/releases/1.1.19/seamonkey-1.1.19.en-US.win32.installer.exe 13266944 34dca09d77e11f6b9f0275a51aa3a90b1e2185f915e50e0b5cd0deea56d2d1b6
+Install: exe -ms
+Uninstall: registry SeaMonkey (1.1.19)
+Warning: SeaMonkey 1.1.19 is from 2010 and has hundreds of known security
+ problems, fixed only in versions that do not run on Windows 98. A malicious
+ web page, image or e-mail can run code on this computer. Most current secure
+ web sites will not open. Do not use it for banking or passwords.
+
+Package: shellexview
+Name: ShellExView
+Version: 2.01
+Section: System
+Summary: Lists Explorer shell extensions and turns off broken ones
+Description: Shows every shell extension installed on the computer: context
+ menu handlers, property sheets, icon handlers and more. Turning off a faulty
+ extension often cures Explorer crashes and slow right-click menus.
+Homepage: https://www.nirsoft.net/utils/shexview.html
+License: Freeware
+License-File: pool/shellexview/2.01/LICENSE.TXT
+Systems: 98, ME
+Download: pool/shellexview/2.01/shexview.zip 73154 b0f5e6bea715be67460d24e4ffe5256297ffd990cc4f5bfa902f9d5af0d1196d
+Installed-Size: 105
+Install: unzip {dir}
+Shortcut: ShellExView | {dir}\shexview.exe |
+Uninstall: files
+
+Package: stella
+Name: Stella
+Version: 3.6.1
+Section: Games
+Summary: Atari 2600 emulator
+Description: Plays Atari 2600 VCS cartridge images, with a built-in debugger.
+ No games are included.
+Homepage: https://stella-emu.github.io/
+License: GPL-2.0-or-later
+License-File: pool/stella/3.6.1/LICENSE.TXT
+Systems: 98, ME
+Download: pool/stella/3.6.1/Stella-3.6.1_98_2k-windows.zip 1518520 19639c651abd1c8d8d8c7c49894ecec5986f868d6995bef46065d79fdfbf88da
+Source: pool/stella/3.6.1/src/stella-3.6.1-src.tar.gz 2073179 b29ab8deb52ababd70883042bd1c037fa40a05276f3b657754b5914ed14d71be
+ pool/stella/3.6.1/src/SDL-1.2.14.tar.gz 4014154 5d927e287034cb6bb0ebccfa382cb1d185cb113c8ab5115a0759798642eed9b6
+Installed-Size: 3110
+Install: unzip {dir} strip 1
+Shortcut: Stella | {dir}\32-bit\Stella.exe |
+Uninstall: files
+Notice: This is the last Stella version for Windows 98 and ME.
+
+Package: sumatrapdf
+Name: SumatraPDF
+Version: 0.7
+Section: Office
+Summary: Small, fast PDF viewer
+Description: A small PDF reader that starts quickly. It can select and copy
+ text, print, and open password-protected files. This is the last version
+ made for Windows 98.
+Homepage: https://www.sumatrapdfreader.org/
+License: GPL-2.0-only
+License-File: pool/sumatrapdf/0.7/LICENSE.TXT
+Systems: 98, ME
+Availability: external
+Download: http://kjkpub.s3.amazonaws.com/sumatrapdf/rel/SumatraPDF-0.7-install.exe 865204 10851bac3fb1688cfe05a350fb61173f3086a259179d5580953bf4ba5f4f03ad
+Installed-Size: 820
+Install: nsis
+Uninstall: registry Sumatra PDF reader
+Warning: This version has known security problems. Opening a malicious PDF
+ file can run code on this computer. Newer versions that fix them do not run
+ on Windows 98.
+
+Package: testdisk
+Name: TestDisk & PhotoRec
+Version: 7.2
+Section: System
+Summary: Recovers lost partitions and deleted files (DOS program)
+Description: TestDisk finds and repairs lost partitions and boot sectors.
+ PhotoRec recovers deleted photos, documents and other files from disks and
+ memory cards. This is the DOS version, which runs in a Windows 95 or 98
+ DOS box or in MS-DOS mode.
+Homepage: https://www.cgsecurity.org/
+License: GPL-2.0-or-later
+License-File: pool/testdisk/7.2/LICENSE.TXT
+Systems: 95, 98
+Download: pool/testdisk/7.2/testdisk-7.2.dos.zip 1813834 d9174e8a98548a6a5b18e99c8abd3b6915b365fbbc5ec2e5b91dabf6f08fc7c4
+Source: pool/testdisk/7.2/src/testdisk-7.2.tar.bz2 855781 f8343be20cb4001c5d91a2e3bcd918398f00ae6d8310894a5a9f2feb813c283f
+ pool/testdisk/7.2/src/ntfs-3g_ntfsprogs-2022.5.17.tgz 1318476 0489fbb6972581e1b417ab578d543f6ae522e7fa648c3c9b49c789510fd5eb93
+ pool/testdisk/7.2/src/e2fsprogs-1.42.8.tar.gz 5990116 c696d66aac1d48fa02dcf7027bc5c1e921d7cacf0eea529f2dd62d7bdf3a981c
+ pool/testdisk/7.2/src/csdpmi5s.zip 88564 1198a2ee09eccf19361411a546b43d6cfb83d6f22247bb3316ee683d093ef63a
+Installed-Size: 1820
+Install: unzip C:\TESTDISK strip 1
+After: path C:\TESTDISK
+Shortcut: TestDisk | C:\TESTDISK\testdisk.exe |
+ PhotoRec | C:\TESTDISK\photorec.exe |
+Uninstall: files
+Warning: TestDisk can rewrite partition tables and boot sectors; read its
+ documentation before changing anything. Its built-in NTFS and ext2/3/4
+ support has known security problems: examining a malicious disk image can
+ run code on this computer.
+
+Package: thunderbird
+Name: Mozilla Thunderbird
+Version: 2.0.0.24
+Section: Internet
+Summary: E-mail and newsgroup client, the last version for Windows 98
+Homepage: https://www.thunderbird.net/
+License: MPL-1.1
+License-File: pool/thunderbird/2.0.0.24/LICENSE.TXT
+Systems: 98, ME
+Availability: external
+Download: http://archive.mozilla.org/pub/thunderbird/releases/2.0.0.24/win32/en-US/Thunderbird%20Setup%202.0.0.24.exe 6876688 585e5b7ef922fc224079dbad7ff02c7dc7cd40c3bb7a12a4a94e02ecfea2da29
+Installed-Size: 26000
+Install: exe -ms
+Uninstall: registry Mozilla Thunderbird (2.0.0.24)
+Warning: This version has hundreds of known security problems that were fixed
+ only in versions that do not run on Windows 98. Opening a malicious message
+ can run code on this computer. Its encryption is too old for many current
+ mail servers.
+
+Package: tightvnc
+Name: TightVNC
+Version: 1.3.10
+Section: Internet
+Summary: Remote desktop: control this PC from another, or another from this
+Description: A VNC server and viewer. The server lets another computer see and
+ control this one; the viewer connects to other VNC servers.
+Homepage: https://www.tightvnc.com/
+License: GPL-2.0-or-later
+License-File: pool/tightvnc/1.3.10/LICENSE.TXT
+Systems: 95, 98, ME, NT4, 2000
+Download: pool/tightvnc/1.3.10/tightvnc-1.3.10-setup.exe 1421291 9a6f155bf8e34853a388724cf28408ce5105a614cad24832a187752e03725610
+Source: pool/tightvnc/1.3.10/src/tightvnc-1.3.10_winsrc.zip 2378726 e25d218b9692b59385f8284a9e63755a26fb32e5e0a2d87dd57c20a8928c9004
+Installed-Size: 2000
+Install: inno
+Uninstall: registry TightVNC 1.3.10
+Warning: This version has 4 known security problems in the viewer that were
+ never fixed. Connecting to a malicious VNC server can run code on this
+ computer. VNC does not encrypt the connection, and passwords are limited to
+ 8 characters: use it only on a trusted local network.
+
+Package: vba
+Name: VisualBoyAdvance
+Version: 1.7.2
+Section: Games
+Summary: Game Boy, Game Boy Color and Game Boy Advance emulator
+Description: Plays Game Boy, Game Boy Color and Game Boy Advance cartridge
+ images. No games are included.
+Homepage: https://sourceforge.net/projects/vba/
+License: GPL-2.0-or-later
+License-File: pool/vba/1.7.2/LICENSE.TXT
+Systems: 95, 98, ME
+Availability: external
+Download: http://downloads.sourceforge.net/project/vba/VisualBoyAdvance/1.7.2/VisualBoyAdvance-1.7.2.zip 611913 76d52646ae86e1eb0e4b5849d026ed5d45aa4d42f933801b79cf54503a7facd3
+Requires: dx 7.0 | VisualBoyAdvance needs DirectX 7 or later from Microsoft.
+Installed-Size: 1780
+Install: unzip {dir}
+Shortcut: VisualBoyAdvance | {dir}\VisualBoyAdvance.exe |
+Uninstall: files
+Warning: This version contains old image and compression libraries with known
+ security problems. Opening a malicious game file or skin can run code on
+ this computer.
+
+Package: volumouse
+Name: Volumouse
+Version: 2.03
+Section: Multimedia
+Summary: Change the sound volume with the mouse wheel
+Description: Runs in the notification area and turns the mouse wheel into a
+ volume control when conditions you choose are met, for example while Alt is
+ held down or while the pointer is over the taskbar.
+Homepage: https://www.nirsoft.net/utils/volumouse.html
+License: Freeware
+License-File: pool/volumouse/2.03/LICENSE.TXT
+Systems: 98, ME
+Download: pool/volumouse/2.03/volumouse.zip 61736 a73ea9f6ad492f83660c192a8fb97d31b4e5a773981c2527fa6ab0d47bafe08a
+Installed-Size: 98
+Install: unzip {dir}
+Shortcut: Volumouse | {dir}\volumouse.exe |
+Uninstall: files
+Notice: Close Volumouse from its icon in the notification area before you
+ remove it.
+
+Package: vsfilter
+Name: DirectVobSub (VSFilter)
+Version: 2.39
+Section: Multimedia
+Summary: Shows subtitles (SRT, SSA/ASS, VobSub) in DirectShow video players
+Description: A DirectShow filter that draws subtitles over video in Media
+ Player Classic, Windows Media Player and other DirectShow players. Also
+ works as a VirtualDub and AviSynth plugin. This is the Windows 9x build.
+Homepage: https://sourceforge.net/projects/guliverkli2/
+License: GPL-2.0-or-later
+License-File: pool/vsfilter/2.39/LICENSE.TXT
+Systems: 98, ME
+Download: http://downloads.sourceforge.net/project/guliverkli2/DirectShow%20Filters/DirectVobSub%202.39/VSFilter_20081129_win9x.zip 478218 175792bfb986bb48b3b896786547c6364b98e07fdef74e0fb2288decbc684a3f pool/vsfilter/2.39/VSFilter_20081129_win9x.zip
+Source: pool/vsfilter/2.39/src/guliverkli2-code-r87.zip 7043472 671094906aef9e7d523aebc05d52e957283f908d55ae5ac02ebd3e93d6149818
+Installed-Size: 1000
+Install: unzip {dir}
+After: run {sys}\REGSVR32.EXE /s "{dir}\VSFilter.dll"
+Remove: run {sys}\REGSVR32.EXE /u /s "{dir}\VSFilter.dll"
+Uninstall: files
+Warning: Old subtitle code: opening a damaged or malicious subtitle file may
+ crash the player or worse.
+
+Package: winhttrack
+Name: WinHTTrack Website Copier
+Version: 3.33
+Section: Internet
+Summary: Copies websites to your disk for offline browsing
+Description: Downloads a website, with its pages, images and links, into a
+ folder so it can be browsed later without a connection. Includes the
+ command-line httrack.
+Homepage: https://www.httrack.com/
+License: GPL-2.0-or-later
+License-File: pool/winhttrack/3.33/LICENSE.TXT
+Systems: 98, ME
+Download: pool/winhttrack/3.33/httrack-3.33.exe 3755091 e81689ade88c8d7d85b4368092155947dbf987c5da21d7da01dbee6515c28ec5
+Source: pool/winhttrack/3.33/src/httrack_3.33.15.orig.tar.gz 1431407 a2d6fdd49e5b822f13b89b3a74492bcb9c06c47d3bfd95675c9c62ca808b43fb
+Installed-Size: 8800
+Install: inno
+Uninstall: registry WinHTTrack Website Copier 3.33
+Warning: This version has known security problems, and it includes OpenSSL
+ and zlib libraries from 2002 and 2003. A malicious website can crash it or
+ run code on this computer while it is being copied.
+Notice: The Windows program's own source code is in the src_win folder where
+ WinHTTrack was installed.
+
+Package: winmerge
+Name: WinMerge
+Version: 2.12.4
+Section: Utilities
+Summary: Compares and merges files and folders side by side
+Description: Shows the differences between two text files or two folders
+ and lets you copy changes from one side to the other. Can be added to the
+ Explorer context menu.
+Homepage: https://winmerge.org/
+License: GPL-2.0-or-later
+License-File: pool/winmerge/2.12.4/LICENSE.TXT
+Systems: 95, 98, ME, NT4, 2000
+Availability: external
+Download: http://downloads.sourceforge.net/project/winmerge/stable/2.12.4/WinMerge-2.12.4-Setup.exe 3212078 155896d41247f4cb933d4b24bd67ee8fd02bf2268ca4db189dc8e56b88f263c4
+Install: inno
+Uninstall: registry WinMerge 2.12.4
+Notice: This is the last WinMerge version for Windows 95, 98 and ME. Its
+ setup also installs the Microsoft Visual C++ 7.1 runtime files.
+
+Package: winscp
+Name: WinSCP
+Version: 4.3.9
+Section: Internet
+Summary: SFTP, SCP and FTP file transfer client
+Description: Copies files to and from servers over SFTP, SCP, FTP and FTPS,
+ with a two-panel or Explorer-like window and a scripting console
+ (WinSCP.com). This is the portable build, without the installer.
+Homepage: https://winscp.net/
+License: GPL-3.0-or-later
+License-File: pool/winscp/4.3.9/LICENSE.TXT
+Systems: 95, 98, ME
+Download: http://downloads.sourceforge.net/project/winscp/WinSCP/4.3.9/winscp439.zip 2674150 c96174ab7375faf7fe1fe9e1a6efa64a0de43e961f635011f927c4b8a27c1c5a pool/winscp/4.3.9/winscp439.zip
+Source: pool/winscp/4.3.9/src/winscp439source.zip 4705587 15be1bcd5a69f84773cdb1d47df5e8de5a808c1cc98180c3c9d0848eae3cb952
+Installed-Size: 6700
+Install: unzip {pf}\WinSCP
+Shortcut: WinSCP | {pf}\WinSCP\WinSCP.exe |
+Uninstall: files
+Warning: This version has known security problems that were fixed only in
+ versions that do not run on Windows 98. A malicious server can crash it or
+ possibly run code on this computer, and its FTPS encryption (OpenSSL 1.0.1c)
+ is outdated. Do not register WinSCP as the handler for sftp:// links.
+Notice: WinSCP keeps its settings in the registry. Removing the package does
+ not delete them.
+
+Package: zsnes
+Name: ZSNES
+Version: 1.51
+Section: Games
+Summary: Super Nintendo (SNES) emulator, fast on older computers
+Description: Plays Super Nintendo cartridge images. Written mostly in
+ assembly language, it runs well on Pentium II computers. No games are
+ included.
+Homepage: https://sourceforge.net/projects/zsnes/
+License: GPL-2.0-only
+License-File: pool/zsnes/1.51/LICENSE.TXT
+Systems: 95, 98, ME
+Download: http://downloads.sourceforge.net/project/zsnes/zsnes/ZSNES%20v1.51/zsnesw151.zip 867785 855375a2bff44993322e495732498d0278a82590affd912bc54738b61a662d86 pool/zsnes/1.51/zsnesw151.zip
+Source: pool/zsnes/1.51/src/zsnes151src.tar.bz2 1072340 2856dedba272e9eed66cbf68dd4a9ae56797c373686c57371a65c7df35264623
+Requires: dx 8.0 | ZSNES needs DirectX 8.0a or later from Microsoft.
+Installed-Size: 1590
+Install: unzip {dir}
+Shortcut: ZSNES | {dir}\zsnesw.exe |
+Uninstall: files
+Warning: ZSNES is no longer maintained. Opening a damaged or malicious game
+ file could run code on this computer; use game files you trust.

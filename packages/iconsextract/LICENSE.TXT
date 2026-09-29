@@ -1,0 +1,20 @@
+IconsExtract v1.47
+Copyright (c) Nir Sofer, https://www.nirsoft.net/
+
+Source of this text: readme.txt inside iconsext.zip (same wording on https://www.nirsoft.net/utils/iconsext.html), retrieved 2026-09-29.
+
+License
+=======
+
+This utility is released as freeware. You can freely use and distribute
+it. If you distribute this utility, you must include all files in the
+distribution package including the readme.txt, without any modification !
+
+Disclaimer
+==========
+
+The software is provided "AS IS" without any warranty, either expressed
+or implied, including, but not limited to, the implied warranties of
+merchantability and fitness for a particular purpose. The author will
+not be liable for any special, incidental, consequential or indirect
+damages due to loss of data or any other reason.

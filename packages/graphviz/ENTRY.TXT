@@ -1,0 +1,27 @@
+Package: graphviz
+Name: Graphviz
+Version: 2.28.0
+Section: Development
+Summary: Draws graphs and diagrams from plain-text descriptions
+Description: Turns graph descriptions written in the DOT language into
+ diagrams (PNG, GIF, SVG, PostScript and more). Includes dot, neato, circo,
+ twopi, fdp and sfdp for different layouts, the GVEdit editor and other
+ tools.
+Homepage: https://graphviz.org/
+License: EPL-1.0
+License-File: pool/graphviz/2.28.0/LICENSE.TXT
+Systems: 98, ME
+Download: pool/graphviz/2.28.0/graphviz-2.28.0.msi 60429312 88daeaac300bc0521cedfcacfe928de115d1c4019bdf99a20c238132e6fe991d
+Source: pool/graphviz/2.28.0/src/graphviz-2.28.0.tar.gz 19620087 d3aa7973c578cae4cc26d9d6498c57ed06680cab9a4e940d0357a3c6527afc76
+Installed-Size: 161700
+Requires: package kernelex | Graphviz 2.28 needs KernelEx on Windows 98 and ME. Install the KernelEx package first.
+ msi 2.0 | Graphviz is installed with Windows Installer 2.0 or later. Install the Windows Installer 2.0 redistributable from Microsoft first.
+ file {sys}\MSVCR90.DLL | Graphviz 2.28 needs the Microsoft Visual C++ 2008 run-time (MSVCR90.DLL) in the Windows SYSTEM folder. It is not included and must be obtained from Microsoft.
+Install: msi
+Uninstall: registry Graphviz 2.28
+Warning: Graphviz 2.28 is from 2011 and has known security flaws (for example
+ CVE-2014-1236 and CVE-2020-18032). Opening a specially crafted graph file
+ could run harmful code. Only open files you trust.
+Notice: Graphviz was reported working on Windows 98 with KernelEx 4.5.2.
+ The programs (dot.exe and others) are in the bin folder under
+ Program Files\Graphviz 2.28.

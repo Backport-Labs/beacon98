@@ -1,0 +1,18 @@
+Dependency Walker 2.2.6000
+Copyright (C) Microsoft Corporation. All rights reserved.
+Developed by Steve P. Miller.
+
+The download (depends22_x86.zip) contains no license file. The only terms
+are these, from the program's home page, https://www.dependencywalker.com/
+(read on 2026-09-29):
+
+  "Dependency Walker is completely free to use. However, you may not profit
+  from the distribution of it, nor may you bundle it with another product."
+
+The same page also says:
+
+  "This site was created in order to distribute the latest version of
+  Dependency Walker for testing."
+
+Dependency Walker is downloaded from its publisher's own server,
+www.dependencywalker.com. Backport Labs does not distribute it.

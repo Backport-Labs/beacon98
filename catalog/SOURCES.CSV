@@ -1,0 +1,64 @@
+id,include,host,sf,other,note
+7zip,yes,yes,sevenzip/7-Zip/9.20/7z920.exe,,pilot
+kernelex,yes,yes,kernelex/KernelEx/4.5.2/KernelEx-4.5.2.exe,,
+avidemux,yes,no,avidemux/avidemux/2.5.2/avidemux_2.5.2_win32.exe,,bundled Qt/x264 sources not found
+clamwin,yes,no,clamwin/clamwin/0.99.1/clamwin-0.99.1-setup.exe,,bundled Python/wx sources not found
+devcpp,yes,no,dev-cpp/Binaries/Dev-C%2B%2B%204.9.9.2/devcpp-4.9.9.2_setup.exe,,rm.exe source missing
+dosbox,yes,yes,dosbox/dosbox/0.74-3/DOSBox0.74-3-win32-installer.exe,,
+eraser,yes,no,eraser/OldFiles/eraser582setup.exe,,boot disk source missing
+fceu,yes,yes,fceultra/Binaries/2.1.5/fceux-2.1.5-win32-Win2000_Win98.zip,,
+freepascal,yes,no,freepascal/Win32/2.6.2/fpc-2.6.2.i386-win32.exe,,binutils/gdb sources missing
+golly,yes,yes,golly/golly/golly-1.4/golly-1.4-win.zip,,needs KernelEx
+lua51,yes,no,luabinaries/5.1.5/Tools%20Executables/lua-5.1.5_Win32_bin.zip,,bundles Microsoft VC2005 runtime
+miranda-im,yes,yes,miranda/OldFiles/miranda-im-v0.7.19-ansi.exe,,
+prboom,yes,yes,prboom/prboom%20stable/2.5.0/prboom-2.5.0-win32.zip,,
+regshot,yes,yes,regshot/regshot/1.8.2/regshot_1.8.2_src_bin.zip,,
+vsfilter,yes,yes,guliverkli2/DirectShow%20Filters/DirectVobSub%202.39/VSFilter_20081129_win9x.zip,,
+winmerge,yes,no,winmerge/stable/2.12.4/WinMerge-2.12.4-Setup.exe,,installs Microsoft VC7.1 runtime
+winscp,yes,yes,winscp/WinSCP/4.3.9/winscp439.zip,,
+zsnes,yes,yes,zsnes/zsnes/ZSNES%20v1.51/zsnesw151.zip,,
+openoffice,yes,no,,http://archive.apache.org/dist/incubator/ooo/stable/2.4.3/OOo_2.4.3_Win32Intel_install_en-US.exe,bundles Microsoft Windows Installer and UNICOWS
+abiword,yes,yes,,,
+apache13,yes,yes,,,
+autoit,yes,yes,,,Add/Remove name to confirm in VM
+bochs,yes,no,,,already external
+depends,yes,no,,,already external
+firefox,yes,no,,,already external
+freedoom,yes,yes,,,
+gnuwin32-core,yes,yes,,,
+hashmyfiles,yes,yes,,,VM test: 98 support
+hxd,yes,yes,,,
+iconsextract,yes,yes,,,
+infrarecorder,yes,no,,,already external
+k-meleon,yes,no,,,already external
+lavfilters,yes,yes,,,needs KernelEx
+metapad,yes,yes,,,
+myuninstaller,yes,yes,,,
+nasm,yes,yes,,,
+nircmd,yes,yes,,,
+notepad-plus-plus,yes,no,,,already external; VM test: dialogs
+notepad2,yes,yes,,,
+openwatcom,yes,yes,,,
+privoxy,yes,yes,,,VM test
+seamonkey,yes,no,,,already external
+shellexview,yes,yes,,,
+stella,yes,yes,,,
+sumatrapdf,yes,no,,,already external
+testdisk,yes,yes,,,
+thunderbird,yes,no,,,already external
+tightvnc,yes,yes,,,
+vba,yes,no,,,already external
+volumouse,yes,yes,,,2.03 from the Internet Archive
+winhttrack,yes,yes,,,
+cdex,no,,,,no file available
+filezilla,no,,,,FzGSS.dll source missing; author server gone
+foobar2000,no,,,,bundled LGPL sources gone; site HTTPS only
+graphviz,no,,,,bundled GTK+/Qt sources unresolved
+lame,no,,,,no 98 build available
+palemoon,no,,,,license forbids packages
+php52,no,,,,bundles proprietary DLLs
+qemu,no,,,,links proprietary FMOD
+smplayer,no,,,,7z archive; Beacon cannot unpack 7z yet
+tcltk84,no,,,,no redistributable build
+wings3d,no,,,,bundles closed FBX plug-in
+xchm,no,,,,no Windows build exists

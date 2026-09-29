@@ -1,0 +1,19 @@
+Package: eraser
+Name: Eraser
+Version: 5.82
+Section: Utilities
+Summary: Securely deletes files and wipes unused disk space
+Description: Overwrites files, folders and free disk space several times so
+ that deleted data cannot be recovered. Includes an Explorer menu command and
+ a scheduler.
+Homepage: https://eraser.heidi.ie/
+License: GPL-2.0-or-later
+License-File: pool/eraser/5.82/LICENSE.TXT
+Systems: 95, 98, ME
+Download: pool/eraser/5.82/eraser582setup.exe 2694679 7f6afa94dd935ef2217b5c800f5fb0ac9a1815b556a952b265a71589556cd02e
+Source: pool/eraser/5.82/src/eraser582src.zip 1069150 f81580900f0403ad9c137612da48186e4512b4759502c4b2f128c42026c612ac
+Installed-Size: 4718
+Install: inno
+Uninstall: registry Eraser 5.82
+Notice: Windows 95 needs Common Controls 4.72 or later (Internet Explorer
+ 4.01 or later provides them).

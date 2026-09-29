@@ -1,0 +1,20 @@
+Package: tightvnc
+Name: TightVNC
+Version: 1.3.10
+Section: Internet
+Summary: Remote desktop: control this PC from another, or another from this
+Description: A VNC server and viewer. The server lets another computer see and
+ control this one; the viewer connects to other VNC servers.
+Homepage: https://www.tightvnc.com/
+License: GPL-2.0-or-later
+License-File: pool/tightvnc/1.3.10/LICENSE.TXT
+Systems: 95, 98, ME, NT4, 2000
+Download: pool/tightvnc/1.3.10/tightvnc-1.3.10-setup.exe 1421291 9a6f155bf8e34853a388724cf28408ce5105a614cad24832a187752e03725610
+Source: pool/tightvnc/1.3.10/src/tightvnc-1.3.10_winsrc.zip 2378726 e25d218b9692b59385f8284a9e63755a26fb32e5e0a2d87dd57c20a8928c9004
+Installed-Size: 2000
+Install: inno
+Uninstall: registry TightVNC 1.3.10
+Warning: This version has 4 known security problems in the viewer that were
+ never fixed. Connecting to a malicious VNC server can run code on this
+ computer. VNC does not encrypt the connection, and passwords are limited to
+ 8 characters: use it only on a trusted local network.

@@ -1,0 +1,22 @@
+Package: winhttrack
+Name: WinHTTrack Website Copier
+Version: 3.33
+Section: Internet
+Summary: Copies websites to your disk for offline browsing
+Description: Downloads a website, with its pages, images and links, into a
+ folder so it can be browsed later without a connection. Includes the
+ command-line httrack.
+Homepage: https://www.httrack.com/
+License: GPL-2.0-or-later
+License-File: pool/winhttrack/3.33/LICENSE.TXT
+Systems: 98, ME
+Download: pool/winhttrack/3.33/httrack-3.33.exe 3755091 e81689ade88c8d7d85b4368092155947dbf987c5da21d7da01dbee6515c28ec5
+Source: pool/winhttrack/3.33/src/httrack_3.33.15.orig.tar.gz 1431407 a2d6fdd49e5b822f13b89b3a74492bcb9c06c47d3bfd95675c9c62ca808b43fb
+Installed-Size: 8800
+Install: inno
+Uninstall: registry WinHTTrack Website Copier 3.33
+Warning: This version has known security problems, and it includes OpenSSL
+ and zlib libraries from 2002 and 2003. A malicious website can crash it or
+ run code on this computer while it is being copied.
+Notice: The Windows program's own source code is in the src_win folder where
+ WinHTTrack was installed.

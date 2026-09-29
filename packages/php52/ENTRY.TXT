@@ -1,0 +1,7 @@
+# php52: NO CATALOG ENTRY.
+# PHP 5.2.17 is the last PHP for Windows 98/ME, and the PHP License allows
+# redistribution. But the official Windows zip bundles ntwdblib.dll (Microsoft),
+# fdftk.dll (Adobe) and msql.dll (Hughes Technologies) with no redistribution
+# terms, so we cannot be certain that hosting it is legal. It cannot be
+# "external" either: windows.php.net and museum.php.net redirect plain HTTP to
+# HTTPS. See RECORD.md for the options.

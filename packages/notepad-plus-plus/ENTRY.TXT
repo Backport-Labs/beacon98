@@ -1,0 +1,29 @@
+# Downloaded from Notepad++'s own download host (TuxFamily): the zip bundles
+# GPL plugins whose sources we have not found, so we do not host it ourselves.
+# Only the ANSI build in the zip runs on Windows 98; the installer refuses 9x.
+Package: notepad-plus-plus
+Name: Notepad++
+Version: 5.9.6.2
+Section: Development
+Summary: Source code editor with syntax highlighting, tabs and macros
+Description: A text and source code editor based on Scintilla, with syntax
+ highlighting for many languages, tabs, search and replace with regular
+ expressions, macros and plugins. This is the ANSI build, the one that runs
+ on Windows 98; it cannot open files whose names contain characters outside
+ the Windows code page.
+Homepage: https://notepad-plus-plus.org/
+License: GPL-2.0-or-later
+License-File: pool/notepad-plus-plus/5.9.6.2/LICENSE.TXT
+Systems: 98, ME
+Availability: external
+Download: http://download.tuxfamily.org/notepadplus/archive/5.9.6.2/npp.5.9.6.2.bin.zip 8037190 ac1cb232f400ec22d56a86e67946b743fc7adb2f9756508553ca6cc634f82d58
+Installed-Size: 22000
+Install: unzip {dir}
+Shortcut: Notepad++ | {dir}\ansi\notepad++.exe |
+Uninstall: files
+Warning: This version has known security problems, fixed only in versions
+ that do not run on Windows 98. Opening a malicious text file, session or
+ settings file can crash Notepad++ or run code on this computer.
+Notice: Notepad++ is in the "ansi" folder; the "unicode" folder is not used on
+ Windows 98. If the Open and Save dialogs do not appear, drag files onto the
+ Notepad++ window instead.

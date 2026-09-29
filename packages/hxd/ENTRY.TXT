@@ -1,0 +1,17 @@
+Package: hxd
+Name: HxD
+Version: 1.7.7.0
+Section: Utilities
+Summary: Hex editor for files, disks and memory
+Description: A fast hex editor that also edits raw disks and the memory of
+ running programs, and handles files of any size. Includes checksums, file
+ compare, splitting and joining, and a file shredder.
+Homepage: https://mh-nexus.de/en/hxd/
+License: Freeware
+License-File: pool/hxd/1.7.7.0/LICENSE.TXT
+Systems: 95, 98, ME, NT4, 2000
+Download: pool/hxd/1.7.7.0/HxDenu.zip 807089 ec8ab9522eefd2db19a18203e4195430a12c0c9e49b1e15cf195cee385da0d0c
+Installed-Size: 1700
+Install: unzip {pf}\HxD
+Shortcut: HxD | {dir}\HxD.exe |
+Uninstall: files

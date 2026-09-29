@@ -1,0 +1,18 @@
+Package: freepascal
+Name: Free Pascal
+Version: 2.6.2
+Section: Development
+Summary: Pascal and Object Pascal compiler, with a text-mode IDE
+Description: A Turbo Pascal and Delphi compatible compiler for 32-bit Windows
+ and many other systems, with its run-time library, packages, the text-mode
+ IDE (fp.exe) and the GNU tools it needs.
+Homepage: https://www.freepascal.org/
+License: GPL-2.0-or-later
+License-File: pool/freepascal/2.6.2/LICENSE.TXT
+Systems: 95, 98, ME, NT4, 2000
+Download: pool/freepascal/2.6.2/fpc-2.6.2.i386-win32.exe 41195678 2bdf6428ba5e53f3de01d73e9cd427018e264b725d8ebc93a5c5aafdd483da79
+Source: pool/freepascal/2.6.2/src/fpcbuild-2.6.2.zip 61385459 1f07fe6f6af6df2ffa2e4b950d5f4f8bae0bd5a7db2f45d2005ee29215906dd5
+Install: inno /DIR=C:\FPC\2.6.2
+After: path C:\FPC\2.6.2\bin\i386-win32
+# Add/Remove Programs name not yet confirmed; check in the VM.
+Uninstall: registry Free Pascal 2.6.2

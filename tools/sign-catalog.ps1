@@ -75,7 +75,7 @@ foreach ($b in $blocks[1..($blocks.Count - 1)]) {
         }
     }
     if ($b.Install -and $b.Install -notmatch '^(inno|nsis|msi|exe|unzip|copy)( |$)') { $errors.Add("${where}: unknown Install kind") }
-    if ($b.Uninstall -and $b.Uninstall -notmatch '^(registry .+|files)$') { $errors.Add("${where}: bad Uninstall") }
+    if ($b.Uninstall -and $b.Uninstall -notmatch '^(registry .+|run .+|files)$') { $errors.Add("${where}: bad Uninstall") }
 }
 foreach ($b in $blocks[1..($blocks.Count - 1)]) {
     if ($b.Contains('Depends')) { foreach ($d in ($b.Depends -split ',\s*')) { if (-not $ids.ContainsKey($d)) { $errors.Add("package $($b.Package): depends on unknown $d") } } }

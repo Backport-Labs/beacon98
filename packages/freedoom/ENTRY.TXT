@@ -1,0 +1,20 @@
+Package: freedoom
+Name: Freedoom
+Version: 0.13.0
+Section: Games
+Summary: Free first-person shooter game data for Doom engines, two games
+Description: Freedoom is a complete, free game in the style of Doom, with
+ its own levels, monsters, graphics, sound and music. Phase 1 has four
+ episodes; Phase 2 is one long campaign of 32 levels. It is played with the
+ PrBoom engine.
+Homepage: https://freedoom.github.io/
+License: BSD-3-Clause
+License-File: pool/freedoom/0.13.0/LICENSE.TXT
+Systems: 98, ME
+Download: pool/freedoom/0.13.0/freedoom-0.13.0.zip 24143781 3f9b264f3e3ce503b4fb7f6bdcb1f419d93c7b546f4df3e874dd878db9688f59
+Depends: prboom
+Installed-Size: 60300
+Install: unzip {dir} strip 1
+Shortcut: Freedoom Phase 1 | {dir:prboom}\prboom.exe | -iwad "{dir}\freedoom1.wad"
+ Freedoom Phase 2 | {dir:prboom}\prboom.exe | -iwad "{dir}\freedoom2.wad"
+Uninstall: files

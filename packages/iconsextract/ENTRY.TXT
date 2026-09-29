@@ -1,0 +1,17 @@
+Package: iconsextract
+Name: IconsExtract
+Version: 1.47
+Section: Utilities
+Summary: Finds and saves icons and cursors from EXE, DLL, OCX and CPL files
+Description: Scans files and folders for icons and cursors, shows them all and
+ saves the ones you choose as .ico or .cur files, or copies one to the
+ clipboard. Works only with 32-bit program files.
+Homepage: https://www.nirsoft.net/utils/iconsext.html
+License: Freeware
+License-File: pool/iconsextract/1.47/LICENSE.TXT
+Systems: 95, 98, ME
+Download: pool/iconsextract/1.47/iconsext.zip 34712 97582531dd0176e312f3a8b101e50d02224970aec5030f0e0ff2ac767f572981
+Installed-Size: 50
+Install: unzip {dir}
+Shortcut: IconsExtract | {dir}\iconsext.exe |
+Uninstall: files

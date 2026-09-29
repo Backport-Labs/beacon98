@@ -1,0 +1,24 @@
+# DRAFT. External: the installer contains the DLX Linux demo disk (GPL
+# software without source) and the Elpin VGA BIOS (licensed for use with
+# Bochs only), so we do not host it (see RECORD.md). The SourceForge http://
+# address answers with a 302 to a mirror over plain HTTP.
+Package: bochs
+Name: Bochs
+Version: 2.3.7
+Section: System
+Summary: Emulates a complete x86 PC, for running other operating systems
+Description: Emulates an x86 PC with its BIOS, VGA, disks, sound and network
+ card, so that other operating systems can run in a window. Slow, but
+ very exact. No operating system is included.
+Homepage: https://bochs.sourceforge.io/
+License: LGPL-2.0-or-later
+License-File: pool/bochs/2.3.7/LICENSE.TXT
+Systems: 98, ME
+Availability: external
+Download: http://downloads.sourceforge.net/project/bochs/bochs/2.3.7/Bochs-2.3.7.exe 3358844 4854dffb9de6492e98bad7d4fbfb2e302668d51df111650edc25a95d3f19173b
+Installed-Size: 5000
+Install: nsis
+Uninstall: registry Bochs 2.3.7 (remove only)
+Notice: Bochs 2.3.7 is the last version that runs on Windows 98 without
+ KernelEx. A virtual PC is described by a .bxrc configuration file; see
+ bochsrc-sample.txt in the Bochs folder.

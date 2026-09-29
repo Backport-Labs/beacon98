@@ -1,0 +1,24 @@
+Package: winscp
+Name: WinSCP
+Version: 4.3.9
+Section: Internet
+Summary: SFTP, SCP and FTP file transfer client
+Description: Copies files to and from servers over SFTP, SCP, FTP and FTPS,
+ with a two-panel or Explorer-like window and a scripting console
+ (WinSCP.com). This is the portable build, without the installer.
+Homepage: https://winscp.net/
+License: GPL-3.0-or-later
+License-File: pool/winscp/4.3.9/LICENSE.TXT
+Systems: 95, 98, ME
+Download: pool/winscp/4.3.9/winscp439.zip 2674150 c96174ab7375faf7fe1fe9e1a6efa64a0de43e961f635011f927c4b8a27c1c5a
+Source: pool/winscp/4.3.9/src/winscp439source.zip 4705587 15be1bcd5a69f84773cdb1d47df5e8de5a808c1cc98180c3c9d0848eae3cb952
+Installed-Size: 6700
+Install: unzip {pf}\WinSCP
+Shortcut: WinSCP | {pf}\WinSCP\WinSCP.exe |
+Uninstall: files
+Warning: This version has known security problems that were fixed only in
+ versions that do not run on Windows 98. A malicious server can crash it or
+ possibly run code on this computer, and its FTPS encryption (OpenSSL 1.0.1c)
+ is outdated. Do not register WinSCP as the handler for sftp:// links.
+Notice: WinSCP keeps its settings in the registry. Removing the package does
+ not delete them.
