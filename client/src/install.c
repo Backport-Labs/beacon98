@@ -302,6 +302,27 @@ static void Host(const char *url, char *out, int outLen)
     out[i] = 0;
 }
 
+/* The name a downloaded file is saved under: the last part of its first
+ * location. For an address with a query, such as download.php?f=setup.exe,
+ * the value of the last parameter when it looks like a file name. Characters
+ * Windows does not allow in names become _. */
+void LocalName(const char *loc, char *out, int outLen)
+{
+    const char *seg = strrchr(loc, '/'), *q, *eq;
+    int i, n;
+    seg = seg ? seg + 1 : loc;
+    q = strchr(seg, '?');
+    n = q ? (int)(q - seg) : lstrlen(seg);
+    if (q && (eq = strrchr(q, '=')) != NULL && strchr(eq, '.') && !strchr(eq, '&') && eq[1]) {
+        seg = eq + 1;
+        n = lstrlen(seg);
+    }
+    if (n > outLen - 1) n = outLen - 1;
+    for (i = 0; i < n; i++) out[i] = strchr("\\/:*?\"<>|", seg[i]) ? '_' : seg[i];
+    out[n] = 0;
+    if (!n) lstrcpyn(out, "DOWNLOAD.BIN", outLen);
+}
+
 /* Downloads one file of a Download line, "location size sha256 [location...]",
  * into dir, trying each location in turn until one gives a file whose size and
  * SHA-256 match. A location is an http:// address, or a path on the catalog's
@@ -318,7 +339,7 @@ int FetchFile(const char *line, const char *dir, char *out)
 int FetchFileFrom(const char *line, const char *base, const char *headers, const char *referer, const char *dir, char *out)
 {
     char loc[8][600], urls[16][700], sizePart[20], shaPart[70], url[700], err[300], hex[65], host[100], *name, *q;
-    char refHeader[700];
+    char refHeader[700], fileName[MAX_PATH];
     const char *p = line;
     BYTE want[32], got[32];
     DWORD size, gotSize;
@@ -340,8 +361,8 @@ int FetchFileFrom(const char *line, const char *base, const char *headers, const
         return 0;
     }
     size = strtoul(sizePart, NULL, 10);
-    name = strrchr(loc[0], '/');
-    name = name ? name + 1 : loc[0];
+    LocalName(loc[0], fileName, sizeof(fileName));
+    name = fileName;
     wsprintf(out, "%s%s", dir, name);
     /* The places to try, in order: kind 0 is a full address, 1 a path on the
      * source's server (tried over HTTPS first, then plain HTTP), 2 a file in the

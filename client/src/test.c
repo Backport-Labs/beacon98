@@ -361,6 +361,14 @@ static void TestSources(void)
     if (g_nsrc > 3) QuoteHeaders("SOURCES access headers after saving", g_src[3].headers);
     FreeCatalog(&g_cat);
     for (i = 0; i < g_nsrc; i++) FreeCatalog(&g_src[i].cat);
+    {
+        static const char *locs[4] = {
+            "pool/7zip/9.20/7z920.exe", "https://www.zabkat.com/download.php?f=5003_98.exe",
+            "http://example.com/get.php?id=5&x=1", "http://example.com/a:b*c.zip"
+        };
+        char name[MAX_PATH];
+        for (i = 0; i < 4; i++) { LocalName(locs[i], name, sizeof(name)); fprintf(g_out, "NAME %s is saved as %s\n", locs[i], name); }
+    }
     fprintf(g_out, "VERSIONS 1.10 against 1.9: %s; 2.03 against 2.21: %s\n",
             CompareVersions("1.10", "1.9") > 0 ? "later" : "NOT LATER", CompareVersions("2.03", "2.21") < 0 ? "earlier" : "NOT EARLIER");
     CloseNet();
