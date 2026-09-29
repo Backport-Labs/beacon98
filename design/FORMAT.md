@@ -82,6 +82,7 @@ The first block describes the catalog. Each further block is one package.
 | `Notice` | no | Shown after installing |
 | `Detect` | no | Lines in the syntax of `Requires`; see Uninstall below |
 | `Remove` | no | `run` steps before uninstalling; see Uninstall below |
+| `Hardware` | no | For drivers: the devices it is for, one per line, `pci VEN_xxxx&DEV_yyyy` (hexadecimal, upper case), or a whole class of devices for a generic driver, `pci CC_cccc` or `pci CC_ccccpp` (PCI class, subclass and interface, e.g. `CC_0300` any display adapter, `CC_0C0330` any USB 3 controller). Beacon lists the package under "Drivers for this computer" when one of them is in the computer. |
 | `Referer` | no | An address sent as the `Referer` header with full-address downloads of this package, for publishers whose servers refuse downloads without one. Never sent with paths on the catalog's own server. |
 
 ### Places
@@ -110,6 +111,7 @@ Paths in `Install`, `After`, `Shortcut` and `Requires` may use:
 | `winsock2` | | Windows Sockets 2 is present |
 | `memory` | MB | The computer has at least this much memory |
 | `package` | package identifier | That package of this catalog is installed |
+| `pci` | `VEN_xxxx&DEV_yyyy` | Windows knows that PCI device in this computer (Windows 9x also remembers devices that were removed) |
 
 The text after `|` says what is missing and where to get it. Beacon never
 downloads anything a `Requires` line names; those are components we have no

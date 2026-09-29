@@ -305,6 +305,19 @@ static void TestHttps(void)
 
 static void TestSystems(void)
 {
+    char id[18], name[80], line[60], what[100];
+    int n;
+    for (n = 0; PciDevice(n, id, sizeof(id), name, sizeof(name)); n++) ;
+    if (n) {
+        PciDevice(0, id, sizeof(id), name, sizeof(name));
+        wsprintf(line, "pci %s", id);
+    }
+    fprintf(g_out, "PCI a device this computer has, if it has any, is found: %s\n",
+            !n || RequirementMet(line, what, sizeof(what)) == 1 ? "yes" : "NO");
+    fprintf(g_out, "PCI a class of device that does not exist: %s\n",
+            RequirementMet("pci CC_FF | nothing", what, sizeof(what)) == 0 ? "missing" : "FOUND");
+    fprintf(g_out, "PCI a device that does not exist: %s\n",
+            RequirementMet("pci VEN_FFFF&DEV_FFFF | nothing", what, sizeof(what)) == 0 ? "missing" : "FOUND");
     fprintf(g_out, "SYSTEMS \"95, 98, ME\" and \"NT4\" name this Windows: %s\n",
             SystemListed("95, 98, ME") || SystemListed("NT4") ? "yes" : "no");
     fprintf(g_out, "SYSTEMS an empty list names this Windows: %s\n", SystemListed("") ? "yes" : "no");

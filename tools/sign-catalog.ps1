@@ -54,7 +54,7 @@ if ($head.Base -notmatch '^https?://.+/$') { $errors.Add('catalog block: Base mu
 $ids = @{}
 $sections = 'Utilities', 'Internet', 'Multimedia', 'Office', 'Development', 'Games', 'System'
 # location size sha256 [location ...]; a location is a pool path or an http:// address.
-$loc = '(?:https?://[A-Za-z0-9.-]+/[A-Za-z0-9._/~%+?=&-]+|[A-Za-z0-9._/-]+)'
+$loc = '(?:https?://[A-Za-z0-9.-]+/[A-Za-z0-9._/~%+?=&-]+|[A-Za-z0-9._/$-]+)'
 $fileLine = "^$loc \d+ [0-9a-f]{64}( $loc)*$"
 $urlLine = '^https?://[A-Za-z0-9.-]+/[A-Za-z0-9._/~%+?=&-]+ \d+ [0-9a-f]{64}( https?://[A-Za-z0-9.-]+/[A-Za-z0-9._/~%+?=&-]+)*$'
 foreach ($b in $blocks[1..($blocks.Count - 1)]) {
@@ -80,6 +80,7 @@ foreach ($b in $blocks[1..($blocks.Count - 1)]) {
     }
     if ($b.Install -and $b.Install -notmatch '^(inno|nsis|msi|exe|unzip|copy)( |$)') { $errors.Add("${where}: unknown Install kind") }
     if ($b.Uninstall -and $b.Uninstall -notmatch '^(registry .+|run .+|files|none)$') { $errors.Add("${where}: bad Uninstall") }
+    if ($b.Hardware) { foreach ($h in ($b.Hardware -split "`n" | Where-Object { $_ })) { if ($h -notmatch '^pci (VEN_[0-9A-F]{4}&DEV_[0-9A-F]{4}|CC_[0-9A-F]{4}([0-9A-F]{2})?)$') { $errors.Add("${where}: bad Hardware line: $h") } } }
 }
 foreach ($b in $blocks[1..($blocks.Count - 1)]) {
     if ($b.Contains('Depends')) { foreach ($d in ($b.Depends -split ',\s*')) { if (-not $ids.ContainsKey($d)) { $errors.Add("package $($b.Package): depends on unknown $d") } } }

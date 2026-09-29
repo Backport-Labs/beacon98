@@ -1,4 +1,4 @@
-Beacon 98 0.6.0 self-test
+Beacon 98 0.7.0 self-test
 SHA256 empty e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 SHA256 abc ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad
 SHA256 448-bits 248d6a61d20638b8e5c026930c3e6039a33ce45964ff2167f6ecedd419db06c1
@@ -42,6 +42,9 @@ REQUIRES the Windows registry key: met
 REQUIRES a registry key that does not exist: missing
 REQUIRES DirectX 1 or later: met
 REQUIRES DirectX 99: missing
+PCI a device this computer has, if it has any, is found: yes
+PCI a class of device that does not exist: missing
+PCI a device that does not exist: missing
 SYSTEMS "95, 98, ME" and "NT4" name this Windows: no
 SYSTEMS an empty list names this Windows: no
 UNZIP TEST.ZIP, strip 0: unpacked

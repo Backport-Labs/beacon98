@@ -1,5 +1,5 @@
                                 BEACON 98
-                              Version 0.6.0
+                              Version 0.7.0
 
          Installs free software on Windows 95, 98 and Millennium.
 
@@ -50,6 +50,12 @@ Beacon 98 is free and will never be sold. It is made by Backport Labs.
  Remove .................... Select an installed package and press Remove.
  Update Catalog ............ Downloads the latest catalog. Beacon does this
                              by itself the first time it starts.
+ Drivers ................... "Drivers for this computer" appears when the
+                             catalog has a driver for a device Windows
+                             knows in this computer. A wrong display or
+                             chipset driver can stop Windows from starting:
+                             then start in Safe Mode (hold F8, or Ctrl on
+                             98) and remove it in Device Manager.
  Sorting ................... Click a column heading to sort by it; click it
                              again to reverse the order.
  Menus ..................... File: Update Catalog, Exit.

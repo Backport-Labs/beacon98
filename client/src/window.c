@@ -23,6 +23,7 @@
 #define G_ALL       (-1)
 #define G_INSTALLED (-2)
 #define G_UPDATES   (-3)
+#define G_HARDWARE  (-4)              /* drivers for the devices of this computer */
 #define G_SOURCE(i) (-10 - (i))       /* the packages of custom source i */
 
 #define BAR_H   32
@@ -74,6 +75,7 @@ static int InGroup(PKG *p, int group)
     if (group == G_ALL) return 1;
     if (group == G_INSTALLED) return p->status == ST_YES || p->status == ST_UPDATE;
     if (group == G_UPDATES) return p->status == ST_UPDATE;
+    if (group == G_HARDWARE) return p->fits[0] != 0;
     if (group <= G_SOURCE(0)) return p->source == G_SOURCE(0) - group;
     return SectionIndex(p->f[F_SECTION]) == group;
 }
@@ -110,6 +112,10 @@ static void FillTree(void)
     if (g_group == G_INSTALLED) sel = h;
     h = AddGroup("Updates", G_UPDATES, MY_TVI_ROOT);
     if (g_group == G_UPDATES) sel = h;
+    if (Count(G_HARDWARE)) {
+        h = AddGroup("Drivers for this computer", G_HARDWARE, MY_TVI_ROOT);
+        if (g_group == G_HARDWARE) sel = h;
+    }
     for (i = 0; i < MAX_SECTIONS; i++) {
         if (!Count(i)) continue;
         h = AddGroup(g_sections[i], i, all);
