@@ -1,0 +1,16 @@
+Package: game-overkill-shareware
+Name: Overkill (shareware)
+Version: 1993
+Section: Games
+Summary: Shareware scrolling shooter, Epic MegaGames 1993 (DOS)
+Description: Overkill, a scrolling space shooter by Ste Cork and Tech Noir Productions,
+ published by Epic MegaGames. Shareware is try-before-you-buy software that
+ may be copied freely. DOS program.
+License: Shareware
+License-File: pool/game-overkill-shareware/1993/LICENSE.TXT
+Systems: 95, 98, ME
+Download: pool/game-overkill-shareware/1993/$overkil.zip 401612 128294f3dab1a4b722510ef3009d03331d38d6a207d07481eb94b575f767bca9
+Installed-Size: 586
+Install: unzip {pf}\Games\Overkill
+Shortcut: Overkill | {dir}\OVERKILL.EXE |
+Uninstall: files

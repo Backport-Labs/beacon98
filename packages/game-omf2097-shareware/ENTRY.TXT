@@ -1,0 +1,21 @@
+Package: game-omf2097-shareware
+Name: One Must Fall 2097 (shareware)
+Version: 2.0
+Section: Games
+Summary: Shareware robot fighting game, Epic MegaGames/Diversions 1994 (DOS)
+Description: One-on-one fighting game with giant robots, by Diversions Entertainment.
+ This is the shareware version 2.0, published by Epic MegaGames, with modem
+ and network play. Shareware is try-before-you-buy software that may be
+ copied freely. Run Setup once for sound. DOS program.
+License: Shareware
+License-File: pool/game-omf2097-shareware/2.0/LICENSE.TXT
+Systems: 95, 98
+Download: pool/game-omf2097-shareware/2.0/omf20.zip 2931842 181ca68f5c4b79821780ed9fe4f613f2767b16bc1a3c23bb631b1bc4de127dce
+Installed-Size: 6198
+Install: unzip {pf}\Games\OMF2097
+Shortcut: One Must Fall 2097 | {dir}\OMF.EXE |
+ One Must Fall 2097 Setup | {dir}\SETUP.EXE |
+Uninstall: files
+Notice: Run "One Must Fall 2097 Setup" once to choose the sound card. The game's notes
+ say it does not work reliably under Windows with sound on; if it fails, use
+ MS-DOS mode.

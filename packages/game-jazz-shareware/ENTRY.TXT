@@ -1,0 +1,20 @@
+Package: game-jazz-shareware
+Name: Jazz Jackrabbit (shareware)
+Version: 1.0
+Section: Games
+Summary: Shareware episode of Jazz Jackrabbit, Epic MegaGames 1994 (DOS)
+Description: Fast side-scrolling platform game starring a green rabbit with a big gun.
+ This is the shareware episode, published by Epic MegaGames. Shareware is
+ try-before-you-buy software that may be copied freely; the other episodes
+ were sold. Run Setup once for sound. DOS program.
+License: Shareware
+License-File: pool/game-jazz-shareware/1.0/LICENSE.TXT
+Systems: 95, 98, ME
+Download: pool/game-jazz-shareware/1.0/1jazz.zip 1424232 ce4aa2835b8bc8cddf8bb52548e77717332f07ea8c394190ca3db7d38f04acb6
+Installed-Size: 3251
+Install: unzip {pf}\Games\Jazz
+Shortcut: Jazz Jackrabbit | {dir}\JAZZ.PIF |
+ Jazz Jackrabbit Setup | {dir}\SETUP.EXE |
+Uninstall: files
+Notice: Run "Jazz Jackrabbit Setup" once to choose the sound card. The game's own
+ notes ask Windows users to start JAZZ.PIF, which the shortcut does.

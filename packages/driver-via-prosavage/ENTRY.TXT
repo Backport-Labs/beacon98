@@ -1,0 +1,30 @@
+# Downloaded from VIA's own download server (its CloudFront address, as
+# linked by the VIA Driver Download Portal). No license permitting
+# redistribution was found, so we do not host it.
+Package: driver-via-prosavage
+Name: VIA S3 ProSavage graphics driver
+Version: 13.01.03
+Section: System
+Summary: Driver for the S3 ProSavage graphics built into VIA chipsets
+Description: S3 Graphics ProSavage display driver with utilities (May 2003),
+ for motherboards with VIA PL133, PL133T, KL133, KL133A, KM133 and KM133A
+ chipsets.
+Homepage: https://download.viatech.com/en/support/driversSelect.jsp
+License: Proprietary (VIA Technologies / S3 Graphics)
+License-File: pool/driver-via-prosavage/13.01.03/LICENSE.TXT
+Systems: 95, 98, ME
+Availability: external
+Download: https://d34vhvz8ul1ifj.cloudfront.net/Driver/drivers/video/ProSavage/130103Util.zip 5332911 4701ba7e16e9e98fa4fc0455e31477a1422bdcdac5f228158c378c885af45e40 http://d34vhvz8ul1ifj.cloudfront.net/Driver/drivers/video/ProSavage/130103Util.zip
+Hardware: pci VEN_5333&DEV_8A25
+ pci VEN_5333&DEV_8A26
+Install: unzip {pf}\Drivers\VIA ProSavage strip 1
+After: run "{dir}\SETUP.EXE"
+Uninstall: files
+Warning: A wrong display driver can stop Windows from starting normally. If
+ the screen stays black or Windows hangs after the restart, start Windows in
+ Safe Mode (hold Ctrl or press F8 while it starts), open Device Manager and
+ change the display adapter back to Standard PCI Graphics Adapter (VGA), or
+ remove the display adapter and restart.
+Notice: S3 Setup starts after the files are unpacked and asks to restart
+ Windows at the end. The setup files stay in {pf}\Drivers\VIA ProSavage.
+ Removing this package deletes that folder only.

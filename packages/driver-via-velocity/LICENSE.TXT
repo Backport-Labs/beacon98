@@ -1,0 +1,17 @@
+VIA Networking Velocity Family Gigabit Ethernet drivers, package release 3.1
+(velocity_driver_v31_via.zip; Windows 98SE/ME driver version 1.59)
+
+No license text was found.
+
+- The archive contains readme.txt, per-platform text files and
+  DriversRelease31.pdf, none of which states license terms. The INF file says
+  only "Copyright: Copyright (C) VIA Networking Technologies, Inc."
+- The VIA driver download portal (https://download.viatech.com/en/support/driversSelect.jsp)
+  shows no license or click-through for this download, and no terms of use for
+  drivers were found on www.viatech.com (checked 2026-09-29).
+
+Because nothing grants a right to redistribute these files, Backport Labs does
+not host them. Beacon 98 downloads the unmodified archive from VIA's own
+download server (the Amazon CloudFront address that VIA's driver portal links
+to). The files remain the property of VIA Technologies, Inc. / VIA Networking
+Technologies, Inc.

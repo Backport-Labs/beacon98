@@ -1,0 +1,19 @@
+Package: game-radix-shareware
+Name: Radix: Beyond the Void (shareware)
+Version: 1.0
+Section: Games
+Summary: Shareware 3D space shooter, Epic MegaGames/Neural Storm 1995 (DOS)
+Description: Radix: Beyond the Void, a 3D shooter with six degrees of flight by Neural
+ Storm, published by Epic MegaGames. This is the shareware episode.
+ Shareware is try-before-you-buy software that may be copied freely; the
+ other episodes were sold. Run Setup once. Needs a 486. DOS program.
+License: Shareware
+License-File: pool/game-radix-shareware/1.0/LICENSE.TXT
+Systems: 95, 98, ME
+Download: pool/game-radix-shareware/1.0/radsw1.zip 3880578 74d1eb329362d4d61d6e5c1498be491b947b75532df55c157a3cbd25869d0d33
+Installed-Size: 10709
+Install: unzip {pf}\Games\Radix
+Shortcut: Radix | {dir}\RADIX.EXE |
+ Radix Setup | {dir}\SETUP.EXE |
+Uninstall: files
+Notice: Run "Radix Setup" once before playing, as the game's notes require.

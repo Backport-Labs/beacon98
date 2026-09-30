@@ -1,0 +1,33 @@
+# Downloaded from Promise's own server: Promise gives no permission to
+# redistribute, so we do not host it.
+Package: driver-promise-ultra
+Name: Promise Ultra IDE controller driver
+Version: 2.00.0.43
+Section: System
+Summary: Driver for Promise Ultra33/66/100/100 TX2/133 TX2 IDE cards
+Description: Promise's last Windows 95/98/ME driver for its Ultra family of
+ IDE controller cards: Ultra33, Ultra66, Ultra100, Ultra100 TX2 and
+ Ultra133 TX2. It is a driver disk without a setup program; you install it
+ from Device Manager.
+Homepage: https://www.promise.com/Support/downloadcenter
+License: Proprietary (Promise Terms of Use, no redistribution permission)
+License-File: pool/driver-promise-ultra/2.00.0.43/LICENSE.TXT
+Systems: 95, 98, ME
+Availability: external
+Download: https://www.promise.com/DownloadFile.aspx?DownloadFileUID=3258 146851 8d38cdec2ff7204d14c33e940ca424875dddae9088d1f23689225ca455adaa97 http://www.promise.com/DownloadFile.aspx?DownloadFileUID=3258
+Install: unzip {pf}\Drivers\promise-ultra
+Uninstall: files
+Warning: A wrong disk controller driver can stop Windows from starting,
+ especially if Windows itself is on a disk attached to this card. If Windows
+ no longer starts, press F8 (Ctrl in Windows ME) while it starts, choose
+ Safe Mode, and remove or roll back the controller in Device Manager.
+Notice: The driver files are in {dir}\ultra133_driver_b43\Win9x-Me. Open
+ Device Manager (Control Panel, System), select the Promise controller
+ (under Hard disk controllers or Other devices), choose Properties, Driver,
+ Update Driver, and point it at that folder. Then restart Windows.
+Hardware: pci VEN_105A&DEV_4D69
+ pci VEN_105A&DEV_4D68
+ pci VEN_105A&DEV_4D30
+ pci VEN_105A&DEV_0D30
+ pci VEN_105A&DEV_4D38
+ pci VEN_105A&DEV_4D33

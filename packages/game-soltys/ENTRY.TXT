@@ -1,0 +1,18 @@
+Package: game-soltys
+Name: Soltys
+Version: 1.0
+Section: Games
+Summary: Comedy adventure game by LK Avalon, 1995 (English)
+Description: A Polish comedy adventure game by Laboratorium Komputerowe Avalon, in
+ English, released as freeware by its authors. Played with ScummVM.
+Homepage: https://www.scummvm.org/games/
+License: Freeware
+License-File: pool/game-soltys/1.0/LICENSE.TXT
+Systems: 98, ME
+Download: pool/game-soltys/1.0/soltys-en-v1.0.zip 3484518 87b89e654b8a5b8ebe342cb4c5c6049ab9a43a5efb474d9c49bafb77dcce48f6
+Depends: scummvm
+Installed-Size: 8284
+Install: unzip {dir}
+After: run "{dir:scummvm}\scummvm.exe" --add --path="{dir}" --game=soltys
+Shortcut: Soltys | {dir:scummvm}\scummvm.exe | soltys
+Uninstall: files

@@ -1,0 +1,19 @@
+Package: game-lure-of-the-temptress
+Name: Lure of the Temptress
+Version: 1.1
+Section: Games
+Summary: Fantasy adventure game by Revolution Software, 1992
+Description: Revolution Software's first adventure game: Diermot must free the town of
+ Turnvale from the sorceress Selena. Released as freeware by Revolution.
+ English version. Played with ScummVM.
+Homepage: https://www.scummvm.org/games/
+License: Freeware
+License-File: pool/game-lure-of-the-temptress/1.1/LICENSE.TXT
+Systems: 98, ME
+Download: pool/game-lure-of-the-temptress/1.1/lure-1.1.zip 5678861 f3178245a1483da1168c3a11e70b65d33c389f1f5df63d4f3a356886c1890108
+Depends: scummvm
+Installed-Size: 7046
+Install: unzip {dir} strip 1
+After: run "{dir:scummvm}\scummvm.exe" --add --path="{dir}" --game=lure
+Shortcut: Lure of the Temptress | {dir:scummvm}\scummvm.exe | lure
+Uninstall: files

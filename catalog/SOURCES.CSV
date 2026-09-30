@@ -148,3 +148,54 @@ winzip,yes,no,,,publisher only
 xmplay,yes,no,,,publisher only
 xplorer2,yes,no,,,publisher only
 zsoft-uninstaller,yes,no,,,publisher only
+driver-ahcint,yes,no,,,publisher only
+driver-ati-catalyst,yes,no,,,publisher only
+driver-ati-rage-pro,yes,no,,,publisher only
+driver-ati-rage128,yes,no,,,publisher only
+driver-herc9x,yes,yes,,,license allows sharing
+driver-matrox-g-series,yes,no,,,publisher only
+driver-matrox-millennium,yes,no,,,publisher only
+driver-matrox-millennium2,yes,no,,,publisher only
+driver-nvme9x,yes,no,,,publisher only
+driver-promise-fasttrak,yes,no,,,publisher only
+driver-promise-ultra,yes,no,,,publisher only
+driver-softgpu,yes,no,,,publisher only
+driver-vbemp,yes,no,,,publisher only
+driver-via-4in1,yes,no,,,publisher only
+driver-via-envy24,yes,no,,,publisher only
+driver-via-hyperion,yes,no,,,publisher only
+driver-via-prosavage,yes,no,,,publisher only
+driver-via-prosavageddr,yes,no,,,publisher only
+driver-via-rhine,yes,no,,,publisher only
+driver-via-usb2,yes,no,,,publisher only
+driver-via-velocity,yes,no,,,publisher only
+driver-via-vinyl-ac97,yes,no,,,publisher only
+driver-vmdisp9x,yes,yes,,,license allows sharing
+driver-xhci98,yes,yes,,,license allows sharing
+game-doom-shareware,no,yes,,,held: only "PLEASE DISTRIBUTE!!!" in the installer; needs the owner's decision
+game-drascula,yes,yes,,,license allows sharing
+game-dreamweb,yes,yes,,,license allows sharing
+game-duke3d-shareware,yes,yes,,,license allows sharing
+game-epic-pinball-shareware,yes,yes,,,license allows sharing
+game-extreme-pinball-shareware,yes,yes,,,license allows sharing
+game-flight-amazon-queen,yes,yes,,,license allows sharing
+game-heretic-shareware,yes,yes,,,license allows sharing
+game-jazz-shareware,yes,yes,,,license allows sharing
+game-jill-jungle-shareware,yes,yes,,,license allows sharing
+game-kens-labyrinth-shareware,yes,yes,,,license allows sharing
+game-kiloblaster-shareware,yes,yes,,,license allows sharing
+game-liero,yes,yes,,,license allows sharing
+game-lure-of-the-temptress,yes,yes,,,license allows sharing
+game-nippon-safes,yes,yes,,,license allows sharing
+game-omf2097-shareware,yes,yes,,,license allows sharing
+game-opengfx,yes,yes,,,license allows sharing
+game-openttd,yes,yes,,,license allows sharing
+game-overkill-shareware,yes,yes,,,license allows sharing
+game-quake-shareware,yes,yes,,,license allows sharing
+game-radix-shareware,yes,yes,,,license allows sharing
+game-sfinx,yes,yes,,,license allows sharing
+game-soltys,yes,yes,,,license allows sharing
+game-tyrian-shareware,yes,yes,,,license allows sharing
+game-wolf3d-shareware,no,no,,,held: implode-compressed zip Beacon cannot unpack
+game-xargon-shareware,yes,yes,,,license allows sharing
+game-zone66-shareware,yes,yes,,,license allows sharing

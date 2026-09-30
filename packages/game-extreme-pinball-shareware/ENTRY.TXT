@@ -1,0 +1,19 @@
+Package: game-extreme-pinball-shareware
+Name: Extreme Pinball (shareware)
+Version: 1.0
+Section: Games
+Summary: Shareware pinball table, Epic MegaGames/Digital Extremes 1995 (DOS)
+Description: Extreme Pinball by Digital Extremes, published by Epic MegaGames. This is
+ the shareware version with one table. Shareware is try-before-you-buy
+ software that may be copied freely; the other tables were sold. Run Setup
+ once for sound. DOS program.
+License: Shareware
+License-File: pool/game-extreme-pinball-shareware/1.0/LICENSE.TXT
+Systems: 95, 98, ME
+Download: pool/game-extreme-pinball-shareware/1.0/xpsw1.zip 3116323 a6d57553ba9ae3768de0c595e62ac6231703362c2cd51977ad67f1a87ef22a42
+Installed-Size: 6342
+Install: unzip {pf}\Games\XPinball
+Shortcut: Extreme Pinball | {dir}\EXTREME.EXE |
+ Extreme Pinball Setup | {dir}\SETUP.EXE |
+Uninstall: files
+Notice: Run "Extreme Pinball Setup" once to choose the sound card.

@@ -1,0 +1,29 @@
+# External: SweetLow's port carries no license (all rights reserved); the file
+# comes from the author's own GitHub repository, pinned to a commit.
+# Hardware: the INF matches the NVMe class code PCI\CC_010802 only.
+Package: driver-nvme9x
+Name: nvme9x NVMe driver
+Version: 1.0.0.2 (2026-02-19)
+Section: System
+Summary: Driver for NVMe SSDs on Windows 95, 98 and ME
+Description: SweetLow's Windows 9x port of the nvme2k driver, for NVMe (M.2 and
+ PCIe) solid-state drives, with support for large drives (64-bit LBA). Use it
+ for data drives on a computer that runs Windows 9x from another disk.
+Homepage: https://github.com/LordOfMice/Tools
+License: Freeware (no license stated); based on nvme2k, BSD-3-Clause
+License-File: pool/driver-nvme9x/1.0.0.2/LICENSE.TXT
+Systems: 95, 98, ME
+Availability: external
+Download: https://raw.githubusercontent.com/LordOfMice/Tools/24a466f0529eb62552900c26a34d4e7131e42f44/nvme9x.zip 14428 9c4010c1c180e9892bf5576fd9bbf22978a1aaddc7c5ed52527755f62cd5a39f
+Hardware: pci CC_010802
+Install: unzip {pf}\Drivers\nvme9x
+Uninstall: files
+Warning: A wrong disk controller driver can stop Windows from starting and can
+ damage data. Back up your data first. If Windows does not start, use Safe
+ Mode (hold Ctrl or press F8 while it starts) and remove the controller in
+ Device Manager.
+Notice: The driver files are in {pf}\Drivers\nvme9x. Open Control Panel,
+ System, Device Manager, open the NVMe controller (often under Other devices),
+ choose Driver, Update Driver, "Specify a location", and enter that folder.
+ Then restart. Drives over 2 TB also need SweetLow's LBA64HLP helper.
+ Removing this package does not change the driver Windows uses.

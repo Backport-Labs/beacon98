@@ -1,0 +1,44 @@
+# Downloaded from the project's own GitHub release: SoftGPU itself is MIT, but
+# the archive bundles Microsoft redistributables (DirectX 8/9, DCOM95, VC6
+# runtime, Winsock 2, OpenGL 95), so we do not host it.
+# Hardware: the INF also matches PCI\CC_0300 and *PNP0900 (VESA fallback);
+# omitted so Beacon does not offer it for every computer.
+Package: driver-softgpu
+Name: SoftGPU
+Version: 0.8.2025.53
+Section: System
+Summary: 3D display driver (OpenGL, Direct3D, Glide) for virtual machines
+Description: Display driver package by JHRobotics for Windows 95, 98 and ME in
+ VirtualBox, VMware Workstation and QEMU. It contains the VMDisp9x display
+ driver, Mesa3D for OpenGL, a Direct3D/DirectDraw driver, Glide wrappers, and
+ the DirectX 9 runtime (DirectX 8 on Windows 95). Hardware 3D works with the
+ VirtualBox VMSVGA and VMware SVGA II adapters; otherwise rendering is done by
+ the processor. Choose the preset for your VM software in the setup program.
+ .
+ The setup files take about 455 MB. Give the virtual machine 1 GB of memory
+ for best results.
+Homepage: https://github.com/JHRobotics/softgpu
+License: MIT (bundled parts: LGPL, GPL, Microsoft redistributable terms)
+License-File: pool/driver-softgpu/0.8.2025.53/LICENSE.TXT
+Systems: 95, 98, ME
+Availability: external
+Download: https://github.com/JHRobotics/softgpu/releases/download/v0.8.2025.53/softgpu-0.8.2025.53.zip 264746503 287449f16ad234da1d546deac66b3f91ab3101f5d3a202472117b83de42ccc68
+Installed-Size: 465445
+Hardware: pci VEN_80EE&DEV_BEEF
+ pci VEN_15AD&DEV_0405
+ pci VEN_1234&DEV_1111
+Install: unzip {pf}\SoftGPU Setup
+After: run "{dir}\softgpu.exe"
+Uninstall: files
+Warning: A wrong display driver can stop Windows from starting normally. If
+ the screen stays black after the restart, start Windows in Safe Mode (hold
+ Ctrl or press F8 while it starts), open Device Manager and change the display
+ adapter back to Standard PCI Graphics Adapter (VGA).
+ .
+ SoftGPU is meant for virtual machines. Install your sound driver first:
+ sound drivers often replace DirectX files with older versions.
+Notice: In SoftGPU setup, choose the preset for your virtual machine and press
+ Install, then restart Windows. On Windows 95 setup does not install the
+ display driver itself: open Device Manager, your display adapter, Driver,
+ Change Driver, Have Disk, and choose the SoftGPU folder. Removing this
+ package deletes only the setup files in {pf}\SoftGPU Setup.

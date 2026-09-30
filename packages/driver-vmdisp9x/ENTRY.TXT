@@ -1,0 +1,34 @@
+# MIT license: hosted. INF-only driver; the user points Device Manager at the folder.
+# Hardware: the INF also matches PCI\CC_0300 (any VGA-class adapter, VESA
+# fallback) and *PNP0900; those are left out so Beacon does not offer this
+# package for every computer.
+Package: driver-vmdisp9x
+Name: VMDisp9x virtual machine display driver
+Version: 1.2025.0.119b
+Section: System
+Summary: Display driver for VirtualBox, VMware and QEMU virtual machines
+Description: Open-source display driver by JHRobotics for Windows 95, 98 and ME
+ running in a virtual machine: VirtualBox (VBoxVGA, VBoxSVGA, VMSVGA), VMware
+ (SVGA II) and QEMU (-vga std). Gives high resolutions and 16/32-bit colour and
+ DirectDraw. This is the 2D driver only; for 3D (OpenGL, Direct3D) use the
+ SoftGPU package, which contains this driver. It can also drive any card with a
+ VESA 2.0/3.0 BIOS, without acceleration.
+Homepage: https://github.com/JHRobotics/vmdisp9x
+License: MIT
+License-File: pool/driver-vmdisp9x/1.2025.0.119b/LICENSE.TXT
+Systems: 95, 98, ME
+Download: pool/driver-vmdisp9x/1.2025.0.119b/vmdisp9x-1.2025.0.119b-driver-2d.zip 355886 e0d698a6089347a6a619ed439c092f247392fbafac6b342f4651c1380911fb23 https://github.com/JHRobotics/vmdisp9x/releases/download/v1.2025.0.119/vmdisp9x-1.2025.0.119b-driver-2d.zip
+Hardware: pci VEN_80EE&DEV_BEEF
+ pci VEN_15AD&DEV_0405
+ pci VEN_1234&DEV_1111
+Install: unzip {pf}\Drivers\VMDisp9x
+Uninstall: files
+Warning: A wrong display driver can stop Windows from starting normally. If
+ the screen stays black after the restart, start Windows in Safe Mode (hold
+ Ctrl or press F8 while it starts), open Device Manager and change the display
+ adapter back to Standard PCI Graphics Adapter (VGA).
+Notice: The driver files are in {pf}\Drivers\VMDisp9x. To use them, open
+ Control Panel, System, Device Manager, open your display adapter, choose
+ Driver, Update Driver, "Display a list of all the drivers", Have Disk, and
+ enter that folder. Then restart Windows. Removing this package does not
+ change the driver Windows uses.

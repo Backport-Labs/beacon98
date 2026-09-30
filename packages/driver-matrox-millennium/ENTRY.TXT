@@ -1,0 +1,36 @@
+# Downloaded from Matrox's own archive server; see LICENSE.TXT for why we
+# do not host it. The server answers only over HTTPS.
+Package: driver-matrox-millennium
+Name: Matrox PowerDesk display driver for Millennium and Mystique
+Version: 4.12.013
+Section: System
+Summary: Last Matrox driver for Millennium, Mystique and Mystique 220
+Description: Matrox PowerDesk 4.12.013 for Windows 95 and 98 (display driver
+ and utilities), the version Matrox lists as the latest for the original
+ Millennium, Mystique and Mystique 220. For Millennium II use
+ driver-matrox-millennium2; for G200 and later use driver-matrox-g-series.
+ Windows ME has its own driver for these cards.
+Homepage: https://video.matrox.com/en/apps/drivers/graphics/previous/legacy/
+License: Proprietary (Matrox)
+License-File: pool/driver-matrox-millennium/4.12.013/LICENSE.TXT
+Systems: 95, 98
+Availability: external
+Download: https://ftp.matrox.com/pub/mga/archive/win_9x/1998/1677_412.exe 1657522 98bc33adc675618a44bf0676f03c61b483a57bcc02094e647339ffa3057911ee
+Hardware: pci VEN_102B&DEV_0519
+ pci VEN_102B&DEV_051A
+ pci VEN_102B&DEV_051F
+ pci VEN_102B&DEV_0521
+Install: unzip {pf}\Drivers\Matrox Millennium
+After: run "{dir}\setup.exe"
+Uninstall: files
+Warning: A wrong display driver can stop Windows from starting normally. If
+ the screen stays black or Windows hangs after the restart, start Windows in
+ Safe Mode (hold Ctrl or press F8 while it starts), open Device Manager and
+ change the display adapter back to Standard PCI Graphics Adapter (VGA), or
+ remove the display adapter and restart.
+ .
+ If a DirectX setup later offers to replace the display driver, answer No.
+Notice: Matrox Setup starts after the files are unpacked, installs PowerDesk
+ and the display driver and asks to restart Windows. The setup files stay in
+ {pf}\Drivers\Matrox Millennium. Removing this package deletes that folder
+ only.

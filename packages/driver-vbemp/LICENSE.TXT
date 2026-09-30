@@ -1,0 +1,23 @@
+VBEMP 9x (Universal VBE 9x Display Driver) 2019.12.01 - license as published on
+https://bearwindows.zcm.com.au/vbe9x.htm (copied 2026-09-29 by Backport Labs; the
+archive 191201.zip contains no license file). Beacon 98 does not host this
+driver; it is downloaded from the authors' own server.
+
+License
+
+VBE 9x driver Project *
+License for use and distribution
+* term abbreviated to driver below.
+
+The authors - Bearwindows and JW Soft, exclusively own all copyrights to driver.
+Anyone may use this software free for noncommercial use only.
+For commercial support, send a email request.
+The driver, may be freely distributed, with exceptions noted below, provided the distribution package is not modified. No person or company may charge a fee for the distribution of driver without written permission from the copyright holder. The driver may not be bundled or distributed with any other package without written permission of the copyright holder. Distribution of any driver version before 10/19/2007 or unauthorized site content mirroring is strictly prohibited.
+DRIVER IS DISTRIBUTED "AS IS". NO WARRANTY OF ANY KIND IS EXPRESSED OR IMPLIED. YOU USE AT YOUR OWN RISK. THE AUTHOR WILL NOT BE LIABLE FOR DATA LOSS, DAMAGES, LOSS OF PROFITS OR ANY OTHER KIND OF LOSS WHILE USING OR MISUSING THIS SOFTWARE. THE LICENSE TERMS CONTAINED IN THIS DOCUMENT ARE SUBJECT TO BEING CHANGED, WITHOUT NOTICE, IN FUTURE EDITIONS.
+You may not use, copy, emulate, clone, rent, lease, sell, modify, decompile, disassemble, otherwise reverse engineer, or transfer the licensed program, or any subset of the licensed program, except as provided for in this agreement. Any such unauthorized use shall result in immediate and automatic termination of this license and may result in criminal and/or civil prosecution.
+Bearwindows and JW Soft reserve all rights not expressly granted here.
+Installing and using driver signifies acceptance of these terms and conditions of the license.
+If you do not agree with the terms of this license you must remove driver files from your storage devices and cease to use the product.
+
+Thank you for using driver.
+Bearwindows and JW Soft

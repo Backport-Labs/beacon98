@@ -1,0 +1,18 @@
+Package: game-zone66-shareware
+Name: Zone 66 (shareware)
+Version: 1993
+Section: Games
+Summary: Shareware 32-bit arcade shooter, Epic MegaGames/Renaissance 1993
+Description: Zone 66, a 360-degree scrolling air combat game by Renaissance, published
+ by Epic MegaGames. Shareware is try-before-you-buy software that may be
+ copied freely. Needs MS-DOS mode (restart in MS-DOS mode). DOS program.
+License: Shareware
+License-File: pool/game-zone66-shareware/1993/LICENSE.TXT
+Systems: 95, 98
+Download: pool/game-zone66-shareware/1993/$zone66.zip 1017774 57f92a0487bf72ad0ec233e6d524b29c48134037e76b7aadf90930c36fe1cd9c
+Installed-Size: 1624
+Install: unzip {pf}\Games\Zone66
+Shortcut: Zone 66 | {dir}\ZONE66.EXE |
+Uninstall: files
+Notice: The game's notes say Zone 66 does not run under Windows: restart the computer
+ in MS-DOS mode and start ZONE66.EXE from the Zone 66 folder.

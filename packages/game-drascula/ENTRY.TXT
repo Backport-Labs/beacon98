@@ -1,0 +1,20 @@
+Package: game-drascula
+Name: Drascula: The Vampire Strikes Back
+Version: 1.0
+Section: Games
+Summary: Comedy vampire adventure game by Alcachofa Soft, 1996
+Description: A Spanish comedy adventure: John Hacker must rescue B.J. from Count
+ Drascula. Released as freeware by Alcachofa Soft. English version with the
+ music pack. Played with ScummVM.
+Homepage: https://www.scummvm.org/games/
+License: Freeware
+License-File: pool/game-drascula/1.0/LICENSE.TXT
+Systems: 98, ME
+Download: pool/game-drascula/1.0/drascula-1.0.zip 32842993 b731f6cb5a22ba8b4c3b3362f570b9a10a67b6cb0b395394b19a94b36e4e42de
+ pool/game-drascula/1.0/drascula-audio-2.0.zip 36531704 7e6afba36eed13dd02e0360119e9a6a8d0e7b334ddc11d7c46ab7faceb8fe401
+Depends: scummvm
+Installed-Size: 68188
+Install: unzip {dir}
+After: run "{dir:scummvm}\scummvm.exe" --add --path="{dir}" --game=drascula
+Shortcut: Drascula - The Vampire Strikes Back | {dir:scummvm}\scummvm.exe | drascula
+Uninstall: files

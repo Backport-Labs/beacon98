@@ -1,0 +1,42 @@
+# Downloaded from AMD's own server: the ATI license forbids distribution,
+# so we do not host it. AMD's server needs a Referer from amd.com.
+Package: driver-ati-rage-pro
+Name: ATI Rage Pro and Rage XL display driver
+Version: 4.13.2655
+Section: System
+Summary: ATI display driver for Rage Pro, Rage LT Pro and Rage XL chips
+Description: The last ATI display driver bundle for Windows 98 and ME for
+ cards and motherboards based on the Rage Pro, Rage LT Pro and Rage XL (April
+ 2002), including TV tuner and capture drivers for the All-In-Wonder Pro.
+Homepage: https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/rage-series/ati-rage-pro.html
+License: Proprietary (ATI End User License Agreement)
+License-File: pool/driver-ati-rage-pro/4.13.2655/LICENSE.TXT
+Systems: 98, ME
+Availability: external
+Download: https://drivers.amd.com/drivers/wme-j5-30-1-b02.exe 10751795 7344838553d41fe9ac74b42d3fd159c9a8bf33b651cd75008e21523568559a26 https://www2.ati.com/drivers/wme-j5-30-1-b02.exe http://www2.ati.com/drivers/wme-j5-30-1-b02.exe
+Referer: https://www.amd.com/
+Hardware: pci VEN_1002&DEV_4742
+ pci VEN_1002&DEV_4744
+ pci VEN_1002&DEV_4749
+ pci VEN_1002&DEV_474D
+ pci VEN_1002&DEV_474E
+ pci VEN_1002&DEV_474F
+ pci VEN_1002&DEV_4750
+ pci VEN_1002&DEV_4752
+ pci VEN_1002&DEV_4C42
+ pci VEN_1002&DEV_4C49
+ pci VEN_1002&DEV_4C4D
+ pci VEN_1002&DEV_4C50
+Install: exe
+Uninstall: registry ATI Display Driver
+Warning: A wrong display driver can stop Windows from starting normally. If
+ the screen stays black or Windows hangs after the restart, start Windows in
+ Safe Mode (hold Ctrl or press F8 while it starts), open Device Manager and
+ change the display adapter back to Standard PCI Graphics Adapter (VGA), or
+ remove the display adapter and restart.
+ .
+ ATI asks you to uninstall any earlier Rage Pro driver first.
+Notice: The program first unpacks its files and then starts ATI Setup. If
+ Windows reports a "Version Conflict", answer No so that the new driver files
+ are kept. Restart Windows when asked. The All-In-Wonder Pro capture drivers
+ need DirectX 8.1.

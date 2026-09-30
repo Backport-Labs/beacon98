@@ -1,0 +1,32 @@
+# Downloaded from Promise's own server: Promise gives no permission to
+# redistribute, so we do not host it.
+Package: driver-promise-fasttrak
+Name: Promise FastTrak RAID driver
+Version: 2.00.0.34
+Section: System
+Summary: Driver for Promise FastTrak IDE RAID cards (FastTrak100, TX2000)
+Description: Promise's last Windows 98/ME driver for its FastTrak IDE RAID
+ controllers: FastTrak, FastTrak66, FastTrak100, FastTrak100 TX2/TX4 and
+ FastTrak TX2000, including the same chips on motherboards. It is a driver
+ disk without a setup program; you install it from Device Manager.
+Homepage: https://www.promise.com/Support/downloadcenter
+License: Proprietary (Promise Terms of Use, no redistribution permission)
+License-File: pool/driver-promise-fasttrak/2.00.0.34/LICENSE.TXT
+Systems: 98, ME
+Availability: external
+Download: https://www.promise.com/DownloadFile.aspx?DownloadFileUID=3516 261773 5756a8e35d1173244496508b69c5842a21c9645e0d4e55baa43185ac930dbf61 https://www.promise.com/DownloadFile.aspx?DownloadFileUID=2936 http://www.promise.com/DownloadFile.aspx?DownloadFileUID=3516
+Install: unzip {pf}\Drivers\promise-fasttrak
+Uninstall: files
+Warning: A wrong RAID controller driver can stop Windows from starting,
+ especially if Windows itself is on the RAID array. If Windows no longer
+ starts, press F8 (Ctrl in Windows ME) while it starts, choose Safe Mode,
+ and remove or roll back the controller in Device Manager.
+Notice: The driver files are in {dir}\Win9x-ME. Open Device Manager
+ (Control Panel, System), select the Promise FastTrak controller (under SCSI
+ controllers or Other devices), choose Properties, Driver, Update Driver,
+ and point it at that folder. Then restart Windows.
+Hardware: pci VEN_105A&DEV_4D33
+ pci VEN_105A&DEV_4D38
+ pci VEN_105A&DEV_4D30
+ pci VEN_105A&DEV_6268
+ pci VEN_105A&DEV_6269

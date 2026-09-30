@@ -1,0 +1,69 @@
+# Downloaded from VIA's own server: the package carries no license that
+# allows redistribution, so we do not host it.
+Package: driver-via-4in1
+Name: VIA 4in1 chipset drivers
+Version: 4.43
+Section: System
+Summary: VIA INF, AGP, IDE and IRQ drivers for older VIA chipsets
+Description: VIA's 4in1 package for Windows 95, 98 and ME: the VIA INF
+ update, the VIA AGP driver, the VIA bus master IDE driver and (Windows 98)
+ the PCI IRQ routing miniport. VIA recommends this version for MVP3, Apollo
+ Pro, KT133, KT266, KT333, KM266, P4X266 and similar chipsets. For KT400 and
+ newer chipsets use driver-via-hyperion.
+Homepage: https://download.viatech.com/en/support/driversSelect.jsp
+License: Proprietary (no redistribution permission)
+License-File: pool/driver-via-4in1/4.43/LICENSE.TXT
+Systems: 95, 98, ME
+Availability: external
+Download: https://d34vhvz8ul1ifj.cloudfront.net/Driver/VIA_4in1_443v.zip 1109735 48d045e40ebf04cf6ca0807cee3456e7724a98f8d6192fb70fc88430685de52d http://d34vhvz8ul1ifj.cloudfront.net/Driver/VIA_4in1_443v.zip
+Install: unzip {pf}\Drivers\via-4in1
+After: run "{dir}\4in1443v.exe"
+Uninstall: files
+Warning: A wrong chipset or IDE driver can stop Windows from starting.
+ Install this only on a computer with a VIA chipset. If Windows no longer
+ starts, press F8 (Ctrl in Windows ME) while it starts, choose Safe Mode,
+ and use Device Manager or VIA Setup's Uninstall options to go back.
+Notice: VIA Setup has been started from {dir}. Its component page lets you
+ install or uninstall each driver; Beacon's uninstall only deletes the
+ downloaded setup file.
+# Hardware list truncated: 40 of 71
+Hardware: pci VEN_1106&DEV_8598
+ pci VEN_1106&DEV_8501
+ pci VEN_1106&DEV_8601
+ pci VEN_1106&DEV_8305
+ pci VEN_1106&DEV_8605
+ pci VEN_1106&DEV_8391
+ pci VEN_1106&DEV_8602
+ pci VEN_1106&DEV_B091
+ pci VEN_1106&DEV_B099
+ pci VEN_1106&DEV_B101
+ pci VEN_1106&DEV_B112
+ pci VEN_1106&DEV_B116
+ pci VEN_1106&DEV_B148
+ pci VEN_1106&DEV_B156
+ pci VEN_1106&DEV_B158
+ pci VEN_1106&DEV_B168
+ pci VEN_1106&DEV_B188
+ pci VEN_1106&DEV_0571
+ pci VEN_1106&DEV_0305
+ pci VEN_1106&DEV_0391
+ pci VEN_1106&DEV_0601
+ pci VEN_1106&DEV_0605
+ pci VEN_1106&DEV_3091
+ pci VEN_1106&DEV_3099
+ pci VEN_1106&DEV_3101
+ pci VEN_1106&DEV_3102
+ pci VEN_1106&DEV_3103
+ pci VEN_1106&DEV_3112
+ pci VEN_1106&DEV_3123
+ pci VEN_1106&DEV_3128
+ pci VEN_1106&DEV_3148
+ pci VEN_1106&DEV_3116
+ pci VEN_1106&DEV_3156
+ pci VEN_1106&DEV_3158
+ pci VEN_1106&DEV_3168
+ pci VEN_1106&DEV_3178
+ pci VEN_1106&DEV_3188
+ pci VEN_1106&DEV_3189
+ pci VEN_1106&DEV_0198
+ pci VEN_1106&DEV_3202

@@ -1,0 +1,19 @@
+Package: game-duke3d-shareware
+Name: Duke Nukem 3D (shareware)
+Version: 1.3d
+Section: Games
+Summary: Shareware episode of 3D Realms' Duke Nukem 3D, 1996 (DOS)
+Description: L.A. Meltdown, the shareware first episode of Duke Nukem 3D by 3D Realms.
+ The archive contains 3D Realms' own DOS installer; run "Duke Nukem 3D
+ (shareware) - install" once to unpack the game.
+License: Shareware
+License-File: pool/game-duke3d-shareware/1.3d/LICENSE.TXT
+Systems: 95, 98, ME
+Download: pool/game-duke3d-shareware/1.3d/3dduke13.zip 5924374 c67efd179022bc6d9bde54f404c707cbcbdc15423c20be72e277bc2bdddf3d0e
+Installed-Size: 5860
+Install: unzip {pf}\Games\Duke3D
+Shortcut: Duke Nukem 3D (shareware) - install | {dir}\INSTALL.EXE |
+Uninstall: files
+Notice: Run "Duke Nukem 3D (shareware) - install" once. The 3D Realms installer asks
+ for a folder and unpacks the game there; then run SETUP.EXE and DUKE3D.EXE in
+ that folder. Beacon does not remove that folder when you remove this package.

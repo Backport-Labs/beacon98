@@ -1,0 +1,29 @@
+# Downloaded from VIA's own download server: VIA's license allows personal
+# use and forbids distribution to third parties, so we do not host it.
+Package: driver-via-envy24
+Name: VIA Envy24HT family audio driver
+Version: 5.30b
+Section: System
+Summary: VIA Envy24 HT/PT/GT/DT/MT (VT1720/VT1724) sound card driver
+Description: The last VIA Envy24 family driver whose setup supports
+ Windows 98 and ME. For sound cards and boards with a VIA Envy24 HT,
+ HT-S, PT, GT, DT or MT controller (PCI 1412:1724). It does not support
+ the original Envy24 (ICE1712) used on M-Audio Delta cards. WDM driver.
+Homepage: https://download.viatech.com/en/support/driversSelect.jsp
+License: Proprietary (VIA Software License Agreement)
+License-File: pool/driver-via-envy24/5.30b/LICENSE.TXT
+Systems: 98, ME
+Availability: external
+Download: https://d34vhvz8ul1ifj.cloudfront.net/Driver/Envy24_Family_DriverV530b.zip 8615873 0a0248717c11015de1b2dc1534f657321b1c2f00961817655d61d24b9f28428f
+Hardware: pci VEN_1412&DEV_1724
+Install: unzip {pf}\Drivers\via-envy24 strip 1
+Uninstall: files
+Warning: Install this driver only for a VIA Envy24 HT/PT/GT/DT/MT sound
+ chip. Card makers often ship their own driver, which may suit the card
+ better. A wrong audio driver can stop Windows from starting; start in
+ Safe Mode and remove the device in Device Manager to go back.
+Notice: The driver files are in {dir}\VIAEnvyAud\Drivers\WDM. Open
+ Control Panel, System, Device Manager, select the sound device,
+ Properties, Driver, Update Driver, and point Windows at that folder.
+ Windows may ask for the Windows CD. VIA's setup program (Setup.exe,
+ which also installs Windows Installer 2.0 and a mixer panel) is in {dir}.

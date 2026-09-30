@@ -1,0 +1,20 @@
+Package: game-heretic-shareware
+Name: Heretic (shareware)
+Version: 1.2
+Section: Games
+Summary: Shareware episode of Raven Software's Heretic, 1994 (DOS)
+Description: City of the Damned, the shareware first episode of Heretic by Raven
+ Software, published by id Software. A fantasy first-person action game
+ on the Doom engine. The archive contains id's own installer; run
+ "Heretic (shareware) - install" once to unpack the game. DOS program.
+License: Shareware
+License-File: pool/game-heretic-shareware/1.2/LICENSE.TXT
+Systems: 95, 98, ME
+Download: pool/game-heretic-shareware/1.2/htic_v12.zip 2898794 5ffbb47e4a5750fef144c312973ee5782266b4a63474b77478103b6c1aaed39d
+Installed-Size: 2833
+Install: unzip {pf}\Games\Heretic
+Shortcut: Heretic (shareware) - install | {dir}\INSTALL.BAT |
+Uninstall: files
+Notice: Run "Heretic (shareware) - install" once. The installer unpacks the game into
+ C:\HERETIC (you may choose another folder). Run SETUP there for sound, then
+ HERETIC.EXE. Beacon does not remove that folder when you remove this package.

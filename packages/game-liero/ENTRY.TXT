@@ -1,0 +1,18 @@
+Package: game-liero
+Name: Liero
+Version: 1.33
+Section: Games
+Summary: Two-player worm duel game with 40 weapons, 1998 (DOS)
+Description: Liero is a real-time two-player game for one keyboard: two armed worms
+ fight in a destructible landscape, with 40 weapons and several game
+ modes. This is the original 1.33 release from the official Liero site.
+ DOS program.
+Homepage: https://www.liero.be/
+License: WTFPL
+License-File: pool/game-liero/1.33/LICENSE.TXT
+Systems: 95, 98, ME
+Download: pool/game-liero/1.33/lierov133winxp.zip 366080 c1f0331d00ec983263a2d8c395947306eb590843883d2b81272201b6e3859112
+Installed-Size: 715
+Install: unzip {pf}\Games\Liero
+Shortcut: Liero | {dir}\LIERO.EXE |
+Uninstall: files

@@ -1,0 +1,19 @@
+Package: game-nippon-safes
+Name: Nippon Safes, Inc.
+Version: 1.0
+Section: Games
+Summary: Comedy adventure game by Dynabyte, 1992
+Description: An Italian comedy adventure with three playable characters, by Dynabyte
+ (Euclidea). DOS version in English, French, German and Italian, released
+ as freeware. Played with ScummVM.
+Homepage: https://www.scummvm.org/games/
+License: Freeware
+License-File: pool/game-nippon-safes/1.0/LICENSE.TXT
+Systems: 98, ME
+Download: pool/game-nippon-safes/1.0/nippon-1.0.zip 1977894 53e7e2c60065e4aed193169bbcdcfd1113fa68d3efe1c8240ba073c0e20d613f
+Depends: scummvm
+Installed-Size: 6344
+Install: unzip {dir}
+After: run "{dir:scummvm}\scummvm.exe" --add --path="{dir}" --game=nippon
+Shortcut: Nippon Safes, Inc. | {dir:scummvm}\scummvm.exe | nippon
+Uninstall: files

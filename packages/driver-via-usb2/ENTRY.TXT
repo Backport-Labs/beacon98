@@ -1,0 +1,30 @@
+# Downloaded from VIA's own server: the package carries no license that
+# allows redistribution and includes Microsoft files, so we do not host it.
+Package: driver-via-usb2
+Name: VIA USB 2.0 driver
+Version: 2.70p
+Section: System
+Summary: USB 2.0 driver for VIA VT6202/VT6212/VT6214 and VIA south bridges
+Description: VIA's USB 2.0 (EHCI) driver for Windows 98 and ME. It works
+ only with VIA USB 2.0 controllers: VT6202, VT6212 and VT6214 PCI cards and
+ the USB 2.0 function of VIA south bridges such as the VT8235 and VT8237.
+ It does not support NEC or other USB 2.0 controllers.
+Homepage: https://download.viatech.com/en/support/driversSelect.jsp
+License: Proprietary (no redistribution permission)
+License-File: pool/driver-via-usb2/2.70p/LICENSE.TXT
+Systems: 98, ME
+Availability: external
+Download: https://d34vhvz8ul1ifj.cloudfront.net/Driver/VIA_USB2_V270p1-L.zip 10285183 2a49b9bf300f638b5615daa71da4f64b2322716ffaa5a6cfef675a9145a0b13a http://d34vhvz8ul1ifj.cloudfront.net/Driver/VIA_USB2_V270p1-L.zip
+Install: unzip {pf}\Drivers\via-usb2
+After: run "{dir}\VIAUSB2V270-L\Setup.exe"
+Uninstall: files
+Warning: A wrong USB driver can stop Windows from starting or disable the
+ USB keyboard and mouse. Install this only for a VIA USB 2.0 controller. If
+ Windows no longer starts, press F8 (Ctrl in Windows ME) while it starts,
+ choose Safe Mode, and remove the device in Device Manager.
+Notice: VIA Setup has been started. If it does not find the controller,
+ open Device Manager, select the USB 2.0 controller, choose Update Driver
+ and point it at {dir}\VIAUSB2V270-L\WIN98&ME. Beacon's uninstall only
+ deletes the unpacked files.
+Hardware: pci VEN_1106&DEV_3104
+ pci VEN_1106&DEV_3038

@@ -1,0 +1,81 @@
+This is the license shown by the VIA setup program in vinyl_v700b.zip (VIA Vinyl Audio driver 7.00b).
+It was extracted on 2026-09-29 from the setup's Platform.msi (English License.rtf,
+stream ISSetupFile.SetupFile15) and converted from RTF to plain text. The setup was not run.
+This license does not allow redistribution (section 2), so Beacon 98 does not host the file;
+it is downloaded from VIA's own download server.
+
+VIA SOFTWARE LICENSE AGREEMENT
+
+Please read carefully before you download, install, or use any 
+VIA SOFTWARE.VIA SOFTWARE means the software 
+program you are currently trying to download, and all related 
+updates supplied by VIA Technologies, Inc. (“VIA”). 
+
+By clicking on the “I AGREE” button, and by downloading and 
+installing the VIA SOFTWARE, you accept all the terms and 
+conditions of this Agreement. If you do not agree to the terms 
+and conditions of this Agreement, do not click the “I AGREE” 
+button or use the VIA SOFTWARE.
+
+Upon your acceptance of this Agreement, subject to the 
+terms and conditions set forth herein, VIA hereby grants to 
+you a limited, non-exclusive, non-transferable, worldwide 
+license to use the VIA SOFTWARE as follows:
+
+1. Use of Software. 
+The VIA SOFTWARE is licensed for personal use and may 
+only be used in conjunction with VIA products. If you wish to 
+use the VIA SOFTWARE for commercial or any other 
+purpose, please contact VIA directly.
+2. Restrictions. 
+You are not allowed to modify, disassemble, decompile, or 
+reverse-engineering the VIA SOFTWARE, or remove any 
+proprietary notice or label on the VIA SOFTWARE. You may 
+not transfer or distribute this software to any third party.
+3. Ownership and Copyrights.  
+The VIA SOFTWARE and the accompanying documentation 
+are licensed, not sold, to you. All title and copyrights in and to 
+the VIA SOFTWARE (including but not limited to all images, 
+photographs, animations, video, audio, music, text, and other 
+information incorporated into the VIA SOFTWARE), the 
+accompanying printed materials, and any copies of the VIA 
+SOFTWARE, are owned by VIA, or its third party suppliers. 
+The VIA SOFTWARE is protected by copyright laws and 
+international treaty provisions.
+4. Disclaimer of Warranty.  
+VIA MAKES NO REPRESENTATIONS ABOUT THE 
+SUITABILITY, USE, OR PERFORMANCE OF THE VIA 
+SOFTWARE FOR ANY PURPOSE. THE VIA SOFTWARE IS 
+PROVIDED "AS IS," AND VIA DISCLAIMS, TO THE 
+MAXIMUM EXTENT ALLOWED BY APPLICABLE LAW, ALL 
+EXPRESS OR IMPLIED WARRANTIES INCLUDING, BUT 
+NOT LIMITED TO, ANY IMPLIED WARRANTIES OF 
+MERCHANTABILITY, FITNESS FOR A PARTICULAR 
+PURPOSE, OR NONINFRINGEMENT WITH RESPECT TO 
+THE VIA SOFTWARE. VIA IS NOT OBLIGATED TO 
+SUPPORT OR ISSUE UPDATES TO THE VIA SOFTWARE.
+5. Limitation on Liability.  
+TO THE MAXIMUM EXTENT ALLOWED BY APPLICABLE 
+LAW, UNDER NO CIRCUMSTANCES SHALL VIA BE 
+LIABLE TO YOU OR ANY OTHER PERSON FOR ANY 
+DIRECT, INDIRECT, SPECIAL, INCIDENTAL, OR 
+CONSEQUENTIAL DAMAGES OF ANY CHARACTER 
+INCLUDING, WITHOUT LIMITATION, DAMAGES FOR 
+LOSS OF GOODWILL, WORK STOPPAGE, COMPUTER 
+FAILURE OR MALFUNCTION, OR ANY AND ALL OTHER 
+ECONOMIC LOSS OR COMMERCIAL DAMAGES ARISING 
+OUT OF THE USE OR INABILITY TO USE THIS VIA 
+SOFTWARE, EVEN IF VIA HAVE BEEN INFORMED OF 
+THE POSSIBILITY OF SUCH DAMAGES.
+6. Export Controls.  
+By clicking on the "I ACCEPT" button, you agree that the VIA 
+Software will not be shipped, transferred, or exported into any 
+country or used in any manner prohibited by the United 
+States Export Administration Act or any other applicable 
+export laws, restrictions, or regulations.
+7. Termination. 
+Your license will automatically terminate without notice from 
+VIA upon any failure by you to comply with the terms under 
+this Agreement. Upon termination, you must cease all use of 
+the VIA SOFTWARE and destroy the VIA SOFTWARE along 
+with all copies and merged portions in any form.

@@ -1,0 +1,16 @@
+Package: game-jill-jungle-shareware
+Name: Jill of the Jungle (shareware)
+Version: 1.0
+Section: Games
+Summary: Shareware platform game, Epic MegaGames 1992 (DOS)
+Description: Jill of the Jungle: The Jungle, the shareware first episode of the
+ platform game by Tim Sweeney, published by Epic MegaGames. Shareware is
+ try-before-you-buy software that may be copied freely. DOS program.
+License: Shareware
+License-File: pool/game-jill-jungle-shareware/1.0/LICENSE.TXT
+Systems: 95, 98, ME
+Download: pool/game-jill-jungle-shareware/1.0/$jill.zip 295802 9a0ce9d1dc837eba38535b89bcbb55312a89a834852091b24d40759f34b2f0ff
+Installed-Size: 1062
+Install: unzip {pf}\Games\Jill
+Shortcut: Jill of the Jungle | {dir}\JILL.EXE |
+Uninstall: files

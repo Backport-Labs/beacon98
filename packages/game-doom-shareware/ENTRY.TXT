@@ -1,0 +1,21 @@
+Package: game-doom-shareware
+Name: Doom (shareware)
+Version: 1.9
+Section: Games
+Summary: Shareware episode of id Software's Doom, 1993 (DOS)
+Description: Knee-Deep in the Dead, the first episode of Doom, as id Software
+ released it for free distribution. This is shareware: the other episodes
+ were sold separately. The archive contains id's own installer; run
+ "Doom (shareware) - install" once to unpack the game. DOS program.
+License: Shareware
+License-File: pool/game-doom-shareware/1.9/LICENSE.TXT
+Systems: 95, 98, ME
+Download: pool/game-doom-shareware/1.9/doom19s.zip 2450688 cacf0142b31ca1af00796b4a0339e07992ac5f21bc3f81e7532fe1b5e1b486e6
+Installed-Size: 2395
+Install: unzip {pf}\Games\Doom
+Shortcut: Doom (shareware) - install | {dir}\INSTALL.BAT |
+Uninstall: files
+Notice: Run "Doom (shareware) - install" once. id's installer unpacks the game into
+ C:\DOOMS (you may choose another folder) and starts SETUP for sound. Play with
+ DOOM.EXE in that folder. Beacon does not remove that folder when you remove
+ this package. To play in Windows instead, copy DOOM1.WAD into the PrBoom folder.

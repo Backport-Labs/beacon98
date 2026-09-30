@@ -1,0 +1,35 @@
+# GPL-2.0-only: hosted, with the source archive of the same tag.
+# Hardware: the INF matches the xHCI class code PCI\CC_0C0330 only (any USB 3
+# controller), written as a class-code line.
+Package: driver-xhci98
+Name: xhci98 USB 3 controller driver
+Version: 1.1.1.0
+Section: System
+Summary: Lets Windows 98 SE and ME use USB 3 (xHCI) ports, at USB 2.0 speed
+Description: Open-source driver by Yeo Kheng Meng for the USB 3.0 (xHCI)
+ controllers of computers made from about 2012 on, which Windows 98 and ME
+ cannot use. Devices work at USB 2.0 speed. It plugs into a USB 2.0 stack
+ (USBPORT.SYS), which must be installed first; Beacon cannot provide one.
+ Only Windows 98 SE has been tested on real hardware.
+Homepage: https://github.com/yeokm1/xhci98
+License: GPL-2.0-only
+License-File: pool/driver-xhci98/1.1.1.0/LICENSE.TXT
+Systems: 98SE, ME
+Download: pool/driver-xhci98/1.1.1.0/xhci98-1.1.1.0.zip 377889 4d29346712e25b5adbf6c55915092f77483eacffeef9e3770b2acada561a525f https://github.com/yeokm1/xhci98/releases/download/v1.1.1.0/xhci98-1.1.1.0.zip
+Source: pool/driver-xhci98/1.1.1.0/src/xhci98-1.1.1.0-source.zip 9609625 5a3fb1b220441c468eb9adca09968c3e0ebc23adf7449e8a7776fc108e02fa84
+Installed-Size: 793
+Requires: file {win}\SYSTEM32\DRIVERS\USBPORT.SYS | xhci98 needs a USB 2.0 stack (USBPORT.SYS) installed first. Beacon 98 cannot provide one because it is made from Microsoft files. See the xhci98 readme, section 2.
+Hardware: pci CC_0C0330
+Install: unzip {pf}\Drivers\xhci98
+Uninstall: files
+Warning: This is a new driver for the USB controller. On a computer where the
+ keyboard or mouse is connected by USB, a failed driver can leave you without
+ them; keep a PS/2 keyboard at hand. If Windows does not start, use Safe Mode
+ (hold Ctrl or press F8 while it starts) and remove the controller in Device
+ Manager. Have the Windows CD ready: Windows asks for its own USB files.
+Notice: The driver files are in {pf}\Drivers\xhci98. Open Control Panel,
+ System, Device Manager, find the unknown USB controller (often under Other
+ devices), choose Driver, Update Driver, "Specify a location", and enter
+ {pf}\Drivers\xhci98\RELEASE-X86. Insert the Windows CD when asked, then
+ restart. Read {pf}\Drivers\xhci98\readme.txt first. Removing this package
+ does not change the driver Windows uses.

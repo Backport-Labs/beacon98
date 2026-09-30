@@ -1,7 +1,7 @@
 Format: 1
 Catalog: Beacon 98
 Publisher: Backport Labs
-Serial: 2026092908
+Serial: 2026092910
 Date: 2026-09-29
 Expires: 2026-12-28
 Base: http://get.backportlabs.com/
@@ -590,6 +590,890 @@ Notice: Programs running inside DOSBox can read and change every folder you
  mount. For files you do not trust, type config -securemode after mounting.
  The video codec in the Video Codec folder does not work on Windows 98.
 
+Package: driver-ahcint
+Name: AHCINT SATA AHCI driver
+Version: 1.3.0.0
+Section: System
+Summary: Driver for SATA controllers in AHCI mode (real PCs and VMs)
+Description: Driver by ages2001 for SATA AHCI controllers, which Windows 95,
+ 98 and ME cannot use on their own. Useful on newer PCs whose SATA ports work
+ only in AHCI mode, and in VirtualBox with a SATA (AHCI) controller. Without
+ it, disks on such a controller run in slow MS-DOS compatibility mode or are
+ not found. Windows itself must be installed from a disk the BIOS can reach.
+Homepage: https://github.com/ages2001/AHCINT
+License: GPL-3.0 (disputed, see license file)
+License-File: pool/driver-ahcint/1.3.0.0/LICENSE.TXT
+Systems: 95, 98, ME
+Availability: external
+Download: https://github.com/ages2001/AHCINT/releases/download/v1.3.0.0/AHCINT-v1.3.0.0.zip 140341 e0930ac2928e299548aa9a82749d42fc6c8cff10b4a590a7d312445ff1cf85ea
+Installed-Size: 323
+Hardware: pci CC_010601
+Install: unzip {pf}\Drivers\AHCINT
+Uninstall: files
+Warning: A wrong disk controller driver can stop Windows from starting and can
+ damage data. This driver is new (first release September 2026); back up your
+ disk first. If Windows does not start, use Safe Mode (hold Ctrl or press F8
+ while it starts), and remove the controller in Device Manager.
+Notice: The driver files are in {pf}\Drivers\AHCINT\bin\9X. Open Control
+ Panel, Add New Hardware, choose to select the hardware from a list, pick SCSI
+ controllers, Have Disk, enter that folder, choose "AHCINT9x SATA AHCI Storage
+ Controller" and restart. On the original Windows 95 the controller may show a
+ yellow mark; see the project page. Removing this package does not change the
+ driver Windows uses.
+
+Package: driver-ati-catalyst
+Name: ATI Catalyst display driver for Radeon
+Version: 6.2
+Section: System
+Summary: Last ATI/AMD display driver for Radeon cards on Windows 98 and ME
+Description: ATI Catalyst 6.2 for Windows ME, which ATI also supports on
+ Windows 98 and 98 SE: display driver 4.15.1.9165 and the ATI Control Panel.
+ For Radeon 7000, 7200, 7500, 8500, 9000, 9100, 9200, 9500, 9550, 9600, 9700
+ and 9800 cards and All-In-Wonder versions of them, plus Radeon Xpress 200 and
+ X700 AGP; X300 to X850 have beta support. Rage and Rage 128 cards need the
+ driver-ati-rage-pro or driver-ati-rage128 package.
+Homepage: https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/radeon-9xxx-series/ati-radeon-9800-series.html
+License: Proprietary (ATI End User License Agreement)
+License-File: pool/driver-ati-catalyst/6.2/LICENSE.TXT
+Systems: 98, ME
+Availability: external
+Download: https://drivers.amd.com/drivers/6-2_wme_dd_cp_30314.exe 15171672 20b53b7041f0f3b87f835ef1a769b180b8059dda48f2cc7bbdbf8dd76ef11fd8 https://www2.ati.com/drivers/6-2_wme_dd_cp_30314.exe http://www2.ati.com/drivers/6-2_wme_dd_cp_30314.exe
+Referer: https://www.amd.com/
+Hardware: pci VEN_1002&DEV_3E50
+ pci VEN_1002&DEV_3E70
+ pci VEN_1002&DEV_4136
+ pci VEN_1002&DEV_4137
+ pci VEN_1002&DEV_4144
+ pci VEN_1002&DEV_4146
+ pci VEN_1002&DEV_4148
+ pci VEN_1002&DEV_4150
+ pci VEN_1002&DEV_4151
+ pci VEN_1002&DEV_4152
+ pci VEN_1002&DEV_4153
+ pci VEN_1002&DEV_4164
+ pci VEN_1002&DEV_4166
+ pci VEN_1002&DEV_4168
+ pci VEN_1002&DEV_4170
+ pci VEN_1002&DEV_4171
+ pci VEN_1002&DEV_4172
+ pci VEN_1002&DEV_4173
+ pci VEN_1002&DEV_4242
+ pci VEN_1002&DEV_4966
+ pci VEN_1002&DEV_496E
+ pci VEN_1002&DEV_4A49
+ pci VEN_1002&DEV_4A4A
+ pci VEN_1002&DEV_4A4B
+ pci VEN_1002&DEV_4A50
+ pci VEN_1002&DEV_4A69
+ pci VEN_1002&DEV_4A6A
+ pci VEN_1002&DEV_4A6B
+ pci VEN_1002&DEV_4A70
+ pci VEN_1002&DEV_4B49
+ pci VEN_1002&DEV_4B4B
+ pci VEN_1002&DEV_4B4C
+ pci VEN_1002&DEV_4B69
+ pci VEN_1002&DEV_4B6B
+ pci VEN_1002&DEV_4B6C
+ pci VEN_1002&DEV_4E44
+ pci VEN_1002&DEV_4E45
+ pci VEN_1002&DEV_4E46
+ pci VEN_1002&DEV_4E48
+ pci VEN_1002&DEV_4E49
+Install: exe
+Uninstall: registry ATI Display Driver
+Warning: A wrong display driver can stop Windows from starting normally. If
+ the screen stays black or Windows hangs after the restart, start Windows in
+ Safe Mode (hold Ctrl or press F8 while it starts), open Device Manager and
+ change the display adapter back to Standard PCI Graphics Adapter (VGA), or
+ remove the display adapter and restart.
+ .
+ Remove any other display driver (for example with its uninstaller in
+ Add/Remove Programs) before installing this one.
+Notice: ATI Setup installs the display driver and the ATI Control Panel and
+ asks to restart Windows. Restart before using the computer.
+
+Package: driver-ati-rage128
+Name: ATI Rage 128 display driver
+Version: 4.13.7192
+Section: System
+Summary: ATI display driver for Rage 128 and Rage 128 Pro cards
+Description: The last ATI display driver bundle for Windows 98, 98 SE and ME
+ for cards based on the Rage 128 and Rage 128 Pro, such as Rage Fury, Xpert
+ 128, Xpert 2000 and All-In-Wonder 128 (October 2001).
+Homepage: https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/rage-series/ati-rage-128-pro.html
+License: Proprietary (ATI End User License Agreement)
+License-File: pool/driver-ati-rage128/4.13.7192/LICENSE.TXT
+Systems: 98, ME
+Availability: external
+Download: https://drivers.amd.com/drivers/WMER1284137192.exe 12562724 21ba14dcd5f12ee2d1e5892269899474cc0a5e515a19a09f304ae6527266cf4c https://www2.ati.com/drivers/WMER1284137192.exe http://www2.ati.com/drivers/WMER1284137192.exe
+Referer: https://www.amd.com/
+Requires: dx 8.0 | ATI recommends DirectX 8.0a or later with this driver. Install DirectX first.
+Hardware: pci VEN_1002&DEV_5044
+ pci VEN_1002&DEV_5046
+ pci VEN_1002&DEV_5050
+ pci VEN_1002&DEV_5245
+ pci VEN_1002&DEV_5246
+ pci VEN_1002&DEV_524C
+ pci VEN_1002&DEV_534D
+ pci VEN_1002&DEV_5446
+ pci VEN_1002&DEV_5452
+Install: exe
+Uninstall: registry ATI Display Driver
+Warning: A wrong display driver can stop Windows from starting normally. If
+ the screen stays black or Windows hangs after the restart, start Windows in
+ Safe Mode (hold Ctrl or press F8 while it starts), open Device Manager and
+ change the display adapter back to Standard PCI Graphics Adapter (VGA), or
+ remove the display adapter and restart.
+ .
+ ATI asks you to uninstall any earlier Rage 128 driver first.
+Notice: The program first unpacks its files (to C:\ATI\... by default) and
+ then starts ATI Setup. If Windows reports a "Version Conflict", answer No so
+ that the new driver files are kept. Restart Windows when asked.
+
+Package: driver-ati-rage-pro
+Name: ATI Rage Pro and Rage XL display driver
+Version: 4.13.2655
+Section: System
+Summary: ATI display driver for Rage Pro, Rage LT Pro and Rage XL chips
+Description: The last ATI display driver bundle for Windows 98 and ME for
+ cards and motherboards based on the Rage Pro, Rage LT Pro and Rage XL (April
+ 2002), including TV tuner and capture drivers for the All-In-Wonder Pro.
+Homepage: https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/rage-series/ati-rage-pro.html
+License: Proprietary (ATI End User License Agreement)
+License-File: pool/driver-ati-rage-pro/4.13.2655/LICENSE.TXT
+Systems: 98, ME
+Availability: external
+Download: https://drivers.amd.com/drivers/wme-j5-30-1-b02.exe 10751795 7344838553d41fe9ac74b42d3fd159c9a8bf33b651cd75008e21523568559a26 https://www2.ati.com/drivers/wme-j5-30-1-b02.exe http://www2.ati.com/drivers/wme-j5-30-1-b02.exe
+Referer: https://www.amd.com/
+Hardware: pci VEN_1002&DEV_4742
+ pci VEN_1002&DEV_4744
+ pci VEN_1002&DEV_4749
+ pci VEN_1002&DEV_474D
+ pci VEN_1002&DEV_474E
+ pci VEN_1002&DEV_474F
+ pci VEN_1002&DEV_4750
+ pci VEN_1002&DEV_4752
+ pci VEN_1002&DEV_4C42
+ pci VEN_1002&DEV_4C49
+ pci VEN_1002&DEV_4C4D
+ pci VEN_1002&DEV_4C50
+Install: exe
+Uninstall: registry ATI Display Driver
+Warning: A wrong display driver can stop Windows from starting normally. If
+ the screen stays black or Windows hangs after the restart, start Windows in
+ Safe Mode (hold Ctrl or press F8 while it starts), open Device Manager and
+ change the display adapter back to Standard PCI Graphics Adapter (VGA), or
+ remove the display adapter and restart.
+ .
+ ATI asks you to uninstall any earlier Rage Pro driver first.
+Notice: The program first unpacks its files and then starts ATI Setup. If
+ Windows reports a "Version Conflict", answer No so that the new driver files
+ are kept. Restart Windows when asked. The All-In-Wonder Pro capture drivers
+ need DirectX 8.1.
+
+Package: driver-herc9x
+Name: Herc9x Hercules display driver
+Version: 0.6
+Section: System
+Summary: Windows 95/98 display driver for Hercules monochrome graphics cards
+Description: Open-source driver by FalconFour that runs the Windows desktop on
+ a Hercules Graphics Card or compatible (720x348, monochrome). Based on
+ VMDisp9x. Includes an optional boot-splash tool.
+Homepage: https://github.com/FalconFour/Herc9x
+License: MIT
+License-File: pool/driver-herc9x/0.6/LICENSE.TXT
+Systems: 95, 98
+Download: pool/driver-herc9x/0.6/Herc9x-v0.6.zip 109786 76231e645b97bfa99eb46f90abb23e1ad81b3906234b5656e8d9979b38b8e241 https://github.com/FalconFour/Herc9x/releases/download/v0.6/Herc9x-v0.6.zip
+Installed-Size: 197
+Install: unzip {pf}\Drivers\Herc9x
+Uninstall: files
+Warning: A wrong display driver can stop Windows from starting normally. If
+ the screen stays blank after the restart, start Windows in Safe Mode (hold
+ Ctrl or press F8 while it starts) and change the display adapter back to
+ Standard Display Adapter (VGA).
+Notice: The driver files are in {pf}\Drivers\Herc9x. Open Display Properties,
+ Settings, Advanced, Adapter, Change, Have Disk, enter that folder and choose
+ "Hercules Graphics Card (ISA)". Then restart. Read install.txt there for the
+ manual method. Removing this package does not change the driver Windows uses.
+
+Package: driver-matrox-g-series
+Name: Matrox PowerDesk display driver for G200 to G550
+Version: 6.83.017
+Section: System
+Summary: Last Matrox display driver for G200, G400, G450 and G550 cards
+Description: Matrox PowerDesk 6.83.017 for Windows 98 and ME (July 2002): the
+ display driver with OpenGL ICD and the PowerDesk utilities, for Millennium,
+ Mystique and MGA G200, G200 MMS, Millennium G400 and G400 MAX, G450 and
+ G550 cards. Marvel and Rainbow Runner cards have separate Matrox drivers.
+Homepage: https://video.matrox.com/en/apps/drivers/graphics/previous/legacy/
+License: Proprietary (Matrox Video Software License Agreement)
+License-File: pool/driver-matrox-g-series/6.83.017/LICENSE.TXT
+Systems: 98, ME
+Availability: external
+Download: https://ftp.matrox.com/pub/mga/archive/win_9x/2002/w9x_683.exe 6654452 d2664b8e4f60d2be73e8d5ce4319477680558f58f3cfa9a2abe4065b372003f1
+Hardware: pci VEN_102B&DEV_0520
+ pci VEN_102B&DEV_0521
+ pci VEN_102B&DEV_0525
+ pci VEN_102B&DEV_2527
+Install: unzip {pf}\Drivers\Matrox G-series
+After: run "{dir}\Setup.exe"
+Uninstall: files
+Warning: A wrong display driver can stop Windows from starting normally. If
+ the screen stays black or Windows hangs after the restart, start Windows in
+ Safe Mode (hold Ctrl or press F8 while it starts), open Device Manager and
+ change the display adapter back to Standard PCI Graphics Adapter (VGA), or
+ remove the display adapter and restart.
+Notice: Matrox Setup starts after the files are unpacked; it installs only
+ if it finds a supported Matrox card, then asks to restart Windows. The setup
+ files stay in {pf}\Drivers\Matrox G-series. Removing this package deletes
+ that folder only; to remove PowerDesk and the driver, use its entry in
+ Add/Remove Programs.
+
+Package: driver-matrox-millennium
+Name: Matrox PowerDesk display driver for Millennium and Mystique
+Version: 4.12.013
+Section: System
+Summary: Last Matrox driver for Millennium, Mystique and Mystique 220
+Description: Matrox PowerDesk 4.12.013 for Windows 95 and 98 (display driver
+ and utilities), the version Matrox lists as the latest for the original
+ Millennium, Mystique and Mystique 220. For Millennium II use
+ driver-matrox-millennium2; for G200 and later use driver-matrox-g-series.
+ Windows ME has its own driver for these cards.
+Homepage: https://video.matrox.com/en/apps/drivers/graphics/previous/legacy/
+License: Proprietary (Matrox)
+License-File: pool/driver-matrox-millennium/4.12.013/LICENSE.TXT
+Systems: 95, 98
+Availability: external
+Download: https://ftp.matrox.com/pub/mga/archive/win_9x/1998/1677_412.exe 1657522 98bc33adc675618a44bf0676f03c61b483a57bcc02094e647339ffa3057911ee
+Hardware: pci VEN_102B&DEV_0519
+ pci VEN_102B&DEV_051A
+ pci VEN_102B&DEV_051F
+ pci VEN_102B&DEV_0521
+Install: unzip {pf}\Drivers\Matrox Millennium
+After: run "{dir}\setup.exe"
+Uninstall: files
+Warning: A wrong display driver can stop Windows from starting normally. If
+ the screen stays black or Windows hangs after the restart, start Windows in
+ Safe Mode (hold Ctrl or press F8 while it starts), open Device Manager and
+ change the display adapter back to Standard PCI Graphics Adapter (VGA), or
+ remove the display adapter and restart.
+ .
+ If a DirectX setup later offers to replace the display driver, answer No.
+Notice: Matrox Setup starts after the files are unpacked, installs PowerDesk
+ and the display driver and asks to restart Windows. The setup files stay in
+ {pf}\Drivers\Matrox Millennium. Removing this package deletes that folder
+ only.
+
+Package: driver-matrox-millennium2
+Name: Matrox PowerDesk display driver for Millennium II
+Version: 4.33.045
+Section: System
+Summary: Last Matrox display driver for the Millennium II
+Description: Matrox PowerDesk 4.33.045 for Windows 95 and 98 (display driver
+ and utilities), the version Matrox lists as the latest for the Millennium II
+ (PCI and AGP). The same package also supports G100 and early G200 cards,
+ which have newer drivers (driver-matrox-g-series for G200). Windows ME has
+ its own driver for the Millennium II.
+Homepage: https://video.matrox.com/en/apps/drivers/graphics/previous/legacy/
+License: Proprietary (Matrox Video Software License Agreement)
+License-File: pool/driver-matrox-millennium2/4.33.045/LICENSE.TXT
+Systems: 95, 98
+Availability: external
+Download: https://ftp.matrox.com/pub/mga/archive/win_9x/1999/w9x_433c.exe 1819175 6ac85ae793a02636a84658191caa5b21d2adbaf052e3eff7a1f2fa2500c6728f
+Hardware: pci VEN_102B&DEV_051B
+ pci VEN_102B&DEV_051F
+ pci VEN_102B&DEV_0520
+ pci VEN_102B&DEV_0521
+ pci VEN_102B&DEV_1001
+Install: unzip {pf}\Drivers\Matrox Millennium II strip 1
+After: run "{dir}\setup.exe"
+Uninstall: files
+Warning: A wrong display driver can stop Windows from starting normally. If
+ the screen stays black or Windows hangs after the restart, start Windows in
+ Safe Mode (hold Ctrl or press F8 while it starts), open Device Manager and
+ change the display adapter back to Standard PCI Graphics Adapter (VGA), or
+ remove the display adapter and restart.
+Notice: Matrox Setup starts after the files are unpacked, installs PowerDesk
+ and the display driver and asks to restart Windows. The setup files stay in
+ {pf}\Drivers\Matrox Millennium II. Removing this package deletes that folder
+ only.
+
+Package: driver-nvme9x
+Name: nvme9x NVMe driver
+Version: 1.0.0.2 (2026-02-19)
+Section: System
+Summary: Driver for NVMe SSDs on Windows 95, 98 and ME
+Description: SweetLow's Windows 9x port of the nvme2k driver, for NVMe (M.2 and
+ PCIe) solid-state drives, with support for large drives (64-bit LBA). Use it
+ for data drives on a computer that runs Windows 9x from another disk.
+Homepage: https://github.com/LordOfMice/Tools
+License: Freeware (no license stated); based on nvme2k, BSD-3-Clause
+License-File: pool/driver-nvme9x/1.0.0.2/LICENSE.TXT
+Systems: 95, 98, ME
+Availability: external
+Download: https://raw.githubusercontent.com/LordOfMice/Tools/24a466f0529eb62552900c26a34d4e7131e42f44/nvme9x.zip 14428 9c4010c1c180e9892bf5576fd9bbf22978a1aaddc7c5ed52527755f62cd5a39f
+Hardware: pci CC_010802
+Install: unzip {pf}\Drivers\nvme9x
+Uninstall: files
+Warning: A wrong disk controller driver can stop Windows from starting and can
+ damage data. Back up your data first. If Windows does not start, use Safe
+ Mode (hold Ctrl or press F8 while it starts) and remove the controller in
+ Device Manager.
+Notice: The driver files are in {pf}\Drivers\nvme9x. Open Control Panel,
+ System, Device Manager, open the NVMe controller (often under Other devices),
+ choose Driver, Update Driver, "Specify a location", and enter that folder.
+ Then restart. Drives over 2 TB also need SweetLow's LBA64HLP helper.
+ Removing this package does not change the driver Windows uses.
+
+Package: driver-promise-fasttrak
+Name: Promise FastTrak RAID driver
+Version: 2.00.0.34
+Section: System
+Summary: Driver for Promise FastTrak IDE RAID cards (FastTrak100, TX2000)
+Description: Promise's last Windows 98/ME driver for its FastTrak IDE RAID
+ controllers: FastTrak, FastTrak66, FastTrak100, FastTrak100 TX2/TX4 and
+ FastTrak TX2000, including the same chips on motherboards. It is a driver
+ disk without a setup program; you install it from Device Manager.
+Homepage: https://www.promise.com/Support/downloadcenter
+License: Proprietary (Promise Terms of Use, no redistribution permission)
+License-File: pool/driver-promise-fasttrak/2.00.0.34/LICENSE.TXT
+Systems: 98, ME
+Availability: external
+Download: https://www.promise.com/DownloadFile.aspx?DownloadFileUID=3516 261773 5756a8e35d1173244496508b69c5842a21c9645e0d4e55baa43185ac930dbf61 https://www.promise.com/DownloadFile.aspx?DownloadFileUID=2936 http://www.promise.com/DownloadFile.aspx?DownloadFileUID=3516
+Install: unzip {pf}\Drivers\promise-fasttrak
+Uninstall: files
+Warning: A wrong RAID controller driver can stop Windows from starting,
+ especially if Windows itself is on the RAID array. If Windows no longer
+ starts, press F8 (Ctrl in Windows ME) while it starts, choose Safe Mode,
+ and remove or roll back the controller in Device Manager.
+Notice: The driver files are in {dir}\Win9x-ME. Open Device Manager
+ (Control Panel, System), select the Promise FastTrak controller (under SCSI
+ controllers or Other devices), choose Properties, Driver, Update Driver,
+ and point it at that folder. Then restart Windows.
+Hardware: pci VEN_105A&DEV_4D33
+ pci VEN_105A&DEV_4D38
+ pci VEN_105A&DEV_4D30
+ pci VEN_105A&DEV_6268
+ pci VEN_105A&DEV_6269
+
+Package: driver-promise-ultra
+Name: Promise Ultra IDE controller driver
+Version: 2.00.0.43
+Section: System
+Summary: Driver for Promise Ultra33/66/100/100 TX2/133 TX2 IDE cards
+Description: Promise's last Windows 95/98/ME driver for its Ultra family of
+ IDE controller cards: Ultra33, Ultra66, Ultra100, Ultra100 TX2 and
+ Ultra133 TX2. It is a driver disk without a setup program; you install it
+ from Device Manager.
+Homepage: https://www.promise.com/Support/downloadcenter
+License: Proprietary (Promise Terms of Use, no redistribution permission)
+License-File: pool/driver-promise-ultra/2.00.0.43/LICENSE.TXT
+Systems: 95, 98, ME
+Availability: external
+Download: https://www.promise.com/DownloadFile.aspx?DownloadFileUID=3258 146851 8d38cdec2ff7204d14c33e940ca424875dddae9088d1f23689225ca455adaa97 http://www.promise.com/DownloadFile.aspx?DownloadFileUID=3258
+Install: unzip {pf}\Drivers\promise-ultra
+Uninstall: files
+Warning: A wrong disk controller driver can stop Windows from starting,
+ especially if Windows itself is on a disk attached to this card. If Windows
+ no longer starts, press F8 (Ctrl in Windows ME) while it starts, choose
+ Safe Mode, and remove or roll back the controller in Device Manager.
+Notice: The driver files are in {dir}\ultra133_driver_b43\Win9x-Me. Open
+ Device Manager (Control Panel, System), select the Promise controller
+ (under Hard disk controllers or Other devices), choose Properties, Driver,
+ Update Driver, and point it at that folder. Then restart Windows.
+Hardware: pci VEN_105A&DEV_4D69
+ pci VEN_105A&DEV_4D68
+ pci VEN_105A&DEV_4D30
+ pci VEN_105A&DEV_0D30
+ pci VEN_105A&DEV_4D38
+ pci VEN_105A&DEV_4D33
+
+Package: driver-softgpu
+Name: SoftGPU
+Version: 0.8.2025.53
+Section: System
+Summary: 3D display driver (OpenGL, Direct3D, Glide) for virtual machines
+Description: Display driver package by JHRobotics for Windows 95, 98 and ME in
+ VirtualBox, VMware Workstation and QEMU. It contains the VMDisp9x display
+ driver, Mesa3D for OpenGL, a Direct3D/DirectDraw driver, Glide wrappers, and
+ the DirectX 9 runtime (DirectX 8 on Windows 95). Hardware 3D works with the
+ VirtualBox VMSVGA and VMware SVGA II adapters; otherwise rendering is done by
+ the processor. Choose the preset for your VM software in the setup program.
+ .
+ The setup files take about 455 MB. Give the virtual machine 1 GB of memory
+ for best results.
+Homepage: https://github.com/JHRobotics/softgpu
+License: MIT (bundled parts: LGPL, GPL, Microsoft redistributable terms)
+License-File: pool/driver-softgpu/0.8.2025.53/LICENSE.TXT
+Systems: 95, 98, ME
+Availability: external
+Download: https://github.com/JHRobotics/softgpu/releases/download/v0.8.2025.53/softgpu-0.8.2025.53.zip 264746503 287449f16ad234da1d546deac66b3f91ab3101f5d3a202472117b83de42ccc68
+Installed-Size: 465445
+Hardware: pci VEN_80EE&DEV_BEEF
+ pci VEN_15AD&DEV_0405
+ pci VEN_1234&DEV_1111
+Install: unzip {pf}\SoftGPU Setup
+After: run "{dir}\softgpu.exe"
+Uninstall: files
+Warning: A wrong display driver can stop Windows from starting normally. If
+ the screen stays black after the restart, start Windows in Safe Mode (hold
+ Ctrl or press F8 while it starts), open Device Manager and change the display
+ adapter back to Standard PCI Graphics Adapter (VGA).
+ .
+ SoftGPU is meant for virtual machines. Install your sound driver first:
+ sound drivers often replace DirectX files with older versions.
+Notice: In SoftGPU setup, choose the preset for your virtual machine and press
+ Install, then restart Windows. On Windows 95 setup does not install the
+ display driver itself: open Device Manager, your display adapter, Driver,
+ Change Driver, Have Disk, and choose the SoftGPU folder. Removing this
+ package deletes only the setup files in {pf}\SoftGPU Setup.
+
+Package: driver-vbemp
+Name: VBEMP universal VESA display driver
+Version: 2019.12.01
+Section: System
+Summary: Universal display driver for any VESA 2.0 graphics card
+Description: The Universal VBE 9x display driver by Bearwindows and JW Soft
+ uses the graphics card's VESA BIOS, so it gives high resolutions and colours on
+ cards that have no Windows 9x driver, including many new cards and virtual
+ machines. There is no 2D or 3D acceleration. The archive has three versions
+ for cards with up to 32, 64 or 128 MB of usable video memory.
+ .
+ Free for non-commercial use only.
+Homepage: https://bearwindows.zcm.com.au/vbe9x.htm
+License: Freeware (non-commercial use only; no redistribution by others)
+License-File: pool/driver-vbemp/2019.12.01/LICENSE.TXT
+Systems: 95, 98, ME
+Availability: external
+Download: https://bearwindows.zcm.com.au/191201.zip 35085 93d9bd34fc82904e827e0f4a5cee28beb3013c5d3d8b9730b5367a74b06acd3d http://bearwindows.zcm.com.au/191201.zip
+Hardware: pci CC_0300
+Install: unzip {pf}\Drivers\VBEMP
+Uninstall: files
+Warning: A wrong display driver can stop Windows from starting normally. If
+ the screen stays black after the restart, start Windows in Safe Mode (hold
+ Ctrl or press F8 while it starts), open Device Manager and change the display
+ adapter back to Standard PCI Graphics Adapter (VGA).
+ .
+ Use this driver only when your graphics card has no Windows 9x driver of its
+ own: the card's own driver is faster.
+Notice: The driver files are in {pf}\Drivers\VBEMP, in the folders 032MB,
+ 064MB and 128MB. Start with 032MB. Open Control Panel, System, Device
+ Manager, open your display adapter, choose Driver, Update Driver, "Display a
+ list of all the drivers", Have Disk, and enter that folder. Then restart
+ Windows. Removing this package does not change the driver Windows uses.
+
+Package: driver-via-4in1
+Name: VIA 4in1 chipset drivers
+Version: 4.43
+Section: System
+Summary: VIA INF, AGP, IDE and IRQ drivers for older VIA chipsets
+Description: VIA's 4in1 package for Windows 95, 98 and ME: the VIA INF
+ update, the VIA AGP driver, the VIA bus master IDE driver and (Windows 98)
+ the PCI IRQ routing miniport. VIA recommends this version for MVP3, Apollo
+ Pro, KT133, KT266, KT333, KM266, P4X266 and similar chipsets. For KT400 and
+ newer chipsets use driver-via-hyperion.
+Homepage: https://download.viatech.com/en/support/driversSelect.jsp
+License: Proprietary (no redistribution permission)
+License-File: pool/driver-via-4in1/4.43/LICENSE.TXT
+Systems: 95, 98, ME
+Availability: external
+Download: https://d34vhvz8ul1ifj.cloudfront.net/Driver/VIA_4in1_443v.zip 1109735 48d045e40ebf04cf6ca0807cee3456e7724a98f8d6192fb70fc88430685de52d http://d34vhvz8ul1ifj.cloudfront.net/Driver/VIA_4in1_443v.zip
+Install: unzip {pf}\Drivers\via-4in1
+After: run "{dir}\4in1443v.exe"
+Uninstall: files
+Warning: A wrong chipset or IDE driver can stop Windows from starting.
+ Install this only on a computer with a VIA chipset. If Windows no longer
+ starts, press F8 (Ctrl in Windows ME) while it starts, choose Safe Mode,
+ and use Device Manager or VIA Setup's Uninstall options to go back.
+Notice: VIA Setup has been started from {dir}. Its component page lets you
+ install or uninstall each driver; Beacon's uninstall only deletes the
+ downloaded setup file.
+Hardware: pci VEN_1106&DEV_8598
+ pci VEN_1106&DEV_8501
+ pci VEN_1106&DEV_8601
+ pci VEN_1106&DEV_8305
+ pci VEN_1106&DEV_8605
+ pci VEN_1106&DEV_8391
+ pci VEN_1106&DEV_8602
+ pci VEN_1106&DEV_B091
+ pci VEN_1106&DEV_B099
+ pci VEN_1106&DEV_B101
+ pci VEN_1106&DEV_B112
+ pci VEN_1106&DEV_B116
+ pci VEN_1106&DEV_B148
+ pci VEN_1106&DEV_B156
+ pci VEN_1106&DEV_B158
+ pci VEN_1106&DEV_B168
+ pci VEN_1106&DEV_B188
+ pci VEN_1106&DEV_0571
+ pci VEN_1106&DEV_0305
+ pci VEN_1106&DEV_0391
+ pci VEN_1106&DEV_0601
+ pci VEN_1106&DEV_0605
+ pci VEN_1106&DEV_3091
+ pci VEN_1106&DEV_3099
+ pci VEN_1106&DEV_3101
+ pci VEN_1106&DEV_3102
+ pci VEN_1106&DEV_3103
+ pci VEN_1106&DEV_3112
+ pci VEN_1106&DEV_3123
+ pci VEN_1106&DEV_3128
+ pci VEN_1106&DEV_3148
+ pci VEN_1106&DEV_3116
+ pci VEN_1106&DEV_3156
+ pci VEN_1106&DEV_3158
+ pci VEN_1106&DEV_3168
+ pci VEN_1106&DEV_3178
+ pci VEN_1106&DEV_3188
+ pci VEN_1106&DEV_3189
+ pci VEN_1106&DEV_0198
+ pci VEN_1106&DEV_3202
+
+Package: driver-via-envy24
+Name: VIA Envy24HT family audio driver
+Version: 5.30b
+Section: System
+Summary: VIA Envy24 HT/PT/GT/DT/MT (VT1720/VT1724) sound card driver
+Description: The last VIA Envy24 family driver whose setup supports
+ Windows 98 and ME. For sound cards and boards with a VIA Envy24 HT,
+ HT-S, PT, GT, DT or MT controller (PCI 1412:1724). It does not support
+ the original Envy24 (ICE1712) used on M-Audio Delta cards. WDM driver.
+Homepage: https://download.viatech.com/en/support/driversSelect.jsp
+License: Proprietary (VIA Software License Agreement)
+License-File: pool/driver-via-envy24/5.30b/LICENSE.TXT
+Systems: 98, ME
+Availability: external
+Download: https://d34vhvz8ul1ifj.cloudfront.net/Driver/Envy24_Family_DriverV530b.zip 8615873 0a0248717c11015de1b2dc1534f657321b1c2f00961817655d61d24b9f28428f
+Hardware: pci VEN_1412&DEV_1724
+Install: unzip {pf}\Drivers\via-envy24 strip 1
+Uninstall: files
+Warning: Install this driver only for a VIA Envy24 HT/PT/GT/DT/MT sound
+ chip. Card makers often ship their own driver, which may suit the card
+ better. A wrong audio driver can stop Windows from starting; start in
+ Safe Mode and remove the device in Device Manager to go back.
+Notice: The driver files are in {dir}\VIAEnvyAud\Drivers\WDM. Open
+ Control Panel, System, Device Manager, select the sound device,
+ Properties, Driver, Update Driver, and point Windows at that folder.
+ Windows may ask for the Windows CD. VIA's setup program (Setup.exe,
+ which also installs Windows Installer 2.0 and a mixer panel) is in {dir}.
+
+Package: driver-via-hyperion
+Name: VIA Hyperion Pro chipset drivers
+Version: 5.24A
+Section: System
+Summary: VIA chipset INF, AGP and V-RAID drivers for KT400 and newer boards
+Description: VIA's last chipset driver package that lists Windows 98 and ME.
+ It contains the VIA INF update, the VIA AGP driver and the V-RAID driver
+ for VIA SATA RAID controllers. VIA recommends it for KT400, KT600, KT880,
+ K8T800, P4X400, PT800, PM800, CLE266, CN400 and newer chipsets. For older
+ boards (MVP3, Apollo Pro, KT133, KT266, KT333, P4X266) VIA recommends the
+ older 4.43 package (driver-via-4in1).
+Homepage: https://download.viatech.com/en/support/driversSelect.jsp
+License: Proprietary (VIA Software License Agreement)
+License-File: pool/driver-via-hyperion/5.24A/LICENSE.TXT
+Systems: 98, ME
+Availability: external
+Download: https://d34vhvz8ul1ifj.cloudfront.net/Driver/VIA_HyperionPro_V524A.zip 13299373 e706e033db40efdd8ef5e8d0d1d354e24f4432f73a2a3e0e5ce3ec992db0a4ff http://d34vhvz8ul1ifj.cloudfront.net/Driver/VIA_HyperionPro_V524A.zip
+Requires: package ms-instmsia-20 | VIA Setup needs Windows Installer 2.0.
+Install: unzip {pf}\Drivers\via-hyperion
+After: run "{dir}\VIA_HyperionPro_V524A\setup.exe"
+Uninstall: files
+Warning: A wrong chipset or storage driver can stop Windows from starting.
+ Install this only on a computer with a VIA chipset. If Windows no longer
+ starts, press F8 (Ctrl in Windows ME) while it starts, choose Safe Mode,
+ and use Device Manager or VIA Setup's Remove option to go back.
+Notice: VIA Setup has been started from {dir}\VIA_HyperionPro_V524A.
+ To remove the drivers later, run setup.exe from that folder again and
+ choose Remove; Beacon's uninstall only deletes the unpacked files.
+Hardware: pci VEN_1106&DEV_8598
+ pci VEN_1106&DEV_8501
+ pci VEN_1106&DEV_8601
+ pci VEN_1106&DEV_8305
+ pci VEN_1106&DEV_8605
+ pci VEN_1106&DEV_8391
+ pci VEN_1106&DEV_8602
+ pci VEN_1106&DEV_B091
+ pci VEN_1106&DEV_B099
+ pci VEN_1106&DEV_B101
+ pci VEN_1106&DEV_B112
+ pci VEN_1106&DEV_B116
+ pci VEN_1106&DEV_B148
+ pci VEN_1106&DEV_B156
+ pci VEN_1106&DEV_B158
+ pci VEN_1106&DEV_B168
+ pci VEN_1106&DEV_B188
+ pci VEN_1106&DEV_B198
+ pci VEN_1106&DEV_3349
+ pci VEN_1106&DEV_6287
+ pci VEN_1106&DEV_0591
+ pci VEN_1106&DEV_3249
+ pci VEN_1106&DEV_3149
+ pci VEN_1106&DEV_3164
+ pci VEN_1106&DEV_0581
+ pci VEN_1106&DEV_7372
+ pci VEN_1106&DEV_0305
+ pci VEN_1106&DEV_0391
+ pci VEN_1106&DEV_0601
+ pci VEN_1106&DEV_0605
+ pci VEN_1106&DEV_3091
+ pci VEN_1106&DEV_3099
+ pci VEN_1106&DEV_3101
+ pci VEN_1106&DEV_3112
+ pci VEN_1106&DEV_3051
+ pci VEN_1106&DEV_3116
+ pci VEN_1106&DEV_3123
+ pci VEN_1106&DEV_3128
+ pci VEN_1106&DEV_3148
+ pci VEN_1106&DEV_3156
+
+Package: driver-via-prosavage
+Name: VIA S3 ProSavage graphics driver
+Version: 13.01.03
+Section: System
+Summary: Driver for the S3 ProSavage graphics built into VIA chipsets
+Description: S3 Graphics ProSavage display driver with utilities (May 2003),
+ for motherboards with VIA PL133, PL133T, KL133, KL133A, KM133 and KM133A
+ chipsets.
+Homepage: https://download.viatech.com/en/support/driversSelect.jsp
+License: Proprietary (VIA Technologies / S3 Graphics)
+License-File: pool/driver-via-prosavage/13.01.03/LICENSE.TXT
+Systems: 95, 98, ME
+Availability: external
+Download: https://d34vhvz8ul1ifj.cloudfront.net/Driver/drivers/video/ProSavage/130103Util.zip 5332911 4701ba7e16e9e98fa4fc0455e31477a1422bdcdac5f228158c378c885af45e40 http://d34vhvz8ul1ifj.cloudfront.net/Driver/drivers/video/ProSavage/130103Util.zip
+Hardware: pci VEN_5333&DEV_8A25
+ pci VEN_5333&DEV_8A26
+Install: unzip {pf}\Drivers\VIA ProSavage strip 1
+After: run "{dir}\SETUP.EXE"
+Uninstall: files
+Warning: A wrong display driver can stop Windows from starting normally. If
+ the screen stays black or Windows hangs after the restart, start Windows in
+ Safe Mode (hold Ctrl or press F8 while it starts), open Device Manager and
+ change the display adapter back to Standard PCI Graphics Adapter (VGA), or
+ remove the display adapter and restart.
+Notice: S3 Setup starts after the files are unpacked and asks to restart
+ Windows at the end. The setup files stay in {pf}\Drivers\VIA ProSavage.
+ Removing this package deletes that folder only.
+
+Package: driver-via-prosavageddr
+Name: VIA S3 ProSavageDDR graphics driver
+Version: 13.01.09
+Section: System
+Summary: Driver for the S3 ProSavageDDR graphics built into VIA chipsets
+Description: S3 Graphics ProSavageDDR display driver (January 2004), for
+ motherboards with VIA KM266, KN266, PM266, P4M266 and P4N266 chipsets.
+Homepage: https://download.viatech.com/en/support/driversSelect.jsp
+License: Proprietary (VIA Technologies / S3 Graphics)
+License-File: pool/driver-via-prosavageddr/13.01.09/LICENSE.TXT
+Systems: 95, 98, ME
+Availability: external
+Download: https://d34vhvz8ul1ifj.cloudfront.net/Driver/drivers/video/ProSavageDDR/S3_wIShldlogo.zip 5617394 7393806730a5d0607ffeb19301a2bb5acab81e941df903dfa0e2cfb5eb5a804d http://d34vhvz8ul1ifj.cloudfront.net/Driver/drivers/video/ProSavageDDR/S3_wIShldlogo.zip
+Hardware: pci VEN_5333&DEV_8D04
+Install: unzip {pf}\Drivers\VIA ProSavageDDR strip 1
+After: run "{dir}\SETUP.EXE"
+Uninstall: files
+Warning: A wrong display driver can stop Windows from starting normally. If
+ the screen stays black or Windows hangs after the restart, start Windows in
+ Safe Mode (hold Ctrl or press F8 while it starts), open Device Manager and
+ change the display adapter back to Standard PCI Graphics Adapter (VGA), or
+ remove the display adapter and restart.
+Notice: S3 Setup starts after the files are unpacked and asks to restart
+ Windows at the end. The setup files stay in {pf}\Drivers\VIA ProSavageDDR.
+ Removing this package deletes that folder only.
+
+Package: driver-via-rhine
+Name: VIA Rhine Fast Ethernet driver
+Version: 3.84A
+Section: System
+Summary: Network driver for VIA Rhine, Rhine II and Rhine III chips
+Description: The last Windows 98 SE and ME driver from VIA for its Rhine
+ family of 10/100 network chips: VT86C100A, VT6102, VT6105/VT6106,
+ VT6105M, VT6107, VT6115 and the network part of VT8231, VT8233, VT8235,
+ VT8237 and VT8251 chipsets. Also fits D-Link DFE-530TX cards.
+ .
+ Beacon unpacks the driver; Windows installs it through Device Manager.
+Homepage: https://download.viatech.com/en/support/driversSelect.jsp
+License: Proprietary (no license text published)
+License-File: pool/driver-via-rhine/3.84A/LICENSE.TXT
+Systems: 98SE, ME
+Availability: external
+Download: https://d34vhvz8ul1ifj.cloudfront.net/Driver/via_rhine_ndis5_v384a.zip 1699164 cc032d30ad216b609b53e55da252ce4d9619498a437f99a8cd7e9cc6a31f6dc6
+Hardware: pci VEN_1106&DEV_3043
+ pci VEN_1106&DEV_3065
+ pci VEN_1106&DEV_3106
+ pci VEN_1106&DEV_3053
+Install: unzip {pf}\Drivers\VIA-Rhine strip 1
+Uninstall: files
+Notice: The driver files are now in {pf}\Drivers\VIA-Rhine\X86. To use
+ them, open Control Panel, System, Device Manager, select the network
+ adapter (or the unknown PCI Ethernet Controller), choose Properties,
+ Driver, Update Driver, and point Windows at that folder. Windows 98 may
+ ask for the Windows CD to add its networking components. Restart when
+ asked.
+
+Package: driver-via-usb2
+Name: VIA USB 2.0 driver
+Version: 2.70p
+Section: System
+Summary: USB 2.0 driver for VIA VT6202/VT6212/VT6214 and VIA south bridges
+Description: VIA's USB 2.0 (EHCI) driver for Windows 98 and ME. It works
+ only with VIA USB 2.0 controllers: VT6202, VT6212 and VT6214 PCI cards and
+ the USB 2.0 function of VIA south bridges such as the VT8235 and VT8237.
+ It does not support NEC or other USB 2.0 controllers.
+Homepage: https://download.viatech.com/en/support/driversSelect.jsp
+License: Proprietary (no redistribution permission)
+License-File: pool/driver-via-usb2/2.70p/LICENSE.TXT
+Systems: 98, ME
+Availability: external
+Download: https://d34vhvz8ul1ifj.cloudfront.net/Driver/VIA_USB2_V270p1-L.zip 10285183 2a49b9bf300f638b5615daa71da4f64b2322716ffaa5a6cfef675a9145a0b13a http://d34vhvz8ul1ifj.cloudfront.net/Driver/VIA_USB2_V270p1-L.zip
+Install: unzip {pf}\Drivers\via-usb2
+After: run "{dir}\VIAUSB2V270-L\Setup.exe"
+Uninstall: files
+Warning: A wrong USB driver can stop Windows from starting or disable the
+ USB keyboard and mouse. Install this only for a VIA USB 2.0 controller. If
+ Windows no longer starts, press F8 (Ctrl in Windows ME) while it starts,
+ choose Safe Mode, and remove the device in Device Manager.
+Notice: VIA Setup has been started. If it does not find the controller,
+ open Device Manager, select the USB 2.0 controller, choose Update Driver
+ and point it at {dir}\VIAUSB2V270-L\WIN98&ME. Beacon's uninstall only
+ deletes the unpacked files.
+Hardware: pci VEN_1106&DEV_3104
+ pci VEN_1106&DEV_3038
+
+Package: driver-via-velocity
+Name: VIA Velocity Gigabit Ethernet driver
+Version: 3.1
+Section: System
+Summary: Network driver for VIA Velocity VT6120/VT6122/VT6130/VT6132
+Description: VIA's driver package for its Velocity family of gigabit
+ network chips (VT6120, VT6122, VT6130, VT6132). The Windows 98 SE and ME
+ driver inside is version 1.59. The package also holds DOS, NetWare and
+ other drivers.
+ .
+ Beacon unpacks the driver; Windows installs it through Device Manager.
+Homepage: https://download.viatech.com/en/support/driversSelect.jsp
+License: Proprietary (no license text published)
+License-File: pool/driver-via-velocity/3.1/LICENSE.TXT
+Systems: 98SE, ME
+Availability: external
+Download: https://d34vhvz8ul1ifj.cloudfront.net/Driver/velocity_driver_v31_via.zip 5031043 bc4a491216a534723da445152978ba61872b1536d7c915a0f66fa423e0c9cae1
+Hardware: pci VEN_1106&DEV_3119
+Install: unzip {pf}\Drivers\VIA-Velocity
+Uninstall: files
+Notice: The driver files are now in
+ {pf}\Drivers\VIA-Velocity\XP_Srv2003_2K_ME_98SE\X86. To use them, open
+ Control Panel, System, Device Manager, select the network adapter (or the
+ unknown PCI Ethernet Controller), choose Properties, Driver, Update
+ Driver, and point Windows at that folder. Windows 98 may ask for the
+ Windows CD to add its networking components. Restart when asked.
+
+Package: driver-via-vinyl-ac97
+Name: VIA Vinyl Audio driver (AC'97)
+Version: 7.00b
+Section: System
+Summary: VIA AC'97 audio driver for VT82C686, VT8233-VT8237 and Vinyl codecs
+Description: The last VIA Vinyl Audio driver with Windows 98 and ME
+ support. For the AC'97 audio built into VIA south bridges (VT82C686A/B,
+ VT8231, VT8233, VT8235, VT8237, VT8251) and for VIA Vinyl codecs
+ (VT1612A, VT1613, VT1616, VT1617, VT1618) on Intel, SiS and nForce
+ boards. WDM driver.
+Homepage: https://download.viatech.com/en/support/driversSelect.jsp
+License: Proprietary (VIA Software License Agreement)
+License-File: pool/driver-via-vinyl-ac97/7.00b/LICENSE.TXT
+Systems: 98, ME
+Availability: external
+Download: https://d34vhvz8ul1ifj.cloudfront.net/Driver/vinyl_v700b.zip 7288855 cb4fb850cedae5615c7fabce8b40429e04f0dabc2972505a517c6552c602ed8e
+Hardware: pci VEN_1106&DEV_3058
+ pci VEN_1106&DEV_3059
+ pci VEN_8086&DEV_2415
+ pci VEN_8086&DEV_2425
+ pci VEN_8086&DEV_2445
+ pci VEN_8086&DEV_24C5
+ pci VEN_8086&DEV_24D5
+ pci VEN_8086&DEV_25A6
+ pci VEN_8086&DEV_266E
+ pci VEN_1039&DEV_7012
+ pci VEN_10DE&DEV_0059
+ pci VEN_10DE&DEV_006A
+ pci VEN_10DE&DEV_008A
+ pci VEN_10DE&DEV_00DA
+ pci VEN_10DE&DEV_01B1
+Install: unzip {pf}\Drivers\via-vinyl-ac97 strip 1
+Uninstall: files
+Warning: Install this driver only if your sound chip is a VIA AC'97
+ controller or your board uses a VIA Vinyl codec. On Intel, SiS or nForce
+ boards with another maker's codec it may not work. A wrong audio driver
+ can stop Windows from starting; start in Safe Mode and remove the device
+ in Device Manager to go back.
+Notice: The driver files are in {dir}\Vinyl\drivers\WDM. Open Control
+ Panel, System, Device Manager, select the sound device, Properties,
+ Driver, Update Driver, and point Windows at that folder. Windows may ask
+ for the Windows CD. VIA's setup program (SETUP.EXE, which also installs
+ Windows Installer 2.0 and a mixer panel) is in {dir} too.
+
+Package: driver-vmdisp9x
+Name: VMDisp9x virtual machine display driver
+Version: 1.2025.0.119b
+Section: System
+Summary: Display driver for VirtualBox, VMware and QEMU virtual machines
+Description: Open-source display driver by JHRobotics for Windows 95, 98 and ME
+ running in a virtual machine: VirtualBox (VBoxVGA, VBoxSVGA, VMSVGA), VMware
+ (SVGA II) and QEMU (-vga std). Gives high resolutions and 16/32-bit colour and
+ DirectDraw. This is the 2D driver only; for 3D (OpenGL, Direct3D) use the
+ SoftGPU package, which contains this driver. It can also drive any card with a
+ VESA 2.0/3.0 BIOS, without acceleration.
+Homepage: https://github.com/JHRobotics/vmdisp9x
+License: MIT
+License-File: pool/driver-vmdisp9x/1.2025.0.119b/LICENSE.TXT
+Systems: 95, 98, ME
+Download: pool/driver-vmdisp9x/1.2025.0.119b/vmdisp9x-1.2025.0.119b-driver-2d.zip 355886 e0d698a6089347a6a619ed439c092f247392fbafac6b342f4651c1380911fb23 https://github.com/JHRobotics/vmdisp9x/releases/download/v1.2025.0.119/vmdisp9x-1.2025.0.119b-driver-2d.zip
+Hardware: pci VEN_80EE&DEV_BEEF
+ pci VEN_15AD&DEV_0405
+ pci VEN_1234&DEV_1111
+Install: unzip {pf}\Drivers\VMDisp9x
+Uninstall: files
+Warning: A wrong display driver can stop Windows from starting normally. If
+ the screen stays black after the restart, start Windows in Safe Mode (hold
+ Ctrl or press F8 while it starts), open Device Manager and change the display
+ adapter back to Standard PCI Graphics Adapter (VGA).
+Notice: The driver files are in {pf}\Drivers\VMDisp9x. To use them, open
+ Control Panel, System, Device Manager, open your display adapter, choose
+ Driver, Update Driver, "Display a list of all the drivers", Have Disk, and
+ enter that folder. Then restart Windows. Removing this package does not
+ change the driver Windows uses.
+
+Package: driver-xhci98
+Name: xhci98 USB 3 controller driver
+Version: 1.1.1.0
+Section: System
+Summary: Lets Windows 98 SE and ME use USB 3 (xHCI) ports, at USB 2.0 speed
+Description: Open-source driver by Yeo Kheng Meng for the USB 3.0 (xHCI)
+ controllers of computers made from about 2012 on, which Windows 98 and ME
+ cannot use. Devices work at USB 2.0 speed. It plugs into a USB 2.0 stack
+ (USBPORT.SYS), which must be installed first; Beacon cannot provide one.
+ Only Windows 98 SE has been tested on real hardware.
+Homepage: https://github.com/yeokm1/xhci98
+License: GPL-2.0-only
+License-File: pool/driver-xhci98/1.1.1.0/LICENSE.TXT
+Systems: 98SE, ME
+Download: pool/driver-xhci98/1.1.1.0/xhci98-1.1.1.0.zip 377889 4d29346712e25b5adbf6c55915092f77483eacffeef9e3770b2acada561a525f https://github.com/yeokm1/xhci98/releases/download/v1.1.1.0/xhci98-1.1.1.0.zip
+Source: pool/driver-xhci98/1.1.1.0/src/xhci98-1.1.1.0-source.zip 9609625 5a3fb1b220441c468eb9adca09968c3e0ebc23adf7449e8a7776fc108e02fa84
+Installed-Size: 793
+Requires: file {win}\SYSTEM32\DRIVERS\USBPORT.SYS | xhci98 needs a USB 2.0 stack (USBPORT.SYS) installed first. Beacon 98 cannot provide one because it is made from Microsoft files. See the xhci98 readme, section 2.
+Hardware: pci CC_0C0330
+Install: unzip {pf}\Drivers\xhci98
+Uninstall: files
+Warning: This is a new driver for the USB controller. On a computer where the
+ keyboard or mouse is connected by USB, a failed driver can leave you without
+ them; keep a PS/2 keyboard at hand. If Windows does not start, use Safe Mode
+ (hold Ctrl or press F8 while it starts) and remove the controller in Device
+ Manager. Have the Windows CD ready: Windows asks for its own USB files.
+Notice: The driver files are in {pf}\Drivers\xhci98. Open Control Panel,
+ System, Device Manager, find the unknown USB controller (often under Other
+ devices), choose Driver, Update Driver, "Specify a location", and enter
+ {pf}\Drivers\xhci98\RELEASE-X86. Insert the Windows CD when asked, then
+ restart. Read {pf}\Drivers\xhci98\readme.txt first. Removing this package
+ does not change the driver Windows uses.
+
 Package: eraser
 Name: Eraser
 Version: 5.82
@@ -766,6 +1650,512 @@ Download: http://downloads.sourceforge.net/project/freepascal/Win32/2.6.2/fpc-2.
 Install: inno /DIR=C:\FPC\2.6.2
 After: path C:\FPC\2.6.2\bin\i386-win32
 Uninstall: registry Free Pascal 2.6.2
+
+Package: game-drascula
+Name: Drascula: The Vampire Strikes Back
+Version: 1.0
+Section: Games
+Summary: Comedy vampire adventure game by Alcachofa Soft, 1996
+Description: A Spanish comedy adventure: John Hacker must rescue B.J. from Count
+ Drascula. Released as freeware by Alcachofa Soft. English version with the
+ music pack. Played with ScummVM.
+Homepage: https://www.scummvm.org/games/
+License: Freeware
+License-File: pool/game-drascula/1.0/LICENSE.TXT
+Systems: 98, ME
+Download: pool/game-drascula/1.0/drascula-1.0.zip 32842993 b731f6cb5a22ba8b4c3b3362f570b9a10a67b6cb0b395394b19a94b36e4e42de
+ pool/game-drascula/1.0/drascula-audio-2.0.zip 36531704 7e6afba36eed13dd02e0360119e9a6a8d0e7b334ddc11d7c46ab7faceb8fe401
+Depends: scummvm
+Installed-Size: 68188
+Install: unzip {dir}
+After: run "{dir:scummvm}\scummvm.exe" --add --path="{dir}" --game=drascula
+Shortcut: Drascula - The Vampire Strikes Back | {dir:scummvm}\scummvm.exe | drascula
+Uninstall: files
+
+Package: game-dreamweb
+Name: DreamWeb
+Version: CD 1.1
+Section: Games
+Summary: Cyberpunk adventure game by Creative Reality, 1994
+Description: A dark cyberpunk adventure: Ryan is told in his dreams to kill seven
+ people. CD version with speech, British English, released as freeware by
+ Creative Reality. Contains mature content. Played with ScummVM.
+Homepage: https://www.scummvm.org/games/
+License: Freeware
+License-File: pool/game-dreamweb/cd-1.1/LICENSE.TXT
+Systems: 98, ME
+Download: pool/game-dreamweb/cd-1.1/dreamweb-cd-uk-1.1.zip 226067188 4a6f13911ce67d62c526e41048ec067b279f1b378c9210f39e0ce8d3f2b80142
+Depends: scummvm
+Installed-Size: 264798
+Install: unzip {dir}
+After: run "{dir:scummvm}\scummvm.exe" --add --path="{dir}" --game=dreamweb
+Shortcut: DreamWeb | {dir:scummvm}\scummvm.exe | dreamweb
+Uninstall: files
+
+Package: game-duke3d-shareware
+Name: Duke Nukem 3D (shareware)
+Version: 1.3d
+Section: Games
+Summary: Shareware episode of 3D Realms' Duke Nukem 3D, 1996 (DOS)
+Description: L.A. Meltdown, the shareware first episode of Duke Nukem 3D by 3D Realms.
+ The archive contains 3D Realms' own DOS installer; run "Duke Nukem 3D
+ (shareware) - install" once to unpack the game.
+License: Shareware
+License-File: pool/game-duke3d-shareware/1.3d/LICENSE.TXT
+Systems: 95, 98, ME
+Download: pool/game-duke3d-shareware/1.3d/3dduke13.zip 5924374 c67efd179022bc6d9bde54f404c707cbcbdc15423c20be72e277bc2bdddf3d0e
+Installed-Size: 5860
+Install: unzip {pf}\Games\Duke3D
+Shortcut: Duke Nukem 3D (shareware) - install | {dir}\INSTALL.EXE |
+Uninstall: files
+Notice: Run "Duke Nukem 3D (shareware) - install" once. The 3D Realms installer asks
+ for a folder and unpacks the game there; then run SETUP.EXE and DUKE3D.EXE in
+ that folder. Beacon does not remove that folder when you remove this package.
+
+Package: game-epic-pinball-shareware
+Name: Epic Pinball (shareware)
+Version: 2.0
+Section: Games
+Summary: Shareware pinball table, Epic MegaGames 1994 (DOS)
+Description: Arcade-style pinball with the Super Android table. This is the shareware
+ version, published by Epic MegaGames. Shareware is try-before-you-buy
+ software that may be copied freely; more tables were sold. Run Setup once
+ for sound. DOS program.
+License: Shareware
+License-File: pool/game-epic-pinball-shareware/2.0/LICENSE.TXT
+Systems: 95, 98, ME
+Download: pool/game-epic-pinball-shareware/2.0/pinball2.zip 845992 5e28cce9037160efa191730b511ca3c09af7d47398e37a5a5bed942c631617ea
+Installed-Size: 1924
+Install: unzip {pf}\Games\EPinball
+Shortcut: Epic Pinball | {dir}\PINBALL.PIF |
+ Epic Pinball Setup | {dir}\SETUP.EXE |
+Uninstall: files
+Notice: Run "Epic Pinball Setup" once to choose the sound card.
+
+Package: game-extreme-pinball-shareware
+Name: Extreme Pinball (shareware)
+Version: 1.0
+Section: Games
+Summary: Shareware pinball table, Epic MegaGames/Digital Extremes 1995 (DOS)
+Description: Extreme Pinball by Digital Extremes, published by Epic MegaGames. This is
+ the shareware version with one table. Shareware is try-before-you-buy
+ software that may be copied freely; the other tables were sold. Run Setup
+ once for sound. DOS program.
+License: Shareware
+License-File: pool/game-extreme-pinball-shareware/1.0/LICENSE.TXT
+Systems: 95, 98, ME
+Download: pool/game-extreme-pinball-shareware/1.0/xpsw1.zip 3116323 a6d57553ba9ae3768de0c595e62ac6231703362c2cd51977ad67f1a87ef22a42
+Installed-Size: 6342
+Install: unzip {pf}\Games\XPinball
+Shortcut: Extreme Pinball | {dir}\EXTREME.EXE |
+ Extreme Pinball Setup | {dir}\SETUP.EXE |
+Uninstall: files
+Notice: Run "Extreme Pinball Setup" once to choose the sound card.
+
+Package: game-flight-amazon-queen
+Name: Flight of the Amazon Queen
+Version: CD 1.1
+Section: Games
+Summary: Adventure game by John Passfield and Steve Stamatiadis, 1995
+Description: A point-and-click adventure set in the 1940s: pilot Joe King is stranded in
+ the Amazon jungle. This is the CD version with speech (compressed audio),
+ released as freeware by its authors. Played with ScummVM.
+Homepage: https://www.scummvm.org/games/
+License: Freeware
+License-File: pool/game-flight-amazon-queen/cd-1.1/LICENSE.TXT
+Systems: 98, ME
+Download: pool/game-flight-amazon-queen/cd-1.1/FOTAQ_Talkie-1.1.zip 33744817 a25cdd5e003a0a5e402af99b218cc7ea81ad032cb36b8c05df3bd1167038d8a8
+Depends: scummvm
+Installed-Size: 50028
+Install: unzip {dir}
+After: run "{dir:scummvm}\scummvm.exe" --add --path="{dir}" --game=queen
+Shortcut: Flight of the Amazon Queen | {dir:scummvm}\scummvm.exe | queen
+Uninstall: files
+
+Package: game-heretic-shareware
+Name: Heretic (shareware)
+Version: 1.2
+Section: Games
+Summary: Shareware episode of Raven Software's Heretic, 1994 (DOS)
+Description: City of the Damned, the shareware first episode of Heretic by Raven
+ Software, published by id Software. A fantasy first-person action game
+ on the Doom engine. The archive contains id's own installer; run
+ "Heretic (shareware) - install" once to unpack the game. DOS program.
+License: Shareware
+License-File: pool/game-heretic-shareware/1.2/LICENSE.TXT
+Systems: 95, 98, ME
+Download: pool/game-heretic-shareware/1.2/htic_v12.zip 2898794 5ffbb47e4a5750fef144c312973ee5782266b4a63474b77478103b6c1aaed39d
+Installed-Size: 2833
+Install: unzip {pf}\Games\Heretic
+Shortcut: Heretic (shareware) - install | {dir}\INSTALL.BAT |
+Uninstall: files
+Notice: Run "Heretic (shareware) - install" once. The installer unpacks the game into
+ C:\HERETIC (you may choose another folder). Run SETUP there for sound, then
+ HERETIC.EXE. Beacon does not remove that folder when you remove this package.
+
+Package: game-jazz-shareware
+Name: Jazz Jackrabbit (shareware)
+Version: 1.0
+Section: Games
+Summary: Shareware episode of Jazz Jackrabbit, Epic MegaGames 1994 (DOS)
+Description: Fast side-scrolling platform game starring a green rabbit with a big gun.
+ This is the shareware episode, published by Epic MegaGames. Shareware is
+ try-before-you-buy software that may be copied freely; the other episodes
+ were sold. Run Setup once for sound. DOS program.
+License: Shareware
+License-File: pool/game-jazz-shareware/1.0/LICENSE.TXT
+Systems: 95, 98, ME
+Download: pool/game-jazz-shareware/1.0/1jazz.zip 1424232 ce4aa2835b8bc8cddf8bb52548e77717332f07ea8c394190ca3db7d38f04acb6
+Installed-Size: 3251
+Install: unzip {pf}\Games\Jazz
+Shortcut: Jazz Jackrabbit | {dir}\JAZZ.PIF |
+ Jazz Jackrabbit Setup | {dir}\SETUP.EXE |
+Uninstall: files
+Notice: Run "Jazz Jackrabbit Setup" once to choose the sound card. The game's own
+ notes ask Windows users to start JAZZ.PIF, which the shortcut does.
+
+Package: game-jill-jungle-shareware
+Name: Jill of the Jungle (shareware)
+Version: 1.0
+Section: Games
+Summary: Shareware platform game, Epic MegaGames 1992 (DOS)
+Description: Jill of the Jungle: The Jungle, the shareware first episode of the
+ platform game by Tim Sweeney, published by Epic MegaGames. Shareware is
+ try-before-you-buy software that may be copied freely. DOS program.
+License: Shareware
+License-File: pool/game-jill-jungle-shareware/1.0/LICENSE.TXT
+Systems: 95, 98, ME
+Download: pool/game-jill-jungle-shareware/1.0/$jill.zip 295802 9a0ce9d1dc837eba38535b89bcbb55312a89a834852091b24d40759f34b2f0ff
+Installed-Size: 1062
+Install: unzip {pf}\Games\Jill
+Shortcut: Jill of the Jungle | {dir}\JILL.EXE |
+Uninstall: files
+
+Package: game-kens-labyrinth-shareware
+Name: Ken's Labyrinth (shareware)
+Version: 1993
+Section: Games
+Summary: Shareware 3D maze shooter by Ken Silverman, Epic MegaGames 1993
+Description: Ken's Labyrinth, a 3D first-person game by Ken Silverman, improved by Epic
+ and Future Crew and published by Epic MegaGames. Shareware is
+ try-before-you-buy software that may be copied freely. Run Setup once.
+ DOS program.
+License: Shareware
+License-File: pool/game-kens-labyrinth-shareware/1993/LICENSE.TXT
+Systems: 95, 98, ME
+Download: pool/game-kens-labyrinth-shareware/1993/$ken.zip 901211 dd4d60ac285a211e2965c405990909c4374e7d50debaa6b85fbd46ae46a20bcf
+Installed-Size: 1205
+Install: unzip {pf}\Games\KenLab
+Shortcut: Ken's Labyrinth | {dir}\KEN.EXE |
+ Ken's Labyrinth Setup | {dir}\SETUP.EXE |
+Uninstall: files
+Notice: Run "Ken's Labyrinth Setup" once to choose your hardware.
+
+Package: game-kiloblaster-shareware
+Name: Kiloblaster (shareware)
+Version: 2.0
+Section: Games
+Summary: Shareware arcade shooter, Epic MegaGames 1992 (DOS)
+Description: Kiloblaster, a Galaxian-style arcade shooter from the makers of Jill of
+ the Jungle, published by Epic MegaGames. Shareware is try-before-you-buy
+ software that may be copied freely. DOS program.
+License: Shareware
+License-File: pool/game-kiloblaster-shareware/2.0/LICENSE.TXT
+Systems: 95, 98, ME
+Download: pool/game-kiloblaster-shareware/2.0/$kilo.zip 541825 7976798070b8e273088ba370592ccfd4780a788a95389b675774c6386434d702
+Installed-Size: 1342
+Install: unzip {pf}\Games\Kilo
+Shortcut: Kiloblaster | {dir}\KILO.BAT |
+Uninstall: files
+
+Package: game-liero
+Name: Liero
+Version: 1.33
+Section: Games
+Summary: Two-player worm duel game with 40 weapons, 1998 (DOS)
+Description: Liero is a real-time two-player game for one keyboard: two armed worms
+ fight in a destructible landscape, with 40 weapons and several game
+ modes. This is the original 1.33 release from the official Liero site.
+ DOS program.
+Homepage: https://www.liero.be/
+License: WTFPL
+License-File: pool/game-liero/1.33/LICENSE.TXT
+Systems: 95, 98, ME
+Download: pool/game-liero/1.33/lierov133winxp.zip 366080 c1f0331d00ec983263a2d8c395947306eb590843883d2b81272201b6e3859112
+Installed-Size: 715
+Install: unzip {pf}\Games\Liero
+Shortcut: Liero | {dir}\LIERO.EXE |
+Uninstall: files
+
+Package: game-lure-of-the-temptress
+Name: Lure of the Temptress
+Version: 1.1
+Section: Games
+Summary: Fantasy adventure game by Revolution Software, 1992
+Description: Revolution Software's first adventure game: Diermot must free the town of
+ Turnvale from the sorceress Selena. Released as freeware by Revolution.
+ English version. Played with ScummVM.
+Homepage: https://www.scummvm.org/games/
+License: Freeware
+License-File: pool/game-lure-of-the-temptress/1.1/LICENSE.TXT
+Systems: 98, ME
+Download: pool/game-lure-of-the-temptress/1.1/lure-1.1.zip 5678861 f3178245a1483da1168c3a11e70b65d33c389f1f5df63d4f3a356886c1890108
+Depends: scummvm
+Installed-Size: 7046
+Install: unzip {dir} strip 1
+After: run "{dir:scummvm}\scummvm.exe" --add --path="{dir}" --game=lure
+Shortcut: Lure of the Temptress | {dir:scummvm}\scummvm.exe | lure
+Uninstall: files
+
+Package: game-nippon-safes
+Name: Nippon Safes, Inc.
+Version: 1.0
+Section: Games
+Summary: Comedy adventure game by Dynabyte, 1992
+Description: An Italian comedy adventure with three playable characters, by Dynabyte
+ (Euclidea). DOS version in English, French, German and Italian, released
+ as freeware. Played with ScummVM.
+Homepage: https://www.scummvm.org/games/
+License: Freeware
+License-File: pool/game-nippon-safes/1.0/LICENSE.TXT
+Systems: 98, ME
+Download: pool/game-nippon-safes/1.0/nippon-1.0.zip 1977894 53e7e2c60065e4aed193169bbcdcfd1113fa68d3efe1c8240ba073c0e20d613f
+Depends: scummvm
+Installed-Size: 6344
+Install: unzip {dir}
+After: run "{dir:scummvm}\scummvm.exe" --add --path="{dir}" --game=nippon
+Shortcut: Nippon Safes, Inc. | {dir:scummvm}\scummvm.exe | nippon
+Uninstall: files
+
+Package: game-omf2097-shareware
+Name: One Must Fall 2097 (shareware)
+Version: 2.0
+Section: Games
+Summary: Shareware robot fighting game, Epic MegaGames/Diversions 1994 (DOS)
+Description: One-on-one fighting game with giant robots, by Diversions Entertainment.
+ This is the shareware version 2.0, published by Epic MegaGames, with modem
+ and network play. Shareware is try-before-you-buy software that may be
+ copied freely. Run Setup once for sound. DOS program.
+License: Shareware
+License-File: pool/game-omf2097-shareware/2.0/LICENSE.TXT
+Systems: 95, 98
+Download: pool/game-omf2097-shareware/2.0/omf20.zip 2931842 181ca68f5c4b79821780ed9fe4f613f2767b16bc1a3c23bb631b1bc4de127dce
+Installed-Size: 6198
+Install: unzip {pf}\Games\OMF2097
+Shortcut: One Must Fall 2097 | {dir}\OMF.EXE |
+ One Must Fall 2097 Setup | {dir}\SETUP.EXE |
+Uninstall: files
+Notice: Run "One Must Fall 2097 Setup" once to choose the sound card. The game's notes
+ say it does not work reliably under Windows with sound on; if it fails, use
+ MS-DOS mode.
+
+Package: game-opengfx
+Name: OpenGFX
+Version: 0.5.5
+Section: Games
+Summary: Free base graphics set for OpenTTD
+Description: OpenGFX is a free replacement for the original Transport Tycoon Deluxe
+ graphics, so OpenTTD can be played without the original game. Version
+ 0.5.5 (2019) was current when OpenTTD 1.8/1.9 were released. It is
+ installed into the OpenTTD folder.
+Homepage: https://www.openttd.org/
+License: GPL-2.0-only
+License-File: pool/game-opengfx/0.5.5/LICENSE.TXT
+Systems: 98, ME
+Download: pool/game-opengfx/0.5.5/opengfx-0.5.5-all.zip 3548368 c648d56c41641f04e48873d83f13f089135909cc55342a91ed27c5c1683f0dfe
+Source: pool/game-opengfx/0.5.5/src/opengfx-0.5.5-source.tar.xz 9639584 8958246839dcb8d15548459a3979fdbcd6f92118ecc36f3d982bd8d856502e01
+Depends: game-openttd
+Installed-Size: 5200
+Install: unzip {dir:game-openttd}\baseset
+Uninstall: files
+Notice: OpenGFX is installed into the baseset folder of OpenTTD. Start OpenTTD and
+ choose OpenGFX under Game Options, Base graphics set, if it is not selected.
+
+Package: game-openttd
+Name: OpenTTD
+Version: 1.8.0
+Section: Games
+Summary: Transport business simulation, open-source Transport Tycoon Deluxe
+Description: OpenTTD is an open-source remake and extension of Transport Tycoon
+ Deluxe: build road, rail, sea and air transport networks and run a
+ transport company. This is 1.8.0, the last version with a Windows 9x
+ build. It needs graphics: install OpenGFX (package game-opengfx) or copy
+ the original Transport Tycoon Deluxe data files.
+Homepage: https://www.openttd.org/
+License: GPL-2.0-only
+License-File: pool/game-openttd/1.8.0/LICENSE.TXT
+Systems: 98, ME
+Download: pool/game-openttd/1.8.0/openttd-1.8.0-windows-win9x.zip 6784707 a68bf02307cb9b30b178437bedecba061b99948bb6207c44f7ac947263f0841e
+Source: pool/game-openttd/1.8.0/src/openttd-1.8.0-source.tar.xz 6521016 c2d32d9d736d27202a020027a3729ae763f5432ae6f424891e57a4095eeb087f
+Installed-Size: 19180
+Install: unzip {dir}
+Shortcut: OpenTTD | {dir}\openttd.exe |
+Uninstall: files
+Warning: OpenTTD 1.8.0 has a known security problem (CVE-2021-41556): a malicious game
+ script or AI can run code on this computer. Only use scripts and AIs you trust,
+ and be careful with multiplayer games on the Internet.
+Notice: OpenTTD needs graphics files. Install the OpenGFX package (game-opengfx), or
+ copy the original Transport Tycoon Deluxe data files into the baseset folder.
+ Saved games and settings are kept in C:\My Documents\OpenTTD.
+
+Package: game-overkill-shareware
+Name: Overkill (shareware)
+Version: 1993
+Section: Games
+Summary: Shareware scrolling shooter, Epic MegaGames 1993 (DOS)
+Description: Overkill, a scrolling space shooter by Ste Cork and Tech Noir Productions,
+ published by Epic MegaGames. Shareware is try-before-you-buy software that
+ may be copied freely. DOS program.
+License: Shareware
+License-File: pool/game-overkill-shareware/1993/LICENSE.TXT
+Systems: 95, 98, ME
+Download: pool/game-overkill-shareware/1993/$overkil.zip 401612 128294f3dab1a4b722510ef3009d03331d38d6a207d07481eb94b575f767bca9
+Installed-Size: 586
+Install: unzip {pf}\Games\Overkill
+Shortcut: Overkill | {dir}\OVERKILL.EXE |
+Uninstall: files
+
+Package: game-quake-shareware
+Name: Quake (shareware)
+Version: 1.06
+Section: Games
+Summary: Shareware episode of id Software's Quake, 1996 (DOS)
+Description: Dimension of the Doomed, the shareware first episode of Quake by id
+ Software. The archive contains id's own installer; run "Quake (shareware)
+ - install" once to unpack the game. DOS program, also started from
+ Windows 95 with Q95.BAT.
+License: Shareware
+License-File: pool/game-quake-shareware/1.06/LICENSE.TXT
+Systems: 95, 98, ME
+Download: pool/game-quake-shareware/1.06/quake106.zip 9094045 ec6c9d34b1ae0252ac0066045b6611a7919c2a0d78a3a66d9387a8f597553239
+Installed-Size: 8910
+Install: unzip {pf}\Games\Quake
+Shortcut: Quake (shareware) - install | {dir}\install.bat |
+Uninstall: files
+Warning: Quake 1.06 has known network security problems (for example CVE-1999-1569 and
+ CVE-2000-1080, denial of service against Quake servers). Do not run a Quake
+ server on the Internet.
+Notice: Run "Quake (shareware) - install" once. The installer unpacks the game into
+ C:\QUAKE_SW (you may choose another folder). Start QUAKE.EXE there, or Q95.BAT
+ from Windows 95/98. Beacon does not remove that folder when you remove this
+ package.
+
+Package: game-radix-shareware
+Name: Radix: Beyond the Void (shareware)
+Version: 1.0
+Section: Games
+Summary: Shareware 3D space shooter, Epic MegaGames/Neural Storm 1995 (DOS)
+Description: Radix: Beyond the Void, a 3D shooter with six degrees of flight by Neural
+ Storm, published by Epic MegaGames. This is the shareware episode.
+ Shareware is try-before-you-buy software that may be copied freely; the
+ other episodes were sold. Run Setup once. Needs a 486. DOS program.
+License: Shareware
+License-File: pool/game-radix-shareware/1.0/LICENSE.TXT
+Systems: 95, 98, ME
+Download: pool/game-radix-shareware/1.0/radsw1.zip 3880578 74d1eb329362d4d61d6e5c1498be491b947b75532df55c157a3cbd25869d0d33
+Installed-Size: 10709
+Install: unzip {pf}\Games\Radix
+Shortcut: Radix | {dir}\RADIX.EXE |
+ Radix Setup | {dir}\SETUP.EXE |
+Uninstall: files
+Notice: Run "Radix Setup" once before playing, as the game's notes require.
+
+Package: game-sfinx
+Name: Sfinx
+Version: 1.1
+Section: Games
+Summary: Adventure game by LK Avalon, 1994 (English)
+Description: A Polish adventure game by Laboratorium Komputerowe Avalon, in English,
+ released as freeware by its authors. Played with ScummVM.
+Homepage: https://www.scummvm.org/games/
+License: Freeware
+License-File: pool/game-sfinx/1.1/LICENSE.TXT
+Systems: 98, ME
+Download: pool/game-sfinx/1.1/sfinx-en-v1.1.zip 16549117 f516b30a046526f78cbc923d8f907d267ab964ccd9b770afc72350e8d467ec4d
+Depends: scummvm
+Installed-Size: 33509
+Install: unzip {dir} strip 1
+After: run "{dir:scummvm}\scummvm.exe" --add --path="{dir}" --game=sfinx
+Shortcut: Sfinx | {dir:scummvm}\scummvm.exe | sfinx
+Uninstall: files
+
+Package: game-soltys
+Name: Soltys
+Version: 1.0
+Section: Games
+Summary: Comedy adventure game by LK Avalon, 1995 (English)
+Description: A Polish comedy adventure game by Laboratorium Komputerowe Avalon, in
+ English, released as freeware by its authors. Played with ScummVM.
+Homepage: https://www.scummvm.org/games/
+License: Freeware
+License-File: pool/game-soltys/1.0/LICENSE.TXT
+Systems: 98, ME
+Download: pool/game-soltys/1.0/soltys-en-v1.0.zip 3484518 87b89e654b8a5b8ebe342cb4c5c6049ab9a43a5efb474d9c49bafb77dcce48f6
+Depends: scummvm
+Installed-Size: 8284
+Install: unzip {dir}
+After: run "{dir:scummvm}\scummvm.exe" --add --path="{dir}" --game=soltys
+Shortcut: Soltys | {dir:scummvm}\scummvm.exe | soltys
+Uninstall: files
+
+Package: game-tyrian-shareware
+Name: Tyrian (shareware)
+Version: 1.0
+Section: Games
+Summary: Shareware vertical shooter, Epic MegaGames/Eclipse 1995 (DOS)
+Description: Vertical scrolling space shooter with hundreds of weapon combinations,
+ by Eclipse Software. This is the shareware episode, published by Epic
+ MegaGames. Shareware is try-before-you-buy software that may be copied
+ freely; the other episodes were sold. Run Setup once. DOS program.
+License: Shareware
+License-File: pool/game-tyrian-shareware/1.0/LICENSE.TXT
+Systems: 95, 98, ME
+Download: pool/game-tyrian-shareware/1.0/tyrsw1.zip 1730436 2990485607d46e9fe3bc5fb572d0d9d93f0fdab997a82cff3425a4ed40564062
+Installed-Size: 4109
+Install: unzip {pf}\Games\Tyrian
+Shortcut: Tyrian | {dir}\TYRIAN.EXE |
+ Tyrian Setup | {dir}\SETUP.EXE |
+Uninstall: files
+Notice: Run "Tyrian Setup" once to choose the sound card. If the game has problems in
+ Windows, the game's notes advise running it from DOS.
+
+Package: game-xargon-shareware
+Name: Xargon (shareware)
+Version: 3.0
+Section: Games
+Summary: Shareware platform game Xargon 1, Epic MegaGames 1994 (DOS)
+Description: Xargon 1: Beyond Reality, an action platform game by Allen Pilgrim,
+ published by Epic MegaGames. Shareware is try-before-you-buy software that
+ may be copied freely; the other volumes were sold. DOS program.
+License: Shareware
+License-File: pool/game-xargon-shareware/3.0/LICENSE.TXT
+Systems: 95, 98
+Download: pool/game-xargon-shareware/3.0/$xargon.zip 593419 c16c132d9de486e78ae3fb483422eacac85a0dba5c7deca51cdaacde367da5fe
+Installed-Size: 2056
+Install: unzip {pf}\Games\Xargon
+Shortcut: Xargon | {dir}\XARGON.BAT |
+Uninstall: files
+Notice: The game's notes say music and sound work only when Xargon runs from DOS
+ (MS-DOS mode).
+
+Package: game-zone66-shareware
+Name: Zone 66 (shareware)
+Version: 1993
+Section: Games
+Summary: Shareware 32-bit arcade shooter, Epic MegaGames/Renaissance 1993
+Description: Zone 66, a 360-degree scrolling air combat game by Renaissance, published
+ by Epic MegaGames. Shareware is try-before-you-buy software that may be
+ copied freely. Needs MS-DOS mode (restart in MS-DOS mode). DOS program.
+License: Shareware
+License-File: pool/game-zone66-shareware/1993/LICENSE.TXT
+Systems: 95, 98
+Download: pool/game-zone66-shareware/1993/$zone66.zip 1017774 57f92a0487bf72ad0ec233e6d524b29c48134037e76b7aadf90930c36fe1cd9c
+Installed-Size: 1624
+Install: unzip {pf}\Games\Zone66
+Shortcut: Zone 66 | {dir}\ZONE66.EXE |
+Uninstall: files
+Notice: The game's notes say Zone 66 does not run under Windows: restart the computer
+ in MS-DOS mode and start ZONE66.EXE from the Zone 66 folder.
 
 Package: gimp
 Name: GIMP

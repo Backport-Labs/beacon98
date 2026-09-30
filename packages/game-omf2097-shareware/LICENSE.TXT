@@ -1,0 +1,441 @@
+One Must Fall 2097 (shareware) 2.0 - license
+
+The text below is copied from the files named in each heading, as they are found in the distributed archive. Characters that Windows-1252 cannot show were replaced (box-drawing characters by '-').
+
+This program is SHAREWARE published by Epic MegaGames: try-before-you-buy software that may be copied and shared freely under the terms below.
+
+==============================================================================
+LICENSE.DOC (inside omf20.zip)
+==============================================================================
+
+                            Epic MegaGames, Inc.
+                         SOFTWARE LICENSE AGREEMENT
+
+
+This file, LICENSE.DOC, describes the terms and conditions by which Epic
+MegaGames, Inc. ("Epic") will license other parties to distribute this
+software program which is intended solely for distribution as "shareware"
+(the "Program").  No use, reproduction or distribution of the Program, or
+of copies of the Program, is authorized except in compliance with the terms
+and conditions set forth below.
+
+========================================================================
+        NOTICE * NOTICE * NOTICE * NOTICE * NOTICE * NOTICE
+
+  Because this is the first release of Epic's modem/network gaming
+  components, we anticipate that we may be making several updates,
+  fixes, or patches to this program over the coming months as we get
+  widespread feedback from players around the world.
+
+  Because of the need to update distribution versions quickly, the
+  modem/network version of One Must Fall 2097 may not be distributed
+  in a retail environment (either on disk or CD).  We may allow retail
+  distribution of future modem/network versions of One Must Fall 2097.
+
+  Distribution online (BBS's, Internet, online services) and by mail
+  is, of course, highly encouraged.
+=========================================================================
+
+The Program is protected by copyright in the United States, as well as in
+other countries pursuant to international treaties.  Epic is the exclusive
+worldwide licensor of the Program, and the copyrights and other proprietary
+rights there in.  The Program is intended solely for distribution as
+"shareware" (i.e., "try-before-you-buy" software); it is NOT public domain
+or free software or "freeware".  Epic encourages distribution of the Program
+in accordance with the provisions of this Software License Agreement.  Any
+use, copying or distribution of the Program, or of any copies or elements
+thereof, that is not in compliance with the terms and conditions of this
+Agreement is prohibited.
+
+Limited Distribution License:
+
+Epic authorizes distribution and/or copying of the Program only in
+accordance with the following terms and conditions (the "General Terms and
+Conditions") and with other terms and conditions set forth below that may
+be applicable:
+
+1.   Epic MegaGames, Inc. shall be credited as the owner of the Program
+     in all distribution of the Program (which shall include, without
+     limitation, packaging, documentation, catalogs, program descriptions,
+     advertising, promotion and public relations).
+
+2.   The Program shall be identified by name and shall be expressly
+     identified as shareware (and not identified or described as "free
+     software", "public domain software", or the like) in all distribution.
+
+3.   The shareware concept shall be explained in reasonable detail in all
+     distribution (shareware is "try-before-you-buy" software, and the
+     price paid by users (if any) is a distribution charge only).
+
+4.   You may copy and/or distribute the Program only in its original,
+     unaltered form, with all files included unmodified, and without
+     making any additions, modifications or deletions except as provided
+     in this paragraph.  You may not modify the Program or any of its
+     files, and the Program must be distributed as a complete package. 
+     You may not change, delete, merge or rename any files or elements
+     of the Program in any manner, and you may not add any files or new
+     elements (except for installation routines which do not interfere with
+     the proper operation or installation of the Program).
+
+5.   You may not decompile, recompile, disassemble, reverse engineer,
+     adapt or create derivative works of the Program or any files or
+     elements thereof except with Epic's prior express written consent.
+
+6.   Since the Program is intended for distribution only as shareware, you
+     shall not charge any fee or other compensation for the Program,
+     although you may charge a distribution fee for costs associated with
+     distributing the Program.  You are permitted, and encouraged, to
+     make and distribute copies of the Program to your friends, family
+     members and co-workers without charge, for your and their private
+     noncommercial use, in compliance with the terms and conditions
+     hereof.
+
+7.   In accordance with the "try-before-you-buy" philosophy behind the
+     shareware concept, Epic strongly discourages charging users or
+     recipients more than $9.00 (U.S.) for distribution of the Program (or
+     any elements thereof).  If you charge more than $9.00 for
+     distribution of the Program or any elements thereof (inclusive of all
+     fees, costs, expenses and other charges, including without limitation
+     charges for copying, shipping, postage and handling, but not
+     including sales taxes), then you shall pay Epic a royalty equal to fifty
+     percent (50%) of the excess of such charges above $9.00 with respect
+     to each individual user or recipient.  (By way of illustration and not
+     limitation, if you distribute the Program at a charge of $8.00 for
+     disks and $4.00 for shipping and handling (for a total of $12.00),
+     you shall pay Epic a royalty of $1.50 with respect to each user or
+     recipient.)  In the event that such a royalty is payable to Epic, you
+     shall provide Epic with quarterly statements of account setting forth 
+     the royalty owed in reasonable detail, accompanied by payment thereof; 
+     and Epic or its designee shall have the right to inspect and audit your 
+     books and records from time to time to verify the amounts of the 
+     royalties due Epic hereunder.
+
+8.   You may not remove or alter any copyright or trademark information
+     on the Program, and you must take reasonable steps to protect the
+     copyrights, trademarks and other rights of Epic in the Program.
+
+9.   You recognize that your right to distribute the Program is
+     nonexclusive and that Epic can terminate the license granted to you
+     hereunder at any time for any reason upon written notice.  Epic
+     reserves the right to withhold or withdraw permission to distribute
+     the Program from anyone at any time for any reason.  The provisions
+     of paragraphs 4, 7, 13, 16, 17, 20, 21 and 22 hereof shall survive
+     any expiration or termination of this Agreement.
+
+10.  You shall take reasonable steps to ensure that the Program and any
+     other software, documentation and other materials distributed with
+     the Program are free from viruses.
+
+11.  This is the current version of the Program and all previous versions
+     of this Program have been withdrawn from distribution.  You shall
+     use reasonable efforts to distribute only the latest version of the
+     Program.  If you have a question about this, please contact Epic to
+     confirm what is the latest version (you can do this through Epic's
+     BBS on CompuServe, GO EPIC).
+
+12.  Your limited right to distribute under this Software License
+     Agreement is personal and does not include any right of sublicense.
+
+13.  You may not use, copy, modify, distribute or transfer the Program
+     or any element thereof in whole or in part, except as expressly
+     provided for herein.
+
+14.  You may not "rent" or "lease" the Program to anyone.
+
+15.  Any permission, consent or approval of Epic referred to herein may
+     be granted or withheld in Epic's sole discretion (and, unless
+     expressly granted in writing, shall be deemed to be withheld).
+
+16.  DISCLAIMER OF WARRANTY AND LIMITATION OF
+     LIABILITY:
+
+     THIS PROGRAM IS PROVIDED "AS IS".  EPIC MEGAGAMES,
+     INC. MAKES NO WARRANTY OR REPRESENTATION OF ANY
+     KIND, EITHER EXPRESS OR IMPLIED, WITH RESPECT TO
+     THIS PROGRAM OR ANY FILES, DOCUMENTATION OR
+     ELEMENTS THEREOF OR RELATING THERETO OR ANY
+     MEDIUM THE PROGRAM MAY BE ON (INCLUDING,
+     WITHOUT LIMITATION, ANY WARRANTY OF
+     MERCHANTABILITY OR OF FITNESS FOR A PARTICULAR
+     PURPOSE OR OF QUALITY OR PERFORMANCE).
+
+     SUBJECT TO ANY CONTRARY PROVISIONS OF APPLICABLE
+     STATE LAW, IN NO EVENT WILL EPIC MEGAGAMES, INC.
+     BE LIABLE FOR DIRECT, INDIRECT, SPECIAL, INCIDENTAL,
+     CONSEQUENTIAL, OR PUNITIVE DAMAGES ARISING FROM
+     THE USE OF OR INABILITY TO USE THE PROGRAM OR ANY
+     FILES, DOCUMENTATION OR ELEMENTS THEREOF,
+     INCLUDING FROM NEGLIGENCE, STRICT LIABILITY, OR
+     BREACH OF WARRANTY OR CONTRACT, EVEN IF EPIC
+     MEGAGAMES, INC. IS ADVISED OF THE POSSIBILITY OF
+     SUCH DAMAGES.  IN PARTICULAR, EPIC MEGAGAMES,
+     INC. IS NOT RESPONSIBLE FOR ANY COSTS OR EXPENSES,
+     INCLUDING BUT NOT LIMITED TO THOSE INCURRED AS A
+     RESULT OF LOST PROFITS OR REVENUE, LOSS OF USE OF
+     COMPUTER PROGRAMS, LOSS OF DATA, THE COST OF A
+     SUBSTITUTE PROGRAM, OR CLAIMS BY THIRD PARTIES. 
+     IN NO EVENT SHALL THE LIABILITY OF EPIC
+     MEGAGAMES, INC. FOR ANY DAMAGES EVER EXCEED
+     THE PRICE PAID FOR THE LICENSE TO USE THE PROGRAM,
+     REGARDLESS OF THE FORM OF CLAIM.  THE USER OF THE
+     PROGRAM BEARS ALL RISK AS TO THE QUALITY AND
+     PERFORMANCE OF THE PROGRAM AND ALL OTHER RISKS
+     RELATING TO THE USE OF OR INABILITY TO USE THE
+     PROGRAM.  BECAUSE SOFTWARE IS INHERENTLY
+     COMPLEX AND MAY NOT BE COMPLETELY FREE OF
+     ERRORS, ALL USERS ARE ADVISED TO VERIFY THEIR
+     WORK AND TO MAKE BACK-UP COPIES.
+
+17.  This Software License Agreement shall be governed by and
+     construed in accordance with the internal laws of the State of
+     Maryland applicable to agreements entered into and wholly to be
+     performed therein, without reference to conflicts of laws.  It shall
+     inure to the benefit of Epic MegaGames, Inc. and its successors and
+     assigns.  With respect to every matter arising under this Software
+     License Agreement, you consent to the jurisdiction and venue of the
+     state and federal courts located in Maryland, and to service by
+     certified mail, return receipt requested, or as otherwise permitted by
+     law.
+
+18.  Epic reserves the right to update the contents of the Program and/or
+     its associated files, documentation and/or other elements, at its
+     discretion from time to time, without the consent of, or any
+     obligation to, any licensed users or distributors.
+
+19.  All rights not expressly granted herein are reserved by Epic
+     MegaGames, Inc.
+
+20.  In the event of any violation of this Agreement or failure to comply
+     with any of the terms and conditions set forth herein, or any other
+     violation or infringement of any of Epic's rights, Epic shall have
+     available all rights and remedies at law and in equity.  Without
+     limiting the foregoing, in the event of any such violation or failure
+     to comply, then in addition to its other rights and remedies, if Epic
+     so elects Epic shall have the right to seek damages of not less than
+     the full registration fee for the registered version of the software
+     program with the same name as the Program, with respect to each
+     copy of the Program distributed or copied and/or each user or
+     recipient to whom the Program was distributed.  (By way of
+     illustration and not limitation, if the registration fee for the registered
+     version is $50.00 and distribution to 1,000 persons was made in
+     violation of this Agreement, then if Epic so elects Epic shall have the
+     right to seek damages of not less than $50,000 under the provisions
+     of this paragraph, in addition to its other rights and remedies at law
+     or in equity.)
+
+21.  You will hold Epic, its officers, directors, employees, contractors,
+     attorneys, and agents, harmless from and against any and all claims,
+     actions, damages, losses, liabilities, costs and expenses (including
+     reasonable attorney's fees) arising directly or indirectly from your
+     acts and omissions in copying and distributing the Program (including
+     without limitation from any installation routine that you may add).
+
+22.  If any provision of this Agreement is held to be void, invalid or
+     unenforceable, it will not affect the validity of the balance of this
+     Agreement, which shall remain valid and enforceable according to its
+     terms and conditions.
+
+
+In addition to the above General Terms and Conditions, the following special
+provisions apply to the types of distribution set forth below:
+
+Distribution by BBS's and Online Services:
+
+Epic allows and encourages bulletin board systems and online services to
+distribute the Program by modem as long as the General Terms and
+Conditions set forth above are complied with.
+
+Distribution of the Program By Itself on Floppy Disk:
+
+Shareware vendors may distribute the Program alone on one or more floppy
+disk(s) as long as the General Terms and Conditions set forth above are
+complied with, and provided that other than installation routines which do
+not interfere with the proper operation or installation of the Program, no
+other programs or files are included on the floppy disk(s) that contain this
+Program (i.e., there is no bundling or multi-program disks or packs).
+
+Distribution of the Program on CD-ROM's
+
+This is currently not authorized (see above), unless you have specific
+writter authorization from Epic to do this.
+
+Distribution in a Retail Environment:
+
+This is currently not authorized (see above), unless you have specific
+writter authorization from Epic to do this.
+
+Distribution via Subscriptions, "Disk-of-the-Month", Magazine "Cover
+Disks" and "Cover CD's":
+
+Any party wishing to distribute this Program via subscriptions, "disk-of-the-
+month", magazine "cover disks" and/or "cover CD's" must obtain Epic's
+written permission, in addition to complying with the General Terms and
+Conditions set forth above and other applicable terms and conditions.  Please
+contact us and we'll be glad to consider granting permission to you in
+appropriate cases.
+
+Other Distribution Opportunities:
+
+Please contact us if you would like to distribute Epic shareware products in
+a new and unique way.  We are open to new opportunities, and we
+appreciate new and unique forms of distribution as a way of reaching new
+customers.
+
+Thanks:  We thank you for distributing Epic MegaGames shareware products
+in accordance with the terms and conditions of this Agreement.
+
+
+Epic MegaGames can be contacted at:
+
+     Epic MegaGames, Inc.
+     10406 Holbrook Drive
+     Potomac, MD 20854
+     Tel:  +(301) 983-9771
+     Fax:  +(301) 299-3841
+
+In Europe, we can be contacted at:
+
+     Epic MegaGames UK
+     11 Baker Avenue
+     Potton
+     Beds SG19 2PJ
+     United Kingdom
+     Tel:  +44 (0) 1767 260903
+     Fax:  +44 (0) 1767 262043
+
+Or in Germany:
+     
+     Abteilung RMI (AA15)
+     Postfach 10 29 65
+     50469 KOLN
+     Germany
+     Tel:  0130 822495
+     Fax:  0130 822886
+
+==============================================================================
+VENDOR.DOC (inside omf20.zip)
+==============================================================================
+
+                            
+                              ONE MUST FALL 2097
+                      Welcome To The Future Of Fighting!
+
+              Version 1.1 from Epic MegaGames (Member ASP)
+=============================================================================
+
+-----------
+DESCRIPTION
+-----------
+
+Two will enter the arena.  ONE MUST FALL!
+
+From Epic MegaGames and Diversions Entertainment comes the clash of the
+century.  In the year 2097 steel will bend and sparks will fly as you
+control a 90 foot robot in a futuristic fight of Epic proportions. OMF
+2097 will rip your heart out with full screen, ultra fast fighting action.
+
+One Must Fall 2097 adds an entirely new dimension to the fighting game
+genre.  In OMF's "Tournament Play", you enter the arena as an
+inexperienced 98,000 pound weakling.  Fighting through match after
+match of opponents, you earn cash and experience for every fight you win.
+
+You can use this cash to enhance your robot to new levels of strength.
+After many fights, your power will reach nearly unbeatable levels.
+Or so it seems.  At the end of each tournament you'll contend with
+an ultra-powerful boss robot.
+
+If you enjoyed Street Fighter II or Mortal Kombat,  welcome to the
+next leap in play and technology -- One Must Fall 2097. 
+
+-----------------------------
+ONE MUST FALL 2097 Cool Stuff
+-----------------------------
+
+   * First arcade-quality shareware fighting game.
+   * Fighting action for 1 or 2 players.
+   * Multi-megabyte animation.
+   * Three robots, five pilots, one tournament, and one arena. 
+   * The largest shareware game ever - Over 2.7 megs compressed!
+   * Digital Techno sound track.
+   * Stereo sound effects.
+   * Special moves and secret moves.
+
+--------------------
+Registration options
+--------------------
+   
+   * For $39, you can buy the full version of One Must Fall 2097 with
+     11 robots, 4 tournaments and 5 arenas.
+   * Buy the 60-page OMF 2097 Strategy Guide for $10 extra.
+   * Shipping and handling is $4 on all orders in the US and Canada ($6 for
+     international orders).
+
+------------
+Requirements
+------------
+   
+   * A 386 or faster IBM-compatible computer with VGA graphics
+   * A Hard Disk
+   * 4 Megabytes of RAM
+
+-------------
+Also supports
+-------------
+
+   * One or two joysticks.
+   * Sound Blaster, SB Pro, SB 16, Pro Audio Spectrum, Gravis Ultrasound,
+     and compatible music cards.
+
+
+ATTENTION VENDORS:
+
+DISTRIBUTION REQUIREMENTS:  If you're going to sell this shareware product,
+please read the terms listed in the LICENSE.DOC on this disk.  It contains 
+the guidelines and requirements for distributing Epic's shareware products.
+Please pay special attention to our requirements for CD-ROM and retail 
+distribution.
+
+TO GET THE ENTIRE EPIC COLLECTION: We'll send the entire collection of Epic's
+shareware games to any shareware vendor for only the cost of disks and
+postage, currently $16.  The shareware collection is also available on CD-ROM
+(containing Epic and Safari's shareware through 1994, newer releases on disk).
+Federal Express shipping is also available at cost in case you're on a deadline.
+Just call us toll-free!
+
+SCREEN CAPTURES: PCX screens of every Epic game are included in the Epic
+shareware collection described above.  Should you wish to create your
+own screen shots, we highly recommend using "Screen Thief," an excellent 
+shareware screen capture program from Nildram Software (on Compuserve, GO 
+UKSHARE to download this great utility!)
+
+CONCLUSION:  We thank you very much for distributing this game!  The Epic
+team looks forward to working with you to promote shareware.
+
+=============================================================================
+
+Epic MegaGames can be contacted at:
+
+     Epic MegaGames, Inc.
+     10406 Holbrook Drive
+     Potomac, MD 20854
+     Tel:  +1 (301) 983-9771            Internet: info@epicgames.com
+     Fax:  +1 (301) 299-3841            CompuServe: 74774,2062
+
+In Europe, we can be contacted at:
+
+     Epic MegaGames UK
+     11 Baker Avenue
+     Potton
+     Beds SG19 2PJ
+     United Kingdom
+     Tel:  +44 (0) 1767 260903          Internet: 100265.213@compuserve.com
+     Fax:  +44 (0) 1767 262043          CompuServe: 100265,213
+
+Or in Germany:
+     
+     Abteilung RMI (AA15)
+     Postfach 10 29 65
+     50469 KOLN
+     Germany
+     Tel:  0130 822495                  Internet: deutschland@epicgames.com
+     Fax:  0130 822886
