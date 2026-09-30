@@ -1,0 +1,18 @@
+Package: game-xargon-shareware
+Name: Xargon (shareware)
+Version: 3.0
+Section: Games
+Summary: Shareware platform game Xargon 1, Epic MegaGames 1994 (DOS)
+Description: Xargon 1: Beyond Reality, an action platform game by Allen Pilgrim,
+ published by Epic MegaGames. Shareware is try-before-you-buy software that
+ may be copied freely; the other volumes were sold. DOS program.
+License: Shareware
+License-File: pool/game-xargon-shareware/3.0/LICENSE.TXT
+Systems: 95, 98
+Download: pool/game-xargon-shareware/3.0/$xargon.zip 593419 c16c132d9de486e78ae3fb483422eacac85a0dba5c7deca51cdaacde367da5fe
+Installed-Size: 2056
+Install: unzip {pf}\Games\Xargon
+Shortcut: Xargon | {dir}\XARGON.BAT |
+Uninstall: files
+Notice: The game's notes say music and sound work only when Xargon runs from DOS
+ (MS-DOS mode).

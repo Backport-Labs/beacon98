@@ -1,0 +1,241 @@
+Matrox Millennium / Mystique driver 4.12.013 (1677_412.exe) - license
+=====================================================================
+
+PART 1. The file LICENSE.TXT shipped inside 1677_412.exe, reproduced
+unchanged below. It is Microsoft's license for the "Windows 95 and 98 Driver
+Library". Its grant allows non-profit, unmodified redistribution, but it is
+Microsoft's text and names Microsoft as the owner; it is not clear that it
+grants rights in Matrox's own files, so Beacon does not rely on it and treats
+the package as external.
+
+----------------------------------------------------------------------------
+MICROSOFT WINDOWS 95 AND 98 DRIVER LIBRARY
+
+MICROSOFT SOFTWARE LICENSE
+
+
+1. 	GRANT OF LICENSE.  Microsoft grants to you the right
+       to use and to reproduce and distribute all or a 
+       portion of the Windows 95 and/or 98 Driver Library
+	 ("Software") provided that (i) the Software is not
+	 distributed for profit; (ii) the Software is used only
+	 in conjunction with licensed copies of Microsoft 
+       Windows 95 and/or 98 product; (iii) the Software may
+	 NOT be modified; (iv) all copyright notices are
+	 maintained on the Software; and (v) the licensee/end
+	 user agrees to be bound by the terms of this Agreement.
+
+2.	COPYRIGHT.  The Software is owned by Microsoft or its
+        suppliers and is protected by United States copyright
+        laws and international treaty provisions. You may not 
+        remove the copyright notice from any copy of the 
+        Software or any copy of the written materials, if any, 
+        accompanying the Software.
+
+3.	OTHER RESTRICTIONS.  This Microsoft License Agreement
+        is your proof of license to exercise the rights granted
+        herein and must be retained by you.  You may not rent
+        or lease the Software.  You may not reverse engineer, 
+        decompile or disassemble the Software.
+
+	NO WARRANTY.  ANY USE BY YOU OF THE SOFTWARE IS AT YOUR
+        OWN RISK.  THE SOFTWARE IS PROVIDED FOR USE ONLY WITH 
+        MICROSOFT Windows 95 AND/OR 98 AND RELATED SOFTWARE.
+	  THE SOFTWARE IS PROVIDED FOR USE "AS IS" WITHOUT 
+	  WARRANTY OF ANY KIND.  TO THE MAXIMUM EXTENT PERMITTED
+ 	  BY LAW, MICROSOFT AND ITS SUPPLIERS DISCLAIM ALL
+	  WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED,
+	  INCLUDING, WITHOUT LIMITATION, IMPLIED WARRANTIES OF 
+        MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. 
+        MICROSOFT IS NOT OBLIGATED TO PROVIDE ANY UPDATES TO 
+        THE SOFTWARE.
+
+	NO LIABILITY FOR CONSEQUENTIAL DAMAGES.  In no event 
+        shall Microsoft or its suppliers be liable for any 
+        damages whatsoever (including, without limitation, 
+        incidental, direct, indirect special and 
+        consequential damages, damages for loss of business 
+        profits, business interruption, loss of business 
+        information, or other pecuniary loss) arising out 
+        of the use or inability to use this Microsoft 
+        product, even if Microsoft has been advised of the 
+        possibility of such damages.  Because some states/
+        countries do not allow the exclusion or limitation 
+        of liability for consequential or incidental damages,
+        the above limitation may not apply to you.
+
+	INDEMNIFICATION BY YOU.  If you distribute the 
+        Software in violation of this Agreement, you agree 
+        to indemnify, hold harmless and defend Microsoft and 
+        its suppliers from and against any claims or lawsuits, 
+        including attorney's fees that arise or result from 
+        the use or distribution of the Software in violation 
+        of this Agreement.
+
+U.S. GOVERNMENT RESTRICTED RIGHTS
+
+The Software and documentation are provided with RESTRICTED 
+RIGHTS.  Use, duplication, or disclosure by the Government 
+is subject to restrictions as set forth in subparagraph 
+(c)(1)(ii) of The Rights in Technical Data and Computer 
+Software clause at DFARS 252.227-7013 or subparagraphs 
+(c)(1) and (2) of the Commercial Computer Software - 
+Restricted Rights at 48 CFR 52.227-19, as applicable.  
+Manufacturer is Microsoft Corporation/One Microsoft 
+Way/Redmond, WA  98052-6399.
+
+If you acquired this product in the United States, this 
+Agreement is governed by the laws of the State of Washington.
+
+Should you have any questions concerning this Agreement, or 
+if you desire to contact Microsoft for any reason, please 
+contact your local Microsoft subsidiary or write: Microsoft 
+Customer Sales and Service/One Microsoft Way/Redmond, WA  
+98052-6399.
+
+
+
+
+----------------------------------------------------------------------------
+
+PART 2. The license Matrox currently presents for its graphics drivers.
+Matrox display drivers - license
+================================
+
+This package (1677_412.exe) is offered from Matrox's own archive server.
+The license Matrox now presents for its graphics drivers is the "Matrox Video
+Software License Agreement" (document SLA03202026, 7 pages), which the
+"Previously Released Drivers" page asks the user to accept before showing the
+drivers:
+  https://video.matrox.com/apps/video_drivers/_content/pdf/graphics_drivers_eula.pdf
+  (linked from https://video.matrox.com/en/apps/drivers/graphics/previous)
+
+Below is the start of that agreement and the complete END USER LICENSE part,
+transcribed from pages 1-2 of the PDF on 2026-09-29. The OEM license,
+warranty, liability and general terms (pages 2-7) are in the PDF above.
+Read the full PDF before installing.
+
+----------------------------------------------------------------------------
+
+Matrox Video Software License Agreement
+(Hereafter referred to as License)
+
+THIS IS A LEGAL AGREEMENT BETWEEN THE LICENSEE AND MATROX GRAPHICS INC.
+("MATROX") CONCERNING THE USAGE OF THE MATROX SOFTWARE. BY DOWNLOADING,
+INSTALLING, COPYING, ACCESSING, CLICKING ON AN "ACCEPT" BUTTON, OR OTHERWISE
+USING THE SOFTWARE, THE LICENSEE AGREES TO THE TERMS OF THIS LICENSE. IF YOU
+ARE ACCEPTING THESE TERMS ON BEHALF OF YOUR COMPANY, ORGANIZATION, EDUCATIONAL
+INSTITUTION, OR AGENCY, INSTRUMENTALITY, OR DEPARTMENT OF THE FEDERAL
+GOVERNMENT AS ITS AUTHORIZED LEGAL REPRESENTATIVE, YOU REPRESENT AND WARRANT
+THAT YOU HAVE FULL AUTHORITY TO BIND LICENSEE TO THESE TERMS. IF YOU DO NOT
+AGREE TO THE TERMS OF THIS LICENSE, PLEASE RETURN YOUR MATROX PRODUCT. IF THE
+SOFTWARE WAS DOWNLOADED, DESTROY ALL COPIES OF THE SOFTWARE.
+
+In this License "Software" refers to: any firmware, software, associated
+software components, media, printed materials, and "online" or electronic
+documentation related to Matrox products, and any related updates or
+upgrades thereto.
+
+The Software is not sold, and instead is only licensed for use, strictly in
+accordance with this document. This License does not cover the sale of
+hardware, since it may not necessarily be sold as a package with the
+Software. This License sets forth the terms and conditions of the Software
+license only.
+
+Any Software provided to Licensee is the copyrighted work of Matrox and/or
+third-party software suppliers (if any). The present License does not give
+Licensee any intellectual property rights to the Software or its
+derivatives. The downloading and/or the use of any Software are subject to
+the following restrictions and limitations:
+
+LICENSES:
+If you are an end user, the "End User License" shall apply to you. If you
+are an original equipment manufacturer (OEM), the "OEM License" shall apply
+to you.
+
+END USER LICENSE
+
+1. Licensee may install the Software on an unlimited number of computers
+   owned or leased by Licensee in any location. Except as specifically
+   authorized in the Matrox Product User guide or related documentation, the
+   Software is subject to a restricted license therefore Licensee must use
+   the Software on a single computer or appliance owned or leased by
+   Licensee at a time ("Authorized Device"), in conjunction with and for the
+   purpose of, operating the Matrox Hardware product. Use of the Software in
+   conjunction with non-Matrox products is prohibited and not licensed
+   hereunder. Licensee shall also have the right to make one copy of the
+   Software in any computer-readable or printed form for back-up or archival
+   purposes.
+
+2. Matrox Licenses. Subject to the terms and conditions of this Agreement,
+   Matrox hereby grants to Licensee one of the following types of personal,
+   non-exclusive, non-transferable, non-sublicensable licenses (under
+   Matrox's intellectual property rights as embodied in the applicable
+   Software):
+
+   (a) Perpetual License. If Matrox has issued a "Perpetual License," defined
+   as a license that gives the Licensee the right to use the then-current
+   version of the Software solely as installed on, and for operation of, a
+   single appliance or computer (Authorized Device), the License is valid
+   only for that one appliance or computer and is non-transferable. The
+   Licensee's right to use the then-current version of the Software does not
+   include any obligation by Matrox to provide support services,
+   maintenance, updates, upgrades, or any other services beyond the
+   applicable Support Term. "Support Term" is defined as support available
+   during the Authorized Device's warranty period, or as indicated on the
+   sales invoice if different. Matrox may, in its sole discretion, declare
+   any Software, component, or version End-of-Life ("EOL"). Following an EOL
+   notice, Licensee may continue to use the Software pursuant to the
+   perpetual license, but Matrox shall have no obligation to provide further
+   updates, upgrades, support services, or continued availability of
+   download, activation, or distribution mechanisms.
+
+   (b) Time-Locked License. If Matrox has issued to Licensee a Time-Locked
+   License, then the license is valid only for one appliance or computer and
+   only for a temporary period of time, beginning on the invoice date and
+   expiring on the date and time specified on the Licensee's invoice (the
+   "Term"). The License is valid only for the one appliance or computer and
+   is non-transferable. At the end of the Term, the Software will cease
+   being functional. During the Term, the Licensee's right to use the
+   then-current version of the Software does not include any obligation by
+   Matrox to provide support services, maintenance, updates, upgrades, or
+   any other services beyond the applicable Support Term.
+
+3. No right to recopy, publish, display, network, rent, loan, lend, assign,
+   sell, distribute, license, sublicense, alter, modify, disassemble,
+   decompile, create derivative works or reverse engineer any Software in
+   any manner whatsoever is hereby given, except as provided in this
+   License. Violation may result in severe civil and/or criminal penalties,
+   as violators will be prosecuted to the maximum extent possible.
+
+4. Licensee agrees to treat the Software as confidential information, and
+   shall protect said information by using the same degree of care Licensee
+   uses to protect Licensee's own confidential information, but no less
+   than a reasonable degree of care, to prevent the unauthorized use,
+   dissemination, disclosure or publication of such, or to use this
+   Software to: (i) develop inventions directly derived from confidential
+   information to seek patent protection; (ii) assist in the analysis of
+   Licensee's patents and patent applications; or (iii) modify Licensee's
+   existing patents or patent applications.
+
+5. Licensee may only provide and disclose parts of the Software to third
+   parties who have a need-to-know for the purpose of installation, service
+   integration and/or support of said Software within Licensee's product.
+   In such event, Licensee may only disclose the relevant and necessary
+   parts of the Software to permit the third party to accomplish their
+   work, provided that all such disclosures shall be subject to the terms
+   and conditions of this License.
+
+6. Licensee may not grant any sublicense, lease or other right in the
+   Software to others.
+
+7. Notwithstanding any other provision in this License, if Licensee
+   provides any ideas, suggestions or recommendations to Matrox regarding
+   the Licensed Software and/or Licensee's product ("Feedback"), Matrox is
+   free to use and incorporate such Feedback in Matrox's products, without
+   payment of royalties or other consideration to Licensee.
+
+8. Licensee shall not have the right to alter or remove any Matrox or third
+   party copyright, trademark or patent notices in the Software.
+
+[The OEM LICENSE and the remaining terms follow in the PDF, pages 2-7.]

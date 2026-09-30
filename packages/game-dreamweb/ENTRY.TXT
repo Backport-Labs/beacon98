@@ -1,0 +1,19 @@
+Package: game-dreamweb
+Name: DreamWeb
+Version: CD 1.1
+Section: Games
+Summary: Cyberpunk adventure game by Creative Reality, 1994
+Description: A dark cyberpunk adventure: Ryan is told in his dreams to kill seven
+ people. CD version with speech, British English, released as freeware by
+ Creative Reality. Contains mature content. Played with ScummVM.
+Homepage: https://www.scummvm.org/games/
+License: Freeware
+License-File: pool/game-dreamweb/cd-1.1/LICENSE.TXT
+Systems: 98, ME
+Download: pool/game-dreamweb/cd-1.1/dreamweb-cd-uk-1.1.zip 226067188 4a6f13911ce67d62c526e41048ec067b279f1b378c9210f39e0ce8d3f2b80142
+Depends: scummvm
+Installed-Size: 264798
+Install: unzip {dir}
+After: run "{dir:scummvm}\scummvm.exe" --add --path="{dir}" --game=dreamweb
+Shortcut: DreamWeb | {dir:scummvm}\scummvm.exe | dreamweb
+Uninstall: files

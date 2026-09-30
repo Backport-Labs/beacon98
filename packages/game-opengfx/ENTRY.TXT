@@ -1,0 +1,21 @@
+Package: game-opengfx
+Name: OpenGFX
+Version: 0.5.5
+Section: Games
+Summary: Free base graphics set for OpenTTD
+Description: OpenGFX is a free replacement for the original Transport Tycoon Deluxe
+ graphics, so OpenTTD can be played without the original game. Version
+ 0.5.5 (2019) was current when OpenTTD 1.8/1.9 were released. It is
+ installed into the OpenTTD folder.
+Homepage: https://www.openttd.org/
+License: GPL-2.0-only
+License-File: pool/game-opengfx/0.5.5/LICENSE.TXT
+Systems: 98, ME
+Download: pool/game-opengfx/0.5.5/opengfx-0.5.5-all.zip 3548368 c648d56c41641f04e48873d83f13f089135909cc55342a91ed27c5c1683f0dfe
+Source: pool/game-opengfx/0.5.5/src/opengfx-0.5.5-source.tar.xz 9639584 8958246839dcb8d15548459a3979fdbcd6f92118ecc36f3d982bd8d856502e01
+Depends: game-openttd
+Installed-Size: 5200
+Install: unzip {dir:game-openttd}\baseset
+Uninstall: files
+Notice: OpenGFX is installed into the baseset folder of OpenTTD. Start OpenTTD and
+ choose OpenGFX under Game Options, Base graphics set, if it is not selected.

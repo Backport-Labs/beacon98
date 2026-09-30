@@ -1,0 +1,41 @@
+No license agreement is included in ultra133_driver_b43.zip (it contains only drivers, INF files and README.TXT; the README
+has no licence or copyright text) and none is shown by the Promise Download Center before downloading. The only
+terms found are Promise's website Terms of Use (https://www.promise.com/TermsOfUse, read 2026-09-29), quoted below.
+They grant no licence and forbid reproduction without Promise's written consent, so the file must not be hosted by us.
+
+Legal and Copyright Information
+Copyright 1988-2025 PROMISE Technology, Inc. All rights reserved.
+All documents and information on any PROMISE website are protected by copyright. Except as specifically permitted
+ herein, no portion of the documents or information on this website may be reproduced in any form or by any means
+ without the express written consent of PROMISE.
+License disclaimer
+Nothing on any PROMISE website shall be construed as conferring any license under any of PROMISE 's or any
+ third party's intellectual property rights, whether by estoppel, implication, or otherwise.
+Content and liability disclaimer
+PROMISE shall not be responsible for any errors or omissions contained on any PROMISE website and reserves the
+ right to make changes anytime without notice. Mention of non- PROMISE products or services is provided for
+ informational purposes only and constitutes neither an endorsement nor a recommendation by PROMISE. All PROMISE
+ and third-party information provided on any PROMISE website is provided on an "as is" basis.
+ PROMISE disclaims all warranties, expressed or implied, with regard to any information (including any software,
+ products, or services) provided on any PROMISE website, including the implied warranties of merchantability and
+ fitness for a particular purpose, and non-infringement.
+ Some jurisdictions do not allow the exclusion of implied warranties, so the above exclusion may not apply to
+ you.
+ In no event shall PROMISE be liable for any damages whatsoever, and in particular PROMISE shall not be liable
+ for direct, special, indirect, consequential, or incidental damages, or damages for lost profits, loss of
+ revenue or loss of use, cost of replacement goods, loss or damage to data arising out of the use or inability to
+ use any PROMISE website, any PROMISE product or service. This includes damages arising from use of or in
+ reliance on the documents or information present on any PROMISE website (including any information posted or
+ placed by anyone other than PROMISE), even if PROMISE has been advised of the possibility of such damages.
+ None of the information presented on any PROMISE site is intended to constitute advice or recommendations for
+ any site visitor's particular situation and no liability is created toward any site user by the inclusion of
+ any information at this site. If any person desires further information about the specifications of or use of
+ PROMISE products, they should contact PROMISE directly.
+[...]
+Trademarks
+PROMISE, PROMISE Technology, the PROMISE logo, and VTrak, SmartStor, SuperTrak, VessRAID, PerfectRAID and
+ GreenRAID are registered trademarks or trademarks of PROMISE Technology, Inc. in the U.S. and other countries.
+ All other marks and trademarks are the property of their respective owners. Information regarding products,
+ services and offerings may be superseded by subsequent documents and are subject to change without notice. For
+ the latest information and specifications regarding PROMISE Technology, Inc. and any of its offerings or
+ services, please contact your local PROMISE office or the corporate headquarters.

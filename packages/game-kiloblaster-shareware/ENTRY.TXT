@@ -1,0 +1,16 @@
+Package: game-kiloblaster-shareware
+Name: Kiloblaster (shareware)
+Version: 2.0
+Section: Games
+Summary: Shareware arcade shooter, Epic MegaGames 1992 (DOS)
+Description: Kiloblaster, a Galaxian-style arcade shooter from the makers of Jill of
+ the Jungle, published by Epic MegaGames. Shareware is try-before-you-buy
+ software that may be copied freely. DOS program.
+License: Shareware
+License-File: pool/game-kiloblaster-shareware/2.0/LICENSE.TXT
+Systems: 95, 98, ME
+Download: pool/game-kiloblaster-shareware/2.0/$kilo.zip 541825 7976798070b8e273088ba370592ccfd4780a788a95389b675774c6386434d702
+Installed-Size: 1342
+Install: unzip {pf}\Games\Kilo
+Shortcut: Kiloblaster | {dir}\KILO.BAT |
+Uninstall: files

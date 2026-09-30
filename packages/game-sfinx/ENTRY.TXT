@@ -1,0 +1,18 @@
+Package: game-sfinx
+Name: Sfinx
+Version: 1.1
+Section: Games
+Summary: Adventure game by LK Avalon, 1994 (English)
+Description: A Polish adventure game by Laboratorium Komputerowe Avalon, in English,
+ released as freeware by its authors. Played with ScummVM.
+Homepage: https://www.scummvm.org/games/
+License: Freeware
+License-File: pool/game-sfinx/1.1/LICENSE.TXT
+Systems: 98, ME
+Download: pool/game-sfinx/1.1/sfinx-en-v1.1.zip 16549117 f516b30a046526f78cbc923d8f907d267ab964ccd9b770afc72350e8d467ec4d
+Depends: scummvm
+Installed-Size: 33509
+Install: unzip {dir} strip 1
+After: run "{dir:scummvm}\scummvm.exe" --add --path="{dir}" --game=sfinx
+Shortcut: Sfinx | {dir:scummvm}\scummvm.exe | sfinx
+Uninstall: files

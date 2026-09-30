@@ -1,0 +1,24 @@
+Package: game-quake-shareware
+Name: Quake (shareware)
+Version: 1.06
+Section: Games
+Summary: Shareware episode of id Software's Quake, 1996 (DOS)
+Description: Dimension of the Doomed, the shareware first episode of Quake by id
+ Software. The archive contains id's own installer; run "Quake (shareware)
+ - install" once to unpack the game. DOS program, also started from
+ Windows 95 with Q95.BAT.
+License: Shareware
+License-File: pool/game-quake-shareware/1.06/LICENSE.TXT
+Systems: 95, 98, ME
+Download: pool/game-quake-shareware/1.06/quake106.zip 9094045 ec6c9d34b1ae0252ac0066045b6611a7919c2a0d78a3a66d9387a8f597553239
+Installed-Size: 8910
+Install: unzip {pf}\Games\Quake
+Shortcut: Quake (shareware) - install | {dir}\install.bat |
+Uninstall: files
+Warning: Quake 1.06 has known network security problems (for example CVE-1999-1569 and
+ CVE-2000-1080, denial of service against Quake servers). Do not run a Quake
+ server on the Internet.
+Notice: Run "Quake (shareware) - install" once. The installer unpacks the game into
+ C:\QUAKE_SW (you may choose another folder). Start QUAKE.EXE there, or Q95.BAT
+ from Windows 95/98. Beacon does not remove that folder when you remove this
+ package.

@@ -1,0 +1,19 @@
+Package: game-flight-amazon-queen
+Name: Flight of the Amazon Queen
+Version: CD 1.1
+Section: Games
+Summary: Adventure game by John Passfield and Steve Stamatiadis, 1995
+Description: A point-and-click adventure set in the 1940s: pilot Joe King is stranded in
+ the Amazon jungle. This is the CD version with speech (compressed audio),
+ released as freeware by its authors. Played with ScummVM.
+Homepage: https://www.scummvm.org/games/
+License: Freeware
+License-File: pool/game-flight-amazon-queen/cd-1.1/LICENSE.TXT
+Systems: 98, ME
+Download: pool/game-flight-amazon-queen/cd-1.1/FOTAQ_Talkie-1.1.zip 33744817 a25cdd5e003a0a5e402af99b218cc7ea81ad032cb36b8c05df3bd1167038d8a8
+Depends: scummvm
+Installed-Size: 50028
+Install: unzip {dir}
+After: run "{dir:scummvm}\scummvm.exe" --add --path="{dir}" --game=queen
+Shortcut: Flight of the Amazon Queen | {dir:scummvm}\scummvm.exe | queen
+Uninstall: files

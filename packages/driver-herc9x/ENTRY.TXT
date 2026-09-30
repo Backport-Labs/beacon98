@@ -1,0 +1,26 @@
+# MIT license: hosted. No Hardware lines: the Hercules card is a non-PnP ISA
+# card with no ID (the INF uses its own ID Display_Herc9x).
+Package: driver-herc9x
+Name: Herc9x Hercules display driver
+Version: 0.6
+Section: System
+Summary: Windows 95/98 display driver for Hercules monochrome graphics cards
+Description: Open-source driver by FalconFour that runs the Windows desktop on
+ a Hercules Graphics Card or compatible (720x348, monochrome). Based on
+ VMDisp9x. Includes an optional boot-splash tool.
+Homepage: https://github.com/FalconFour/Herc9x
+License: MIT
+License-File: pool/driver-herc9x/0.6/LICENSE.TXT
+Systems: 95, 98
+Download: pool/driver-herc9x/0.6/Herc9x-v0.6.zip 109786 76231e645b97bfa99eb46f90abb23e1ad81b3906234b5656e8d9979b38b8e241 https://github.com/FalconFour/Herc9x/releases/download/v0.6/Herc9x-v0.6.zip
+Installed-Size: 197
+Install: unzip {pf}\Drivers\Herc9x
+Uninstall: files
+Warning: A wrong display driver can stop Windows from starting normally. If
+ the screen stays blank after the restart, start Windows in Safe Mode (hold
+ Ctrl or press F8 while it starts) and change the display adapter back to
+ Standard Display Adapter (VGA).
+Notice: The driver files are in {pf}\Drivers\Herc9x. Open Display Properties,
+ Settings, Advanced, Adapter, Change, Have Disk, enter that folder and choose
+ "Hercules Graphics Card (ISA)". Then restart. Read install.txt there for the
+ manual method. Removing this package does not change the driver Windows uses.

@@ -1,0 +1,28 @@
+# Downloaded from VIA's own download server: no license grants
+# redistribution, so we do not host it.
+Package: driver-via-velocity
+Name: VIA Velocity Gigabit Ethernet driver
+Version: 3.1
+Section: System
+Summary: Network driver for VIA Velocity VT6120/VT6122/VT6130/VT6132
+Description: VIA's driver package for its Velocity family of gigabit
+ network chips (VT6120, VT6122, VT6130, VT6132). The Windows 98 SE and ME
+ driver inside is version 1.59. The package also holds DOS, NetWare and
+ other drivers.
+ .
+ Beacon unpacks the driver; Windows installs it through Device Manager.
+Homepage: https://download.viatech.com/en/support/driversSelect.jsp
+License: Proprietary (no license text published)
+License-File: pool/driver-via-velocity/3.1/LICENSE.TXT
+Systems: 98SE, ME
+Availability: external
+Download: https://d34vhvz8ul1ifj.cloudfront.net/Driver/velocity_driver_v31_via.zip 5031043 bc4a491216a534723da445152978ba61872b1536d7c915a0f66fa423e0c9cae1
+Hardware: pci VEN_1106&DEV_3119
+Install: unzip {pf}\Drivers\VIA-Velocity
+Uninstall: files
+Notice: The driver files are now in
+ {pf}\Drivers\VIA-Velocity\XP_Srv2003_2K_ME_98SE\X86. To use them, open
+ Control Panel, System, Device Manager, select the network adapter (or the
+ unknown PCI Ethernet Controller), choose Properties, Driver, Update
+ Driver, and point Windows at that folder. Windows 98 may ask for the
+ Windows CD to add its networking components. Restart when asked.

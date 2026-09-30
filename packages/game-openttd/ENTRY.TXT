@@ -1,0 +1,26 @@
+Package: game-openttd
+Name: OpenTTD
+Version: 1.8.0
+Section: Games
+Summary: Transport business simulation, open-source Transport Tycoon Deluxe
+Description: OpenTTD is an open-source remake and extension of Transport Tycoon
+ Deluxe: build road, rail, sea and air transport networks and run a
+ transport company. This is 1.8.0, the last version with a Windows 9x
+ build. It needs graphics: install OpenGFX (package game-opengfx) or copy
+ the original Transport Tycoon Deluxe data files.
+Homepage: https://www.openttd.org/
+License: GPL-2.0-only
+License-File: pool/game-openttd/1.8.0/LICENSE.TXT
+Systems: 98, ME
+Download: pool/game-openttd/1.8.0/openttd-1.8.0-windows-win9x.zip 6784707 a68bf02307cb9b30b178437bedecba061b99948bb6207c44f7ac947263f0841e
+Source: pool/game-openttd/1.8.0/src/openttd-1.8.0-source.tar.xz 6521016 c2d32d9d736d27202a020027a3729ae763f5432ae6f424891e57a4095eeb087f
+Installed-Size: 19180
+Install: unzip {dir}
+Shortcut: OpenTTD | {dir}\openttd.exe |
+Uninstall: files
+Warning: OpenTTD 1.8.0 has a known security problem (CVE-2021-41556): a malicious game
+ script or AI can run code on this computer. Only use scripts and AIs you trust,
+ and be careful with multiplayer games on the Internet.
+Notice: OpenTTD needs graphics files. Install the OpenGFX package (game-opengfx), or
+ copy the original Transport Tycoon Deluxe data files into the baseset folder.
+ Saved games and settings are kept in C:\My Documents\OpenTTD.

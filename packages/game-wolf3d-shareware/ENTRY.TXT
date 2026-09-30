@@ -1,0 +1,21 @@
+# HOLD: 1wolf14.zip uses the Implode and Shrink methods, which the Beacon client (miniz: stored and deflated only) cannot unpack.
+# Do not add this block to CATALOG.TXT until that is resolved.
+# Package: game-wolf3d-shareware
+# Name: Wolfenstein 3-D (shareware)
+# Version: 1.4
+# Section: Games
+# Summary: Shareware episode of id Software's Wolfenstein 3-D, 1992 (DOS)
+# Description: Escape from Wolfenstein, the shareware first episode of Wolfenstein 3-D
+#  by id Software, distributed by Apogee. The archive contains id's own
+#  installer; run "Wolfenstein 3-D (shareware) - install" once. DOS program.
+# License: Shareware
+# License-File: pool/game-wolf3d-shareware/1.4/LICENSE.TXT
+# Systems: 95, 98, ME
+# Download: pool/game-wolf3d-shareware/1.4/1wolf14.zip 747094 7755d3e6cc8897e9628fa1c13fe24d9657d901af2c3793ae258381431dcc69f2
+# Installed-Size: 730
+# Install: unzip {pf}\Games\Wolf3D
+# Shortcut: Wolfenstein 3-D (shareware) - install | {dir}\INSTALL.BAT |
+# Uninstall: files
+# Notice: Run "Wolfenstein 3-D (shareware) - install" once. The installer unpacks the
+#  game into C:\WOLF1 (you may choose another folder); then run WOLF3D.EXE there.
+#  Beacon does not remove that folder when you remove this package.

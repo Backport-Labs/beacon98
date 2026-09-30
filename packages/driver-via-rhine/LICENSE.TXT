@@ -1,0 +1,14 @@
+VIA Rhine Family Fast Ethernet driver 3.84A (via_rhine_ndis5_v384a.zip)
+
+No license text was found.
+
+- The archive contains no license, EULA or readme with terms. Its INF file says
+  only "Copyright: VIA Technologies, Inc."
+- The VIA driver download portal (https://download.viatech.com/en/support/driversSelect.jsp)
+  shows no license or click-through for this download, and no terms of use for
+  drivers were found on www.viatech.com (checked 2026-09-29).
+
+Because nothing grants a right to redistribute these files, Backport Labs does
+not host them. Beacon 98 downloads the unmodified archive from VIA's own
+download server (the Amazon CloudFront address that VIA's driver portal links
+to). The files remain the property of VIA Technologies, Inc.

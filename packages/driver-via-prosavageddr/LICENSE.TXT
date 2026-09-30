@@ -1,0 +1,20 @@
+VIA / S3 Graphics integrated graphics driver - license
+=======================================================
+
+No license agreement was found in this package: the zip contains an
+InstallShield 5 setup; its readable files and the _USER1.CAB cabinet were
+searched on the host for license text and none was found. The setup's
+response file (SETUP.ISS) shows the dialogs Welcome, Start Copy and Finish,
+with no license dialog.
+
+The VIA Driver Download Portal page that offers the file
+(https://download.viatech.com/en/support/driversSelect.jsp) shows no license
+terms. VIA's site footer says "Copyright (c) VIA Technologies, Inc. All Rights
+Reserved." The setup's response file names the company "S3 Graphics, Inc.".
+
+No permission to redistribute was found, so Beacon does not host the file.
+It is downloaded from VIA's own download server (VIA's CloudFront
+distribution d34vhvz8ul1ifj.cloudfront.net, the link given by the VIA
+portal). The software is (c) S3 Graphics, Inc. / VIA Technologies, Inc.;
+all rights reserved by them. Use it only with the matching VIA/S3 graphics
+chipset.

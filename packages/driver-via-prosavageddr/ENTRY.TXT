@@ -1,0 +1,28 @@
+# Downloaded from VIA's own download server (its CloudFront address, as
+# linked by the VIA Driver Download Portal). No license permitting
+# redistribution was found, so we do not host it.
+Package: driver-via-prosavageddr
+Name: VIA S3 ProSavageDDR graphics driver
+Version: 13.01.09
+Section: System
+Summary: Driver for the S3 ProSavageDDR graphics built into VIA chipsets
+Description: S3 Graphics ProSavageDDR display driver (January 2004), for
+ motherboards with VIA KM266, KN266, PM266, P4M266 and P4N266 chipsets.
+Homepage: https://download.viatech.com/en/support/driversSelect.jsp
+License: Proprietary (VIA Technologies / S3 Graphics)
+License-File: pool/driver-via-prosavageddr/13.01.09/LICENSE.TXT
+Systems: 95, 98, ME
+Availability: external
+Download: https://d34vhvz8ul1ifj.cloudfront.net/Driver/drivers/video/ProSavageDDR/S3_wIShldlogo.zip 5617394 7393806730a5d0607ffeb19301a2bb5acab81e941df903dfa0e2cfb5eb5a804d http://d34vhvz8ul1ifj.cloudfront.net/Driver/drivers/video/ProSavageDDR/S3_wIShldlogo.zip
+Hardware: pci VEN_5333&DEV_8D04
+Install: unzip {pf}\Drivers\VIA ProSavageDDR strip 1
+After: run "{dir}\SETUP.EXE"
+Uninstall: files
+Warning: A wrong display driver can stop Windows from starting normally. If
+ the screen stays black or Windows hangs after the restart, start Windows in
+ Safe Mode (hold Ctrl or press F8 while it starts), open Device Manager and
+ change the display adapter back to Standard PCI Graphics Adapter (VGA), or
+ remove the display adapter and restart.
+Notice: S3 Setup starts after the files are unpacked and asks to restart
+ Windows at the end. The setup files stay in {pf}\Drivers\VIA ProSavageDDR.
+ Removing this package deletes that folder only.

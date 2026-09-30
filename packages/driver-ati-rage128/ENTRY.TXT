@@ -1,0 +1,39 @@
+# Downloaded from AMD's own server: the ATI license forbids distribution,
+# so we do not host it. AMD's server needs a Referer from amd.com.
+Package: driver-ati-rage128
+Name: ATI Rage 128 display driver
+Version: 4.13.7192
+Section: System
+Summary: ATI display driver for Rage 128 and Rage 128 Pro cards
+Description: The last ATI display driver bundle for Windows 98, 98 SE and ME
+ for cards based on the Rage 128 and Rage 128 Pro, such as Rage Fury, Xpert
+ 128, Xpert 2000 and All-In-Wonder 128 (October 2001).
+Homepage: https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/rage-series/ati-rage-128-pro.html
+License: Proprietary (ATI End User License Agreement)
+License-File: pool/driver-ati-rage128/4.13.7192/LICENSE.TXT
+Systems: 98, ME
+Availability: external
+Download: https://drivers.amd.com/drivers/WMER1284137192.exe 12562724 21ba14dcd5f12ee2d1e5892269899474cc0a5e515a19a09f304ae6527266cf4c https://www2.ati.com/drivers/WMER1284137192.exe http://www2.ati.com/drivers/WMER1284137192.exe
+Referer: https://www.amd.com/
+Requires: dx 8.0 | ATI recommends DirectX 8.0a or later with this driver. Install DirectX first.
+Hardware: pci VEN_1002&DEV_5044
+ pci VEN_1002&DEV_5046
+ pci VEN_1002&DEV_5050
+ pci VEN_1002&DEV_5245
+ pci VEN_1002&DEV_5246
+ pci VEN_1002&DEV_524C
+ pci VEN_1002&DEV_534D
+ pci VEN_1002&DEV_5446
+ pci VEN_1002&DEV_5452
+Install: exe
+Uninstall: registry ATI Display Driver
+Warning: A wrong display driver can stop Windows from starting normally. If
+ the screen stays black or Windows hangs after the restart, start Windows in
+ Safe Mode (hold Ctrl or press F8 while it starts), open Device Manager and
+ change the display adapter back to Standard PCI Graphics Adapter (VGA), or
+ remove the display adapter and restart.
+ .
+ ATI asks you to uninstall any earlier Rage 128 driver first.
+Notice: The program first unpacks its files (to C:\ATI\... by default) and
+ then starts ATI Setup. If Windows reports a "Version Conflict", answer No so
+ that the new driver files are kept. Restart Windows when asked.

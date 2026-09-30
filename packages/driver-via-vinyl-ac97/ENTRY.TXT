@@ -1,0 +1,45 @@
+# Downloaded from VIA's own download server: VIA's license allows personal
+# use and forbids distribution to third parties, so we do not host it.
+Package: driver-via-vinyl-ac97
+Name: VIA Vinyl Audio driver (AC'97)
+Version: 7.00b
+Section: System
+Summary: VIA AC'97 audio driver for VT82C686, VT8233-VT8237 and Vinyl codecs
+Description: The last VIA Vinyl Audio driver with Windows 98 and ME
+ support. For the AC'97 audio built into VIA south bridges (VT82C686A/B,
+ VT8231, VT8233, VT8235, VT8237, VT8251) and for VIA Vinyl codecs
+ (VT1612A, VT1613, VT1616, VT1617, VT1618) on Intel, SiS and nForce
+ boards. WDM driver.
+Homepage: https://download.viatech.com/en/support/driversSelect.jsp
+License: Proprietary (VIA Software License Agreement)
+License-File: pool/driver-via-vinyl-ac97/7.00b/LICENSE.TXT
+Systems: 98, ME
+Availability: external
+Download: https://d34vhvz8ul1ifj.cloudfront.net/Driver/vinyl_v700b.zip 7288855 cb4fb850cedae5615c7fabce8b40429e04f0dabc2972505a517c6552c602ed8e
+Hardware: pci VEN_1106&DEV_3058
+ pci VEN_1106&DEV_3059
+ pci VEN_8086&DEV_2415
+ pci VEN_8086&DEV_2425
+ pci VEN_8086&DEV_2445
+ pci VEN_8086&DEV_24C5
+ pci VEN_8086&DEV_24D5
+ pci VEN_8086&DEV_25A6
+ pci VEN_8086&DEV_266E
+ pci VEN_1039&DEV_7012
+ pci VEN_10DE&DEV_0059
+ pci VEN_10DE&DEV_006A
+ pci VEN_10DE&DEV_008A
+ pci VEN_10DE&DEV_00DA
+ pci VEN_10DE&DEV_01B1
+Install: unzip {pf}\Drivers\via-vinyl-ac97 strip 1
+Uninstall: files
+Warning: Install this driver only if your sound chip is a VIA AC'97
+ controller or your board uses a VIA Vinyl codec. On Intel, SiS or nForce
+ boards with another maker's codec it may not work. A wrong audio driver
+ can stop Windows from starting; start in Safe Mode and remove the device
+ in Device Manager to go back.
+Notice: The driver files are in {dir}\Vinyl\drivers\WDM. Open Control
+ Panel, System, Device Manager, select the sound device, Properties,
+ Driver, Update Driver, and point Windows at that folder. Windows may ask
+ for the Windows CD. VIA's setup program (SETUP.EXE, which also installs
+ Windows Installer 2.0 and a mixer panel) is in {dir} too.

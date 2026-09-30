@@ -1,0 +1,19 @@
+Package: game-kens-labyrinth-shareware
+Name: Ken's Labyrinth (shareware)
+Version: 1993
+Section: Games
+Summary: Shareware 3D maze shooter by Ken Silverman, Epic MegaGames 1993
+Description: Ken's Labyrinth, a 3D first-person game by Ken Silverman, improved by Epic
+ and Future Crew and published by Epic MegaGames. Shareware is
+ try-before-you-buy software that may be copied freely. Run Setup once.
+ DOS program.
+License: Shareware
+License-File: pool/game-kens-labyrinth-shareware/1993/LICENSE.TXT
+Systems: 95, 98, ME
+Download: pool/game-kens-labyrinth-shareware/1993/$ken.zip 901211 dd4d60ac285a211e2965c405990909c4374e7d50debaa6b85fbd46ae46a20bcf
+Installed-Size: 1205
+Install: unzip {pf}\Games\KenLab
+Shortcut: Ken's Labyrinth | {dir}\KEN.EXE |
+ Ken's Labyrinth Setup | {dir}\SETUP.EXE |
+Uninstall: files
+Notice: Run "Ken's Labyrinth Setup" once to choose your hardware.

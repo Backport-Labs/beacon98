@@ -1,0 +1,75 @@
+# Downloaded from AMD's own server: the ATI license allows use with ATI
+# hardware on one computer and forbids distribution, so we do not host it.
+# AMD's server answers 302 (to an error page) unless a Referer from amd.com
+# is sent, hence the Referer field.
+Package: driver-ati-catalyst
+Name: ATI Catalyst display driver for Radeon
+Version: 6.2
+Section: System
+Summary: Last ATI/AMD display driver for Radeon cards on Windows 98 and ME
+Description: ATI Catalyst 6.2 for Windows ME, which ATI also supports on
+ Windows 98 and 98 SE: display driver 4.15.1.9165 and the ATI Control Panel.
+ For Radeon 7000, 7200, 7500, 8500, 9000, 9100, 9200, 9500, 9550, 9600, 9700
+ and 9800 cards and All-In-Wonder versions of them, plus Radeon Xpress 200 and
+ X700 AGP; X300 to X850 have beta support. Rage and Rage 128 cards need the
+ driver-ati-rage-pro or driver-ati-rage128 package.
+Homepage: https://www.amd.com/en/support/downloads/drivers.html/graphics/legacy-graphics/radeon-9xxx-series/ati-radeon-9800-series.html
+License: Proprietary (ATI End User License Agreement)
+License-File: pool/driver-ati-catalyst/6.2/LICENSE.TXT
+Systems: 98, ME
+Availability: external
+Download: https://drivers.amd.com/drivers/6-2_wme_dd_cp_30314.exe 15171672 20b53b7041f0f3b87f835ef1a769b180b8059dda48f2cc7bbdbf8dd76ef11fd8 https://www2.ati.com/drivers/6-2_wme_dd_cp_30314.exe http://www2.ati.com/drivers/6-2_wme_dd_cp_30314.exe
+Referer: https://www.amd.com/
+# Hardware list truncated: 40 of 99 (all 99 are in RECORD.md)
+Hardware: pci VEN_1002&DEV_3E50
+ pci VEN_1002&DEV_3E70
+ pci VEN_1002&DEV_4136
+ pci VEN_1002&DEV_4137
+ pci VEN_1002&DEV_4144
+ pci VEN_1002&DEV_4146
+ pci VEN_1002&DEV_4148
+ pci VEN_1002&DEV_4150
+ pci VEN_1002&DEV_4151
+ pci VEN_1002&DEV_4152
+ pci VEN_1002&DEV_4153
+ pci VEN_1002&DEV_4164
+ pci VEN_1002&DEV_4166
+ pci VEN_1002&DEV_4168
+ pci VEN_1002&DEV_4170
+ pci VEN_1002&DEV_4171
+ pci VEN_1002&DEV_4172
+ pci VEN_1002&DEV_4173
+ pci VEN_1002&DEV_4242
+ pci VEN_1002&DEV_4966
+ pci VEN_1002&DEV_496E
+ pci VEN_1002&DEV_4A49
+ pci VEN_1002&DEV_4A4A
+ pci VEN_1002&DEV_4A4B
+ pci VEN_1002&DEV_4A50
+ pci VEN_1002&DEV_4A69
+ pci VEN_1002&DEV_4A6A
+ pci VEN_1002&DEV_4A6B
+ pci VEN_1002&DEV_4A70
+ pci VEN_1002&DEV_4B49
+ pci VEN_1002&DEV_4B4B
+ pci VEN_1002&DEV_4B4C
+ pci VEN_1002&DEV_4B69
+ pci VEN_1002&DEV_4B6B
+ pci VEN_1002&DEV_4B6C
+ pci VEN_1002&DEV_4E44
+ pci VEN_1002&DEV_4E45
+ pci VEN_1002&DEV_4E46
+ pci VEN_1002&DEV_4E48
+ pci VEN_1002&DEV_4E49
+Install: exe
+Uninstall: registry ATI Display Driver
+Warning: A wrong display driver can stop Windows from starting normally. If
+ the screen stays black or Windows hangs after the restart, start Windows in
+ Safe Mode (hold Ctrl or press F8 while it starts), open Device Manager and
+ change the display adapter back to Standard PCI Graphics Adapter (VGA), or
+ remove the display adapter and restart.
+ .
+ Remove any other display driver (for example with its uninstaller in
+ Add/Remove Programs) before installing this one.
+Notice: ATI Setup installs the display driver and the ATI Control Panel and
+ asks to restart Windows. Restart before using the computer.

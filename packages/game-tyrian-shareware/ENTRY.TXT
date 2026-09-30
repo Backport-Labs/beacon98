@@ -1,0 +1,20 @@
+Package: game-tyrian-shareware
+Name: Tyrian (shareware)
+Version: 1.0
+Section: Games
+Summary: Shareware vertical shooter, Epic MegaGames/Eclipse 1995 (DOS)
+Description: Vertical scrolling space shooter with hundreds of weapon combinations,
+ by Eclipse Software. This is the shareware episode, published by Epic
+ MegaGames. Shareware is try-before-you-buy software that may be copied
+ freely; the other episodes were sold. Run Setup once. DOS program.
+License: Shareware
+License-File: pool/game-tyrian-shareware/1.0/LICENSE.TXT
+Systems: 95, 98, ME
+Download: pool/game-tyrian-shareware/1.0/tyrsw1.zip 1730436 2990485607d46e9fe3bc5fb572d0d9d93f0fdab997a82cff3425a4ed40564062
+Installed-Size: 4109
+Install: unzip {pf}\Games\Tyrian
+Shortcut: Tyrian | {dir}\TYRIAN.EXE |
+ Tyrian Setup | {dir}\SETUP.EXE |
+Uninstall: files
+Notice: Run "Tyrian Setup" once to choose the sound card. If the game has problems in
+ Windows, the game's notes advise running it from DOS.

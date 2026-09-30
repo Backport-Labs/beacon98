@@ -1,0 +1,34 @@
+# Downloaded from Matrox's own archive server: Matrox's license forbids
+# distribution, so we do not host it. The server answers only over HTTPS.
+Package: driver-matrox-g-series
+Name: Matrox PowerDesk display driver for G200 to G550
+Version: 6.83.017
+Section: System
+Summary: Last Matrox display driver for G200, G400, G450 and G550 cards
+Description: Matrox PowerDesk 6.83.017 for Windows 98 and ME (July 2002): the
+ display driver with OpenGL ICD and the PowerDesk utilities, for Millennium,
+ Mystique and MGA G200, G200 MMS, Millennium G400 and G400 MAX, G450 and
+ G550 cards. Marvel and Rainbow Runner cards have separate Matrox drivers.
+Homepage: https://video.matrox.com/en/apps/drivers/graphics/previous/legacy/
+License: Proprietary (Matrox Video Software License Agreement)
+License-File: pool/driver-matrox-g-series/6.83.017/LICENSE.TXT
+Systems: 98, ME
+Availability: external
+Download: https://ftp.matrox.com/pub/mga/archive/win_9x/2002/w9x_683.exe 6654452 d2664b8e4f60d2be73e8d5ce4319477680558f58f3cfa9a2abe4065b372003f1
+Hardware: pci VEN_102B&DEV_0520
+ pci VEN_102B&DEV_0521
+ pci VEN_102B&DEV_0525
+ pci VEN_102B&DEV_2527
+Install: unzip {pf}\Drivers\Matrox G-series
+After: run "{dir}\Setup.exe"
+Uninstall: files
+Warning: A wrong display driver can stop Windows from starting normally. If
+ the screen stays black or Windows hangs after the restart, start Windows in
+ Safe Mode (hold Ctrl or press F8 while it starts), open Device Manager and
+ change the display adapter back to Standard PCI Graphics Adapter (VGA), or
+ remove the display adapter and restart.
+Notice: Matrox Setup starts after the files are unpacked; it installs only
+ if it finds a supported Matrox card, then asks to restart Windows. The setup
+ files stay in {pf}\Drivers\Matrox G-series. Removing this package deletes
+ that folder only; to remove PowerDesk and the driver, use its entry in
+ Add/Remove Programs.

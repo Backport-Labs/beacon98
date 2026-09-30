@@ -1,0 +1,31 @@
+# Downloaded from VIA's own download server: no license grants
+# redistribution, so we do not host it.
+Package: driver-via-rhine
+Name: VIA Rhine Fast Ethernet driver
+Version: 3.84A
+Section: System
+Summary: Network driver for VIA Rhine, Rhine II and Rhine III chips
+Description: The last Windows 98 SE and ME driver from VIA for its Rhine
+ family of 10/100 network chips: VT86C100A, VT6102, VT6105/VT6106,
+ VT6105M, VT6107, VT6115 and the network part of VT8231, VT8233, VT8235,
+ VT8237 and VT8251 chipsets. Also fits D-Link DFE-530TX cards.
+ .
+ Beacon unpacks the driver; Windows installs it through Device Manager.
+Homepage: https://download.viatech.com/en/support/driversSelect.jsp
+License: Proprietary (no license text published)
+License-File: pool/driver-via-rhine/3.84A/LICENSE.TXT
+Systems: 98SE, ME
+Availability: external
+Download: https://d34vhvz8ul1ifj.cloudfront.net/Driver/via_rhine_ndis5_v384a.zip 1699164 cc032d30ad216b609b53e55da252ce4d9619498a437f99a8cd7e9cc6a31f6dc6
+Hardware: pci VEN_1106&DEV_3043
+ pci VEN_1106&DEV_3065
+ pci VEN_1106&DEV_3106
+ pci VEN_1106&DEV_3053
+Install: unzip {pf}\Drivers\VIA-Rhine strip 1
+Uninstall: files
+Notice: The driver files are now in {pf}\Drivers\VIA-Rhine\X86. To use
+ them, open Control Panel, System, Device Manager, select the network
+ adapter (or the unknown PCI Ethernet Controller), choose Properties,
+ Driver, Update Driver, and point Windows at that folder. Windows 98 may
+ ask for the Windows CD to add its networking components. Restart when
+ asked.

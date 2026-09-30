@@ -1,0 +1,71 @@
+# Downloaded from VIA's own server: VIA's license is for personal use and
+# forbids distribution, so we do not host it.
+Package: driver-via-hyperion
+Name: VIA Hyperion Pro chipset drivers
+Version: 5.24A
+Section: System
+Summary: VIA chipset INF, AGP and V-RAID drivers for KT400 and newer boards
+Description: VIA's last chipset driver package that lists Windows 98 and ME.
+ It contains the VIA INF update, the VIA AGP driver and the V-RAID driver
+ for VIA SATA RAID controllers. VIA recommends it for KT400, KT600, KT880,
+ K8T800, P4X400, PT800, PM800, CLE266, CN400 and newer chipsets. For older
+ boards (MVP3, Apollo Pro, KT133, KT266, KT333, P4X266) VIA recommends the
+ older 4.43 package (driver-via-4in1).
+Homepage: https://download.viatech.com/en/support/driversSelect.jsp
+License: Proprietary (VIA Software License Agreement)
+License-File: pool/driver-via-hyperion/5.24A/LICENSE.TXT
+Systems: 98, ME
+Availability: external
+Download: https://d34vhvz8ul1ifj.cloudfront.net/Driver/VIA_HyperionPro_V524A.zip 13299373 e706e033db40efdd8ef5e8d0d1d354e24f4432f73a2a3e0e5ce3ec992db0a4ff http://d34vhvz8ul1ifj.cloudfront.net/Driver/VIA_HyperionPro_V524A.zip
+Requires: package ms-instmsia-20 | VIA Setup needs Windows Installer 2.0.
+Install: unzip {pf}\Drivers\via-hyperion
+After: run "{dir}\VIA_HyperionPro_V524A\setup.exe"
+Uninstall: files
+Warning: A wrong chipset or storage driver can stop Windows from starting.
+ Install this only on a computer with a VIA chipset. If Windows no longer
+ starts, press F8 (Ctrl in Windows ME) while it starts, choose Safe Mode,
+ and use Device Manager or VIA Setup's Remove option to go back.
+Notice: VIA Setup has been started from {dir}\VIA_HyperionPro_V524A.
+ To remove the drivers later, run setup.exe from that folder again and
+ choose Remove; Beacon's uninstall only deletes the unpacked files.
+# Hardware list truncated: 40 of 235
+Hardware: pci VEN_1106&DEV_8598
+ pci VEN_1106&DEV_8501
+ pci VEN_1106&DEV_8601
+ pci VEN_1106&DEV_8305
+ pci VEN_1106&DEV_8605
+ pci VEN_1106&DEV_8391
+ pci VEN_1106&DEV_8602
+ pci VEN_1106&DEV_B091
+ pci VEN_1106&DEV_B099
+ pci VEN_1106&DEV_B101
+ pci VEN_1106&DEV_B112
+ pci VEN_1106&DEV_B116
+ pci VEN_1106&DEV_B148
+ pci VEN_1106&DEV_B156
+ pci VEN_1106&DEV_B158
+ pci VEN_1106&DEV_B168
+ pci VEN_1106&DEV_B188
+ pci VEN_1106&DEV_B198
+ pci VEN_1106&DEV_3349
+ pci VEN_1106&DEV_6287
+ pci VEN_1106&DEV_0591
+ pci VEN_1106&DEV_3249
+ pci VEN_1106&DEV_3149
+ pci VEN_1106&DEV_3164
+ pci VEN_1106&DEV_0581
+ pci VEN_1106&DEV_7372
+ pci VEN_1106&DEV_0305
+ pci VEN_1106&DEV_0391
+ pci VEN_1106&DEV_0601
+ pci VEN_1106&DEV_0605
+ pci VEN_1106&DEV_3091
+ pci VEN_1106&DEV_3099
+ pci VEN_1106&DEV_3101
+ pci VEN_1106&DEV_3112
+ pci VEN_1106&DEV_3051
+ pci VEN_1106&DEV_3116
+ pci VEN_1106&DEV_3123
+ pci VEN_1106&DEV_3128
+ pci VEN_1106&DEV_3148
+ pci VEN_1106&DEV_3156
